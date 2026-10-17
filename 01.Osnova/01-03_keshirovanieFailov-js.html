@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-02-zapusk-js.html">Запуск JavaScript</a>
-            <a data-mCurr="T" href="01-04_podkluchenie_script.html">Подключение файла со скриптами JavaScript</a><span
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-02-failSoScriptami-js.html">Подключение
+                файла со скриптами JavaScript</a>
+
+            <a data-mCurr="T" href="01-04_strogiRezim.html">Строгий режим в JavaScript</a><span
                 class="arrow-right">&rarr;</span>
         </div>
 
@@ -40,52 +42,24 @@
     <main data-w="cont/pane">
 
 
-        <h2>Первая программа на JavaScript</h2>
+        <h2>Кеширование JavaScript файлов браузером</h2>
 
-        <p>Давайте напишем нашу первую программу на JavaScript. Вот она:</p>
+        <p>Браузер может кешировать подключенные JavaScript файлы. Это значит, что он сохраняет их у себя для повышения
+            скорости
+            загрузки сайта. <br>
+            <br>
+            На практике это ведет к тому, что в какой-то момент при редактировании кода браузер будет применять
+            предыдущую версию
+            кода, а не вашу текущую
+        <div class="br"></div>
+        <br>
+        Для борьбы с таким поведеним можно чистить кеш браузера, либо использовать хитрый прием. Его суть
+        заключается в том, что
+        мы при подключении скрипта после имени файла ставим вопрос, знак равно и номер версии вашего скрипта. Когда
+        браузер
+        кеширует файл, вам просто нужно будет увеличить номер на единицу.</p>
 
-
-        <div data-w="bock/code">
-            <pre>
-HTML
-<span class="-n"></span>&lt;!DOCTYPE html&gt;
-<span class="-n"></span>&lt;html&gt;
- <span class="-n"></span>&lt;head&gt;
-   <span class="-n"></span>&lt;meta charset="utf-8"&gt;
-   <span class="-n"></span>&lt;title&gt;Моя первая программа&lt;/title&gt;
-   <span class="-n"></span>&lt;script&gt;
-     <span class="-n"></span>&lt;console.log('Привет, мир!');&gt;
-   <span class="-n"></span>&lt;/script&gt;
- <span class="-n"></span>&lt;/head&gt;
- <span class="-n"></span>&lt;body&gt;
-     <span class="-n"></span>моя первая программа
- <span class="-n"></span>&lt;/body&gt;
-<span class="-n"></span>&lt;/html&gt;
-</pre>
-        </div>
-
-
-        <p data-sComment="T">
-            Скопируйте этот код и разместите в HTML файле. Затем откройте этот файл в браузере - и вы увидите диалоговое
-            окошко с
-            текстом.
-        </p>
-
-        <script>console.log('Привет, мир!');</script>
-
-        <div data-w="bock/code">
-            Консоль
-            <pre>
-<span class="-n"></span>&gt;Привет, мир!
-</pre>
-        </div>
-
-
-        <div class="card">
-            <h3>Задача №1</h3>
-            <p>Сделайте файл с вашей первой программой. Выведите в ней на экран какой-нибудь
-                текст. </p>
-        </div>
+        <p>Смотрите пример:</p>
 
         <div data-w="bock/code">
             <pre>
@@ -93,27 +67,83 @@ HTML
 <span class="-n"></span>&lt;!DOCTYPE html&gt;
 <span class="-n"></span>&lt;html&gt;
     <span class="-n"></span>&lt;head&gt;
-    <span class="-n"></span>&lt;meta charset="utf-8"&gt;
-    <span class="-n"></span>&lt;title&gt;Задача 1.&lt;/title&gt;
-    <span class="-n"></span>&lt;script&gt;
-        <span class="-n"></span>&lt;consol.log('Сделайте файл с вашей первой программой. Выведите в ней на экран какой-нибудь текст.!');&gt;
-    <span class="-n"></span>&lt;/script&gt;
+        <span class="-n"></span>&lt;meta charset="utf-8"&gt;
+        <span class="-n"></span>&lt;title&gt;&lt;/title&gt;
+        <span class="-n"></span>&lt;script src="script.js?v=1"&gt;&lt;/script&gt;
     <span class="-n"></span>&lt;/head&gt;
     <span class="-n"></span>&lt;body&gt;
-        <span class="-n"></span>Задача 1. моя первая программа
+
     <span class="-n"></span>&lt;/body&gt;
 <span class="-n"></span>&lt;/html&gt;
 </pre>
         </div>
 
+        <h3>Задача 1 </h3>
+
+        <p>Исправьте подключение вашего файла так, чтобы после имени файла следовал номер его версии.</p>
+        <p>Вот пример структурированного HTML-файла с комментариями об изменениях:</p>
+
         <div data-w="bock/code">
-            Консоль
+            HTML
             <pre>
-<span class="-n"></span>&gt;Сделайте файл с вашей первой программой. Выведите в ней на экран какой-нибудь текст.!
+<span class="-n"></span>&lt;!--
+index.html
+Главная страница проекта
+Версия: 1.2
+Дата последнего обновления: 17.10.2026
+Автор: Разработчик
+--&gt;
+<span class="-n"></span>&lt;!DOCTYPE html&gt;
+<span class="-n"></span>&lt;html&gt;
+ <span class="-n"></span>&lt;head&gt;
+  <span class="-n"></span>&lt;meta charset="utf-8"&gt;
+  <span class="-n"></span>&lt;title&gt;Пример работы с JavaScrip&lt;/title&gt;
+  <span class="-n"></span>&lt;!--
+    Подключение основных скриптов
+    Версия скриптов: 1.0
+    Обновлено: 17.10.2026
+    Добавлены новые функции валидации
+  --&gt;
+  <span class="-n"></span>&lt;script src="lesson02-1.js?v=1"&gt;&lt;/script&gt;
+  <span class="-n"></span>&lt;!--
+    Утилиты и вспомогательные функции
+    Обновлено: 15.10.2026
+    Добавлена обработка ошибок
+  --&gt;
+  <span class="-n"></span>&lt;script src="lesson02-2.js?v=1#&gt;&lt;/script&gt;
+  <span class="-n"></span>&lt;!--
+    Основные функции проекта
+    Обновлено: 16.10.2026
+    Переработана логика работы с данными
+  --&gt;
+  <span class="-n"></span>&lt;script src="lesson02-3.js?v=1&gt;&lt;/script&gt;
+ <span class="-n"></span>&lt;/head&gt;
+<span class="-n"></span>&lt;body&gt;
+  <span class="-n"></span>&lt;!--
+    Основной контент страницы
+    Обновлено: 17.10.2026
+    Добавлена структура разделов
+  --&gt;
+<span class="-n"></span>&lt;/body&gt;
+<span class="-n"></span>&lt;/html&gt;
 </pre>
         </div>
 
-        <script> console.log('Сделайте файл с вашей первой программой. Выведите в ней на экран какой-нибудь текст.!');</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </main>
 

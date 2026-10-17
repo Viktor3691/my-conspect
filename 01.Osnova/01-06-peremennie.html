@@ -22,8 +22,11 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-05-komentarii-js.html">Комментарии в
+                JavaScript</a>
+
+            <a data-mCurr="T" href="01-07-matOperChisla.html">Математические операции с числами в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +39,239 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Переменные в JavaScript</h2>
+
+        <p>Основным понятием любого языка программирования является переменная. Переменная представляет собой контейнер,
+            в котором
+            мы можем хранить какие-либо данные, например, строки или числа. <br>
+            <br>
+            Каждая переменная должна иметь имя, которое может состоять из латинских букв, чисел, символов $ и знаков
+            подчеркивания.
+            При этом первый символ имени переменной не должен быть цифрой. Примеры названий переменных: str, my_str,
+            myStr, a1, $,
+            $a, $$a.
+        </p>
+
+        <h2>Использование переменных</h2>
+
+        <p>Для того, чтобы использовать переменную, ее сначала необходимо объявить: написать перед ее именем ключевое
+            слово let.
+            Давайте объявим, например, переменную с именем a:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a;
+                </pre>
+        </div>
+
+        <p>После объявления переменной в нее можно записать (говорят присвоить ей) какое-либо значение, например,
+            какое-либо число
+            или строку. <br>
+            <br>
+            Запись данных в переменную осуществляется с помощью операции присваивания =. Давайте, например, запишем в
+            переменную <strong>a</strong> число 3:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 3;
+                        </pre>
+        </div>
+
+        <p>А теперь давайте выведем содержимое этой переменной на экран с помощью функции alert:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 3; // объявляем переменную и задаем ей значение
+<span class="-n"></span>alert(a); // выведет 3
+                                </pre>
+        </div>
+
+        <p>Не обязательно записывать значение в переменную сразу после объявления. Можно сначала объявить переменную, а
+            потом
+            присвоить ей значение:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a; // объявим переменную
+<span class="-n"></span>a = 3; // присвоим ей значение
+<span class="-n"></span>alert(a); // выведем значение переменной на экран
+                                        </pre>
+        </div>
+
+        <p>Как вы видите, let перед именем переменной пишется только один раз - при объявлении этой переменной. Затем,
+            чтобы
+            использовать переменную, нужно просто писать имя этой переменной.</p>
+
+        <h3>Задача 1</h3>
+
+        <p>Создайте переменную num и присвойте ей значение 123. Выведите значение этой переменной на экран с помощью
+            функции alert.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num;
+<span class="-n"></span>num = 123;
+<span class="-n"></span>alert(num); //123
+                                                </pre>
+        </div>
+
+        <h2>Объявление нескольких переменных</h2>
+
+        <p>Давайте объявим несколько переменных:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>let b = 2;
+<span class="-n"></span>let c = 3;
+                                                        </pre>
+        </div>
+
+        <p>Приведенный выше код можно упростить, написав let один раз и после него перечислив нужные переменные с их
+            значениями,
+            вот так:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1, b = 2, c = 3;
+        </pre>
+        </div>
+
+        <p>Можно вначале объявить все переменные, а потом присваивать им значения:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a, b, c; // объявляем все 3 переменные
+<span class="-n"></span>
+<span class="-n"></span>// Присваиваем переменным значения:
+<span class="-n"></span>a = 1;
+<span class="-n"></span>b = 2;
+<span class="-n"></span>c = 3;
+                </pre>
+        </div>
+
+        <h3>Задача 2 </h3>
+
+        <p>Самостоятельно опробуйте все описанные способы объявления переменных.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num; // объявим переменную
+<span class="-n"></span>num = 123456; // присвоим ей значение
+<span class="-n"></span>alert(num); // выведем значение переменной на экран
+                                                </pre>
+        </div>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1, num2, num3;
+<span class="-n"></span>num1 = 11, num2 = 22, num3 = 33;
+<span class="-n"></span>alert(num1);
+<span class="-n"></span>alert(num2);
+<span class="-n"></span>alert(num3);
+                                                </pre>
+        </div>
+
+        <h2>Изменения значений переменных</h2>
+
+        <p>Пусть у нас есть переменная, которой мы присвоили какое-то значение. Мы затем можем выполнить операцию
+            присваивания еще
+            раз и присвоить переменной другое значение:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a; // объявляем переменную
+<span class="-n"></span>
+<span class="-n"></span>a = 1; // записываем в нее значение 1
+<span class="-n"></span>alert(a); // выведет 1
+<span class="-n"></span>
+<span class="-n"></span>a = 2; // записываем теперь значение 2, затирая значение 1
+<span class="-n"></span>alert(a); // выведет 2
+</pre>
+        </div>
+
+        <p>То есть значение переменной не является чем-то жестко привязанным к ней. Мы можем свободно записывать
+            какие-то данные в
+            переменную, прочитывать их, потом еще что-то записывать - и так далее.</p>
+
+
+        <h3>Задача 3 </h3>
+
+        <p>Создайте переменную a. Запишите в нее значение 10, выведите его на экран. Затем запишите в нее значение 20,
+            выведите его
+            на экран. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a; // объявляем переменную
+<span class="-n"></span>
+<span class="-n"></span>a = 10; // записываем в нее значение 10
+<span class="-n"></span>alert(a); // выведет 10
+<span class="-n"></span>
+<span class="-n"></span>a = 20; // записываем теперь значение 20, затирая значение 10
+<span class="-n"></span>alert(a); // выведет 20
+</pre>
+        </div>
+
+        <h2>Несколько let для одной переменной</h2>
+
+        <p>Одну и ту же переменную нельзя объявить несколько раз через let. К примеру, следующий код приведет к ошибке:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>alert(a);
+<span class="-n"></span>
+<span class="-n"></span>let a = 2;
+<span class="-n"></span>alert(a);
+        </pre>
+        </div>
+
+        <p>Здесь есть два варианта решения проблемы. Можно просто ввести две разных переменных:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>alert(a);
+<span class="-n"></span>
+<span class="-n"></span>let b = 2;
+<span class="-n"></span>alert(b);
+                </pre>
+        </div>
+
+        <p>А можно вначале объявить переменную a, а затем делать операции с нею:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>
+<span class="-n"></span>a = 1;
+<span class="-n"></span>alert(a); // 1
+<span class="-n"></span>
+<span class="-n"></span>a = 2;
+<span class="-n"></span>alert(a); // 2
+                        </pre>
+        </div>
+
+
 
 
 

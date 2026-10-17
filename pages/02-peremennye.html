@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Переменные — конспект</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+    rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+  <header data-w="nict/mainmenu">
+    <span data-e="head">Мой конспект по JavaScript</span>
+    <div data-e="subb">
+      <a href="../index.html">Оглавление</a>
+      <a href="01-01-zapusk-js.html">Запуск JS</a>
+      <a data-mCurr="T" href="#">Переменные</a>
+    </div>
+  </header>
+
+  <div data-w="nict/them">
+    <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+      Тёмная</button>
+    <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+      Светлая</button>
+  </div>
+
+  <main data-w="cont/pane">
+
+    <h2>Переменные</h2>
+
+    <p>
+      Переменная — это «коробка» с именем, в которой хранится значение.
+      В современном JavaScript используют <code data-gs="comd/c">let</code>
+      и <code data-gs="comd/c">const</code>.
+    </p>
+
+    <h3>let — изменяемая переменная</h3>
+
+    <p>Значение можно перезаписывать сколько угодно раз:</p>
+
+    <div data-w="bock/code"><span class="-n"></span>let x = 5;
+      <span class="-n"></span>x = 10; // перезаписали
+      <span class="-n"></span>x = x + 1; // теперь 11
+      <span class="-n"></span>console.log(x); // 11
+    </div>
+
+    <h3>const — константа</h3>
+
+    <p>
+      Значение <code data-gs="comd/c">const</code> нельзя перезаписать
+      после объявления — попытка вызовет ошибку:
+    </p>
+
+    <div data-w="bock/code"><span class="-n"></span>const PI = 3.14;
+      <span class="-n"></span>PI = 3.15; // ❌ Ошибка: Assignment to constant variable
+    </div>
+
+    <h3>Объявление без значения</h3>
+
+    <div data-w="bock/code"><span class="-n"></span>let a; // undefined
+      <span class="-n"></span>a = 5; // теперь 5
+      <span class="-n"></span>console.log(a);
+    </div>
+
+    <hr>
+
+    <h3>Имена переменных</h3>
+
+    <p>Правила именования:</p>
+
+    <ul>
+      <li>Можно буквы, цифры, <code data-gs="comd/c">$</code> и <code data-gs="comd/c">_</code></li>
+      <li>Нельзя начинать с цифры</li>
+      <li>Регистр важен: <code data-gs="comd/c">age</code> ≠ <code data-gs="comd/c">Age</code></li>
+      <li>Нельзя использовать зарезервированные слова (<code data-gs="comd/c">let</code>, <code
+          data-gs="comd/c">const</code>, <code data-gs="comd/c">if</code>)</li>
+    </ul>
+
+    <hr>
+
+    <h3>Типы данных</h3>
+
+    <table data-w="cont/desc">
+      <tr>
+        <th>Тип</th>
+        <th>Пример</th>
+      </tr>
+      <tr>
+        <th>Число (number)</th>
+        <td>let n = 42;</td>
+      </tr>
+      <tr>
+        <th>Строка (string)</th>
+        <td>let s = 'Привет';</td>
+      </tr>
+      <tr>
+        <th>Булево (boolean)</th>
+        <td>let b = true;</td>
+      </tr>
+      <tr>
+        <th>Массив (array)</th>
+        <td>let arr = [1, 2, 3];</td>
+      </tr>
+      <tr>
+        <th>Объект (object)</th>
+        <td>let obj = { name: 'Иван' };</td>
+      </tr>
+      <tr>
+        <th>undefined</th>
+        <td>let u;</td>
+      </tr>
+      <tr>
+        <th>null</th>
+        <td>let n = null;</td>
+      </tr>
+    </table>
+
+    <p data-sComment="T">
+      Проверить тип можно оператором <code data-gs="comd/c">typeof</code>:
+      <code data-gs="comd/c">typeof 42</code> вернёт <code data-gs="comd/c">'number'</code>.
+    </p>
+
+  </main>
+
+  <footer data-w="nict/finf">
+    <span data-e="text">Мой личный конспект © 2026</span>
+  </footer>
+
+  <script src="../js/loader.js" defer></script>
+  <script src="../js/app.js" defer></script>
+</body>
+
+</html>

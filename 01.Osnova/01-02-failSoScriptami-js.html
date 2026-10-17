@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-01-osnovy.html">Основы</a>
+        </div>
+
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-01-vvodenie.html">Введение</a>
+
+            <a data-mCurr="T" href="01-03_keshirovanieFailov-js.html">Кеширование JavaScript файлов браузером</a><span
+                class="arrow-right">&rarr;</span>
+        </div>
+
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Подключение файла со скриптами JavaScript</h2>
+
+        <p>JavaScript код можно писать в отдельном файле, который затем будет подключен к HTML файлу. Давайте посмотрим,
+            как это
+            делается. <br>
+            <br>
+            Для начала создадим файл с нашим скриптом. У этого файла должно быть расширение .js. Для примера давайте
+            назовем его
+            script.js. Разместим в нем какой-нибудь код:
+        </p>
+
+        <div data-w="bock/code">
+            script.js>
+            <pre>
+<span class="-n"></span>&lt;alert('text');&gt;
+</pre>
+        </div>
+
+        <p>Давайте теперь подключим наш файл со скриптом к HTML файлу. Для этого в теге script в атрибуте src нужно
+            указать путь к
+            файлу со скриптом:</p>
+
+        <div data-w="bock/code">
+            <pre>
+HTML
+<span class="-n"></span>&lt;!DOCTYPE html&gt;
+<span class="-n"></span>&lt;html&gt;
+    <span class="-n"></span>&lt;head&gt;
+      <span class="-n"></span>&lt;meta charset="utf-8"&gt;
+      <span class="-n"></span>&lt;title&gt;&lt;/title&gt;
+      <span class="-n"></span>&lt;script src="script.js"&gt;&lt;/script&gt;
+    <span class="-n"></span>&lt;/head&gt;
+    <span class="-n"></span>&lt;body&gt;
+
+    <span class="-n"></span>&lt;/body&gt;
+<span class="-n"></span>&lt;/html&gt;
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Сделайте файл со скриптом. Подключите его к вашему HTML файлу. Проверьте его работу. </p>
+
+        <div data-w="bock/code">
+            lesson02.js
+            <pre>
+<span class="-n"></span>console.log(
+`lesson02.js-Сделайте файл со скриптом. Подключите его к вашему HTML
+ файлу. Проверьте его работу.`,
+);
+</pre>
+        </div>
+
+        <div data-w="bock/code">
+            <pre>
+HTML
+<span class="-n"></span>&lt;!DOCTYPE html&gt;
+<span class="-n"></span>&lt;html&gt;
+    <span class="-n"></span>&lt;head&gt;
+        <span class="-n"></span>&lt;meta charset="utf-8"&gt;
+        <span class="-n"></span>&lt;title&gt;&lt;/title&gt;
+        <span class="-n"></span>&lt;script src="../js_lesson/lesson02.js"&gt;&lt;/script&gt;
+    <span class="-n"></span>&lt;/head&gt;
+    <span class="-n"></span>&lt;body&gt;
+
+    <span class="-n"></span>&lt;/body&gt;
+<span class="-n"></span>&lt;/html&gt;
+</pre>
+        </div>
+
+        <div data-w="bock/code">
+            Консоль
+            <pre>
+<span class="-n"></span>lesson02.js-Сделайте файл со скриптом. Подключите его к вашему HTML
+файлу. Проверьте его работу.
+&gt;
+</pre>
+        </div>
+
+
+        <h2>Несколько файлов</h2>
+
+        <p>Можно подключать не один, а несколько файлов с помощью нескольких тегов script:
+        </p>
+
+        <div data-w="bock/code">
+            <pre>
+HTML
+<span class="-n"></span>&lt;!DOCTYPE html&gt;
+<span class="-n"></span>&lt;html&gt;
+    <span class="-n"></span>&lt;head&gt;
+        <span class="-n"></span>&lt;meta charset="utf-8"&gt;
+        <span class="-n"></span>&lt;title&gt;&lt;/title&gt;
+        <span class="-n"></span>&lt;script src="script1.js"&gt;&lt;/script&gt;
+        <span class="-n"></span>&lt;script src="script2.js"&gt;&lt;/script&gt;
+    <span class="-n"></span>&lt;/head&gt;
+    <span class="-n"></span>&lt;body&gt;
+
+    <span class="-n"></span>&lt;/body&gt;
+<span class="-n"></span>&lt;/html&gt;
+</pre>
+        </div>
+
+        <h3>Задача 2 </h3>
+
+        <p> Сделайте три файла со скриптами. Подключите их к вашему HTML файлу. Проверьте их работу. </p>
+
+        <div data-w="bock/code">
+            lesson02-1.js
+            <pre>
+<span class="-n"></span>console.log('lesson02-1');
+</pre>
+        </div>
+
+        <div data-w="bock/code">
+            lesson02-2.js
+            <pre>
+<span class="-n"></span>console.log('lesson02-2');
+</pre>
+        </div>
+
+        <div data-w="bock/code">
+            lesson02-3.js
+            <pre>
+<span class="-n"></span>console.log('lesson02-3');
+</pre>
+        </div>
+
+        <div data-w="bock/code">
+            <pre>
+HTML
+<span class="-n"></span>&lt;!DOCTYPE html&gt;
+<span class="-n"></span>&lt;html&gt;
+    <span class="-n"></span>&lt;head&gt;
+        <span class="-n"></span>&lt;meta charset="utf-8"&gt;
+        <span class="-n"></span>&lt;title&gt;&lt;/title&gt;
+        <span class="-n"></span>&lt;script src="../js_01/lesson02-1.js"&gt;&lt;/script&gt;
+        <span class="-n"></span>&lt;script src="../js_01/lesson02-02.js"&gt;&lt;/script&gt;
+        <span class="-n"></span>&lt;script src="../js_01/lesson02-03.js"&gt;&lt;/script&gt;
+    <span class="-n"></span>&lt;/head&gt;
+    <span class="-n"></span>&lt;body&gt;
+
+    <span class="-n"></span>&lt;/body&gt;
+<span class="-n"></span>&lt;/html&gt;
+</pre>
+        </div>
+
+
+        <div data-w="bock/code">
+            Консоль
+            <pre>
+lesson02.js-Сделайте файл со скриптом. Подключите его к вашему HTML
+файлу. Проверьте его работу.
+lesson02-1
+lesson02-2
+lesson02-3
+&gt;
+</pre>
+        </div>
+
+        <h2>Замечание </h2>
+
+        <p>Учтите, что в теге script можно либо писать код, либо подключить файл. Попытка сделать это одновременно не
+            будет
+            работать. Поэтому следующий код не рабочий:</p>
+
+
+        <div data-w="bock/code">
+            <pre>
+HTML
+<span class="-n"></span>&lt;!DOCTYPE html&gt;
+<span class="-n"></span>&lt;html&gt;
+    <span class="-n"></span>&lt;head&gt;
+        <span class="-n"></span>&lt;meta charset="utf-8"&gt;
+        <span class="-n"></span>&lt;title&gt;&lt;/title&gt;
+        <span class="-n"></span>&lt;script src="script.js"&gt;alert('text');&lt;/script&gt;
+    <span class="-n"></span>&lt;/head&gt;
+    <span class="-n"></span>&lt;body&gt;
+
+    <span class="-n"></span>&lt;/body&gt;
+<span class="-n"></span>&lt;/html&gt;
+</pre>
+        </div>
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js_01/lesson02.js" defer></script>
+    <script src="../js_01/lesson02-1.js" defer></script>
+    <script src="../js_01/lesson02-2.js" defer></script>
+    <script src="../js_01/lesson02-3.js" defer></script>
+
+    <script src="../js/app.js" defer></script>
+    <script src="../js/loader.js" defer></script>
+</body>
+
+</html>

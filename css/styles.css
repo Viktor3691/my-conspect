@@ -1,0 +1,508 @@
+/* ============================================================
+   1. RESET
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  max-width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+  min-height: 100vh;
+  padding: 0 40px;
+}
+
+/* ============================================================
+   2. ТЕМЫ
+   ============================================================ */
+body[data-gmT="D"] {
+  background-color: #fdfdfd;
+  color: #333;
+}
+body[data-gmT="N"] {
+  background-color: #2a2a2ae3;
+  color: #d7d7d7;
+}
+
+/* ============================================================
+   3. ШАПКА
+   ============================================================ */
+header[data-w="nict/mainmenu"] {
+  position: relative;
+  padding: 18px 10px;
+  margin: 0 auto 25px;
+  max-width: 1200px;
+  text-align: center;
+  border-bottom: 1px solid #e7e7e7;
+}
+body[data-gmT="N"] header[data-w="nict/mainmenu"] {
+  border-bottom-color: #3a3a3a;
+}
+header [data-e="head"] {
+  display: block;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+header [data-e="subb"] a {
+  display: inline-block;
+  margin: 0 6px;
+  padding: 4px 10px;
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+}
+header [data-e="subb"] a:hover,
+header [data-e="subb"] a[data-mCurr="T"] {
+  border-bottom-color: #098042;
+}
+body[data-gmT="D"] header [data-e="subb"] a {
+  color: #444;
+}
+body[data-gmT="D"] header [data-e="subb"] a[data-mCurr="T"] {
+  color: #098042;
+}
+body[data-gmT="N"] header [data-e="subb"] a {
+  color: #cacaca;
+}
+body[data-gmT="N"] header [data-e="subb"] a[data-mCurr="T"] {
+  color: #eca6cc;
+}
+
+/* ============================================================
+   4. ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ
+   ============================================================ */
+[data-w="nict/them"] {
+  position: fixed;
+  top: 5px;
+  right: 25px;
+  z-index: 100;
+  font-size: 14px;
+}
+[data-w="nict/them"] [data-e="sich"] {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.15s;
+}
+
+[data-w="nict/them"] [data-e="sich"]:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+body[data-gmT="N"] [data-w="nict/them"] [data-e="sich"]:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================================
+   5. КОНТЕНТ (cont/pane)
+   ============================================================ */
+main[data-w="cont/pane"] {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+main[data-w="cont/pane"] h2 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-size: 36px;
+  text-align: center;
+  line-height: 1;
+  margin: 20px 0 25px;
+}
+main[data-w="cont/pane"] h3 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-size: 26px;
+  text-align: center;
+  margin: 30px 0 15px;
+}
+main[data-w="cont/pane"] h4 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-size: 22px;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+main[data-w="cont/pane"] p {
+  font-family: Arial, sans-serif;
+  hyphens: auto;
+  font-size: 17.5px;
+  text-align: justify;
+  line-height: 1.5;
+  margin: 12px 0;
+}
+main[data-w="cont/pane"] ul,
+main[data-w="cont/pane"] ol {
+  padding-left: 30px;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 15px 0;
+}
+main[data-w="cont/pane"] ul li,
+main[data-w="cont/pane"] ol li {
+  margin-bottom: 8px;
+}
+main[data-w="cont/pane"] hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 30px auto;
+  width: 80px;
+}
+body[data-gmT="N"] main[data-w="cont/pane"] hr {
+  border-top-color: #555;
+}
+main[data-w="cont/pane"] a {
+  text-decoration: none;
+}
+main[data-w="cont/pane"] a:hover,
+main[data-w="cont/pane"] a:focus {
+  text-decoration: underline;
+}
+body[data-gmT="D"] main[data-w="cont/pane"] a {
+  color: #23527c;
+}
+body[data-gmT="N"] main[data-w="cont/pane"] a {
+  color: #7fc2ff;
+}
+
+/* Инлайн-код */
+main code[data-gs="comd/c"] {
+  font-family: "Anonymous Pro", "Courier New", monospace;
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.95em;
+  color: #c7254e;
+}
+body[data-gmT="N"] main code[data-gs="comd/c"] {
+  background: #3a3a3a;
+  color: #eca6cc;
+}
+
+/* Примечание */
+main[data-w="cont/pane"] p[data-sComment] {
+  font-style: italic;
+  color: #666;
+  padding: 0;
+  text-align: center;
+}
+body[data-gmT="N"] main[data-w="cont/pane"] p[data-sComment] {
+  color: #b0b0b0;
+}
+
+/* ============================================================
+   6. БЛОК КОДА — сетка + нумерация
+   ============================================================ */
+[data-w="bock/code"] {
+  position: relative;
+  display: block;
+  overflow-x: auto;
+  white-space: pre-line;
+  tab-size: 2;
+  padding: 15px 15px 15px 38px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: "Anonymous Pro", "Courier New", monospace;
+  counter-reset: num;
+  margin: 15px 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+[data-w="bock/code"] + [data-w="bock/code"] {
+  margin-top: 7px;
+}
+
+body[data-gmT="D"] [data-w="bock/code"] {
+  background-color: #fcfcfc;
+  color: black;
+  border-left: 1px dashed #ccc;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 10px,
+      #f4f4f4 10px,
+      #f4f4f4 11px
+    ),
+    repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 10px,
+      #f4f4f4 10px,
+      #f4f4f4 11px
+    );
+  background-clip: padding-box;
+}
+body[data-gmT="N"] [data-w="bock/code"] {
+  color: #fafafa;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 10px,
+      #4a4a4a 10px,
+      #4a4a4a 11px
+    ),
+    repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 10px,
+      #4a4a4a 10px,
+      #4a4a4a 11px
+    );
+  background-clip: padding-box;
+}
+[data-w="bock/code"] .-n {
+  position: absolute;
+  left: 0;
+  top: auto;
+  width: 30px;
+  text-align: right;
+  padding-right: 6px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border-right: 1px solid #c3c3c3;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  color: #888;
+  user-select: none;
+  pointer-events: none;
+  counter-increment: num;
+}
+[data-w="bock/code"] .-n::after {
+  content: counter(num);
+}
+
+@media (max-width: 600px) {
+  [data-w="bock/code"] {
+    padding-left: 26px;
+    padding-right: 10px;
+    font-size: 14px;
+  }
+  [data-w="bock/code"] .-n {
+    width: 22px;
+    font-size: 12px;
+    padding-right: 4px;
+  }
+}
+
+/* ============================================================
+   7. ТАБЛИЦА (cont/desc)
+   ============================================================ */
+[data-w="cont/desc"] {
+  margin: 15px 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+body[data-gmT="D"] [data-w="cont/desc"] {
+  color: #333;
+}
+body[data-gmT="N"] [data-w="cont/desc"] {
+  color: #e8e8e8;
+}
+
+[data-w="cont/desc"] tr:first-child th {
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px;
+  text-align: left;
+}
+body[data-gmT="D"] [data-w="cont/desc"] tr:first-child th {
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+}
+body[data-gmT="N"] [data-w="cont/desc"] tr:first-child th {
+  background-color: #292929;
+  border: 1px solid #898888;
+}
+body[data-gmT="N"] [data-w="cont/desc"] tr:not(:first-child) {
+  background-color: #333;
+}
+body[data-gmT="D"] [data-w="cont/desc"] tr:not(:first-child) th,
+body[data-gmT="D"] [data-w="cont/desc"] tr:not(:first-child) td {
+  border: 1px solid #ddd;
+}
+body[data-gmT="N"] [data-w="cont/desc"] tr:not(:first-child) th,
+body[data-gmT="N"] [data-w="cont/desc"] tr:not(:first-child) td {
+  border: 1px solid #898888;
+}
+[data-w="cont/desc"] tr:not(:first-child) th {
+  font-size: 16px;
+  width: 25%;
+  padding: 10px;
+  text-align: left;
+}
+[data-w="cont/desc"] tr:not(:first-child) td {
+  padding: 12px;
+  font-size: 16px;
+  font-family: "Anonymous Pro", monospace;
+}
+
+/* ============================================================
+   8. ОГЛАВЛЕНИЕ (menu/pane)
+   ============================================================ */
+[data-w="menu/pane"] {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  counter-reset: coun;
+}
+[data-w="menu/pane"] h2 {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 45px;
+  font-weight: normal;
+  margin: 20px 0 30px;
+}
+@media (max-width: 600px) {
+  [data-w="menu/pane"] h2 {
+    font-size: 32px;
+  }
+}
+
+[data-w="menu/pane"] > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
+  gap: 16px;
+}
+
+[data-w="menu/pane"] a {
+  padding: 20px 25px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition:
+    background-color 0.15s,
+    transform 0.15s;
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  [data-w="menu/pane"] > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  [data-w="menu/pane"] > div {
+    grid-template-columns: 1fr;
+  }
+}
+body[data-gmT="D"] [data-w="menu/pane"] a {
+  color: #245f94;
+  background-color: #f9f9f9;
+  border: 1px dashed #8ca5cf;
+}
+body[data-gmT="D"] [data-w="menu/pane"] a:hover {
+  background-color: #f0f4fb;
+  transform: translateY(-2px);
+}
+body[data-gmT="N"] [data-w="menu/pane"] a {
+  color: #66abe9;
+  background-color: #333232;
+  border: 1px dashed #8ca5cf;
+}
+body[data-gmT="N"] [data-w="menu/pane"] a:hover {
+  background-color: #3d3c3c;
+}
+
+[data-w="menu/pane"] [data-e="coun"] {
+  display: inline-block;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  color: #203b69;
+  margin-right: 8px;
+}
+[data-w="menu/pane"] [data-e="coun"]::before {
+  counter-increment: coun;
+  content: counter(coun) ". ";
+}
+body[data-gmT="N"] [data-w="menu/pane"] [data-e="coun"] {
+  color: #86aff4;
+}
+
+[data-w="menu/pane"] [data-e="head"] {
+  display: inline;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #203b69;
+}
+body[data-gmT="N"] [data-w="menu/pane"] [data-e="head"] {
+  color: #a16dd8;
+}
+
+[data-w="menu/pane"] [data-e="desc"] {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: #6a7a8a;
+}
+body[data-gmT="N"] [data-w="menu/pane"] [data-e="desc"] {
+  color: #a0a8b4;
+}
+
+/* ============================================================
+   9. ПОДВАЛ
+   ============================================================ */
+footer[data-w="nict/finf"] {
+  text-align: center;
+  padding: 20px 10px 40px;
+  font-size: 13px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+body[data-gmT="D"] footer[data-w="nict/finf"] {
+  color: #777;
+}
+body[data-gmT="N"] footer[data-w="nict/finf"] {
+  color: #aaa;
+}
+
+/* ============================================================
+   10. АДАПТИВ
+   ============================================================ */
+@media (max-width: 700px) {
+  body {
+    padding: 0 15px;
+  }
+  main[data-w="cont/pane"] {
+    padding: 0 5px 40px;
+  }
+  [data-w="nict/them"] {
+    top: auto;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+  body[data-gmT="N"] [data-w="nict/them"] {
+    background: rgba(30, 30, 30, 0.9);
+  }
+}

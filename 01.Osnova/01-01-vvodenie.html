@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-01-osnovy.html">Основы</a>
+        </div>
+        <div data-e="subb">
+            <a data-mCurr="T" href="01-02-failSoScriptami-js.html">Подключение файла со скриптами
+                JavaScript</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Введение в язык JavaScript для новичков</h2>
+
+        <p>Язык JavaScript предназначен для выполнения в браузере наряду с HTML и CSS. Но, если эти языки предназначены
+            для верстки
+            структуры сайта, то JavaScript позволяет "оживлять" web-страницы - делать их реагирующими на действия
+            пользователя или
+            демонстрировать некоторую динамичность (к примеру, смена картинок в блоке или красивые плавно выпадающие
+            менюшки).</p>
+
+        <h2>Как запустить JavaScript</h2>
+
+        <p>JavaScript код пишется прямо на HTML странице внутри тега script. Этот тег можно размещать в любом месте
+            страницы.
+            Смотрите пример:</p>
+
+        <div data-w="bock/code">
+            <pre>
+<span class="-n"></span>&lt;!DOCTYPE html&gt;
+<span class="-n"></span> &lt;html&gt;
+    <span class="-n"></span> &lt;head&gt;
+    <span class="-n"></span> &lt;meta charset="utf-8"&gt;
+    <span class="-n"></span> &lt;title&gt;Это заголовок тайтл&lt;/title&gt;
+    <span class="-n"></span> &lt;script&gt;
+        <span class="-n"></span> здесь пишем JavaScript код
+    <span class="-n"></span> &lt;/script&gt;
+    <span class="-n"></span> &lt;/head&gt;
+    <span class="-n"></span> &lt;body&gt;
+        <span class="-n"></span> Это основное содержимое страницы.
+    <span class="-n"></span> &lt;/body&gt;
+<span class="-n"></span>&lt;/html&gt;
+        </pre>
+        </div>
+
+
+        <h2>Напишем первую программу</h2>
+
+        <p>Давайте напишем нашу первую программу на JavaScript. Вот она:</p>
+
+        <div data-w="bock/code">
+            <pre>
+HTML
+<span class="-n"></span>&lt;!DOCTYPE html&gt;
+<span class="-n"></span>&lt;html&gt;
+    <span class="-n"></span>&lt;head&gt;
+    <span class="-n"></span>&lt;meta charset="utf-8"&gt;
+    <span class="-n"></span>&lt;title&gt;Моя первая программа&lt;/title&gt;
+    <span class="-n"></span>&lt;script&gt;
+        <span class="-n"></span>console.log('Привет, мир!');
+    <span class="-n"></span>&lt;/script&gt;
+    <span class="-n"></span>&lt;/head&gt;
+    <span class="-n"></span>&lt;body&gt;
+        <span class="-n"></span>моя первая программа
+    <span class="-n"></span>&lt;/body&gt;
+<span class="-n"></span>&lt;/html&gt;
+</pre>
+        </div>
+
+        <p>Скопируйте этот код и разместите в HTML файле. Затем открой этот файл в браузере - и вы увидите диалоговое
+            окошко с
+            текстом.</p>
+
+        <h2>Разберем код программы</h2>
+
+        <p>Давайте разберем код написанной нами выше программы. Первым понятием, которое вам нужно узнать, являются
+            функции.
+            Функции позволяют выполнять некоторые действия. В нашем примере есть функция alert(), которая выводит текст
+            на экран в
+            виде диалогового окошка. <br>
+            <br>
+            Функция состоит из имени (в нашем случае это alert) и круглых скобок, написанных после этого имени. В этих
+            круглых
+            скобках следует писать параметры функции. В нашем случае параметром является текст, который выводится на
+            экран.<br>
+            <br>
+            В нашем случае функция имеет один параметр, однако бывают функции, в которые нужно передавать несколько
+            параметров. В
+            этом случае эти параметры пишутся через запятую.
+        </p>
+
+        <script>console.log('Привет, мир!');</script>
+
+        <div data-w="bock/code">
+            Консоль
+            <pre>
+<span class="-n"></span>&gt;Привет, мир!
+</pre>
+        </div>
+
+
+        <div class="card">
+            <h3>Задача №1</h3>
+            <p>Сделайте файл с вашей первой программой. Выведите в ней на экран какой-нибудь
+                текст. </p>
+        </div>
+
+        <div data-w="bock/code">
+            <pre>
+HTML
+<span class="-n"></span>&lt;!DOCTYPE html&gt;
+<span class="-n"></span>&lt;html&gt;
+    <span class="-n"></span>&lt;head&gt;
+    <span class="-n"></span>&lt;meta charset="utf-8"&gt;
+    <span class="-n"></span>&lt;title&gt;Задача 1.&lt;/title&gt;
+    <span class="-n"></span>&lt;script&gt;
+        <span class="-n"></span>console.log('Сделайте файл с вашей первой
+        программой. Выведите в ней на экран какой-нибудь текст.!');
+    <span class="-n"></span>&lt;/script&gt;
+    <span class="-n"></span>&lt;/head&gt;
+    <span class="-n"></span>&lt;body&gt;
+        <span class="-n"></span>Задача 1. моя первая программа
+    <span class="-n"></span>&lt;/body&gt;
+<span class="-n"></span>&lt;/html&gt;
+</pre>
+        </div>
+
+        <div data-w="bock/code">
+            Консоль
+            <pre>
+<span class="-n"></span>&gt;Сделайте файл с вашей первой программой. Выведите в ней на экран какой-нибудь текст.!
+</pre>
+        </div>
+
+        <script> console.log('Сделайте файл с вашей первой программой. Выведите в ней на экран какой-нибудь текст.!');</script>
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/app.js" defer></script>
+    <script src="../js/loader.js" defer></script>
+</body>
+
+</html>

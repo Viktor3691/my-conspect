@@ -22,8 +22,11 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-07-matOperChisla.html">Математические
+                операции с числами в JavaScript</a>
+
+            <a data-mCurr="T" href="01-09-prioritetMatOpera.html">Приоритет математических операций в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +39,124 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Математические операции с переменными в JavaScript</h2>
+
+        <p>Математические операции можно производить не только над числами, но и над переменными. Сложим, к примеру,
+            значения двух
+            переменных:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>let b = 2;
+<span class="-n"></span>alert(a + b); // выведет 3
+        </pre>
+        </div>
+
+        <p>Не обязательно сразу выводить результат операции, можно вначале записать его в какую нибудь переменную, а уже
+            затем
+            вывести значение этой переменной:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>let b = 2;
+<span class="-n"></span>let c = a + b; // запишем сумму в переменную c
+<span class="-n"></span>alert(c); // выведет 3
+                </pre>
+        </div>
+
+        <h3>Задача 1 </h3>
+
+        <p>Создайте переменную a со значением 10 и переменную b со значением 2. Выведите на экран их сумму, разность,
+            произведение
+            и частное (результат деления). </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 10;
+<span class="-n"></span>let b = 2;
+<span class="-n"></span>
+<span class="-n"></span>let c = a + b;
+<span class="-n"></span>alert(c); // выведет 12
+<span class="-n"></span>
+<span class="-n"></span>let d = a - b;
+<span class="-n"></span>alert(d); // выведет 8
+<span class="-n"></span>
+<span class="-n"></span>let e = a * b;
+<span class="-n"></span>alert(e); // выведет 20
+<span class="-n"></span>
+<span class="-n"></span>let f = a / b;
+<span class="-n"></span>alert(f); // выведет 5
+                        </pre>
+        </div>
+
+        <h3>Задача 2 </h3>
+
+        <p> Создайте переменную c со значением 10 и переменную d со значением 5. Просуммируйте их, а результат присвойте
+            переменной
+            result. Выведите на экран значение переменной result. </p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let c = 10;
+<span class="-n"></span>let d = 5;
+<span class="-n"></span>let result = c + d;
+<span class="-n"></span>alert(result); // выведет 15
+
+                                </pre>
+        </div>
+
+        <h3>Задача 3 </h3>
+
+        <p>Создайте переменную a со значением 1, переменную b со значением 2 и переменную c со значением 3. Выведите на
+            экран их
+            сумму. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>let b = 2;
+<span class="-n"></span>let c = 3;
+<span class="-n"></span>alert(a + b + c); // выведет 6
+                        </pre>
+        </div>
+
+        <h3>Задача 4</h3>
+
+        <p>Создайте переменную a со значением 10 и переменную b со значением 5. Отнимите от a переменную b и результат
+            присвойте
+            переменной c. <br>
+            <br>
+            Затем создайте переменную d, присвойте ей значение 7. Сложите переменные c и d, а результат запишите в
+            переменную
+            result. Выведите на экран значение переменной result.
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 10;
+<span class="-n"></span>let b = 5;
+<span class="-n"></span>let c = a - b;
+<span class="-n"></span>alert(c); // выведет 5
+<span class="-n"></span>
+<span class="-n"></span>let d = 7;
+<span class="-n"></span>let result = c + d;
+<span class="-n"></span>alert(result); // выведет 12
+                        </pre>
+        </div>
+
+
+
+
 
 
 

@@ -22,8 +22,9 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-10-drobi.html">Дроби в JavaScript</a>
+            <a data-mCurr="T" href="01-12-ostatokOtDelenia.html">Остаток от деления в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +37,94 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Отрицательные числа в JavaScript</h2>
+
+        <p>Числа могут быть отрицательными. Для этого перед числом необходимо поставить знак минус:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = -1;
+<span class="-n"></span>alert(a); // выведет -1
+</pre>
+        </div>
+
+        <p>Знак минус можно писать как к числам, так и к переменным:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>let b = -a; // записали в b содержимое a с обратным знаком
+<span class="-n"></span>alert(a); alert(b); // выведет -1
+</pre>
+        </div>
+
+        <p>Или вот так:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>alert(-a); // выведет -1
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Создайте переменную a со значением -100. Выведите это значение на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = -100;
+<span class="-n"></span>alert(a); // выведет -100;
+</pre>
+        </div>
+
+        <h3>Задача 2</h3>
+
+        <p>Создайте переменную a, запишите в нее какое-нибудь положительное или отрицательное число. Выведите на экран
+            это число с
+            обратным знаком.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = -1000;
+<span class="-n"></span>alert(-a); // выведет 1000;
+</pre>
+        </div>
+
+        <script>
+            let a = -1000;
+            console.log(-a);
+        </script>
+
+        <h2>Плюс перед переменными</h2>
+
+        <p>Подобно тому, как перед отрицательными числами ставится знак "минус", перед положительными числами можно
+            ставить знак
+            "плюс". <br>
+            <br>
+            Фактически этот плюс ничего не делает, но вполне является допустимым, смотрите пример:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = +1;
+<span class="-n"></span>alert(a); // выведет 1
+</pre>
+        </div>
+
+
+
+
+
+
+
+
 
 
 

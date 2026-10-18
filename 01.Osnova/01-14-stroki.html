@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-13-vozvedenieVStepen.html">Возведение в
+                степень в JavaScript</a>
+            <a data-mCurr="T" href="01-15-slozenieStrok.html">Сложение строк в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,64 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Строки в JavaScript</h2>
+
+        <p>Как уже упоминалось ранее, данные могут иметь различный тип. Один из типов - числа, мы уже немного изучили.
+            Давайте
+            теперь перейдем к строкам. <br>
+            <br>
+            Строки создаются с помощью кавычек:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abc';
+<span class="-n"></span>alert(str); // выведет 'abc'
+</pre>
+        </div>
+
+        <p>Кавычки могут быть не только одинарными, но и двойными: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = "abc";
+<span class="-n"></span>alert(str); // выведет 'abc'
+</pre>
+        </div>
+
+        <p>Между одинарными и двойными кавычками в JavaScript нет никакой разницы. Их использование зависит от ваших
+            предпочтений.
+            Я предпочитаю использовать одинарные кавычки, поэтому везде далее в учебнике будут стоять именно они. <br>
+            <br>
+            Здесь и далее, если результат вывода - строка, то я беру его в кавычки, чтобы показать, что это именно
+            строка, вот так:
+            выведет 'abc'. При выводе строки через alert никаких кавычек появляться не будет (то есть на экран выведется
+            то, что у
+            меня написано внутри кавычек).
+        </p>
+
+        <h3> Задача 1</h3>
+
+        <p>Создайте строку с вашем именем и строку с вашей фамилией. Выведите эти данные на экран. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let ima = "Viktor";
+<span class="-n"></span>let familia = " Viller";
+<span class="-n"></span>alert(ima + familia); // Viktor Viller
+        </div>
+</pre>
+        </div>
+
+        <script>
+            let ima = "Viktor ";
+            let familia = "Viller";
+            console.log(ima + familia);
+
+        </script>
 
 
 

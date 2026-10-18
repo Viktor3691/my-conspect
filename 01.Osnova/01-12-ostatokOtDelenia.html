@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-11-otrChisla.html">Отрицательные числа в
+                JavaScript</a>
+            <a data-mCurr="T" href="01-13-vozvedenieVStepen.html">Возведение в степень в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,80 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Остаток от деления в JavaScript</h2>
+
+        <p>Существует специальный оператор %, с помощью которого можно найти остаток от деления одного числа на другое:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(10 % 3); // выведет 1
+</pre>
+        </div>
+
+        <p>Если одно число делится нацело на второе - остаток будет равен нулю:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(10 % 2); // выведет 0
+</pre>
+        </div>
+
+        <p>Оператор %, конечно же, можно применять не только к числам, но и к переменным: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 10;
+<span class="-n"></span>let b = 3;
+<span class="-n"></span>alert(a % b); // выведет 1
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Найдите остаток от деления следующих переменных:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 13;
+<span class="-n"></span>let b = 5;
+<span class="-n"></span>alert(a % b); // выведет 3
+</pre>
+        </div>
+
+        <script>
+            let a = 13;
+            let b = 5;
+            console.log(a % b);
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

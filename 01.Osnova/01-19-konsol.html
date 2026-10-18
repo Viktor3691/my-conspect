@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-18-spezZnashenia.html">Специальные значения
+                в JavaScript</a>
+            <a data-mCurr="T" href="01-20-konstants.html">Константы в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,170 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Работа с консолью в JavaScript</h2>
+
+        <p>Для удобства программистов в каждом браузере есть специальная панель разработчика. Чтобы открыть эту панель,
+            вам нужно,
+            находясь на странице сайта кликнуть правой кнопкой мышки в любое место. В появившемся меню нужно выбрать
+            самый нижний
+            пункт (он будет называться Inspect или как-то похоже на это). <br>
+            <br>
+            В открывшейся панели вы в основном будете пользоваться двумя вкладками: Elements и Console. В первой вкладке
+            вы можете
+            получать информацию по тегам страницы, а во второй - отладочную информацию JavaScript. <br>
+            <br>
+            Давайте разберемся с возможностями<br> консоли.
+            <br>
+            С помощью специальной команды console.log вы в своих скриптах можете выводить данные в консоль. Это
+            применяется для
+            того, чтобы заниматься отладкой программ.<br>
+            <br>
+            Давайте для примера что-нибудь выведем в консоль:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(123);
+</pre>
+        </div>
+
+        <p>А теперь выведем значение переменной: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 123;
+<span class="-n"></span>console.log(num);
+</pre>
+        </div>
+
+        <p>Можно вывести несколько переменных по очереди:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 123;
+<span class="-n"></span>let num2 = 456;
+<span class="-n"></span>
+<span class="-n"></span>console.log(num1);
+<span class="-n"></span>console.log(num2);
+</pre>
+        </div>
+
+        <p> Можно вывести несколько переменных с помощью одной команды, написав эти переменные через запятую: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 123;
+<span class="-n"></span>let num2 = 456;
+<span class="-n"></span>console.log(num1, num2);
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Дана переменная. Выведите в консоль ее значение. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num3 = 778855;
+<span class="-n"></span>console.log(num3);
+</pre>
+        </div>
+
+        <script>
+            let num3 = 778855;
+            console.log(`let num3 =`, num3);
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Даны три переменные. Выведите в консоль их значения. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num4 = 778855;
+<span class="-n"></span>let num5 = 444555;
+<span class="-n"></span>console.log(num4, num5);
+</pre>
+        </div>
+
+        <script>
+            let num4 = 778855;
+            let num5 = 444555;
+            console.log(`let num4 =`, num4);
+            console.log(`let num5 =`, num5);
+        </script>
+
+
+        <h2>Тип данных в консоли </h2>
+        <p>В консоли разным цветом выводятся строки и числа. Это часто помогает найти ошибки в программах. <br>
+            <br>
+            Давайте выведем рядом число и строку, чтобы можно было увидеть разницу в цвете:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(123);
+<span class="-n"></span>console.log('123');
+</pre>
+        </div>
+
+        <script>
+            console.log(123);
+            console.log('123');
+        </script>
+
+        <h3>Задача 3</h3>
+
+        <p>Выведите в консоль все известные вам типы данных. Посмотрите, чем отличается их цвет. </p>
+
+        <h2>Ошибки в консоли </h2>
+        <p>Когда вы в вашем коде допускаете синтаксическую ошибку, JavaScript выведет информацию об этом в консоль.
+            Такая ошибка
+            будет выведена красным цветом, а справа от нее будет указан номер строки, на которой случилась эта ошибка.
+            Этот номер
+            является ссылкой - на него можно нажать и в консоли откроется ваш код на строке с ошибкой. <br>
+            <br>
+            Давайте попробуем на практике. Обратимся к несуществуещей переменной. В этом случае JavaScript выдаст
+            ошибку:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(eee); // Uncaught ReferenceError: eee is not defined
+</pre>
+        </div>
+
+
+
+        <h3>Задача 4 </h3>
+
+        <p>Сознательно допустите ошибку в вашем коде. Убедитесь, что ошибка появляется в консоли. Определите, в какой
+            строке кода
+            случилась ошибка. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(Сознательно); // Uncaught ReferenceError: Сознательно is not defined
+</pre>
+        </div>
+
+
+
+
+
+
+
+
+
 
 
 

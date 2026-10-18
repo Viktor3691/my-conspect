@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-16-dlinaStroki.html">Длина строки в
+                JavaScript</a>
+            <a data-mCurr="T" href="01-18-spezZnashenia.html">Специальные значения в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,142 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Шаблонные строки в JavaScript</h2>
+
+        <p>Существует специальный тип кавычек - косые: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = `abc`;
+<span class="-n"></span>alert(str); // выведет 'abc'
+</pre>
+        </div>
+        <p> В косых кавычках можно выполнять вставку переменных. Для этого имя переменной нужно написать в конструкции
+            ${}. <br>
+            <br>
+            Давайте посмотрим на примере. Пусть мы хотим выполнить сложение строк и переменной:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'xxx';
+<span class="-n"></span>let txt = 'aaa ' + str + ' bbb';
+</pre>
+        </div>
+
+        <p></p>Этот код можно переписать следующим образом:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'xxx';
+<span class="-n"></span>let txt = `aaa ${str} bbb`;
+<span class="-n"></span>alert(txt);
+
+</pre>
+        </div>
+
+        <script>
+            let str = 'xxx';
+            let txt = `aaa ${str} bbb`;
+            console.log(txt);
+        </script>
+
+        <h3>Задача 1 </h3>
+
+        <p>Перепишите следующий код через вставку переменных: </p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+        <span class="-n"></span>let str = 'xxx';
+        <span class="-n"></span>let str2 = 'yyy';
+        <span class="-n"></span>let txt1 = 'aaa ' + str1 + ' bbb ' + str2 + ' ccc';
+        <span class="-n"></span>
+        <span class="-n"></span>txt1 = `aaa ${str1} bbb ${str2} ccc`;
+
+        </pre>
+        </div>
+
+        <script>
+            let str1 = 'xxx';
+            let str2 = 'yyy';
+            let txt1 = `aaa ${str1} bbb ${str2} ccc`;
+            console.log(txt1);
+        </script>
+
+
+        <h2>Многострочность</h2>
+        <p>
+            В JavaScript строках, созданных через одинарные или двойные кавычки, не допустим перенос строки. То есть вот
+            так не
+            будет работать: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abc
+<span class="-n"></span>def'; // так не будет работать
+</pre>
+        </div>
+
+        <p>И так не будет работать: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = "abc
+<span class="-n"></span>def"; // так не будет работать
+</pre>
+        </div>
+
+        <p>А вот косые кавычки специально предназначены для создания многострочных строк: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = `abc
+<span class="-n"></span>def`; // так будет работать
+</pre>
+        </div>
+
+
+
+
+        <h3>Задача 2 </h3>
+
+        <p>Запишите в переменную str строку, состоящую из символов 'a', 'b', 'c', причем после каждого символа,
+            кроме последнего, должен стоять перенос строки. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = `a
+<span class="-n"></span> b
+<span class="-n"></span>c`
+<span class="-n"></span>def`; // так будет работать
+<span class="-n"></span>alert(str);
+</pre>
+        </div>
+
+        <script>
+            let str3 = `a
+b
+c`
+            console.log(str3);
+        </script>
+
+
+
+
+
+
+
+
+
 
 
 

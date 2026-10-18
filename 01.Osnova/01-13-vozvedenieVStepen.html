@@ -22,8 +22,9 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-12-ostatokOtDelenia.html">Остаток от
+                деления в JavaScript</a>
+            <a data-mCurr="T" href="01-14-stroki.html">Строки в JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +37,153 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Возведение в степень в JavaScript</h2>
+
+        <p>Для возведения числа в степень также существует специальный оператор **. Давайте с его помощью возведем число
+            10 в
+            третью степень: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(10 ** 3); // выведет 1000
+                1
+                    </pre>
+        </div>
+
+        <p>Давайте возведем в степень значение переменной: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 10;
+<span class="-n"></span>alert(a ** 3); // выведет 1000
+                            </pre>
+        </div>
+
+        <p>Может быть такое, что и число, и степень будут содержаться в переменных:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 10;
+<span class="-n"></span>let b = 3;
+<span class="-n"></span>alert(a ** b); // выведет 1000
+                                            </pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Возведите число 2 в 10-ю степень. Выведите результат на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2;
+<span class="-n"></span>let b = 10;
+<span class="-n"></span>alert(a ** b); // выведет 1024
+                                                    </pre>
+        </div>
+
+        <script>
+            let a = 2;
+            let b = 10;
+            console.log(a ** b);
+        </script>
+
+        <h2>Приоритет возведения в степень </h2>
+
+        <p>Операция возведения в степень имеет приоритет перед умножением и делением. <br> В следующем примере вначале
+            выполнится
+            возведение в степень, а затем умножение:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(2 * 2 ** 3) // 2 * 8 = 16;
+</pre>
+        </div>
+
+        <h3>Задача 2</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 3 * 2 ** 3;
+<span class="-n"></span>alert(a); // 3 * 8 = 24;
+        </pre>
+        </div>
+
+        <h3>Задача 3</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = (3 * 2) ** 3;
+<span class="-n"></span>alert(a); // (3 * 2) ** 3 = 6 ** 3 = 216;
+                </pre>
+        </div>
+
+        Задача 4 <h3></h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 3 * 2 ** (3 + 1);
+<span class="-n"></span>alert(a); // 3 * 2 ** (3 + 1) = 3 * 2 ** 4 = 3 * 16 = 48;
+                        </pre>
+        </div>
+
+        <h3> Задача 5 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 ** 3 * 3;
+<span class="-n"></span>alert(a); // 2 ** 3 * 3 = 8 * 3 = 24;
+                                </pre>
+        </div>
+
+        <h3>Задача 6</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 3 * 2 ** 3 * 3;
+<span class="-n"></span>alert(a); // 3 * 2 ** 3 * 3 = 3 * 8 * 3 = 24 * 3 = 72;
+                                        </pre>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

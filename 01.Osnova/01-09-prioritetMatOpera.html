@@ -22,8 +22,9 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-08-matOperPeremen.html">Математические
+                операции с переменными в JavaScript</a>
+            <a data-mCurr="T" href="01-10-drobi.html">Дроби в JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +37,295 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Приоритет математических операций в JavaScript</h2>
+
+        <p>Математические операции JavaScript имеют такой же приоритет, как в обычной математике. То есть в начале
+            выполняется
+            умножение и деление, а потом уже сложение и вычитание. <br>
+            <br>
+            В следующем примере вначале 2 умножится на 2 и затем к результату прибавится 3:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 * 2 + 3;
+<span class="-n"></span>alert(a); // выведет 7 (результат 4 + 3)
+</pre>
+        </div>
+
+        <h3>Задача 1 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 5 + 5 * 3;
+<span class="-n"></span>alert(a); // 5 + 15 = 20
+</pre>
+        </div>
+
+        <h3>Задача 2 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 5 + 5 * 3 + 3;
+<span class="-n"></span>alert(a); // 5 + 15 + 3 = 23
+</pre>
+        </div>
+        <h3>Задача 3 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 8 / 2 + 2;
+<span class="-n"></span>alert(a); // 4 + 3 = 7;
+                    </pre>
+        </div>
+
+        <h3>Задача 4</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 8 + 2 / 2;
+<span class="-n"></span>alert(a); // 8 + 1 = 9;
+</pre>
+        </div>
+
+
+        <h2>Равный приоритет</h2>
+
+        <p>Умножение и деление имеют равный приоритет и выполняются по очереди слева направо. Рассмотрим на примере, что
+            имеется
+            ввиду. В следующем коде вначале выполнится деление, а потом умножение:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 8 / 2 * 4;
+<span class="-n"></span>alert(a); // выведет 16 (результат 4 * 4)
+</pre>
+        </div>
+
+        <p>Если же переставить знаки местами, то вначале выполнится умножение, а потом деление:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 8 * 2 / 4;
+<span class="-n"></span>alert(a); // выведет 4 (результат 16 / 4)
+</pre>
+        </div>
+
+        <p>В следующем примере каждая новая операция деления будет применяться к предыдущей:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+        <span class="-n"></span>let a = 16 / 2 / 2 / 2;
+        <span class="-n"></span>alert(a); // выведет 2
+        </pre>
+        </div>
+
+        <h3>Задача 5 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 8 / 2 * 2;
+<span class="-n"></span>alert(a); // 4 * 2 = 8;
+</pre>
+        </div>
+
+        <h3>Задача 6</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 8 * 4 / 2 / 2;
+<span class="-n"></span>alert(a); // 32 / 2 / 2 = 16 / 2 = 8;
+</pre>
+        </div>
+
+        <h2>Группирующие скобки</h2>
+
+        <p>При желании вы можете указывать приоритет операций с помощью круглых скобок. Давайте, например, переделаем
+            наш код так,
+            чтобы вначале выполнилось сложение, а уже потом умножение:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 * (2 + 3);
+<span class="-n"></span>alert(a); // результат ( 2 * 5) = 10
+</pre>
+        </div>
+
+        <p>Примечание: скобок может быть любое количество, в том числе и вложенных друг в друга:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 * (2 + 4 * (3 + 1));
+<span class="-n"></span>alert(a); // результат 2 * (2 + 4 * 4) = 2 * (2 + 16) = 2 * 18 = 36;
+</pre>
+        </div>
+
+        <p>В скобки можно заключить операции, обладающие приоритетом - это не будет ошибкой. Например, заключим в скобки
+            произведение чисел:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = (2 * 2) + 3;
+<span class="-n"></span>alert(a); //результат ( 4 + 3) = 7;
+</pre>
+        </div>
+
+        <p>В данном случае скобки получаются лишними (у умножения ведь и так приоритет), но код является допустимым.
+            <br>
+            <br>
+            Иногда такую группировку используют в тех местах, где приоритет операций не очевиден. Для примера рассмотрим
+            следующий
+            код:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 8 / 2 * 4;
+<span class="-n"></span>alert(a); //результат 4 * 4 = 16;
+</pre>
+        </div>
+
+        <p>Как вы уже знаете, в нем вначале выполнится деление, а потом умножение. Но с первого взгляда это может быть
+            не слишком
+            очевидно. <br>
+
+            Можно использовать группирующие скобки, чтобы явно показать приоритет:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = (8 / 2) * 4;
+<span class="-n"></span>alert(a); //результат 4 * 4 = 16;
+</pre>
+        </div>
+
+        <h3>Задача 7</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = (2 + 3) * (2 + 3);
+<span class="-n"></span>alert(a); // 5 * 5 = 25;
+</pre>
+        </div>
+
+        <h3>Задача 8</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = (2 + 3) * 2 + 3;
+<span class="-n"></span>alert(a); // 5 * 2 + 3 = 10 + 3 = 13;
+</pre>
+        </div>
+
+        <h3>Задача 9</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 * (2 + 4 * (3 + 1));
+<span class="-n"></span>alert(a); // 2 * (2 + 4 * 4) = 2 * (2 + 16) = 2 * 18 = 36;
+</pre>
+        </div>
+
+        <h3>Задача 10</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 * 8 / 4;
+<span class="-n"></span>alert(a); // 16 / 4 = 4;
+</pre>
+        </div>
+
+        <h3> Задача 11</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = (2 * 8) / 4;
+<span class="-n"></span>alert(a); // 16 / 4 = 4;
+</pre>
+        </div>
+
+        <h3>Задача 12</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 * (8 / 4);
+<span class="-n"></span>alert(a); // 2 * 2 = 4;
+</pre>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

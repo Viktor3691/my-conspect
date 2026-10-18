@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-17-shablonniaStroki.html">Шаблонные строки
+                в JavaScript</a>
+            <a data-mCurr="T" href="01-19-konsol.html">Работа с консолью в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,238 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Специальные значения в JavaScript</h2>
+
+        <p>В JavaScript, как и в других языках программирования, существуют ключевые слова для некоторых специальных
+            значений. Вот
+            они: undefined, null, true, false, NaN, Infinity, -Infinity.</p>
+
+        <h2> Значение undefined </h2>
+
+        <p> Значение undefined обозначает неопределенность. Такое значение будет у переменной, если мы объявили ее, но
+            не записали в
+            нее значение: </p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a;
+<span class="-n"></span>alert(a); // выведет undefined
+</pre>
+        </div>
+
+        <p>Это значение можно присвоить переменной явно: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = undefined;
+<span class="-n"></span>alert(a); // выведет undefined
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Объявите переменную, не задавая ей значения. Выведите значение созданной переменной на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let b = undefined;
+<span class="-n"></span>alert(b); // выведет undefined
+</pre>
+        </div>
+
+        <script>
+            let b = undefined;
+            console.log(b); // выведет undefined
+        </script>
+
+        <h2>Значение null </h2>
+        <p>Значение null обозначает "ничего". К примеру, мы можем присвоить переменной такое значение в знак того, что
+            там
+            ничего
+            не лежит:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = null;
+<span class="-n"></span>alert(a); // выведет null
+</pre>
+        </div>
+
+        <h3> Задача 2</h3>
+
+        <p> Присвойте переменной значение null. Выведите эту переменную на экран. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let c = null;
+<span class="-n"></span>alert(c); // выведет null
+</pre>
+        </div>
+
+        <script>
+            let c = null;
+            console.log(c);
+        </script>
+
+        <h2>Значения true и false </h2>
+        <p>Значения true и false обозначают истину и ложь соответственно. Они используются для таких вещей, которые
+            предполагают
+            два варианта ответа - да или нет. </p>
+
+        <h3>Задача 3 </h3>
+
+        <p>Присвойте переменной значение true. Выведите эту переменную на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let d = true;
+<span class="-n"></span>alert(d); // выведет true
+</pre>
+        </div>
+
+        <script>
+            let d = true;
+            console.log(`let d = `, d);
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p>Присвойте переменной значение false. Выведите эту переменную на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let f = false;
+<span class="-n"></span>alert(f); // выведет false
+</pre>
+        </div>
+
+        <script>
+            let f = false;
+            console.log(`let f = `, f);
+        </script>
+
+        <h2>Значение NaN </h2>
+        <p>Значение NaN (Not-A-Number) обозначает не число. Такое значение получается тогда, когда вы пытаетесь делать
+            математические операции не с числами, а с чем-то другим. К примеру, такое значение даст попытка умножить
+            строку на
+            число: </p>
+
+        >Присвойте переменной значение false. Выведите эту переменную на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert('abc' * 3); // выведет NaN
+</pre>
+        </div>
+
+        <script>
+            console.log('abc' * 3);
+        </script>
+
+        <p>Любые операции с NaN приводят к тому, что результатом все равно остается NaN: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(NaN + 1); // выведет NaN
+</pre>
+        </div>
+
+        <script>
+            console.log(NaN + 1);
+        </script>
+
+
+
+        <h3>Задача 5</h3>
+
+        <p>Сделайте две строки. Перемножьте их друг на друга. Выведите результат умножения на экран. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str1 = "fdc";
+<span class="-n"></span>let str2 = "jkl";
+<span class="-n"></span>alert(str1 * str2); // NaN
+</pre>
+        </div>
+
+        <script>
+            let str1 = "fdc";
+            let str2 = "jkl";
+            console.log(`str1 * str2 =`, str1 * str2);
+        </script>
+
+        <h2>Значения Infinity и -Infinity</h2>
+        <p>Значения Infinity и -Infinity обозначают соответственно бесконечность и минус бесконечность. Такие значения
+            получаются,
+            если какое-то число поделить на ноль - в этом случает JavaScript не выдает ошибку, как в других языках
+            программирования,
+            а возвращает эти значения:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert( 1 / 0); // выведет Infinity
+<span class="-n"></span>lalert(-1 / 0); // выведет -Infinity
+</pre>
+        </div>
+
+        <h3>Задача 6</h3>
+
+        <p>Поделите число 10 на 0. Выведите результат на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 10;
+<span class="-n"></span>let num2 = 0;
+<span class="-n"></span>let res = num1 / num2;
+<span class="-n"></span>alert( res);
+</pre>
+        </div>
+
+
+        <script>
+            let num1 = 10;
+            let num2 = 0;
+            let res = num1 / num2;
+            console.log(`res  =`, res);
+        </script>
+
+        <h3>Задача 7</h3>
+
+        <p>Поделите число -10 на 0. Выведите результат на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num3 = -10;
+<span class="-n"></span>let num4 = 0;
+<span class="-n"></span>let res1 = num3 / num4;
+<span class="-n"></span>alert( res1);
+</pre>
+        </div>
+
+
+        <script>
+            let num3 = -10;
+            let num4 = 0;
+            let res1 = num3 / num4;
+            console.log(`res1  =`, res1);
+        </script>
+
+
+
 
 
 

@@ -22,8 +22,9 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-14-stroki.html">Строки в JavaScript</a>
+            <a data-mCurr="T" href="01-16-dlinaStroki.html">Длина строки в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +37,152 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Сложение строк в JavaScript</h2>
+
+        <p>Для сложения строк, так же, как и для сложения чисел, используется оператор +: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abc' + 'def'; // складываем две строки
+<span class="-n"></span>alert(str); // выведет 'abcdef'
+</pre>
+        </div>
+
+        <p>Строки также могут хранится в переменных: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str1 = 'abc';
+<span class="-n"></span>let str2 = 'def';
+<span class="-n"></span>alert(str1 + str2); // выведет 'abcdef'
+</pre>
+        </div>
+
+        <p>Можно также складывать переменные и строки: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str1 = 'abc';
+<span class="-n"></span>let str2 = 'def';
+<span class="-n"></span>alert(str1 + '!!!' + str2); // выведет 'abc!!!def'
+</pre>
+        </div>
+
+
+        <p>Пусть две строки хранятся в переменных, а при их сложении мы хотим вставить между ними пробел. Это
+            делается
+            так: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str1 = 'abc';
+<span class="-n"></span>let str2 = 'def';
+<span class="-n"></span>alert(str1 + ' ' + str2); // выведет 'abc def'
+</pre>
+        </div>
+
+        <p>Пусть переменная только одна: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abc';
+<span class="-n"></span>alert(str + ' ' + 'def'); // выведет 'abc def'
+</pre>
+        </div>
+
+        <p>В этом случае нет смысла выделять пробел, как отдельную строку - вставим его как часть второго
+            слагаемого:
+        </p>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abc';
+<span class="-n"></span>alert(str + ' def'); // выведет 'abc def';
+</pre>
+        </div>
+
+
+        <h3>Задача 1</h3>
+
+        <p>Создайте переменную str и присвойте ей строку '!!!'. Выведите значение этой переменной на экран. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = '!!!';
+<span class="-n"></span>alert(str); // выведет '!!!;
+</pre>
+        </div>
+
+        <script>
+            let str = '!!!';
+            console.log(str);
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Создайте переменную с текстом 'java' и переменную с текстом 'script'. С помощью этих переменных и операции
+            сложения
+            строк выведите на экран строку 'javascript'.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str1 = 'java';
+<span class="-n"></span>let str2 = 'script';
+<span class="-n"></span>alert(str1 + str2); // выведет 'javascript;
+</pre>
+        </div>
+
+        <script>
+            let str1 = 'java';
+            let str2 = 'script';
+            console.log(str1 + str2);
+        </script>
+
+
+        <h3>Задача 3</h3>
+
+        <p>Создайте переменную с текстом 'hello' и переменную с текстом 'world'. С помощью этих переменных и операции
+            сложения
+            строк выведите на экран строку 'hello world'. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+        <span class="-n"></span>let str3 = 'hello';
+        <span class="-n"></span>let str4 = 'world';
+        <span class="-n"></span>alert(str1 + str2); // выведет 'hello world;
+        </pre>
+        </div>
+
+        <script>
+            let str3 = 'hello';
+            let str4 = 'world';
+            console.log(str3 + ' ' + str4);
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

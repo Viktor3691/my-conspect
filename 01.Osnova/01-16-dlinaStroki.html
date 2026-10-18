@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-15-slozenieStrok.html">Сложение строк в
+                JavaScript</a>
+            <a data-mCurr="T" href="01-17-shablonniaStroki.html">Шаблонные строки в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,9 +38,54 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Длина строки в JavaScript</h2>
+
+        <p>Количество символов в строке содержится в свойстве length: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abcde';
+<span class="-n"></span>alert(str.length); // выведет 5
+</pre>
+        </div>
+
+        <p>Свойство length можно применять непосредственно к строке: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert('abcde'.length); // выведет 5
+</pre>
+        </div>
 
 
+
+        <p>Пробел также является символом: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert('ab de'.length); // выведет 5
+</pre>
+        </div>
+
+        <h3>Задача 1 </h3>
+
+        <p>Запишите в переменную какую-нибудь строку. Выведите на экран длину вашей строки. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'Выведите на экран длину вашей строки.';
+<span class="-n"></span>alert(str.length); // выведет 37
+</pre>
+        </div>
+
+        <script>
+            let str = 'Выведите на экран длину вашей строки.';
+            console.log(str.length);
+        </script>
 
     </main>
 

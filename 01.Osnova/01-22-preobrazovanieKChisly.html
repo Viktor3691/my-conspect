@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-21-otrChisla.html">Автоматическое
+                преобразование типов данных</a>
+            <a data-mCurr="T" href="01-23-videlenieChisel.html">Выделение чисел в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,254 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Преобразование к числу в JavaScript</h2>
+
+        <p>Давайте рассмотрим следующий код: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '2';
+<span class="-n"></span>let b = '3';
+<span class="-n"></span>alert(a + b); // выведет '23'
+</pre>
+        </div>
+
+        <p>Как вы видите, в нашем случае обе переменных содержат в себе строки и складываются, соответственно, как
+            строки. <br>
+            <br>
+            Пусть мы хотели бы, чтобы значения наших переменных в данном случае складывались не как строки, а как числа.
+            В этом
+            случае мы можем принудительно преобразовать тип нашей переменной к числу, используя специальную функцию
+            Number:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '2';
+<span class="-n"></span>let b = '3';
+<span class="-n"></span>alert(Number(a) + Number(b)); // выведет 5
+</pre>
+        </div>
+
+        <p> Можно преобразовывать строки в числа не в операции сложения, а сразу при записи в переменную - это будет
+            работать:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = Number('2'); // в переменную запишется число 2
+<span class="-n"></span>let b = Number('3'); // в переменную запишется число 3
+<span class="-n"></span>alert(a + b); // выведет 5
+</pre>
+        </div>
+
+        <h3>Задача 1 </h3>
+
+        <p> Дана переменная a со значением '10' и переменная b со значением '20'. Сложите данные переменные как числа.
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '10';
+<span class="-n"></span>let b = '20';
+<span class="-n"></span>alert(Number(a) + Number(b)); // выведет 30
+</pre>
+        </div>
+
+        <script>
+            let a = '10';
+            let b = '20';
+            console.log(`Number(a) + Number(b) =`, Number(a) + Number(b));
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert( Number('2') + Number('3') ); // 5
+</pre>
+        </div>
+
+        <script>
+            console.log(` Number('2') + Number('3') =`, Number('2') + Number('3'));
+        </script>
+
+
+
+        <h3>Задача 3 </h3>
+
+        <p> Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert( 2 + Number('3') ); // 5
+</pre>
+        </div>
+
+        <script>
+            console.log(` ( 2 + Number('3') ); =`, (2 + Number('3')));
+        </script>
+
+
+
+        <h3>Задача 4</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert( '2' + Number('3') ); // 23
+</pre>
+        </div>
+
+        <script>
+            console.log(` ( '2' + Number('3'); =`, ('2' + Number('3')));
+        </script>
+
+        <h2>Альтернатива</h2>
+
+        <p> Часто для сокращения кода вместо Number перед строкой ставят знак +. Таким образом над строкой выполняется
+            операция,
+            допустимая только для чисел и строка переводится в число. <br>
+            <br>
+            Смотрите пример:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = +'2'; // в переменную запишется число 2
+<span class="-n"></span>let b = +'3'; // в переменную запишется число 3
+<span class="-n"></span>alert(a + b); // выведет 5
+</pre>
+        </div>
+
+        <script>
+            let c = +'2';
+            let d = +'3';
+            console.log(` ( (c + d) =`, ((c + d)));
+        </script>
+
+        <p> Вот еще пример: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '2';
+<span class="-n"></span>let b = +a; // в b запишется число 2
+<span class="-n"></span>alert(a + b); // выведет 22
+</pre>
+        </div>
+
+        <script>
+            let e = '2';
+            let f = +e;
+            console.log(` ( (e + f) =`, ((e + f)));
+        </script>
+
+        <p> А вот следующий пример, хоть и рабочий, но выглядит не очень красиво. В нем более уместно было бы
+            использование
+            функции
+
+            Number: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '2';
+<span class="-n"></span>let b = '3';
+<span class="-n"></span>alert(+a + +b); // выведет 5
+</pre>
+        </div>
+
+        <script>
+            let h = '2';
+            let j = '3';
+            console.log(` ( (+h + +j) =`, (+h + +j));
+        </script>
+
+        Задача 5 <h3></h3>
+
+        <p> Дан код: </p>
+        <p> С помощью описанного приема с плюсом исправьте приведенный код так, чтобы в переменные a и b присваивалось
+            число, а не
+            строка, ну и результатом, соответственно, было не '23', а 5. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '2';
+<span class="-n"></span>let b = '3';
+<span class="-n"></span>alert(a + b); // выведет 23
+<span class="-n"></span>alert(+a + +b); // выведет 5
+</pre>
+        </div>
+
+        <script>
+            let o = '2';
+            let p = '3';
+            console.log(` ( (o + p) =`, (o + p));
+            console.log(` ( (+o + +p) =`, (+o + +p));
+        </script>
+
+        <h2>Не только цифры </h2>
+        <p>При попытке преобразовать строку, содержащую не только цифры, но и другие символы, функция Number вернет
+            своим
+            результатом значение NaN: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(Number('2s')); // выведет NaN
+</pre>
+        </div>
+
+        <script>
+            console.log(` Number('2s') =`, Number('2s'));
+        </script>
+
+        <p>Тот же эффект даст использование плюса: </p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(+'2s'); // выведет NaN
+</pre>
+        </div>
+
+        <script>
+            console.log(` (+'2s') =`, (+'2s'));
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

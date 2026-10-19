@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-20-konstants.html">Константы в
+                JavaScript</a>
+            <a data-mCurr="T" href="01-22-preobrazovanieKChisly.html">Преобразование к числу в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,9 +38,386 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Автоматическое преобразование типов данных</h2>
+
+        <p> Как вы уже знаете, строки в JavaScript следует брать в кавычки. Может быть такое, что всеми символами строки
+            будут
+            являться цифры: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '123';
+</pre>
+        </div>
 
 
+
+        <p>являться цифры:
+            В этом случае переменная a также является строкой, но с некоторым нюансом.</p>
+
+        <p> Суть нюанса в следующем: если над строкой с цифрами выполнить какую-либо математическую операцию - эта
+            операция
+            будет
+            выполнена так, будто у нас действительно числа, а не строки: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert('2' * '3'); // выведет 6
+</pre>
+        </div>
+
+
+
+        <p> В данном случае JavaScript видит, что мы пытаемся выполнить недопустимую для строк, но допустимую для чисел
+            операцию. <br>
+            <br>
+            Он также видит, что фактически наши строки - это числа в кавычках. Поэтому JavaScript автоматически
+            выполняет
+            преобразование этих строк к числам и выполняет соответствующую математическую операцию над ними. <br>
+            <br>
+            Такое работает, если в наших строках только цифры. Если там будет хотя бы одна буква - JavaScript посчитает
+            операцию
+            некорректной и сделает ее результатом значение NaN:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert('2' * '3s'); // выведет NaN
+</pre>
+        </div>
+
+
+
+        <p>Кроме того, автоматическое преобразование происходит, если операция математически корректна, но недопустима
+            для
+            строк.
+
+            Например, строки нельзя (а числа можно) умножать, делить, вычитать, поэтому во всех таких операциях будет
+            автоматическое
+            преобразование строк с цифрами в числа. <br>
+            <br>
+            Однако, строки, как и числа, складываются с помощью оператора +. Это значит, что в случае сложения
+            автоматического
+            преобразования не будет:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '1' + '2';
+<span class="-n"></span>alert(a); // выведет '12' - произошло сложение строк
+</pre>
+        </div>
+
+        <p> Если одно из слагаемых число, а другое - строка, то всегда побеждает строка: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1 + '2';
+<span class="-n"></span>alert(a); // выведет '12'
+</pre>
+        </div>
+
+        <p> В таких случаях JavaScript, наоборот, автоматически преобразует числа в строки и выполняет сложение строк.
+            <br>
+            <br>
+            Есть, однако, нюансы, когда слагаемых больше, чем два: в этом случае преобразование к определенному типу
+            зависит
+            от
+            порядка выполнения операций.<br>
+            <br>
+            В следующем примере вначале 2 и 3 сложатся как числа, а затем результат прибавится к строке '1' уже как
+            строка
+            '5', что
+            в итоге даст строку '15':
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '1' + (2 + 3);
+<span class="-n"></span>alert(a); // выведет '15'
+</pre>
+        </div>
+
+        <p> Если же убрать скобки, то все будет складываться слева направо. То есть сначала к строке '1' прибавится
+            число 2
+            и в
+            результате получится строка '12'. Затем к этой строке прибавится число 3 и в результате получится строка
+            '123': </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '1' + 2 + 3;
+<span class="-n"></span>alert(a); // выведет '123'
+</pre>
+        </div>
+
+        <p> А вот в следующем примере числа 2 и 3 написаны в начале, поэтому сначала они сложатся как числа, дав в
+            результате число
+            5, а затем к этому числу прибавится строка '1', дав в итоге строку '51': </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 + 3 + '1';
+<span class="-n"></span>alert(a); // выведет '51'
+</pre>
+        </div>
+
+        <h3> Задача 1 </h3>
+
+        <p> Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5' + '2';
+<span class="-n"></span>alert(a); // 52
+</pre>
+        </div>
+
+        <script>
+            let a = '5' + '2';
+            console.log(`let a = '5' + '2' = `, a);
+        </script>
+
+
+        <h3> Задача 2 </h3>
+
+        <p> Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5' + 2;
+<span class="-n"></span>alert(a); // 52
+</pre>
+        </div>
+
+        <script>
+            let b = '5' + 2;
+            console.log(`let b = '5' + 2 = `, b);
+        </script>
+
+
+        <h3> Задача 3 </h3>
+
+        <p> Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 5 + '2';
+<span class="-n"></span>alert(a); // 52
+</pre>
+        </div>
+
+        <script>
+            let c = 5 + '2';
+            console.log(`let c = 5 + '2' = `, c);
+        </script>
+
+        <h3>Задача 4 </h3>
+
+        <p> Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 5 + 2;
+<span class="-n"></span>alert(a); // 7
+</pre>
+        </div>
+
+        <script>
+            let d = 5 + 2;
+            console.log(`let d = 5 + 2 = `, d);
+        </script>
+
+
+        alert(a);
+
+        <h3> Задача 5 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5' * '2';
+<span class="-n"></span>alert(a); // 10;
+</pre>
+        </div>
+
+        <script>
+            let e = '5' * '2';
+            console.log(`let e = '5' * '2'; = `, e);
+        </script>
+
+
+        alert(a);
+
+        <h3>Задача 6 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5' - '2';
+<span class="-n"></span>alert(a); // 3;
+</pre>
+        </div>
+
+        <script>
+            let f = '5' - '2';
+            console.log(`let f = '5' * '2'; = `, f);
+        </script>
+
+        <h3>Задача 7 </h3>
+
+        <p> Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5' / '2';
+<span class="-n"></span>alert(a); // 2.5;
+</pre>
+        </div>
+
+        <script>
+            let g = '5' / '2';
+            console.log(`let g = '5' / '2'; = `, g);
+        </script>
+
+        <h3> Задача 8 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5' % '2';
+<span class="-n"></span>alert(a); // 1;
+</pre>
+        </div>
+
+        <script>
+            let h = '5' % '2';
+            console.log(`let h = '5' % '2'; = `, h);
+        </script>
+
+        <h3> Задача 9</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5s' * '2';
+<span class="-n"></span>alert(a); // NaN;
+</pre>
+        </div>
+
+        <script>
+            let j = '5s' * '2';
+            console.log(`let j = '5s' * '2'; = `, j);
+        </script>
+
+        <h3> Задача 10</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5s' + '2';
+<span class="-n"></span>alert(a); // 5s2;
+</pre>
+        </div>
+
+        <script>
+            let k = '5s' + '2';
+            console.log(`let k = '5s' * '2'; = `, k);
+        </script>
+
+        <h3> Задача 11 </h3>
+
+        <p> Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = (-'5') + (-'2');
+<span class="-n"></span>alert(a); // -7
+</pre>
+        </div>
+
+        <script>
+            let l = (-'5') + (-'2');
+            console.log(`let l = (-'5') + (-'2'); = `, l);
+        </script>
+
+        <h3>Задача 12</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5' * 1 + '2' * 1;
+<span class="-n"></span>alert(a); // 7
+</pre>
+        </div>
+
+        <script>
+            let n = '5' * 1 + '2' * 1;
+            console.log(`let n = '5' * 1 + '2' * 1; = `, n);
+        </script>
+
+
+        alert(n);
+
+        Задача 13 <h3></h3>
+
+        <p> Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '5' * '1' + '2' * '1';
+<span class="-n"></span>alert(a); // 7
+</pre>
+        </div>
+
+        <script>
+            let o = '5' * '1' + '2' * '1';
+            console.log(`let o = '5' * '1' + '2' * '1'; = `, o);
+        </script>
+
+        <h3> Задача 14</h3>
+
+        <p> Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = '' + 3 + 1;
+<span class="-n"></span>alert(a); // 31
+</pre>
+        </div>
+
+        <script>
+            let p = '' + 3 + 1;
+            console.log(`let p = '' + 3 + 1;; = `, p);
+        </script>
 
     </main>
 

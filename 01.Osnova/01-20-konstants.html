@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-19-konsol.html">Работа с консолью в
+                JavaScript</a>
+            <a data-mCurr="T" href="01-21-otrChisla.html">Автоматическое преобразование типов данных</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,70 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Константы в JavaScript</h2>
+
+        <p>Кроме переменных в JavaScript можно создавать еще и константы. В них можно записывать данные только один раз,
+            а затем их
+            значения нельзя изменять. Константы объявляются с помощью оператора const. <br>
+            <br>
+            Обычно константы используются для значений, которые не должны быть случайно изменены в коде. Для примера
+            сделаем
+            константу, в которой будет хранится значение числа пи:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const pi = 3.14;
+</pre>
+        </div>
+
+        <p> Обычно константы записываются большими буквами, чтобы их можно было отличить от обычных переменных: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const PI = 3.14;
+</pre>
+        </div>
+
+        <p> Давайте попробуем изменить значение нашей константы:</p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const PI = 3.14;
+<span class="-n"></span>PI = 3; // выдаст ошибку
+</pre>
+        </div>
+
+        <h3> Задача 1 </h3>
+
+        <p> Сделайте константу PI и с ее помощью вычислите длину какой-нибудь окружности по ее радиусу. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const PI = 3.14;
+<span class="-n"></span>const r = 25;
+<span class="-n"></span>let result = PI * r **2;
+<span class="-n"></span>alert(result); //1 962.5
+</pre>
+        </div>
+
+        <script>
+            const PI = 3.14;
+            const r = 25;
+            let result = PI * r ** 2;
+            console.log(`result = ${PI} * ${r}**2 =`, result);
+        </script>
+
+
+
+
+
+
 
 
 

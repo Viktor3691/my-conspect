@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-23-videlenieChisel.html">Выделение чисел в
+                JavaScript</a>
+            <a data-mCurr="T" href="01-25-preobrazovanieLogTipa.html">Преобразование логического типа в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,162 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Преобразование к строке в JavaScript</h2>
+
+        <p>Иногда нужно выполнить обратное преобразование - из числа в строку. Для этого предназначена функция String:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = String(123); // теперь в переменной строка '123'
+</pre>
+        </div>
+
+        <script>
+            let str = String(123);
+            console.log(`str  =`, str);
+        </script>
+
+        <p>Еще пример:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 1;
+<span class="-n"></span>let num2 = 2;
+<span class="-n"></span>alert(String(num1) + String(num2)); // выведет '12'
+</pre>
+        </div>
+
+        <script>
+            let num1 = 1;
+            let num2 = 2;
+            console.log(`(String(num1) + String(num2));  =`, (String(num1) + String(num2)));
+        </script>
+
+
+
+
+
+        <h3>Задача 1 </h3>
+
+        <p>Даны две переменные с числами. Сложите значения этих переменных как строки и выведите результат на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num3 = 11;
+<span class="-n"></span>let num4 = 22;
+<span class="-n"></span>alert(String(num1) + String(num2)); // выведет '1122'
+</pre>
+        </div>
+
+        <script>
+            let num3 = 11;
+            let num4 = 22;
+            console.log(`(String(num3) + String(num4));  =`, (String(num3) + String(num4)));
+        </script>
+
+        <h2> Применение </h2>
+        <p> Пусть у нас есть переменная num с каким-то числом: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 12345;
+</pre>
+        </div>
+
+
+        <p> Давайте найдем количество цифр в этом числе. Как вы уже знаете, чтобы найти длину строки, можно использовать
+            свойство
+            length. <br>
+            <br>
+            Оно, однако, работает только со строками, а будучи применено к числу, не будет работать:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 12345;
+<span class="-n"></span>alert(num.length); // выведет undefined
+</pre>
+        </div>
+
+
+
+
+        <p> Для решения проблемы преобразуем наше число к строке и найдем длину этой строки:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 12345;
+<span class="-n"></span>let str = String(num); // преобразуем наше число к строке
+<span class="-n"></span>alert(str.length); // найдем длину строки
+</pre>
+        </div>
+
+        <p> Можно не вводить промежуточную переменную str, а применить свойство length сразу к результату функции
+            String: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 12345;
+<span class="-n"></span>alert(String(num).length); // найдем длину строки
+</pre>
+        </div>
+
+        <h3> Задача 2</h3>
+
+        <p>Дана переменная с числом. Найдите количество цифр в этом числе.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num5 = 1234554321;
+<span class="-n"></span>alert(String(num5).length); // 10
+</pre>
+        </div>
+
+        <script>
+            let num5 = 1234554321;
+            console.log(`num5 = 1234554321; String(num5).length = `, String(num5).length);
+        </script>
+
+
+        <h3> Задача 3</h3>
+
+        <p>Даны две переменные с числами. Найдите количество цифр в одном и во втором числе, результаты сложите и
+            выведите на экран. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num6 = 1236987521;
+<span class="-n"></span>let num7 = 777777777777;
+<span class="-n"></span>alert(+String(num6).length + +String(num7).length); // 22
+</pre>
+        </div>
+
+        <script>
+            let num6 = 1236987521;
+            let num7 = 777777777777;
+            alert(+String(num6).length + +String(num7).length);
+            console.log(`(let num6 = 1236987521; let num7 = 777777777777; +String(num6).length + +String(num7).length) = `, (+String(num6).length + +String(num7).length));
+        </script>
+
+
+
+
+
+
+
+
+
+
 
 
 

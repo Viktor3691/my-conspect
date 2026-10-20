@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T"
+                href="01-24-preobrazovanieKStoke.html">Преобразование к строке в JavaScript</a>
+            <a data-mCurr="T" href="01-26-kLogTipy.html">Преобразование к логическому типу в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,207 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Преобразование логического типа в JavaScript</h2>
+
+        <p>Сейчас мы с вами рассмотрим, как ведут себя специальные значения true и false при преобразовании их к строкам
+            или
+            числам. Эти знания вам потребуются в следующих уроках. <br>
+            <br>
+            Итак, попробуем выполнить преобразование к строке, используя функцию String:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(String(true)); // выведет 'true'
+</pre>
+        </div>
+
+        <script>
+            console.log(`(String(true))  =`, (String(true)));
+        </script>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(String(false)); // выведет 'false'
+</pre>
+        </div>
+
+        <script>
+            console.log(`(String(false))  =`, (String(false)));
+        </script>
+
+
+
+
+        <p>Как вы видите, значение true преобразуется в строку 'true', а значение false - в строку 'false'. То есть при
+            попытке
+            сложения строки и логического значения, это логическое значение преобразуется в строку и произойдет сложение
+            строк: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert('a' + true); // выведет 'atrue'
+</pre>
+        </div>
+
+        <script>
+            console.log(`('a' + true)  =`, ('a' + true));
+        </script>
+
+        <p>При приведении к числу значение true преобразуется в число 1, а значение false - в число 0: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(Number(true)); // выведет 1
+<span class="-n"></span>alert(Number(false)); // выведет 0
+</pre>
+        </div>
+
+        <script>
+            console.log(`(Number(true))  =`, (Number(true)));
+            console.log(`(Number(false))  =`, (Number(false)));
+        </script>
+
+        <p>Во всех математических операциях логические значения вначале преобразуются к числу.<br>
+            Пример: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(true + 1); // выведет 2
+<span class="-n"></span>alert(true + true); // выведет 2
+</pre>
+        </div>
+
+        <script>
+            console.log(`(true + 1)  =`, (true + 1));
+            console.log(`(true + true)  =`, (true + true));
+        </script>
+
+
+
+
+        <h3>Задача 1 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(true + 3); // 4
+</pre>
+        </div>
+
+        <script>
+            console.log(`(true + 3) =`, (true + 3));
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(true + true); // 2
+</pre>
+        </div>
+
+        <script>
+            console.log(`(true + true) =`, (true + true));
+        </script>
+
+        <h3>Задача 3 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(true - true); // 0
+</pre>
+        </div>
+
+        <script>
+            console.log(`(true - true) =`, (true - true));
+        </script>
+
+        <h3>Задача 4 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert(true + false); // 1
+</pre>
+        </div>
+
+        <script>
+            console.log(`(true + false) =`, (true + false));
+        </script>
+
+        <h3>Задача 5</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert('1' + true); // 1true
+</pre>
+        </div>
+
+        <script>
+            console.log(`('1' + true) =`, ('1' + true));
+        </script>
+
+        <h3>Задача 6 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert( String(true) + 1 ); // true1
+</pre>
+        </div>
+
+        <script>
+            console.log(`(String(true) + 1) =`, (String(true) + 1));
+        </script>
+
+        <h3>Задача 7 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert( String(true) + Number(true) ); // true1
+</pre>
+        </div>
+
+        <script>
+            console.log(`( String(true) + Number(true) ) =`, (String(true) + Number(true)));
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

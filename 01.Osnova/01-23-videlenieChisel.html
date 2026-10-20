@@ -38,7 +38,144 @@
 
     <main data-w="cont/pane">
 
-        <h2>Выделение чисел в JavaScript/h2>
+        <h2>Выделение чисел в JavaScript</h2>
+
+        <p>Функция Number работает только со строками, состоящими из цифр. Однако, при программировании на
+            JavaScript часто
+            встречаются ситуации, когда вам нужно обращаться со строками, в начале которых стоит число, а затем
+            буквы. <br>
+            <br>
+            Примером такой строки может быть значение в пикселях: '12px'. Пусть нам необходимо достать стоящее в
+            начале число,
+            отбросив строковую часть. Для такой операции существует функция parseInt. Давайте посмотрим ее работу на
+            примере:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = parseInt('12px');
+<span class="-n"></span>alert(num); // выведет 12
+</pre>
+        </div>
+
+
+
+
+        <p>Пиксели, однако, иногда бывают дробными: '12.5px'. В этом случае функция parseInt пасует и выводит только
+            целую часть: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = parseInt('12.5px');
+<span class="-n"></span>alert(num); // все равно выведет 12
+</pre>
+        </div>
+
+        <p>В общем-то, возможно такое поведение - это именно то, что вам нужно. Но если нет - используйте функцию
+            parseFloat,
+            которое извлекает число вместе с его дробной частью: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = parseFloat('12.5px');
+<span class="-n"></span>alert(num); // выведет 12.5
+</pre>
+        </div>
+
+        <p>Конечно же, отсутствие дробной части не мешает функции parseFloat работать корректно: </p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = parseFloat('12px');
+<span class="-n"></span>alert(num); // выведет 12
+</pre>
+        </div>
+
+        <h3>Задача 1 </h3>
+
+        <p>Дана переменная со значением '5px' и переменная со значением '6px'. Найдите сумму пикселей из значений
+            этих переменных и
+            выведите ее на экран. </p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = parseInt('5px');
+<span class="-n"></span>let num2 = parseInt('6px');
+<span class="-n"></span>alert(num1 + num2); //11
+</pre>
+        </div>
+
+        <script>
+            let num1 = parseInt('5px');
+            let num2 = parseInt('6px');
+            console.log(`num1 + num2 +  =`, num1 + num2);
+        </script>
+
+        <h3>Задача 2 </h3>
+
+        <p>Дана переменная со значением '5.5px' и переменная со значением '6.25px'. Найдите сумму пикселей из
+            значений этих
+            переменных и выведите ее на экран. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num3 = parseFloat('5.5px');
+<span class="-n"></span>let num4 = parseFloat('6.25px');
+<span class="-n"></span>alert(num3 + num4); // 11,75
+</pre>
+        </div>
+
+        <script>
+            let num3 = parseFloat('5.5px');
+            let num4 = parseFloat('6.25px');
+            console.log(`num3 + num4  =`, num3 + num4);
+        </script>
+
+
+        <h3>Задача 3</h3>
+
+        <p>Модифицируйте предыдущую задачу так, чтобы к выводящемуся результату добавлялись буквы 'px'. То есть,
+            если наша сумма
+            равна 11.75, то на экран пусть выведется '11.75px'.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num3 = parseFloat('5.5px');
+<span class="-n"></span>let num4 = parseFloat('6.25px');
+<span class="-n"></span>alert(num3 + num4 + "px"); 11,75px
+</pre>
+        </div>
+
+        <script>
+            let num5 = parseFloat('5.5px');
+            let num6 = parseFloat('6.25px');
+            console.log(`num3 + num4 + "px =`, num3 + num4 + "px");
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

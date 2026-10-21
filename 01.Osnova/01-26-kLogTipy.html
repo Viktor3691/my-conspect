@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T"
+                href="01-25-preobrazovanieLogTipa.html">Преобразование логического типа в JavaScript</a>
+            <a data-mCurr="T" href="01-27-simvoliStoki.html">Получение символов строки на JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -38,20 +40,436 @@
 
         <h2>Преобразование к логическому типу в JavaScript</h2>
 
+        <p>Давайте теперь изучим преобразование других типов данных к логическому. Такое преобразование осуществляется с
+            помощью
+            функции Boolean. Вот значения, которые при приведению к логическому типу дают false: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(Boolean(0)); // false
+<span class="-n"></span>console.log(Boolean(-0)); // false
+<span class="-n"></span>console.log(Boolean(+0)); // false
+<span class="-n"></span>console.log(Boolean(null)); // false
+<span class="-n"></span>console.log(Boolean(false)); // false
+<span class="-n"></span>console.log(Boolean(NaN)); // false
+<span class="-n"></span>console.log(Boolean(undefined)); // false
+<span class="-n"></span>console.log(Boolean('')); // false
+</pre>
+        </div>
+
+        <script>
+            console.log(`Boolean(0)) = `, Boolean(0)); // false
+            console.log(`Boolean(-0)) = `, Boolean(-0)); // false
+            console.log(`Boolean(null)) = `, Boolean(null)); // false
+            console.log(`Boolean(false))`, Boolean(false)); // false
+            console.log(`Boolean(NaN)) = `, Boolean(NaN)); // false
+            console.log(`Boolean(undefined)) = `, Boolean(undefined)); // false
+            console.log(`Boolean('') = `, Boolean('')); // false
+        </script>
+
+        <p>Все остальные значения в JavaScript (в других языках бывает не так) дают true. Вот значения, приводящиеся к
+            true, но
+            могущие вызвать у вас сомнения: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(Boolean(-1)); // true
+<span class="-n"></span>console.log(Boolean(Infinity)); // true
+<span class="-n"></span>console.log(Boolean(-Infinity)); // true
+</pre>
+        </div>
+
+        <script>
+            console.log(`Boolean(-1) = `, Boolean(-1)); // true
+            console.log(`Boolean(Infinity)) = `, Boolean(Infinity)); // true
+            console.log(`Boolean(-Infinity)) = `, Boolean(-Infinity)); // true
+        </script>
+
+        <p>Следующие значения являются строками, так как взяты в кавычки, и также приводятся к true: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(Boolean('0')); // true
+<span class="-n"></span>console.log(Boolean('false')); // true
+<span class="-n"></span>console.log(Boolean('NaN')); // true
+<span class="-n"></span>console.log(Boolean('null')); // true
+<span class="-n"></span>console.log(Boolean('undefined')); // true
+</pre>
+        </div>
+
+        <script>
+            console.log(`Boolean('0')) = `, Boolean('0')); // true
+            console.log(`Boolean('false')) = `, Boolean('false')); // true
+            console.log(`Boolean('NaN')) = `, Boolean('NaN')); // true
+            console.log(`Boolean('null')) = `, Boolean('null')); // true
+            console.log(`Boolean('undefined')) = `, Boolean('undefined')); // true
+        </script>
+
+        <h3>Задача 1</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(3);
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test1 = Boolean(3);
+            console.log(`let test1 = Boolean(3) = `, Boolean(3)); // true
+        </script>
 
 
 
 
+        <h3>Задача 2</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(0);
+<span class="-n"></span>alert(test); // false
+</pre>
+        </div>
+
+        <script>
+            let test2 = Boolean(0);
+            console.log(`let test2 = Boolean(0) = `, Boolean(0));
+        </script>
+
+        <h3>Задача 3</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(-1);
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test3 = Boolean(-1);
+            console.log(`let test3 = Boolean(-1) = `, Boolean(-1));
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(-0);
+<span class="-n"></span>alert(test); // false
+</pre>
+        </div>
+
+        <script>
+            let test4 = Boolean(-0);
+            console.log(`let test4 = Boolean(-0) = `, Boolean(-0));
+        </script>
 
 
 
 
+        <h3>Задача 5</h3>
 
+        <p>Не запуская код, определите, что выведется на экран: </p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(+0);
+<span class="-n"></span>alert(test); // false
+</pre>
+        </div>
 
+        <script>
+            let test5 = Boolean(+0);
+            console.log(`let test5 = Boolean(+0); = `, Boolean(+0));
+        </script>
 
+        <h3>Задача 6</h3>
 
+        <p>Не запуская код, определите, что выведется на экран: </p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean('abc');
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test6 = Boolean('abc');
+            console.log(`let test6 = Boolean('abc') = `, Boolean('abc'));
+        </script>
+
+        <h3>Задача 7</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean('');
+<span class="-n"></span>alert(test); // false
+</pre>
+        </div>
+
+        <script>
+            let test7 = Boolean('');
+            console.log(`let test7 = Boolean('') = `, Boolean(''));
+        </script>
+
+        <h3>Задача 8</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean('0');
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test8 = Boolean('0');
+            console.log(`let test8 = Boolean('0') = `, Boolean('0'));
+        </script>
+
+        <h3>Задача 9</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(true);
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test9 = Boolean(true);
+            console.log(`let test9 = Boolean(true) = `, Boolean(true));
+        </script>
+
+        <h3>Задача 10</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(false);
+<span class="-n"></span>alert(test); // false
+</pre>
+        </div>
+
+        <script>
+            let test10 = Boolean(false);
+            console.log(`let test10 = Boolean(false) = `, Boolean(false));
+        </script>
+
+        <h3>Задача 11</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean('true');
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test11 = Boolean('true');
+            console.log(`let test11 = Boolean('true') = `, Boolean('true'));
+        </script>
+
+        <h3>Задача 12</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean('false');
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test12 = Boolean('false');
+            console.log(`let test12 = Boolean('false') = `, Boolean('false'));
+        </script>
+
+        <h3>Задача 13</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(null);
+<span class="-n"></span>alert(test); // false
+</pre>
+        </div>
+
+        <script>
+            let test13 = Boolean(null);
+            console.log(`let test13 = Boolean(null) = `, Boolean(null));
+        </script>
+
+        <h3>Задача 14</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean('null');
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test14 = Boolean('null');
+            console.log(`let test14 = Boolean('null') = `, Boolean('null'));
+        </script>
+
+        <h3>Задача 15</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(undefined);
+<span class="-n"></span>alert(test); // false
+</pre>
+        </div>
+
+        <script>
+            let test15 = Boolean(undefined);
+            console.log(`let test15 = Boolean(undefined) = `, Boolean(undefined));
+        </script>
+
+        <h3>Задача 16</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean('undefined');
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test16 = Boolean('undefined');
+            console.log(`let test16 = Boolean('undefined') = `, Boolean('undefined'));
+        </script>
+
+        <h3>Задача 17</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(NaN);
+<span class="-n"></span>alert(test); // false
+</pre>
+        </div>
+
+        <script>
+            let test17 = Boolean(NaN);
+            console.log(`let test17 = Boolean(NaN) = `, Boolean(NaN));
+        </script>
+
+        <h3>Задача 18</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean('NaN');
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test18 = Boolean('NaN');
+            console.log(`let test18 = Boolean('NaN') = `, Boolean('NaN'));
+        </script>
+
+        <h3>Задача 19</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(3 * 'abc');
+<span class="-n"></span>alert(test); // false
+</pre>
+        </div>
+
+        <script>
+            let test19 = Boolean(3 * 'abc');
+            console.log(`let test19 = Boolean(3 * 'abc') = `, Boolean(3 * 'abc'));
+        </script>
+
+        <h3>Задача 20</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(Infinity);
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test20 = Boolean(Infinity);
+            console.log(`let test20 = Boolean(Infinity) = `, Boolean(Infinity));
+        </script>
+
+        <h3>Задача 21</h3>
+
+        <p>Не запуская код, определите, что выведется на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = Boolean(1 / 0);
+<span class="-n"></span>alert(test); // true
+</pre>
+        </div>
+
+        <script>
+            let test21 = Boolean(1 / 0);
+            console.log(`let test21 = Boolean(1 / 0) = `, Boolean(1 / 0));
+        </script>
 
 
     </main>

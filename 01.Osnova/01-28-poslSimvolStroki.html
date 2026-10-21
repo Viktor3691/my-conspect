@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-27-simvoliStoki.html">Получение символов
+                строки на JavaScript</a>
+            <a data-mCurr="T" href="01-29-stokiSNumer.html">Строки с цифрами в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,9 +38,113 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Последний символ строки в JavaScript</h2>
 
+        <p>Давайте выведем последний символ строки. При этом сделаем так, чтобы наш скрипт сам определял номер
+            последнего символа,
+            не зависимо от длины строки. <br>
+            <br>
+            Пусть у нас есть такая строка:
+        </p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abcde';
+</pre>
+        </div>
+
+        <p>Как вы видите, количество символов в этой строке равно 5. Если немного подумать, то становится очевидным, что
+            номер
+            последнего символа этой строки будет на 1 меньше ее длины, так как нумерация символов начинается с нуля.
+            <br>
+            <br>
+            Получается, что зная длину строки, мы можем отнять от нее 1 и получить номер последнего символа, а затем по
+            этому номеру
+            можно получить сам последний символ. <br>
+            <br>
+            Как вы уже знаете, длину строки можно найти с помощью свойства length. Исходя из этого найдем номер
+            последнего символа:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abcde';
+<span class="-n"></span>let last = str.length - 1; // номер последнего символа
+</pre>
+        </div>
+        <p>Используем найденный номер для вывода символа на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abcde';
+<span class="-n"></span>let last = str.length - 1; // номер последнего символа
+<span class="-n"></span>alert(str[last]); // выведет 'e'
+</pre>
+        </div>
+
+        <p>Промежуточную переменную last можно и не вводить: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abcde';
+<span class="-n"></span>alert(str[str.length - 1]); // выведет 'e'
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Дана строка. Выведите на экран ее последний символ.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'Дана строка. Выведите на экран ее последний символ';
+<span class="-n"></span>alert(str[str.length - 1]); // выведет 'л'
+</pre>
+        </div>
+
+        <script>
+            let str = 'Дана строка. Выведите на экран ее последний символ';
+            console.log(`(let str = 'Дана строка. Выведите на экран ее последний символ'; str[str.length - 1]) = `, (str[str.length - 1])); //
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Дана строка. Выведите на экран ее предпоследний символ.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str1 = 'Дана строка. Выведите на экран ее предпоследний символ';
+<span class="-n"></span>alert(str1[str1.length - 2]); // выведет 'о'
+</pre>
+        </div>
+
+        <script>
+            let str1 = 'Дана строка. Выведите на экран ее последний символ';
+            console.log(`(str1[str1.length - 2]) = `, (str1[str1.length - 2])); //
+        </script>
+
+        <h3>Задача 3</h3>
+
+        <p>Дана строка. Выведите на экран ее предпредпоследний символ. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str2 = 'Дана строка. Выведите на экран ее предпредпоследний символ';
+<span class="-n"></span>alert(str2[str2.length - 2]); // выведет 'о'
+</pre>
+        </div>
+
+        <script>
+            let str2 = 'Дана строка. Выведите на экран ее предпредпоследний символ';
+            console.log(`(str2[str2.length - 3]) = `, (str2[str2.length - 3])); //
+        </script>
 
     </main>
 

@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-26-kLogTipy.html">Преобразование к
+                логическому типу в JavaScript</a>
+            <a data-mCurr="T" href="01-28-poslSimvolStroki.html">Последний символ строки в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,148 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Получение символов строки на JavaScript</h2>
+        <p>
+            Пусть у нас есть какая-то строка. Каждый символ в этой строке имеет свой порядковый номер: первый символ
+            номер
+            0, второй
+            символ - номер 1, третий символ номер 2 и так далее. <br>
+            <br>
+            Как вы уже заметили, нумерация символов начинается с нуля (ноль как начало нумерации часто встречается в
+            программировании).<br>
+            <br>
+            При необходимости можно получить доступ к определенному символу строки по его номеру. Для этого пишется имя
+            переменной,
+            после этого имени ставятся квадратные скобки и в этих скобках указывается номер символа.<br>
+            <br>
+            Давайте посмотрим на примере. Пусть у нас дана вот такая строка:
+        </p>
+
+        let str = 'abcde';
+
+        <p> Давайте обратимся к каким-нибудь символам этой строки:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abcde';
+<span class="-n"></span>
+<span class="-n"></span>alert(str[0]); // выведет 'a'
+<span class="-n"></span>alert(str[1]); // выведет 'b'
+<span class="-n"></span>alert(str[2]); // выведет 'c'
+
+</pre>
+        </div>
+
+        <script>
+            let str = 'abcde';
+            console.log(`let str = 'abcde'; (str[0]) = `, (str[0])); //
+            console.log(`let str = 'abcde'; (str[1]) = `, (str[1])); //
+            console.log(`let str = 'abcde'; (str[2]) = `, (str[2])); //
+        </script>
+
+        <p> Номер символа также может хранится и в переменной: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = 'abcde';
+<span class="-n"></span>let num = 3; // номер символа в переменной
+<span class="-n"></span>
+<span class="-n"></span>alert(str[num]); // выведет 'd'
+
+</pre>
+        </div>
+
+        <script>
+            let strok = 'abcde';
+            let numer = 3;
+            console.log(`let str1 = 'abcde'; let num = 3; (str[num])) = `, (strok[numer])); //
+        </script>
+
+        <h3> Задача 1</h3>
+
+        <p> Дана строка 'abcde'. Обращаясь к отдельным символам этой строки выведите на экран символ 'a', символ 'c',
+            символ 'e'. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str1 = 'abcde';
+<span class="-n"></span>let num11 = 0;
+<span class="-n"></span>let num12 = 2;
+<span class="-n"></span>let num13 = 4;
+<span class="-n"></span>
+<span class="-n"></span>alert(str1[num1]); // выведет 'a'
+<span class="-n"></span>alert(str1[num11]); // выведет 'c'
+</pre>
+        </div>
+
+        <script>
+            let str1 = 'abcde';
+            let num11 = 0;
+            let num12 = 2;
+            let num13 = 4;
+            console.log(`let str1 = 'abcde'; let num11 = 0; (str1[num11])) = `, (str1[num11])); //
+            console.log(`let str1 = 'abcde'; let num12 = 2; (str1[num12])) = `, (str1[num12])); //
+            console.log(`let str1 = 'abcde'; let num13 = 4; (str1[num13])) = `, (str1[num13])); //
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Дана переменная со строкой 'abcde'. Обращаясь к отдельным символам этой строки запишите в новую переменную
+            символы этой
+            строки в обратном порядке, то есть 'edcba'.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str2 = 'abcde';
+<span class="-n"></span>let num21 = 0;
+<span class="-n"></span>let num22 = 1;
+<span class="-n"></span>let num23 = 2;
+<span class="-n"></span>let num24 = 3;
+<span class="-n"></span>let num25 = 4;
+<span class="-n"></span>
+<span class="-n"></span>alert(str2[num25]+ str2[num24] + str2[num23] + str2[num22] + str2[num21]);
+</pre>
+        </div>
+
+        <script>
+            let str2 = 'abcde';
+            let num21 = 0;
+            let num22 = 1;
+            let num23 = 2;
+            let num24 = 3;
+            let num25 = 4;
+            console.log(`let str2 = 'abcde';  let num21 = 0; let num22 = 1; let num23 = 2; let num24 = 3; let num25 = 4; (str2[num25] + str2[num24] + str2[num23] + str2[num22] + str2[num21])  = `, (str2[num25] + str2[num24] + str2[num23] + str2[num22] + str2[num21])); //
+
+        </script>
+
+
+        <h2> Неизменяемость строк </h2>
+        Символы строк можно читать, но нельзя изменять. Следующий пример кода выдаст ошибку (в строгом режиме):
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+    <span class="-n"></span>let str = 'abcde';
+    <span class="-n"></span>str[0] = '!';
+
+    <span class="-n"></span>alert(); ошибка
+    </pre>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

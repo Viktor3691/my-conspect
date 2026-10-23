@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-30-sokrOperazii.html">Сокращенные операции
+                в JavaScript</a>
+            <a data-mCurr="T" href="01-32-netochnieVichislenia.html">Неточные вычисления в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,9 +38,373 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Операции инкремента и декремента в JavaScript</h2>
+
+        <p>Рассмотрим следующий код:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 0;
+<span class="-n"></span>num = num + 1; // прибавляем к переменной num число 1
+<span class="-n"></span>alert(num); // выведет 1
+</div>
+
+        <p> Как вы уже знаете, этот код можно переписать в сокращенном виде через оператор +=:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num = 0;
+<span class="-n"></span>num += 1; // прибавляем к переменной num число 1
+<span class="-n"></span>alert(num); // выведет 1
+</div>
+
+        <p> На самом деле прибавление единицы в программировании встречается так часто, что для этой операции придуман
+            еще
+            более
+            сокращенный синтаксис - специальный оператор инкремент ++, увеличивающий значение переменной на 1. <br>
+            <br>
+            Перепишем наш код с его помощью:
+        </p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num = 0;
+<span class="-n"></span>num++; // прибавляем к переменной a число 1
+<span class="-n"></span>alert(num); // выведет 1
+</div>
+
+        <p> Есть также операция декремент --, уменьшающая значение переменной на 1. Смотрите пример:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num = 0;
+<span class="-n"></span>num--; // отнимаем от переменной num число 1
+<span class="-n"></span>alert(num); // выведет -1
+</div>
+
+        <h3>Задача 1 </h3>
+
+         <p>Переделайте этот код так, чтобы в нем операции инкремента и декремента:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num = 10;
+<span class="-n"></span>num = num + 1;
+<span class="-n"></span>num = num + 1;
+<span class="-n"></span>num = num - 1;
+<span class="-n"></span>alert(num);
+</div>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num = 10;
+<span class="-n"></span>num++;
+<span class="-n"></span>num++;
+<span class="-n"></span>num--;
+<span class="-n"></span>alert(num); // 11
+</div>
+
+<script>
+    let num = 10;
+    num++;
+    num++;
+    num--;
+
+    console.log(`
+    let num = 10;
+    num++;
+    num++;
+    num--;
+    num = `, num);
+</script>
+
+ <h2>Префиксный и постфиксный тип</h2>
+
+ <p>На самом деле операции инкремента и декремента можно записывать двумя способами. Давайте рассмотрим эти способы на
+примере ++, а для -- все будет аналогично. <br>
+<br>
+В первом способе операция записывается после имени переменной, вот так: a++, а во втором способе - перед именем
+переменной, вот так: ++a.<br>
+<br>
+Первая форма называется постфиксной, а вторая - префиксной. Давайте посмотрим, в каких случаях проявляется разница между
+этими двумя формами.<br>
+<br>
+Пусть у нас есть код alert(a++) и код alert(++a).<br>
+<br>
+В случае alert(a++) переменная сначала выведется, а потом увеличится на единицу, а в случае alert(++a) переменная
+сначала увеличится на единицу, а потом выведется.<br>
+
+В следующем примере первый alert выведет 0, так как вначале сработает вывод на экран, а уже затем переменная увеличится:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num = 0;
+<span class="-n"></span>alert(num++); // выведет 0
+<span class="-n"></span>alert(num); // выведет 1
+</div>
+
+ <p>А теперь переменная вначале увеличится, а уже затем будет вывод на экран:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num = 0;
+<span class="-n"></span>alert(++num); // выведет 1 - переменная увеличилась сразу
+</div>
+
+ <p>Такое поведение справедливо не только для вывода на экран, но и для присваивания:</p>
 
 
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num1 = 0;
+<span class="-n"></span>let num2 = num1++; // в переменную num2 запишется 0
+<span class="-n"></span>alert(num2); // выведет 0
+<span class="-n"></span>alert(num1); // выведет 1 - переменная num1 поменялась после записи в num2
+</div>
+
+ <p>А теперь поменяем постфиксную форму на префиксную:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num1 = 0;
+<span class="-n"></span>let num2 = ++num1; // в переменную num2 запишется 1
+<span class="-n"></span>alert(num2); // выведет 1
+</div>
+
+ <p>Если наша операция выполняется на отдельной строке, то разницы между префиксной и постфиксной формами нет:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num = 0;
+<span class="-n"></span>++num;
+<span class="-n"></span>num++;
+<span class="-n"></span>alert(num); // выведет 2
+</div>
+
+ <h3>Задача 2</h3>
+
+ <p>Не запуская код, определите, что выведется на экран:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num = 3;
+<span class="-n"></span>alert(++num); // 4
+</div>
+
+<script>
+    let num1 = 3;
+    console.log(`
+    let num1 = 3;
+    ++num1 = `, ++num1);
+</script>
+
+<h3>Задача 3 </h3>
+
+ <p>Не запуская код, определите, что выведется на экран:</p>
+
+ <div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num3 = 3;
+<span class="-n"></span>alert(num3++); // 3
+</div>
+
+<script>
+    let num3 = 3;
+    console.log(`
+    let num3 = 3;
+    num3++ = `, num3++);
+</script>
+
+ <h3>Задача 4</h3>
+
+ <p>Не запуская код, определите, что выведется на экран:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num4 = 3;
+<span class="-n"></span>alert(--num4); // 2
+</div>
+
+<script>
+    let num4 = 3;
+    console.log(`
+    let num4 = 3;
+    --num4 = `, --num4);
+</script>
+
+ <h3>Задача 5</h3>
+
+ <p>Не запуская код, определите, что выведется на экран:</p>
+
+ <div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num5 = 3;
+<span class="-n"></span>alert(num5--); // 3
+</div>
+
+<script>
+    let num5 = 3;
+    console.log(`
+    let num5 = 3;
+    num5-- = `, num5--);
+</script>
+
+ <h3>Задача 6</h3>
+
+ <p>Не запуская код, определите, что выведется на экран:</p>
+
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num61 = 3;
+<span class="-n"></span>let num62 = ++num61;
+<span class="-n"></span>alert(num61); // 4
+<span class="-n"></span>alert(num62); // 4
+</div>
+
+<script>
+    let num61 = 3;
+    let num62 = ++num61;
+    console.log(`
+let num61 = 3;
+let num62 = ++num61;
+num61 = `, num61);
+
+    console.log(`
+let num61 = 3;
+let num62 = ++num61;
+num62 = `, num62);
+</script>
+
+
+
+<h3>Задача 7 </h3>
+
+ <p>Не запуская код, определите, что выведется на экран:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num71 = 3;
+<span class="-n"></span>let num72 = num71++;
+<span class="-n"></span>alert(num71); // 4
+<span class="-n"></span>alert(num72); // 3
+</div>
+
+<script>
+    let num71 = 3;
+    let num72 = num71++;
+    console.log(`
+let num71 = 3;
+let num72 = num71++;
+num71 = `, num71);
+
+    console.log(`
+let num71 = 3;
+let num72 = num71++;
+num72 = `, num72);
+</script>
+
+<h3>Задача 8 </h3>
+
+ <p>Не запуская код, определите, что выведется на экран:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num81 = 3;
+<span class="-n"></span>let num82 = --num81;
+<span class="-n"></span>alert(num81); // 2
+<span class="-n"></span>alert(num82); // 2
+</div>
+
+<script>
+    let num81 = 3;
+    let num82 = --num81;
+    console.log(`
+let num81 = 3;
+let num82 = --num81;
+num81 = `, num81);
+
+    console.log(`
+let num81 = 3;
+let num82 = --num81;
+num82 = `, num82);
+</script>
+
+<h3>Задача 9 </h3>
+
+ <p>Не запуская код, определите, что выведется на экран:</p>
+
+ <div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num91 = 3;
+<span class="-n"></span>let num92 = num91--;
+<span class="-n"></span>alert(num91); // 2
+<span class="-n"></span>alert(num92); // 3
+</div>
+
+<script>
+    let num91 = 3;
+    let num92 = num91--;
+    console.log(`
+let num91 = 3;
+let num92 = num91--;
+num91 = `, num91);
+
+    console.log(`
+let num91 = 3;
+let num92 = num91--;
+num92 = `, num92);
+</script>
+
+ <h3>Задача 10</h3>
+
+ <p>Не запуская код, определите, что выведется на экран:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num101 = 3;
+<span class="-n"></span>num101++;
+<span class="-n"></span>let num102 = num101--;
+<span class="-n"></span>alert(num101++); // 3
+<span class="-n"></span>alert(--num102); // 3
+</div>
+
+<script>
+    let num101 = 3;
+    num101++;
+    let num102 = num101--;
+    console.log(`
+let num101 = 3;
+num101++;
+let num102 = num101--
+num101++ = `, num101++);
+
+    console.log(`
+let num101 = 3;
+num101++;
+let num102 = num101--
+--num102 = `, --num102);
+</script>
 
     </main>
 

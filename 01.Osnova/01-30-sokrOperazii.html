@@ -44,29 +44,140 @@
             эту же
             переменную. Смотрите пример:</p>
 
-        let num = 1; // объявляем переменную num и записываем в нее значение 1
-        num = num + 2; // записываем в num ее саму плюс 2
-        alert(num); // выведет 3
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 1; // объявляем переменную num и записываем в нее значение 1
+<span class="-n"></span>num = num + 2; // записываем в num ее саму плюс 2
+<span class="-n"></span>alert(num); // выведет 3
+</div>
 
         <h3>Задача 1</h3>
 
         <p>Не запуская код, определите, что выведется на экран:</p>
 
-        let num = 1;
-        num = num + 1;
-        num = num + 1;
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num = 1;
+<span class="-n"></span>num = num + 1;
+<span class="-n"></span>num = num + 1;
+<span class="-n"></span>
+<span class="-n"></span>alert(num); // 3
+</div>
 
-        alert(num);
+        <script>
+            let num = 1;
+            num = num + 1;
+            num = num + 1;
+
+            console.log(`
+            let num = 1;
+            num = num + 1;
+            num = num + 1;
+            num = `, num);
+        </script>
 
         <h3>Задача 2</h3>
 
         <p>Не запуская код, определите, что выведется на экран:</p>
 
-        let num = 1;
-        num = num + 2;
-        num = num + 3;
 
-        alert(num);
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num = 1;
+<span class="-n"></span>num = num + 2;
+<span class="-n"></span>num = num + 3;
+<span class="-n"></span>
+<span class="-n"></span>alert(num); // 6
+</div>
+
+<script>
+    let num2 = 1;
+    num2 = num2 + 2;
+    num2 = num2 + 3;
+
+    console.log(`
+let num2 = 1;
+num2 = num2 + 2;
+num2 = num2 + 3;
+num2 = `, num2);
+</script>
+
+ <h2>Сокращенные операции</h2>
+
+<p>Для таких операций, когда в переменную записывается ее текущее значение плюс еще что-то, существует специальный
+сокращенный синтаксис. В этом синтаксисе вместо обычного присваивания применяется специальный оператор +=. Давайте
+посмотрим на примере: </p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num = 1;
+<span class="-n"></span>num += 3; // эквивалентно num = num + 3;
+</div>
+
+ <p>Существуют аналогичные операторы для остальных математических операций:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num = 2;
+<span class="-n"></span>num -= 3; // эквивалентно num = num - 3;
+</div>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num = 2;
+<span class="-n"></span>num *= 3; // эквивалентно num = num * 3;
+</div>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num = 2;
+<span class="-n"></span>num /= 3; // эквивалентно num = num / 3;
+</div>
+
+ <h3>Задача 3</h3>
+
+ <p>Переделайте этот код так, чтобы в нем использовались описанные сокращенные операции:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num3 = 47;
+<span class="-n"></span>num3 = num3 + 7;
+<span class="-n"></span>num3 = num3 - 18;
+<span class="-n"></span>num3 = num3 * 10;
+<span class="-n"></span>num3 = num3 / 15;
+<span class="-n"></span>alert(num); // 24
+</div>
+
+<script>
+    let num3 = 47;
+    num3 = num3 + 7;
+    num3 = num3 - 18;
+    num3 = num3 * 10;
+    num3 = num3 / 15;
+    console.log(`
+let num3 = 47;
+num3 = num3 + 7;
+num3 = num3 - 18;
+num3 = num3 * 10;
+num3 = num3 / 15;
+num3 = `, num3);
+</script>
+
+
+
+
+
+
+
+
 
 
 

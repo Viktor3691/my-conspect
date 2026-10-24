@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-33-funkziaPrompt.html">Функция prompt в
+                JavaScript</a>
+            <a data-mCurr="T" href="01-35-poiskOshibok.html">Поиск ошибок в коде</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,206 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Вывод текста в документ в JavaScript</h2>
+
+        <p>Средствами JavaScript можно управлять тегами HTML страницы, например, выводить в них текст. Этому мы будем
+            учиться
+            позднее, когда будем проходить раздел, посвященный работе с DOM. <br>
+            <br>
+            Иногда, однако, в отладочных целях требуется вывести какой-нибудь текст в окно браузера. Это делается с
+            помощью команды
+            document.write. Посмотрим работу с ней на примерах.
+        </p>
+
+        <h3>Пример 1</h3>
+
+        <p>Выведем числовое значение:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+        <span class="-n"></span>document.write(123);
+        <span class="-n"></span>
+        </div>
+
+        <script>
+            document.write(123);
+        </script>
+
+
+        <h3>Пример 2</h3>
+
+        <p>Выведем какой-нибудь текст:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>document.write('text');
+<span class="-n"></span>
+</div>
+
+<script>
+    document.write('text');
+</script>
+
+
+        <h3>Пример 3 </h3>
+
+        <p>Выведем текст, заключенный в теги:</p>
+
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>document.write('<b>text</b>');
+<span class="-n"></span>
+</div>
+
+<script>
+    document.write('<b>text</b>');
+</script>
+
+        <h3>Пример 4 </h3>
+
+        <p>Выведем текст из переменной:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let str = 'text';
+<span class="-n"></span>document.write(str);
+</div>
+
+<script>
+    let str = 'text';
+    document.write(str);
+</script>
+
+        <h3>Пример 5 </h3>
+
+        <p>Заключим текст из переменной в теги:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let str5 = 'text';
+<span class="-n"></span>document.write('<b>' + str5 + '</b>');
+</div>
+
+<script>
+    let str5 = 'text';
+    document.write('<b>' + str5 + '</b>');
+</script>
+
+        <h3>Пример 6 </h3>
+
+        <p>Выведем текст с два ряда: </p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>document.write('text <br> text');
+<span class="-n"></span>
+</div>
+
+        <script>
+            document.write('text <br> text');
+        </script>
+
+        <h3>Пример 7</h3>
+
+        <p>Выведем много текстов в колонку:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>document.write('text1< br>');
+<span class="-n"></span>document.write('text2< br>');
+<span class="-n"></span>document.write('text3< br>');
+</div>
+
+<script>
+    document.write('text1<br>');
+    document.write('text2<br>');
+    document.write('text3<br>');
+</script>
+
+
+        <h3>Пример 8</h3>
+
+        <p>Можно и вот так:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>document.write('text');
+<span class="-n"></span>document.write('< br>');
+<span class="-n"></span>document.write('text');
+</div>
+
+<script>
+    document.write('text');
+    document.write('<br>');
+    document.write('text');
+</script>
+
+ <h2>Практические задачи</h2>
+
+<h3>Задача 1 </h3>
+
+ <p>Выведите в окно браузера какой-нибудь текст.</p>
+
+ <script>
+    document.write('какой-нибудь текст.');
+</script>
+
+
+<h3>Задача 2 </h3>
+
+ <p>Выведите в окно браузера какой-нибудь текст, сделав его курсивным.</p>
+
+ <script>
+    document.write(' <i>сделав его курсивным</i> ');
+</script>
+
+ <h3>Задача 3</h3>
+
+ <p>Дана переменная: let str3 = 'text';</p>
+
+ <p>Выведите текст из переменной в окно браузера так, чтобы он был курсивным.</p>
+
+ <script>
+    let str3 = 'text';
+    document.write(`<i>str3</i>`);
+
+</script>
+
+<h3>Задача 4 </h3>
+
+ <p>Выведите в окно браузера столбец чисел от 1 до 5.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

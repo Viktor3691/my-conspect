@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-32-netochnieVichislenia.html">Неточные
+                вычисления в JavaScript</a>
+            <a data-mCurr="T" href="01-34-vivodVDolument.html">Вывод текста в документ в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,9 +38,123 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Функция prompt в JavaScript</h2>
+
+        <p>Вы уже знаете о существовании функции alert, выводящей заданное сообщение на экран. Существует также похожая
+            функция
+            prompt, которая позволяет получить от пользователя какой-либо текст.
+
+            Давайте для примера спросим имя пользователя: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>prompt('Ваше имя?');
+<span class="-n"></span>
+</div>
+
+        <p>Запустите приведенный выше код, чтобы увидеть окошко, выводимое функцией prompt. Вбейте ваше имя и нажмите на
+            кнопку.
+            Если вы проделали все описанные выше манипуляции, то введенное вами имя попадет в наш скрипт.
+
+            Для того, чтобы получить доступ к введенному имени, результат работы функции prompt нужно присвоить в
+            какую-нибудь
+            переменную, например, вот так: </p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let name = prompt('Ваше имя?');
+</div>
+
+        <p>Давайте на следующей строке кода выведем на экран введенное ранее имя, воспользовавшись функцией alert: </p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let name = prompt('Ваше имя?');
+<span class="-n"></span>alert('Ваше имя: ' + name);
+</div>
+
+        <p>Вы должны понимать, что при вызове функции prompt дальнейшее выполнение скрипта блокируется, пока не будут
+            введены
+            соответствующие данные. В общем-то, также работает и функция alert, только она ожидает нажатия на
+            соответствующую
+            кнопку.
+
+            Кстати, использовать переменную не обязательно: </p>
+
+            <div data-w="bock/code">
+                script.js
+                <pre>
+<span class="-n"></span>let name = prompt('Ваше имя?');
+<span class="-n"></span>alert('Ваше имя: ' + prompt('Ваше имя?'));
+</div>
 
 
+ <h3>Задача 1</h3>
+
+<p>Спросите возраст пользователя с помощью функции prompt. Выведите с помощью alert введенный пользователем возраст. </p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let name = prompt('Ваш возраст?');
+<span class="-n"></span>alert('Ваш возраст: ' + prompt('Ваш возраст?'));
+</div>
+
+ <h2>Проблема с типами</h2>
+
+ <p>Учтите, что функция prompt всегда возвращает строку, даже если пользователь вводил число. Для примера рассмотрите
+следующий скрипт:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num1 = prompt('Введите первое число');
+<span class="-n"></span>let num2 = prompt('Введите второе число');
+<span class="-n"></span>
+<span class="-n"></span>alert(num1 + num2); // сложит числа как строки
+</div>
+
+<h3>Задача 2 </h3>
+
+ <p>Переделайте приведенный выше код так, чтобы суммировались числа, а не строки.</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num1 = prompt('Введите первое число');
+<span class="-n"></span>let num2 = prompt('Введите второе число');
+<span class="-n"></span>
+<span class="-n"></span>alert(+num1 + +num2); // сложит числа как строки
+</div>
+
+<h3>Задача 3 </h3>
+
+<p>С помощью функции prompt спросите у пользователя сторону квадрата. Выведите на экран площадь введенного квадрата. </p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let sKv = prompt('сторона квадрата');
+<span class="-n"></span>let sKv = a * a;
+<span class="-n"></span>console.log(`Площадь квадрата`, sKv);
+</div>
+
+ <h3>Задача 4</h3>
+
+<p>С помощью двух функций prompt спросите у пользователя стороны прямоугольника. Выведите на экран периметр введенного
+прямоугольника. </p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let b = prompt('1 сторона квадрата');
+<span class="-n"></span>let c = prompt('2 сторона квадрата');
+<span class="-n"></span>let sP = b * c;
+<span class="-n"></span>console.log(`Площадь квадрата`, sP);
+</div>
 
     </main>
 

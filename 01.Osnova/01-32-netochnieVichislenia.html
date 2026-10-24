@@ -22,8 +22,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-31-inkrimtnt@dikriment.html">Операции
+                инкремента и декремента в JavaScript</a>
+            <a data-mCurr="T" href="01-33-funkziaPrompt.html">Функция prompt в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -36,7 +38,86 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Неточные вычисления в JavaScript</h2>
+
+        <p>Дроби хранятся в компьютерах в таком виде, что часто могут быть представлены неточно. В этом случае вас может
+            ждать
+            некоторый сюрприз, когда банальная операция выдает странный результат. Пример: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 0.1 + 0.2;
+<span class="-n"></span>alert(a); // выведет 0.30000000000000004
+</div>
+
+        <p>Для борьбы с таким поведением можно применить специальный метод toFixed, выполняющий округление до заданного
+            знака в
+            дробной части. Давайте округлим наш результат:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let a = 0.1 + 0.2;
+<span class="-n"></span>alert(a.toFixed(2)); // выведет '0.30'
+</div>
+
+        <p>Метод toFixed отдает результат в виде строки. Можно преобразовать его результат в число:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let a = 0.1 + 0.2;
+<span class="-n"></span>alert(+a.toFixed(2)); // выведет 0.3
+</div>
+
+        <h3>Задача 1</h3>
+
+        <p>Проверьте, что будет результатом следующей операции:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>alert(0.1 * 0.2); // 0.020000000000000004
+</div>
+
+<script>
+    console.log(`console.log((0.1 * 0.2) = `, 0.1 * 0.2);
+</script>
+
+        <h3>Задача 2</h3>
+
+        <p>Проверьте, что будет результатом следующей операции:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>alert(0.3 - 0.1); // 0.19999999999999998
+</div>
+
+        <script>
+            console.log(`console.log((0.3 - 0.1) = `, (0.3 - 0.1));
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

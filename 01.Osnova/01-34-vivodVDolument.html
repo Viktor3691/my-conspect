@@ -19,6 +19,7 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-01-osnovy.html">Основы</a>
+            <a href="01-34-vivodVDolument.html">34 of 312</a>
         </div>
 
         <div data-e="subb">
@@ -187,8 +188,14 @@ script.js
 
  <p>Выведите в окно браузера какой-нибудь текст.</p>
 
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>document.write('text text text text text.');
+</div>
+
  <script>
-    document.write('какой-нибудь текст.');
+    document.write('text text text text text.');
 </script>
 
 
@@ -196,8 +203,14 @@ script.js
 
  <p>Выведите в окно браузера какой-нибудь текст, сделав его курсивным.</p>
 
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>document.write(' &lt;i&gt;text text text text text&lt;/i&gt; ');
+</div>
+
  <script>
-    document.write(' <i>сделав его курсивным</i> ');
+    document.write(' <i>text text text text text</i> ');
 </script>
 
  <h3>Задача 3</h3>
@@ -206,16 +219,43 @@ script.js
 
  <p>Выведите текст из переменной в окно браузера так, чтобы он был курсивным.</p>
 
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let str3 = 'text';
+<span class="-n"></span>document.write(`&lt;i&gt;` + str3 + `&lt;/i&gt;`);
+</div>
+
+
+
  <script>
     let str3 = 'text';
-    document.write(`<i>str3</i>`);
-
+    document.write(`<i>` + str3 + `</i>`);
 </script>
 
 <h3>Задача 4 </h3>
 
  <p>Выведите в окно браузера столбец чисел от 1 до 5.</p>
 
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>document.write('1&lt;br&gt;');
+<span class="-n"></span>document.write('2&lt;br&gt;');
+<span class="-n"></span>document.write('3&lt;br&gt;');
+<span class="-n"></span>document.write('4&lt;br&gt;');
+<span class="-n"></span>document.write('5&lt;br&gt;');
+</div>
+
+
+
+<script>
+    document.write('1<br>');
+    document.write('2<br>');
+    document.write('3<br>');
+    document.write('4<br>');
+    document.write('5<br>');
+</script>
 
 
 

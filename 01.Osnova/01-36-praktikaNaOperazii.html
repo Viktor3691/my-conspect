@@ -23,8 +23,10 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-35-poiskOshibok.html">Поиск ошибок в
+                коде</a>
+            <a data-mCurr="T" href="01-37-praktikaNaFormuli.html">Практика на формулы в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
     </header>
 
@@ -37,9 +39,233 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Практика на операции в JavaScript</h2>
+
+        <p>Давайте узнаем сколько секунд в часе. Как известно, в минуте 60 секунд, а в часе - 60 минут. Следовательно,
+            чтобы найти
+            количество секунд в часе, необходимо 60 умножить на 60:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let sek = 60;
+<span class="-n"></span>let min = 60;
+<span class="-n"></span>let ch = 60*60;
+<span class="-n"></span>console.log('`количество секунд в часе:`, ch); //  3600
+</div>
 
 
+        <script>
+            let sek = 60;
+            let min = 60;
+            let res = sek * min;
+            console.log(`количество секунд в часе:`, res)
+        </script>
+
+
+
+        <h3>Задача 1</h3>
+
+        <p>Найдите количество секунд в сутках.</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let sek1 = 60;
+<span class="-n"></span>let min1 = 60;
+<span class="-n"></span>let ch1 = 24;
+<span class="-n"></span>let res1 = sek1 * min1 * ch1;
+<span class="-n"></span>console.log(`количество секунд в сутках:`, res1); // 86400
+</div>
+
+                <script>
+                    let sek1 = 60;
+                    let min1 = 60;
+                    let ch1 = 24;
+                    let res1 = sek1 * min1 * ch1;
+                    console.log(`количество секунд в сутках:`, res1);
+                </script>
+
+
+
+        <h3>Задача 2</h3>
+
+        <p>Найдите количество секунд в 30 сутках.</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let sek2 = 60;
+<span class="-n"></span>let min2 = 60;
+<span class="-n"></span>let ch2 = 24;
+<span class="-n"></span>let sut2 = 30;
+<span class="-n"></span>let res2 = sek2 * min2 * ch2 * sut2;
+<span class="-n"></span>console.log(`количество секунд в 30 сутках:`, res2); // 2592000
+</div>
+
+<script>
+    let sek2 = 60;
+    let min2 = 60;
+    let ch2 = 24;
+    let sut2 = 30;
+    let res2 = sek2 * min2 * ch2 * sut2;
+    console.log(`количество секунд в 30 сутках:`, res2);
+</script>
+
+        <h3>Задача 3</h3>
+
+        <p>Найдите количество секунд в году.</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let sek3 = 60;
+<span class="-n"></span>let min3 = 60;
+<span class="-n"></span>let ch3 = 24;
+<span class="-n"></span>let sut3 = 365;
+<span class="-n"></span>let res3 = sek3 * min3 * ch3 * sut3;
+<span class="-n"></span>console.log(`количество секунд в году:`, res3); // 31536000
+</div>
+
+<script>
+    let sek3 = 60;
+    let min3 = 60;
+    let ch3 = 24;
+    let sut3 = 365;
+    let res3 = sek3 * min3 * ch3 * sut3;
+    console.log(`количество секунд в году:`, res3);
+</script>
+
+
+        <h3>Задача 4</h3>
+
+        <p>Найдите количество минут в сутках.</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let min4 = 60;
+<span class="-n"></span>let ch4 = 24;
+<span class="-n"></span>let res4 = min4 * ch4;
+<span class="-n"></span>console.log(`количество минут в сутках:`, res4); // 1440
+</div>
+
+<script>
+    let min4 = 60;
+    let ch4 = 24;
+    let res4 = min3 * ch3;
+    console.log(`количество минут в сутках:`, res4);
+</script>
+
+        <h3>Задача 5</h3>
+
+        <p>Найдите количество минут в году.</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let min5 = 60;
+<span class="-n"></span>let ch5 = 24;
+<span class="-n"></span>let sut5 = 365;
+<span class="-n"></span>let res5 = min5 * ch5 * sut5;
+<span class="-n"></span>console.log(`количество минут в году:`, res5); // 525600
+</div>
+
+<script>
+    let min5 = 60;
+    let ch5 = 24;
+    let sut5 = 365;
+    let res5 = min5 * ch5 * sut5;
+    console.log(`количество минут в году:`, res5);
+</script>
+
+
+        <h3>Задача 6</h3>
+
+        <p>Найдите количество байт в мегабайте.
+            В двоичной системе (так считают многие операционные системы и старые стандарты):
+            1 МБ =1024 КБ = 1 048 576 байт 1МБ=1024КБ=1048576байт.
+        </p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let MB = 2**20;
+<span class="-n"></span>console.log(`количество байт в мегабайте`, MB); //
+</div>
+<script>
+    let MB = 2 ** 20;
+    console.log(`количество байт в мегабайте let MB = 2**20;`, MB);
+</script>
+
+
+        <h3>Задача 7</h3>
+
+        <p>Найдите количество байт в гигабайте.</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let GiB = 2**30;
+<span class="-n"></span>console.log(`количество байт в гигабайте`, GiB); // 1 073 741 824
+</div>
+<script>
+    let GiB = 2 ** 30;
+    console.log(`количество байт в гигабайте let GiB = 2**30;`, GiB);
+</script>
+
+        <h3>Задача 8</h3>
+
+        <p>Найдите количество байт в 10 гигабайтах.</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>GiB = 2**30;
+<span class="-n"></span>let res8 = GiB * 10;
+<span class="-n"></span>console.log(`количество байт в 10 гигабайтах`, res8); // 10 737 418 240
+</div>
+
+        <script>
+            GiB = 2 ** 30;
+            let res8 = GiB * 10;
+            console.log(`количество байт в 10 гигабайтах`, res8);
+        </script>
+
+        <h3>Задача 9</h3>
+
+        <p>Найдите количество байт в терабайте.</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let TiB = 2**40;
+<span class="-n"></span>console.log(`количество байт в терабайте`, TiB); // 1 099 511 627 776
+</div>
+
+
+                <script>
+                    let TiB = 2 ** 40;
+                    console.log(`количество байт в терабайте`, TiB);
+                </script>
+
+        <h3>Задача 10</h3>
+
+        <p>Найдите количество килобайт в терабайте.</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let TiB = 2**40;
+<span class="-n"></span>let res10 = TiB/1024;
+<span class="-n"></span>console.log(`количество килобайт в терабайте`, res10); // 1073741824
+</div>
+
+<script>
+    TiB = 2 ** 40;
+    let res10 = TiB / 1024;
+    console.log(`количество килобайт в терабайте`, res10);
+</script>
 
     </main>
 

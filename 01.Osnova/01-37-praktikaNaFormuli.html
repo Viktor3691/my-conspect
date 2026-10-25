@@ -23,9 +23,8 @@
         </div>
 
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
-            <a data-mCurr="T" href="#l">#</a><span class="arrow-right">&rarr;</span>
-        </div>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="01-36-praktikaNaOperazii.html">Практика на
+                операции в JavaScript</a>
     </header>
 
     <div data-w="nict/them">
@@ -37,9 +36,140 @@
 
     <main data-w="cont/pane">
 
-        <h2>заглавие</h2>
+        <h2>Практика на формулы в JavaScript</h2>
+
+        <h3>Задача 1</h3>
+
+        <p>Пусть дана переменная r с радиусом круга. По соответствующей формуле найдите площадь круга и запишите ее в
+            переменную s.
+            Выведите содержимое этой переменной на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const PI = 3.14;
+<span class="-n"></span>let r1= 10;
+<span class="-n"></span>let s1= PI*r1**2;
+<span class="-n"></span>console.log(`площадь круга:`, s1); //314
+</div>
+
+        <script>
+            const PI = 3.14;
+            let r1 = 10;
+            let s1 = PI * r1 ** 2;
+            console.log(`площадь круга:`, s1);
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Пусть дана переменная a со стороной квадрата. Найдите площадь квадрата и запишите ее в переменную s. Выведите
+            содержимое
+            этой переменной на экран.</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let a2= 10;
+<span class="-n"></span>let s2= a2*a2;
+<span class="-n"></span>console.log(`площадь квадрата:`, s2); // 100
+</div>
+
+<script>
+    let a2 = 10;
+    let s2 = a2 * a2;
+    console.log(`площадь квадрата:`, s2);
+</script>
 
 
+
+        <h3> Задача 3</h3>
+
+        <p>Пусть даны переменные a и b со сторонами прямоугольника. Найдите площадь прямоугольника и запишите ее в
+            переменную s.
+            Выведите содержимое этой переменной на экран.</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a3= 10;
+<span class="-n"></span>let b3= 12;
+<span class="-n"></span>let s3= a3*b3;
+<span class="-n"></span>console.log(`площадь прямоугольника:`, s3); // 120
+</div>
+
+<script>
+    let a3 = 10;
+    let b3 = 12;
+    let s3 = a3 * b3;
+    console.log(`площадь прямоугольника:`, s3);
+</script>
+
+        <h3>Задача 4</h3>
+
+        <p>Пусть даны переменные a и b со сторонами прямоугольника. Найдите периметр прямоугольника и запишите его в
+            переменную p.
+            Выведите содержимое этой переменной на экран.</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a4= 10;
+<span class="-n"></span>let b4= 12;
+<span class="-n"></span>let s4= (a4*2) + (b4*2);
+<span class="-n"></span>console.log(`периметр прямоугольника:`, s4); // 44
+</div>
+
+<script>
+    let a4 = 10;
+    let b4 = 12;
+    let s4 = (a4 * 2) + (b4 * 2);
+    console.log(`периметр прямоугольника:`, s4);
+</script>
+
+
+        <h3>Задача 5</h3>
+
+        <p>Пусть дана переменная tc с температурой в градусах Цельсия. По соответствующей формуле выполните перевод этой
+            температуры в градусы Фаренгейта.</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let tc5= 20;
+<span class="-n"></span>let tf5 = (tc * 9/5) + 32;
+<span class="-n"></span>console.log(`температура в  Фаренгейт:`, tf5); // 68
+</div>
+
+<script>
+    let tc5 = 20;
+    let tf5 = (tc5 * 9 / 5) + 32;
+    console.log(`let tc5 = 20; температура в  Фаренгейт:`, tf5);
+</script>
+
+
+        <h3>Задача 6</h3>
+
+        <p>Пусть дана переменная tf с температурой в градусах Фаренгейта. По соответствующей формуле выполните перевод
+            этой
+            температуры в градусы Цельсия.</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let tf6= 100;
+<span class="-n"></span>let tc6 = (tf6 - 32) * 5/9;
+<span class="-n"></span>console.log(`температура в градусы Цельсия:`, tc6); //37.77777777777778
+<span class="-n"></span>console.log(`температура в градусы Цельсия:`, tc6.toFixed(2)); // 37.78
+</div>
+
+<script>
+    let tf6 = 100;
+    let tc6 = (tf6 - 32) * 5 / 9;
+    console.log(`температура в градусы Цельсия:`, tc6);
+    console.log(`температура в градусы Цельсия:`, tc6.toFixed(2));
+</script>
+
+a.toFixed(2)
 
     </main>
 

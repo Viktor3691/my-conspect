@@ -41,7 +41,385 @@
 
         <h2>Поиск ошибок в коде</h2>
 
+        <p> В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны
+            проверить, делает ли
+            код то, что описано. Если код работает некорректно, вы должны исправить ошибки. </p>
 
+        <h3>Задача 1</h3>
+
+        <p>Код должен находить сумму чисел: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num11 = 1;
+<span class="-n"></span>let num12 = 2;
+<span class="-n"></span>console.log('сумма: ' + num11 + num12); // сумма: 12
+</div>
+<p>Решение</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num11 = 1;
+<span class="-n"></span>let num12 = 2;
+<span class="-n"></span>console.log(`сумма: `, num11 + num12); // сумма: 3
+</div>
+
+                <script>
+                    let num11 = 1;
+                    let num12 = 2;
+                    console.log(`сумма: `, num11 + num12);
+                </script>
+
+
+
+        <h3>Задача 2</h3>
+
+        <p>Код должен находить сумму чисел:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>let b = 2;
+<span class="-n"></span>console.log(a + b + c);
+// Uncaught ReferenceError: c is not defined. Переменная не объявлена.
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>let b = 2;
+<span class="-n"></span>let c = 3;
+<span class="-n"></span>console.log(a + b + c); // 6
+</div>
+
+                <script>
+                    let a = 1;
+                    let b = 2;
+                    let c = 3;
+                    console.log(a + b + c);
+                </script>
+
+
+
+
+        <h3> Задача 3 </h3>
+
+        <p>Код должен находить сумму цифр числа:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num31 = '123';
+<span class="-n"></span>let sum3 = num31[0] + num31[1] + num31[2];
+<span class="-n"></span>console.log(sum3); // 123
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num31 = '123';
+<span class="-n"></span>let sum3 = +num31[0] + +num31[1] + +num31[2];
+<span class="-n"></span>console.log(sum3); // 6
+</div>
+
+
+                <script>
+                    let num31 = '123';
+                    let sum3 = +num31[0] + +num31[1] + +num31[2];
+                    console.log(sum3);
+                </script>
+
+
+
+        <h3> Задача 4 </h3>
+
+        <p>Код должен вывести первую цифру числа:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num41 = 123;
+<span class="-n"></span>console.log(num41[0]); // undefined
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num41 = 123;
+<span class="-n"></span>num41 = String(123);
+<span class="-n"></span>console.log(num41[0]); // 1
+</div>
+
+
+                <script>
+                    let num41 = 123;
+                    num41 = String(123);
+                    console.log(num41[0]);
+                </script>
+
+
+        Задача 5 <h3></h3>
+
+        <p> Код должен был вывести в консоль число 1, но выводит 0:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a5 = 0;
+<span class="-n"></span>console.log(a5++); // 0
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a5 = 0;
+<span class="-n"></span>console.log(++a5); // 1
+</div>
+
+
+                <script>
+                    let a5 = 0;
+                    console.log(++a5);
+                </script>
+
+        <h3> Задача 6 </h3>
+
+        <p>Код должен вывести количество цифр в числе:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num61 = 123;
+<span class="-n"></span>console.log(num61.length); // undefined
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num61 = 123;
+<span class="-n"></span>num61 = String(123);
+<span class="-n"></span>console.log(num61.length); // 3
+</div>
+
+                <script>
+                    let num61 = 123;
+                    num61 = String(123);
+                    console.log(num61.length);
+                </script>
+
+
+
+        <h3>Задача 7 </h3>
+
+        <p>Код должен найти количество секунд в сутках:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a7 = 24 / 60 / 60;
+<span class="-n"></span>console.log(a7); // 0.006666666666666667
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a7 = 24 * 60 * 60;
+<span class="-n"></span>console.log(a7); // 86400
+</div>
+
+                <script>
+                    let a7 = 24 * 60 * 60;
+                    console.log(a7);
+                </script>
+
+        <h3> Задача 8</h3>
+
+        <p> Код должен вывести количество цифр в числе:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let num81 = 123;
+<span class="-n"></span>let str = String(num81);
+<span class="-n"></span>console.log(num81.length); // undefined
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num81 = 123;
+<span class="-n"></span>let str8 = String(num81);
+<span class="-n"></span>console.log(str8.length); // 3
+</div>
+
+                <script>
+                    let num81 = 123;
+                    let str8 = String(num81);
+                    console.log(str8.length);
+                </script>
+
+
+        <h3> Задача 9 </h3>
+
+        <p> Код должен вывести последнюю цифру числа:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num91 = 123;
+<span class="-n"></span>let str9 = String(num91);
+<span class="-n"></span>console.log(num91[num91.length]); // undefined
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num91 = 123;
+<span class="-n"></span>let str9 = String(num91);
+<span class="-n"></span>console.log(str9[str9.length - 1]); // 3
+</div>
+
+                <script>
+                    let num91 = 123;
+                    let str9 = String(num91);
+                    console.log(str9[str9.length - 1]);
+                </script>
+
+        <h3> Задача 10 </h3>
+
+        <p>Код должен вывести количество цифр в числе:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num101 = 123;
+<span class="-n"></span>let str10 = String(num101);
+<span class="-n"></span>console.log(str10.lenght); // undefined
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num101 = 123;
+<span class="-n"></span>let str10 = String(num101);
+<span class="-n"></span>console.log(str10.length); // 3; lenght -  undefined
+</div>
+
+
+                <script>
+                    let num101 = 123;
+                    let str10 = String(num101);
+                    console.log(str10.length);
+                </script>
+
+
+
+        <h3> Задача 11</h3>
+
+        <p> Код должен вывести последнюю цифру числа:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num111 = 123;
+<span class="-n"></span>let str11 = String(num111);
+<span class="-n"></span>console.log(str11[str11.length]); // undefined
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let num111 = 123;
+<span class="-n"></span>let str11 = String(num111);
+<span class="-n"></span>console.log(str11[str11.length - 1]); // 3
+</div>
+
+
+                <script>
+                    let num111 = 123;
+                    let str11 = String(num111);
+                    console.log(str11[str11.length - 1]);
+                </script>
+
+        <h3>Задача 12</h3>
+
+        <p>Код должен найти сумму чисел:</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a12 = '123';
+<span class="-n"></span>let b12 = '456';
+<span class="-n"></span>let s12 = Number(a12) + String(b12);
+<span class="-n"></span>
+<span class="-n"></span>console.log(s12); // 123456
+</div>
+
+<p>Решение</p>
+
+<div data-w="bock/code">
+    script.js
+    <pre>
+<span class="-n"></span>let a12 = '123';
+<span class="-n"></span>let b12 = '456';
+<span class="-n"></span>let s12 = Number(a12) + Number(b12);
+<span class="-n"></span>
+<span class="-n"></span>console.log(s12); // 579
+</div>
+
+                <script>
+                    let a12 = '123';
+                    let b12 = '456';
+                    let s12 = Number(a12) + Number(b12);
+
+                    console.log(s12);
+                </script>
+
+        <h3>Задача 13</h3>
+
+        <p> Код должен найти сумму чисел:</p>
+
+<div data-w="bock/code">
+script.js
+<pre>
+<span class="-n"></span>let aaa = 1;
+<span class="-n"></span>let bbb = 2;
+<span class="-n"></span>let ccc = 3;
+<span class="-n"></span>
+<span class="-n"></span>console.log(aaa + bbb + ссс);
+// Uncaught ReferenceError: ссс is not defined - ссс в ru
+</div>
+
+                <script>
+                    let aaa = 1;
+                    let bbb = 2;
+                    let ccc = 3;
+                    console.log(aaa + bbb + ccc);
+                </script>
 
     </main>
 

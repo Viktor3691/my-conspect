@@ -191,11 +191,24 @@
             console.log(arr3[0], '+', arr3[1], '+', arr3[2], '+', arr3[3]);
         </script>
 
-
-
         <h3>Задача 4</h3>
 
         <p> Создайте массив с элементами 1, 2 и 3. Выведите на экран сумму этих элементов.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr4 = [1, 2, 3];
+<span class="-n"></span>alert(arr4[0] + arr4[1] + arr4[2])
+</pre>
+        </div>
+
+        <script>
+            let arr4 = [1, 2, 3];
+            console.log(`let arr4 = [1, 2, 3]; сумма элементов -`, arr4[0] + arr4[1] + arr4[2])
+        </script>
 
         <h3> Задача 5</h3>
 
@@ -203,7 +216,454 @@
             четвертый.
             Результаты сложите, присвойте переменной result. Выведите на экран значение этой переменной.</p>
 
+        <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr5 = [2, 5, 3, 9];
+<span class="-n"></span>let res51 = arr5[0] * arr5[1];
+<span class="-n"></span>let res52 = arr5[2] * arr5[3];
+<span class="-n"></span>console.log(`
+<span class="-n"></span>let arr5 = [2, 5, 3, 9];
+<span class="-n"></span>let res51 = arr5[0]*arr5[1] = `, res51); // 10
+<span class="-n"></span>console.log(`
+<span class="-n"></span>let arr5 = [2, 5, 3, 9];
+<span class="-n"></span>let res52 = arr5[2]*arr5[3]; = `, res52); // 27
+</pre>
+        </div>
+
+        <script>
+            let arr5 = [2, 5, 3, 9];
+            let res51 = arr5[0] * arr5[1];
+            let res52 = arr5[2] * arr5[3];
+            console.log(`
+    let arr5 = [2, 5, 3, 9];
+    let res51 = arr5[0]*arr5[1] = `, res51);
+            console.log(`
+    let arr5 = [2, 5, 3, 9];
+    let res52 = arr5[2]*arr5[3]; = `, res52);
+        </script>
+
+        <h2>Длина массива </h2>
+
+        <p>Длина массива, так же, как и длина строки находится с помощью свойства length:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3];
+<span class="-n"></span>console.log(arr.length) // выведет 3
+</pre>
+        </div>
+
+        <h3>Задача 6</h3>
+
+        <p> Создайте массив с произвольными элементами. Выведите на экран количество элементов в этом массиве. </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr6 = ['Д', 'л', 'и', 'н', 'а', '', 'м', 'а', 'с', 'с', 'и', 'в', 'а',];
+<span class="-n"></span>console.log(`let arr6 = ['Д', 'л', 'и', 'н', 'а', ' ', 'м', 'а', 'с', 'с', 'и','в', 'а',] = `, arr6.length)
+<span class="-n"></span>
+<span class="-n"></span>alert(arr6.length) // 13
+</pre>
+        </div>
+
+        <script>
+            let arr6 = ['Д', 'л', 'и', 'н', 'а', ' ', 'м', 'а', 'с', 'с', 'и', 'в', 'а',];
+            console.log(`let arr6 = ['Д', 'л', 'и', 'н', 'а', ' ', 'м', 'а', 'с', 'с', 'и','в', 'а',] = `, arr6.length)
+        </script>
+
+        <h2>Последний элемент массива </h2>
+
+        <p>Последний элемент массива также получается аналогично последнему символу строки:</p>
+
+        let arr = [1, 2, 3];
+        console.log(arr[arr.length - 1]) // выведет 3
+
+        <h3>Задача 7 </h3>
+
+        <p>Создайте массив с произвольными элементами. Выведите на экран последний элемент этого массива.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr7 = ['П', 'о', 'с', 'л', 'е', 'д', 'н', 'и', 'й', '', 'э', 'л', 'е', 'м', 'е', 'н', 'т', 'м', 'а', 'с', 'с', 'и',
+'в', 'а'];
+<span class="-n"></span>console.log(` let arr7 = ['П', 'о', 'с', 'л', 'е', 'д', 'н', 'и', 'й', '', 'э', 'л', 'е', 'м', 'е', 'н', 'т', 'м', 'а',
+'с', 'с', 'и', 'в', 'а']; (arr7[arr7.length - 1]) = `, (arr7[arr7.length - 1]));
+<span class="-n"></span>
+<span class="-n"></span>alert(arr7[arr7.length - 1]) // а
+</pre>
+        </div>
+
+        <script>
+            let arr7 = ['П', 'о', 'с', 'л', 'е', 'д', 'н', 'и', 'й', '', 'э', 'л', 'е', 'м', 'е', 'н', 'т', 'м', 'а', 'с', 'с', 'и', 'в', 'а'];
+            console.log(` let arr7 = ['П', 'о', 'с', 'л', 'е', 'д', 'н', 'и', 'й', '', 'э', 'л', 'е', 'м', 'е', 'н', 'т', 'м', 'а', 'с', 'с', 'и', 'в', 'а'];  (arr7[arr7.length - 1]) = `, (arr7[arr7.length - 1]));
+        </script>
+
+        <h2>Изменение массива</h2>
+
+        <p>Элементы массивов, в отличие от символов строк, можно изменять:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+<span class="-n"></span>
+<span class="-n"></span>arr[0] = '!';
+<span class="-n"></span>console.log(arr); // выведет ['!', 'b', 'c'];
+</pre>
+        </div>
+
+        <h3>Задача 8</h3>
+
+        . <p>Создайте массив с элементами 'a', 'b', 'c'. Запишите вместо первого элемента число 1, вместо второго - 2,
+            вместо третьего - 3</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr8 = ['a', 'b', 'c'];
+<span class="-n"></span>arr8[0] = 1;
+<span class="-n"></span>arr8[1] = 2;
+<span class="-n"></span>arr8[2] = 3;
+<span class="-n"></span>console.log(`
+<span class="-n"></span>let arr8 = ['a', 'b', 'c']
+<span class="-n"></span>arr8[0] = 1;
+<span class="-n"></span>arr8[1] = 2;
+<span class="-n"></span>arr8[2] = 3;
+<span class="-n"></span>arr8 =
+<span class="-n"></span>`, arr8) // (3) [1, 2, 3]
+</pre>
+        </div>
+
+
+        <script>
+            let arr8 = ['a', 'b', 'c']
+            arr8[0] = 1;
+            arr8[1] = 2;
+            arr8[2] = 3;
+            console.log(`
+let arr8 = ['a', 'b', 'c']
+arr8[0] = 1;
+arr8[1] = 2;
+arr8[2] = 3;
+arr8 =
+`, arr8)
+        </script>
+
+        <h2>Перезапись элементов</h2>
+
+        <p>Можно также прочитывать текущее значение элемента, выполнять с ним какие-то операции и записывать измененное
+            значение
+            обратно в этот элемент:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+<span class="-n"></span>
+<span class="-n"></span>arr[0] = arr[0] + '!';
+<span class="-n"></span>arr[1] = arr[1] + '!';
+<span class="-n"></span>arr[2] = arr[2] + '!';
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr); // выведет ['a!', 'b!', 'c!']
+<span class="-n"></span>
+</pre>
+        </div>
+
+        <p>Предыдущий код можно переписать через оператор +=:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+<span class="-n"></span>
+<span class="-n"></span>arr[0] += '!';
+<span class="-n"></span>arr[1] += '!';
+<span class="-n"></span>arr[2] += '!';
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr); // выведет ['a!', 'b!', 'c!']
+<span class="-n"></span>
+</pre>
+        </div>
+
+        <h3>Задача 9</h3>
+
+        <p>Создайте массив с числами. Прибавьте к каждому элементу массива число 3. Выведите на экран измененный массив.
+        </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr9 = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+<span class="-n"></span>arr9[0] += 3;
+<span class="-n"></span>arr9[1] += 3;
+<span class="-n"></span>arr9[2] += 3;
+<span class="-n"></span>arr9[3] += 3;
+<span class="-n"></span>arr9[4] += 3;
+<span class="-n"></span>arr9[5] += 3;
+<span class="-n"></span>arr9[6] += 3;
+<span class="-n"></span>arr9[7] += 3;
+<span class="-n"></span>arr9[8] += 3;
+<span class="-n"></span>arr9[9] += 3;
+<span class="-n"></span>alert(arr9); // (9) [12, 11, 10, 9, 8, 7, 6, 5, 4]
+</pre>
+        </div>
+
+        <script>
+            let arr9 = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+            arr9[0] += 3;
+            arr9[1] += 3;
+            arr9[2] += 3;
+            arr9[3] += 3;
+            arr9[4] += 3;
+            arr9[5] += 3;
+            arr9[6] += 3;
+            arr9[7] += 3;
+            arr9[8] += 3;
+            console.log(`
+let arr9 = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+arr9[0] += 3;
+arr9[1] += 3;
+arr9[2] += 3;
+arr9[3] += 3;
+arr9[4] += 3;
+arr9[5] += 3;
+arr9[6] += 3;
+arr9[7] += 3;
+arr9[8] += 3;
+alert(arr9);
+`, arr9)
+        </script>
+
+        <h2>Инкремент и декремент</h2>
+
+        <p>Можно также применять операции инкремента и декремента:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr101 = [1, 2, 3, 4];
+<span class="-n"></span>
+<span class="-n"></span>arr101[0]++;
+<span class="-n"></span>++arr101[1];
+<span class="-n"></span>arr101[2]--;
+<span class="-n"></span>--arr101[3];
+<span class="-n"></span>
+<span class="-n"></span>alert(arr101)
+<span class="-n"></span>console.log(arr101); // (4) [2, 3, 2, 3]
+</pre>
+        </div>
+
+        <script>
+            let arr101 = [1, 2, 3, 4];
+
+            arr101[0]++;
+            ++arr101[1];
+            arr101[2]--;
+            --arr101[3];
+            console.log(`
+let arr101 = [1, 2, 3, 4];
+
+arr101[0]++;
+++arr101[1];
+arr101[2]--;
+--arr101[3];
+`, arr101); // выведет [2, 3, 2, 3]
+        </script>
+
+        <h3>Задача 10</h3>
+
+        <p>Создайте массив с элементами 1, 2 и 3. С помощью оператора ++ увеличьте каждый элемент массива на единицу.
+        </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr10 = [1, 2, 3];
+<span class="-n"></span>++arr10[0];
+<span class="-n"></span>++arr10[1];
+<span class="-n"></span>++arr10[2];
+<span class="-n"></span>alert(arr10);
+<span class="-n"></span>console.log(`
+<span class="-n"></span>let arr10 = [1, 2, 3];
+<span class="-n"></span>++arr10[0];
+<span class="-n"></span>++arr10[1];
+<span class="-n"></span>++arr10[2];
+<span class="-n"></span>alert(arr10); // (3) [2, 3, 4]
+</pre>
+        </div>
+
+        <script>
+            let arr10 = [1, 2, 3];
+            ++arr10[0];
+            ++arr10[1];
+            ++arr10[2];
+            console.log(`
+let arr10 = [1, 2, 3];
+++arr10[0];
+++arr10[1];
+++arr10[2];
+alert(arr10);
+`, arr10,)
+        </script>
+
+        <h2>Заполнение массива</h2>
+
+        <p>Элементы в массив не обязательно добавлять сразу в момент объявления этого массива. Можно вначале объявить
+            этот массив
+            пустым, а затем добавить в него необходимые элементы, вот так:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = []; // создаем пустой массив
+<span class="-n"></span>
+<span class="-n"></span>arr[0] = 'a'; // в ключ 0 добавим элемент 'a'
+<span class="-n"></span>arr[1] = 'b'; // в ключ 1 добавим элемент 'b'
+<span class="-n"></span>arr[2] = 'c'; // в ключ 2 добавим элемент 'c'
+<span class="-n"></span>alert(arr111);
+<span class="-n"></span>console.log(arr); // выведет ['a', 'b', 'c'] // (3) ['a', 'b', 'c']
+</pre>
+        </div>
+
+        <script>
+            let arr111 = []; // создаем пустой массив
+
+            arr111[0] = 'a'; // в ключ 0 добавим элемент 'a'
+            arr111[1] = 'b'; // в ключ 1 добавим элемент 'b'
+            arr111[2] = 'c'; // в ключ 2 добавим элемент 'c'
+            console.log(`
+let arr111 = []; // создаем пустой массив
+
+arr111[0] = 'a'; // в ключ 0 добавим элемент 'a'
+arr111[1] = 'b'; // в ключ 1 добавим элемент 'b'
+arr111[2] = 'c'; // в ключ 2 добавим элемент 'c'
+alert(arr111)
+`, arr111); // выведет ['a', 'b', 'c']
+        </script>
+
+        <p>Массив не обязательно должен быть изначально пустым - там уже что-то может быть, но мы все равно можем
+            добавлять новые элементы: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr112 = ['a', 'b', 'c']; // объявляем массив с элементами
+<span class="-n"></span>
+<span class="-n"></span>arr112[3] = 'd'; // добавляем еще один элемент
+<span class="-n"></span>alert(arr112);
+<span class="-n"></span>console.log(`
+<span class="-n"></span>let arr112 = ['a', 'b', 'c'];
+<span class="-n"></span>arr112[3] = 'd';
+<span class="-n"></span>`, arr112); // (4) ['a', 'b', 'c', 'd']
+</pre>
+        </div>
+
+
+        <script>
+            let arr112 = ['a', 'b', 'c']; // объявляем массив с элементами
+
+            arr112[3] = 'd'; // добавляем еще один элемент
+            console.log(`
+let arr112 = ['a', 'b', 'c']; // объявляем массив с элементами
+arr112[3] = 'd'; // добавляем еще один элемент
+`, arr112); // выведет ['a', 'b', 'c', 'd']
+        </script>
+
+
+
+        <h3>Задача 11</h3>
+
+        <p>С помощью описанного приема создайте массив с элементами 1, 2 и 3.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr11 = [];
+<span class="-n"></span>arr11[0] = 1;
+<span class="-n"></span>aarr11[1] = 2;
+<span class="-n"></span>arr11[2] = 3;
+<span class="-n"></span>alert(arr11); // (3) [1, 2, 3]
+</pre>
+        </div>
+
+        <script>
+            let arr11 = [];
+            arr11[0] = 1;
+            arr11[1] = 2;
+            arr11[2] = 3;
+            console.log(`
+let arr11 = [];
+arr11[0] = 1;
+arr11[1] = 2;
+arr11[2] = 3;
+`, arr11)
+        </script>
+
+        <h3>Задача 12</h3>
+
+        <p>Пусть дан такой массив:
+            <br>
+            let arr = [1, 2, 3];
+            Добавьте ему в конец элементы 4 и 5.
+        </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr12 = [1, 2, 3];
+<span class="-n"></span>arr12[3] = 4;
+<span class="-n"></span>arr12[4] = 5;
+<span class="-n"></span>alert(arr12); // (5) [1, 2, 3, 4, 5]
+</pre>
+        </div>
+
+        <script>
+            let arr12 = [1, 2, 3];
+            arr12[3] = 4;
+            arr12[4] = 5;
+            console.log(`
+let arr12 = [1, 2, 3];
+arr12[3] = 4;
+arr12[4] = 5;
+alert(arr12);
+`, arr12)
+        </script>
+
+        <h2>Несуществующие элементы</h2>
+
+        <p>Обращение к несуществующему элементу массива вернет undefined. Никакой ошибки при этом не будет. Давайте
+            посмотрим на
+            примере.
+            <br>
+            Пусть у нас в массиве 3 элемента. Давайте обратимся к несуществующему элементу, например, к элементу с
+            номером 10:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+<span class="-n"></span>console.log(arr[10]); // выведет undefined
+</pre>
+        </div>
 
 
 

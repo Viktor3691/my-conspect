@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-02-kolleksia.html">Коллекции</a>
+            <a href="02-01-massiv.html">39 of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="02-01-massiv.html">Массивы в JavaScript</a>
+
+            <a data-mCurr="T" href="02-03-kluchiIzPeremennih.html">Ключи из переменных в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Объекты в JavaScript</h2>
+
+        <p>Рассмотрим следующий массив:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+</pre>
+        </div>
+
+        <p>Чтобы обратиться к нужному элементу этого массива, мы должны написать в квадратных скобках ключ этого
+            элемента.
+            <br>
+            Как вы знаете, в массивах JavaScript сам определяет ключи для элементов - это их порядковые номера. Но
+            иногда такое
+            автоматическое определение может оказаться неудобным.
+            <br>
+            К примеру, если мы хотим вывести на экран название первого дня недели ('пн'), то должны написать в
+            квадратных скобках
+            цифру 0, а не 1.
+            <br>
+            Логичнее и удобнее было бы все-таки для первого дня недели писать ключ 1, как привыкли мы в жизни.
+            <br>
+            В JavaScript есть способ указать ключи в явном виде - так, как нам нужно. Делается это с помощью объектов (в
+            других
+            языках программирования они называются ассоциативными массивами или хешами).
+            <br>
+            Объекты создаются с помощью фигурных скобок { }, внутри которых пишутся элементы этого объекта в формате
+            ключ: значение.
+            <br>
+            Давайте сделаем так, чтобы понедельник имел ключ 1, а не ноль, как было раньше, и всем остальным ключам дней
+            прибавим
+            единицу:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {1: 'пн', 2: 'вт', 3: 'ср', 4: 'чт', 5: 'пт', 6: 'сб', 7: 'вс'};
+</pre>
+        </div>
+
+        <p>Теперь можно обратиться к понедельнику уже по ключу 1, а не 0. Сделаем это:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {1: 'пн', 2: 'вт', 3: 'ср', 4: 'чт', 5: 'пт', 6: 'сб', 7: 'вс'};
+<span class="-n"></span>console.log(obj[1]); // выведет 'пн'
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Создайте объект с ключами 1, 2 и 3 и значениями 'a', 'b' и 'c'. Выведите на экран все его элементы. </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {1: 'a', 2: 'b', 3: 'c'};
+<span class="-n"></span>console.log(obj[1]); // a b c
+</pre>
+        </div>
+
+        <script>
+            let obj = { 1: 'a', 2: 'b', 3: 'c' };
+            console.log(obj[1], obj[2], obj[3]);
+        </script>
+
+        <h2>Неупорядоченность объектов </h2>
+
+        <p>Как вы уже знаете, в массивах элементы располагаются в строгом порядке, ведь позиция каждого элемента
+            определяет его
+            ключ.
+            <br>
+            В объектах мы сами назначаем ключи, поэтому порядок следования элементов не имеет значения. То есть массивы
+            являются упорядоченными списками, а объекты - нет.
+            <br>
+            Для примера рассмотрим вот такой объект:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {1: 'value1', 2: 'value2', 3: 'value3'};
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj[1]); // выведет 'value1'
+<span class="-n"></span>console.log(obj[2]); // выведет 'value2'
+<span class="-n"></span>console.log(obj[3]); // выведет 'value3'
+</pre>
+        </div>
+
+        <script>
+            let obj_1 = { 1: 'value1', 2: 'value2', 3: 'value3' };
+
+            console.log(obj_1[1]); // выведет 'value1'
+            console.log(obj_1[2]); // выведет 'value2'
+            console.log(obj_1[3]); // выведет 'value3'
+        </script>
+
+
+
+        <p>Если переставить элементы этого объекта в произвольном порядке (конечно же, вместе с их ключами), то ничего
+            от этого в работе нашего скрипта не изменится: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {3: 'value3', 1: 'value1', 2: 'value2'};
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj[1]); // выведет 'value1'
+<span class="-n"></span>console.log(obj[2]); // выведет 'value2'
+<span class="-n"></span>console.log(obj[3]); // выведет 'value3'
+</pre>
+        </div>
+
+        <p> Кроме того, числовые ключи не обязательно должны иметь все значения без дырок, подобно массиву. У нас могут
+            быть произвольные числа и это не будет приводить ни к каким проблемам (подобно разреженности у массивов):
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+// Данный объект корректный:
+<span class="-n"></span>let obj = {7: 'value1', 50: 'value2', 23: 'value3'};
+
+</pre>
+        </div>
+
+        <h2>Вывод всего объекта</h2>
+
+        <p>Содержимое всего объекта нельзя нормально посмотреть через функцию alert:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {1: 'a', 2: 'b', 3: 'c'};
+<span class="-n"></span>alert(obj); // выведет [Object object]
+</pre>
+        </div>
+
+        <p> Конечно же, алертом можно вывести каждый отдельный элемент объекта. Но если нужно посмотреть содержимое
+            всего
+            объекта - выводите его в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {1: 'a', 2: 'b', 3: 'c'};
+<span class="-n"></span>console.log(obj); // выведет сам объект
+</pre>
+        </div>
+
+        <h2> Строковые ключи</h2>
+
+        <p>В объектах, в отличие от массивов, ключи могут быть не только числовыми, но и строковыми. При этом эти
+            ключи-строки, в
+            отличие от значений-строк, в кавычки брать не нужно: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key1: 'a', key2: 'b', key3: 'c'};
+</pre>
+        </div>
+        <p>А вот, чтобы обратиться к элементу со строковым ключом, в квадратных скобках его уже нужно брать в кавычки:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key1: 'a', key2: 'b', key3: 'c'};
+<span class="-n"></span>console.log(obj['key1']); // выведет 'a'
+</pre>
+        </div>
+
+        <h3>Задача 2</h3>
+
+        <p> Создайте объект с ключами a, b и c и значениями 1, 2 и 3. Найдите сумму его элементов.</p>
+
+        <p>Рекение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>console.log(obj2['a'] + obj2['b'] + obj2['c']); // 6
+</pre>
+        </div>
+
+        <script>
+            let obj2 = { a: 1, b: 2, c: 3 };
+            console.log(`
+let obj2 = { a: 1, b: 2, c: 3 };
+console.log(obj2['a'] + obj2['b'] + obj2['c']);
+`, obj2['a'] + obj2['b'] + obj2['c']);
+        </script>
+
+        <h2>Ограничение на строковые ключи</h2>
+
+        <p>Ключами объектов могут быть любые строки. Но есть, однако, ограничение: <b>такие строки не могут начинаться с
+                цифры и не
+                могут содержать внутри себя дефис, пробел и тому подобные вещи.</b>
+            <br>
+            Такие строки на самом деле являются допустимыми ключами, <b>но только если их взять в кавычки:</b>
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {'1key': 'a', 'key-2': 'b', key3: 'c'};
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj['1key']); // выведет 'a'
+<span class="-n"></span>console.log(obj['key-2']); // выведет 'b'
+<span class="-n"></span>console.log(obj['key3']); // выведет 'c'
+</pre>
+        </div>
+
+        <p>На самом деле в кавычки можно брать все ключи объекта, <b>но более принято записывать их без кавычек (там,
+                где это можно).</b> </p>
+
+        <h3>Задача 3 </h3>
+
+        <p>Создайте объект с ключами 1a, 2b и с-с и значениями 1, 2 и 3. Найдите сумму его элементов. </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj3 = { '1a': 1, '2b': 2, 'с-с': 3 };
+<span class="-n"></span>console.log(obj3['1a'] + obj3['2b'] + obj3['с-с']); // 6
+</pre>
+        </div>
+
+        <script>
+            let obj3 = { '1a': 1, '2b': 2, 'с-с': 3 }
+            console.log(`
+let obj3 = { '1a': 1, '2b': 2, 'с-с': 3 }
+console.log(obj3['1a'] + obj3['2b'] + obj3['с-с']);
+`, obj3['1a'] + obj3['2b'] + obj3['с-с']);
+        </script>
+
+        <h3>Задача 4 </h3>
+
+        <p>Дан объект:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {'1a': 1, 'b2': 2, 'с-с': 3, 'd4': 4};
+</pre>
+        </div>
+
+        <p>Для каких ключей данного объекта кавычки обязательны, а для каких нет?</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+// кавычки обязательны
+<span class="-n"></span>let obj = {'1a': 1, 'с-с': 3};
+</pre>
+        </div>
+
+        <script>
+            let obj41 = { '1a': 1, 'с-с': 3 };
+            console.log(`
+// кавычки обязательны
+let obj41 = { '1a': 1, 'с-с': 3 };
+console.log(obj41);
+`, obj41);
+        </script>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+// кавычки не нужны
+<span class="-n"></span>let obj = { b2: 2, d4: 4};
+</pre>
+        </div>
+
+        <script>
+            let obj42 = { b2: 2, d4: 4 };
+            console.log(`
+// кавычки не нужны
+let obj42 = { b2: 2, d4: 4 };
+console.log(obj42);
+`, obj42);
+        </script>
+
+        <h2>Альтернативный синтаксис </h2>
+
+        <p>Давайте рассмотрим следующий объект: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key1: 'a', key2: 'b', key3: 'c'};
+</pre>
+        </div>
+
+        <p>Выведем на экран значение какого-нибудь его элемента, например, с ключом key1:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key1: 'a', key2: 'b', key3: 'c'};
+<span class="-n"></span>console.log(obj['key1']);
+</pre>
+        </div>
+
+        <p>Как вы уже знаете, для обращение к элементу по ключу мы пишем этот ключ в кавычках внутри квадратных скобок.
+            Существует
+            также альтернативный синтаксис получение значения элемента, вот он: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key1: 'a', key2: 'b', key3: 'c'};
+<span class="-n"></span>console.log(obj.key1); // альтернативный способ
+</pre>
+        </div>
+
+        <p>Как вы видите, в данном случае мы пишем после переменной с объектом мы пишем точку и имя ключа без кавычек.
+            <br>
+            Данный альтернативный способ имеет ограничение: так допустимо обращаться только к тем ключам, которых при
+            создании объекта не обязательно брать в кавычки. Изученный нами новый синтаксис обычно называют обращение
+            через свойство объекта.
+        </p>
+
+        <h3>Задача 5</h3>
+
+        <p>Дан объект: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj5 = {key1: 1, key2: 2, key3: 3};
+</pre>
+        </div>
+
+        <p>Найдите сумму его элементов. Обращайтесь к элементам с помощью изученного синтаксиса.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj5 = {key1: 1, key2: 2, key3: 3};
+<span class="-n"></span>console.log(obj5.key1 + obj5.key2 + obj5.key3); // 6
+</pre>
+        </div>
+
+        <script>
+            let obj5 = { key1: 1, key2: 2, key3: 3 };
+            console.log(`
+Найдите сумму его элементов
+let obj5 = { key1: 1, key2: 2, key3: 3 };
+console.log(obj5.key1 + obj5.key2 + obj5.key3);
+`, obj5.key1 + obj5.key2 + obj5.key3);
+        </script>
+
+        <h3>Задача 6 </h3>
+
+        <p>Дан объект:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+        <span class="-n"></span>let obj = {'1a': 1, 'b2': 2, 'eee-': 3, 'd4': 4};
+        </pre>
+        </div>
+
+        <p>К каким элементам этого объекта допустимо обращение через свойство, а к каким - нет?</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+// допустимо обращение через свойство
+<span class="-n"></span>let obj = { b2: 2, d4: 4};
+<span class="-n"></span>console.log(obj.b2);
+<span class="-n"></span>console.log(obj.d4);
+</pre>
+        </div>
+
+        <script>
+            let obj61 = { b2: 2, d4: 4 };
+            console.log(`
+// допустимо обращение через свойство
+let obj = { b2: 2, d4: 4};
+console.log(obj.b2);
+`, obj61.b2);
+            console.log(`console.log(obj61.d4);`, obj61.d4);
+        </script>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+// взять в кавычки
+<span class="-n"></span>let obj = {'1a': 1,  'eee-': 3};
+<span class="-n"></span>console.log(obj['1a']);
+<span class="-n"></span>console.log(obj['eee-']);
+</pre>
+        </div>
+
+        <script>
+            let obj62 = { '1a': 1, 'eee-': 3 };
+            console.log(`
+// взять в кавычки
+let obj62 = { '1a': 1, 'eee-': 3 };
+console.log(obj62['1a']);
+`, obj62['1a']);
+            console.log(`console.log(obj62['eee-']);`, obj62['eee-']);
+        </script>
+
+        <h2>Практика </h2>
+
+        <h3>Задача 7 </h3>
+
+        <p>Создайте объект user с ключами name, surname, patronymic и какими-то произвольными значениями. Выведите на
+            экран
+            фамилию, имя и отчество через пробел.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj7 = { name: 'Viktor', surname: 'Viller', patronymic: 'Aleksandrovich' }
+<span class="-n"></span>console.log(obj7.name + ' ' + obj7.surname + ' ' + obj7.patronymic);
+</pre>
+        </div>
+
+        <script>
+            let obj7 = { name: 'Viktor', surname: 'Viller', patronymic: 'Aleksandrovich' }
+            console.log(`
+Выведите на экран фамилию, имя и отчество через пробел.
+let obj7 = { name: 'Viktor', surname: 'Viller', patronymic: 'Aleksandrovich' }
+console.log(obj7.name + ' ' + obj7.surname + ' ' + obj7.patronymic);
+`, obj7.name + ' ' + obj7.surname + ' ' + obj7.patronymic);
+        </script>
+
+        <h3>Задача 8 </h3>
+
+        <p>Создайте объект date с ключами year, month и day и значениями, соответствующими текущему дню. Выведите
+            созданную дату на экран в формате год-месяц-день.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+        <span class="-n"></span>let obj8 = { year: 2026, month: 10, day: 27 };
+        <span class="-n"></span>console.log(obj8.year + '-' + obj8.month + '-' + obj8.day);
+        </pre>
+        </div>
+
+        <script>
+            let obj8 = { year: 2026, month: 10, day: 27 };
+            console.log(`
+let obj8 = { year: 2026, month: 10, day: 27 };
+console.log(obj8.year + '-' + obj8.month + '-' + obj8.day);
+`, obj8.year + '-' + obj8.month + '-' + obj8.day);
+        </script>
+
+        <h2>Заполнение </h2>
+
+        <p>Объекты заполняются так же, как и массивы: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {};
+<span class="-n"></span>
+<span class="-n"></span>obj['key1'] = 'a';
+<span class="-n"></span>obj['key2'] = 'b';
+<span class="-n"></span>obj['key3'] = 'c';
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj); // выведет {key1: 'a', key2: 'b', key3: 'c'}
+</pre>
+        </div>
+
+        <p>Можно также использовать альтернативный синтаксис: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {};
+<span class="-n"></span>
+<span class="-n"></span>obj.key1 = 'a';
+<span class="-n"></span>obj.key2 = 'b';
+<span class="-n"></span>obj.key3 = 'c';
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj); // выведет {key1: 'a', key2: 'b', key3: 'c'}
+</pre>
+        </div>
+
+        <h3>Задача 9 </h3>
+
+        <p>Создайте объект с ключами a, b и c и элементами 1, 2 и 3.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj9 = {};
+<span class="-n"></span>obj9.a = 1;
+<span class="-n"></span>obj9.b = 2;
+<span class="-n"></span>obj9.c = 3;
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj9); // {a: 1, b: 2, c: 3}
+</pre>
+        </div>
+
+        <script>
+            let obj9 = {};
+            obj9.a = 1;
+            obj9.b = 2;
+            obj9.c = 3;
+            console.log(`
+let obj9 = {};
+obj9.a = 1;
+obj9.b = 2;
+obj9.c = 3;
+console.log(obj9);
+`, obj9);
+        </script>
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

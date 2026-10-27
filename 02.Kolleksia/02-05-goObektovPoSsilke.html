@@ -19,12 +19,15 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-02-kolleksia.html">Коллекции</a>
-            <a href="02-01-massiv.html"># of 312</a>
+            <a href="02-01-massiv.html">42 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="02-04-tipMassivIObektov.html">Типизация
+                массивов и объектов в
+                JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="02-06-operatorIn.html">Оператор in в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,7 +41,236 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Передача объектов по ссылке в JavaScript</h2>
+
+        <p>Массивы и объекты несколько отличаются от остальных примитивных типов данных. Сейчас мы посмотрим, в чем
+            выражается это
+            отличие.
+            <br>
+            Пусть у нас дан вот такой массив:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = [1, 2, 3];
+</pre>
+        </div>
+
+        <p>Давайте скопируем этот массив в переменную b:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+ <span class="-n"></span>let a = [1, 2, 3];
+ <span class="-n"></span>let b = a;
+ </pre>
+        </div>
+
+        <p>Если бы мы имели дело с примитивами, то переменная b получила бы копию значения переменной a.
+            <br>
+            В случае с массивами и объектами все работает по другому. При такой операции, как вы выполнили выше,
+            переменная b не
+            копирует содержимое переменной a, а обе эти переменные начинают ссылаться на один и тот же массив.
+            <br>
+            На практике это означает то, что при изменении массива с помощью одной переменной, эти изменения
+            автоматически появятся
+            во второй переменной.
+            <br>
+            Смотрите пример:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = [1, 2, 3];
+<span class="-n"></span>let b = a;
+<span class="-n"></span>
+<span class="-n"></span>b[0] = '!'; // меняем массив из переменной b
+<span class="-n"></span>console.log(a[0]); // выведет '!' - переменная a тоже поменялась
+</pre>
+        </div>
+
+        <p>Обратите внимание на то, что такой эффект связи переменных будет только тогда, когда мы меняем часть массива
+            или
+            объекта.
+            <br>
+            Если у нас есть две переменные, ссылающиеся на объект, то запись примитива в одну из переменных не повлияет
+            на вторую
+            переменную - она по-прежнему будет указывать на тот же объект:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = [1, 2, 3];
+<span class="-n"></span>let b = a; // на объект ссылается и a, и b
+<span class="-n"></span>
+<span class="-n"></span>a = 'primitive'; // запишем в a какой-то примитив
+<span class="-n"></span>console.log(b); // выведет [1, 2, 3]
+</pre>
+        </div>
+
+        <script>
+            let a = [1, 2, 3];
+            let b = a; // на объект ссылается и a, и b
+
+            a = 'primitive'; // запишем в a какой-то примитив
+            console.log(`
+let a = [1, 2, 3];
+let b = a; // на объект ссылается и a, и b
+
+a = 'primitive'; // запишем в a какой-то примитив
+console.log(b);
+`, b); // выведет [1, 2, 3]
+        </script>
+
+
+
+        <p>Кроме того, даже если записать в какую-то переменную другой массив или объект - это тоже не повлияет на
+            вторую
+            переменную:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = [1, 2, 3];
+<span class="-n"></span>let b = a;
+<span class="-n"></span>
+<span class="-n"></span>a = [3, 4, 5]; // запишем в a массив
+<span class="-n"></span>
+<span class="-n"></span>console.log(b); // выведет [1, 2, 3]
+<span class="-n"></span>console.log(a); // выведет [3, 4, 5]
+</pre>
+        </div>
+
+        <script>
+            let a$ = [1, 2, 3];
+            let b$ = a$;
+
+            a$ = [3, 4, 5]; // запишем в a массив
+
+            console.log(b$); // выведет [1, 2, 3]
+            console.log(a$); // выведет [3, 4, 5]
+        </script>
+
+        <h3>Задача 1</h3>
+
+        <p>Не запуская код, определите, что выведется в консоль:</p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [1, 2, 3];
+<span class="-n"></span>let arr2 = arr1;
+<span class="-n"></span>
+<span class="-n"></span>arr1[0] = 'a';
+<span class="-n"></span>console.log(arr2); // (3) ['a', 2, 3]
+</pre>
+        </div>
+
+        <script>
+            let arr1 = [1, 2, 3];
+            let arr2 = arr1;
+
+            arr1[0] = 'a';
+            console.log(`
+let arr1 = [1, 2, 3];
+let arr2 = arr1;
+
+arr1[0] = 'a';
+console.log(arr2);
+`, arr2);
+        </script>
+
+        <h3>Задача 2 </h3>
+
+        <p>Не запуская код, определите, что выведется в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [1, 2, 3];
+<span class="-n"></span>let arr2 = arr1;
+<span class="-n"></span>
+<span class="-n"></span>arr1[0] = 'a'; [0] ! меняет первый элемент (массив один, меняется он же).
+<span class="-n"></span>arr2[1] = 'b'; [1] ! меняет второй элемент (тот же массив).
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr1); // (3) ['a', 'b', 3]
+</pre>
+        </div>
+
+        <script>
+            let arr21 = [1, 2, 3];
+            let arr22 = arr21;
+
+            arr21[0] = 'a';
+            arr22[1] = 'b';
+
+            console.log(`
+let arr21 = [1, 2, 3];
+let arr22 = arr21;
+
+arr21[0] = 'a';
+arr22[1] = 'b';
+
+console.log(arr21);
+`, arr21);
+            console.log(`console.log(arr22);`, arr22);
+        </script>
+
+
+
+        <h3>Задача 3 </h3>
+
+        <p>Не запуская код, определите, что выведется в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [1, 2, 3];
+<span class="-n"></span>let arr2 = arr1;
+<span class="-n"></span>
+<span class="-n"></span>arr1[0] = 'a'; // [0] ! — меняет первый элемент на 'a'.
+<span class="-n"></span>arr2[0] = 'b'; // [0] ! — меняет тот же первый элемент на 'b' (перезаписывает).
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr2); // (3) ['b', 2, 3]
+</pre>
+        </div>
+
+        <script>
+            let arr31 = [1, 2, 3];
+            let arr32 = arr31;
+
+            arr31[0] = 'a';
+            arr32[0] = 'b';
+
+            console.log(`
+let arr31 = [1, 2, 3];
+let arr32 = arr31;
+
+arr31[0] = 'a';
+arr32[0] = 'b';
+
+console.log(arr32);
+`, arr32);
+            console.log(`console.log(arr31);`, arr31);
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-02-kolleksia.html">Коллекции</a>
-            <a href="02-01-massiv.html"># of 312</a>
+            <a href="02-01-massiv.html">41 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="02-03-kluchiIzPeremennih.html">Ключи из
+                переменных в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="02-05-goObektovPoSsilke.html">Передача объектов по ссылке в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,7 +40,248 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Типизация массивов и объектов в JavaScript</h2>
+
+        <p>Давайте посмотрим, что выведет оператор typeof для объекта. Как и ожидалось, мы видим строку 'object'. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(typeof {}); // выведет 'object'
+</pre>
+        </div>
+        <p>А вот если проверить через typeof массив, то здесь поведение уже будет не очень ожидаемым - результатом также
+            будет
+            'object', а не 'array', как можно было бы подумать:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(typeof []); // тоже выведет 'object'
+</pre>
+        </div>
+
+        <p>Дело в том, что на самом деле в JavaScript нет отдельного типа данных для массивов - каждый массив
+            представляет собой
+            частный случай объекта.
+            <br>
+            Объекты (в том числе и массивы, как вы уже знаете) считаются сложными типами данных. Строки, числа,
+            логические значения
+            считаются простыми, или примитивными типами данных. Их часто так и называют - примитивы, подразумевая все
+            то, что не
+            является объектом.
+            <br>
+            В JavaScript шесть примитивных типов данных: string, number, boolean, null, undefined, symbol. Запомните их
+            количество и
+            названия - это часто спрашивают на собеседованиях.
+        </p>
+
+        <h3>Задача 1 </h3>
+
+        <p>Не подсматривая в учебник перечислите все примитивные типы данных в JavaScript.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let tip1 = 'string';
+<span class="-n"></span>let tip1 = 'string';
+<span class="-n"></span>let tip3 = 'boolean';
+<span class="-n"></span>let tip4 = 'null';
+<span class="-n"></span>let tip5 = 'undefined';
+<span class="-n"></span>let tip6 = 'symbol';
+<span class="-n"></span>1.string 2.number 3.boolean 4.null 5.undefined 6.symbol
+<span class="-n"></span>typeof "hello"; // "string"
+<span class="-n"></span>typeof 42; // "number"
+<span class="-n"></span>typeof true; // "boolean"
+<span class="-n"></span>typeof null; // "object" (исторический баг!)
+<span class="-n"></span>typeof undefined; // "undefined"
+<span class="-n"></span>typeof Symbol(); // "symbol"
+</pre>
+        </div>
+
+        <script>
+            let tip1 = 'string';
+            let tip2 = 'number';
+            let tip3 = 'boolean';
+            let tip4 = 'null';
+            let tip5 = 'undefined';
+            let tip6 = 'symbol';
+            console.log(`
+let tip1 = 'string';
+let tip2 = 'number';
+let tip3 = 'boolean';
+let tip4 = 'null';
+let tip5 = 'undefined';
+let tip6 = 'symbol';
+1.${tip1} 2.${tip2} 3.${tip3} 4.${tip4} 5.${tip5} 6.${tip6}
+typeof "hello";    // "string"
+typeof 42;         // "number"
+typeof true;       // "boolean"
+typeof null;       // "object" (исторический баг!)
+typeof undefined;  // "undefined"
+typeof Symbol();   // "symbol"
+`)
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Не запуская код, определите, что выведется на экран в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(typeof { a: 1, b: 2, c: 3 }); // object
+</pre>
+        </div>
+
+        <script>
+            console.log(`
+console.log(typeof { a: 1, b: 2, c: 3 });
+`, typeof { a: 1, b: 2, c: 3 });
+        </script>
+
+        <h3>Задача 3</h3>
+
+        <p> Не запуская код, определите, что выведется на экран в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log( typeof [1, 2, 3] ); // object
+</pre>
+        </div>
+
+        <script>
+            console.log(`
+console.log(typeof [1, 2, 3]);
+выведется на экран в консоль:
+`, typeof [1, 2, 3]);
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p> Не запуская код, определите, что выведется на экран в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3];
+<span class="-n"></span>console.log( typeof arr ); // object
+</pre>
+        </div>
+
+        <script>
+            let arr = [1, 2, 3];
+            console.log(`
+let arr = [1, 2, 3];
+console.log( typeof arr );
+`, typeof arr);
+        </script>
+
+        <h3>Задача 5</h3>
+
+        <p>Не запуская код, определите, что выведется на экран в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3];
+<span class="-n"></span>console.log( typeof arr[0] ); // number
+</pre>
+        </div>
+
+        <script>
+            arr = [1, 2, 3];
+            console.log(`
+arr = [1, 2, 3];
+console.log(typeof arr[0]);`, typeof arr[0]);
+        </script>
+
+
+        <h3>Задача 6</h3>
+
+        <p>Не запуская код, определите, что выведется на экран в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['1', '2', '3'];
+<span class="-n"></span>console.log( typeof arr[0] ); // string
+</pre>
+        </div>
+
+        <script>
+            arr = ['1', '2', '3'];
+            console.log(`
+arr = ['1', '2', '3'];
+console.log( typeof arr[0] );
+`, typeof arr[0]);
+        </script>
+
+        <h2>Как определить массив ли объект</h2>
+
+        <p>Как было указано выше, оператор typeof не позволяет различать массивы и объекты. Иногда, однако, это
+            необходимо сделать.</p>
+
+        <p>На помощь придет функция Array.isArray():</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log( Array.isArray([]) ); // выведет true
+<span class="-n"></span>console.log( Array.isArray({}) ); // выведет false
+</pre>
+        </div>
+
+        <h3>Задача 7 </h3>
+
+        <p>Не запуская код, определите, что выведется на экран в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log( Array.isArray([1, 2, 3]) ); // true
+</pre>
+        </div>
+
+        <script>
+            console.log(`
+console.log( Array.isArray([1, 2, 3]) );`, Array.isArray([1, 2, 3]));
+        </script>
+
+        <h3>Задача 8</h3>
+
+        <p>Не запуская код, определите, что выведется на экран в консоль:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log( Array.isArray({a: 1, b: 2, c: 3}) ); // false
+</pre>
+        </div>
+
+        <script>
+            console.log(`
+console.log( Array.isArray({a: 1, b: 2, c: 3}) );
+`, Array.isArray({ a: 1, b: 2, c: 3 }));
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

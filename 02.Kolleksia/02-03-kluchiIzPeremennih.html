@@ -41,23 +41,372 @@
 
         <h2>Ключи из переменных в JavaScript</h2>
 
+        <p>Пусть у нас дан вот такой массив:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+</pre>
+        </div>
+
+        <p>Выведем на экран элемент с ключом 0:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+<span class="-n"></span>console.log(arr[0]); // выведет 'a'
+</pre>
+        </div>
+
+        <p>Давайте теперь ключ выводимого элемента не будем писать непосредственно в квадратных скобках, а запишем его
+            впеременную: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+<span class="-n"></span>let key = 0; // запишем ключ в переменную
+</pre>
+        </div>
+        <p>Используем теперь нашу переменную для вывода соответствующего элемента:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+<span class="-n"></span>let key = 0; // запишем ключ в переменную
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr[key]); // выведет 'a'
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Дан следующий массив: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+</pre>
+        </div>
+
+        <p>Дана также переменная: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let key = 2;
+</pre>
+        </div>
+        <p>Выведите на экран элемент, ключ которого хранится в переменной key. </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = ['a', 'b', 'c'];
+<span class="-n"></span>let key = 2;
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr1[key]); // c
+</pre>
+        </div>
+
+        <script>
+            let arr1 = ['a', 'b', 'c'];
+            let key = 2;
+            console.log(`
+Выведите на экран элемент, ключ которого хранится в переменной key.
+let arr1 = ['a', 'b', 'c'];
+let key = 2;
+console.log(arr1[key]);
+`, arr1[key]);
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Дан следующий массив:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+</pre>
+        </div>
+        <p>Даны также переменные: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let key1 = 1;
+<span class="-n"></span>let key2 = 2;
+</pre>
+        </div>
+
+        <p>Найдите сумму элементов, ключи которых хранятся в наших переменных.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [1, 2, 3, 4, 5];
+<span class="-n"></span>let key1 = 1;
+<span class="-n"></span>let key2 = 2;
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr2[key1] + arr2[key2])
+</pre>
+        </div>
+
+        <script>
+            let arr2 = [1, 2, 3, 4, 5];
+            let key1 = 1;
+            let key2 = 2;
+            console.log(`
+Найдите сумму элементов, ключи которых хранятся в наших переменных.
+let arr2 = [1, 2, 3, 4, 5];
+let key1 = 1;
+let key2 = 2;
+console.log(arr2[key1] + arr2[key2])
+`, arr2[key1] + arr2[key2])
+        </script>
+
+        <h2>Ключи объектов </h2>
+
+        <p>Ключи объектов также могут хранится в переменных, смотрите пример:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key1: 'a', key2: 'b', key3: 'c'};
+<span class="-n"></span>let key = 'key1'; // записываем ключ в переменную
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj[key]); // выведет 'a'
+</pre>
+        </div>
+
+        <h3>Задача 3</h3>
+
+        <p>Дан следующий объект:</p>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj3 = {'a': 1, 'b': 2, 'c': 3};
+</pre>
+        </div>
+
+        <p>Дана переменная key, в которой хранится один из ключей нашего объекта. Выведите с помощью переменной key
+            соответствующий
+            элемент объекта.
+        </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj3 = { 'a': 1, 'b': 2, 'c': 3 };
+<span class="-n"></span>let key3 = 'c';
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj3[key3]);
+</pre>
+        </div>
+
+        <script>
+            let obj3 = { 'a': 1, 'b': 2, 'c': 3 };
+            let key3 = 'c';
+            console.log(`
+Выведите с помощью переменной key
+            соответствующий
+            элемент объекта.
+let obj3 = { 'a': 1, 'b': 2, 'c': 3 };
+let key3 = 'c';
+console.log(obj3[key3]);
+`, obj3[key3]);
+        </script>
+
+        <h2> Нюансы объектов </h2>
+
+        <p> Ключи из переменных в объектах имеют некоторые нюансы. Давайте изучим их вот на таком объекте, в котором для
+            простоты
+            будет только один элемент с ключом key: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key: '!!!'};
+</pre>
+        </div>
+
+        <p> Давайте выведем элемент объекта, обратившись к нему по ключу. Для этого мы в квадратных скобках пишем этот
+            ключ
+            в кавычках: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key: '!!!'};
+<span class="-n"></span>console.log(obj['key']); // выведет '!!!'
+</pre>
+        </div>
+        <p>Пусть теперь название нашего ключа хранится в переменной key:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key: '!!!'};
+<span class="-n"></span>let key = 'key'; // храним название в переменной
+</pre>
+        </div>
+        <p> Теперь, если мы хотим получить элемент, ключ которого хранится в этой переменной, то в квадратных скобках мы
+            должны написать слово key уже без кавычек:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {key: '!!!'};
+<span class="-n"></span>let key = 'key';
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj[key]); // выведет '!!!'
+</pre>
+        </div>
+        <p> То есть: при обращении к элементу по имени ключа мы должны это имя взять в кавычки, так как это строка. А
+            при обращении по ключу, хранящемуся в переменной, кавычки будут лишними - так как переменные не нужно брать
+            в кавычки.
+            <br>
+            Описанный нюанс часто является источником ошибок. Давайте посмотрим на примере, как возникают эти ошибки.
+            Пусть дан вот такой объект:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {text: '!!!'};
+</pre>
+        </div>
+
+        <p>Пусть мы хотели обратиться к элементу с ключом text, но забыли кавычки. В этом случае JavaScript будет искать
+            переменную text, не найдет ее и выдаст ошибку:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {text: '!!!'};
+<span class="-n"></span>console.log(obj[text]); // выдаст ошибку, так как переменной text нет
+</pre>
+        </div>
+        <p> Еще хуже будет, если случайно совпало так, что переменная text у нас уже существует (для совсем других
+            целей). В этом
+            случае содержимое этой переменной и подставится вместо ключа.
+            <br>
+            Пусть для примера в переменной text лежит строка 'string'. Тогда JavaScript будет искать элемент с ключом
+            string в нашем объекте, не найдет его и вернет undefined:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let text = 'string'; // переменная text с каким-то значением
+<span class="-n"></span>
+<span class="-n"></span>let obj = {text: '!!!'};
+<span class="-n"></span>console.log(obj[text]); // выведет undefined
+</pre>
+        </div>
+        <p> А вот если так случайно окажется, что в нашем объекте по чистой случайности окажется ключ string - то на
+            экран и выведется содержимое элемента с этим ключом string, а не с ключом text, как мы этого хотели:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let text = 'string'; // переменная text с каким-то значением
+<span class="-n"></span>
+<span class="-n"></span>let obj = {text: '!!!', string: '???'};
+<span class="-n"></span>console.log(obj[text]); // выведет '???' - содержимое элемента с ключом string
+</pre>
+        </div>
+
+        <p> То есть наш код не будет выдавать ошибку в консоль, будет как-то работать, но делать не то, что мы хотели.
+            Получим
+            трудноуловимую ошибку и все потому, что мы забыли кавычки! </p>
+
+        <h2>Нюансы альтернативного синтаксиса объектов</h2>
+
+        <p>Пусть теперь у нас есть вот такой объект: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {text: '+++', key: '!!!'};
+</pre>
+        </div>
 
 
 
+        <p>Давайте с помощью альтернативного синтаксиса выведем элемент с ключом text:</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {text: '+++', key: '!!!'};
+<span class="-n"></span>console.log(obj.text); // выведет '+++'
+</pre>
+        </div>
+        <p>Пусть теперь мы ключ text будем хранить в переменной key:</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {text: '+++', key: '!!!'};
+<span class="-n"></span>let key = 'text'; // храним ключ в переменной
+</pre>
+        </div>
 
+        <p>Давайте теперь выведем элемент, ключ которого хранится в переменной key. Если мы решим воспользоваться
+            альтернативным
+            синтаксисом - нас ждет сюрприз: вместо содержимого элемента с ключом text, мы увидим содержимое элемента с
+            ключом key: </p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {text: '+++', key: '!!!'};
+<span class="-n"></span>let key = 'text';
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj.key); // выведет '!!!'
+</pre>
+        </div>
+        <p>Почему так произошло? Потому что альтернативный синтаксис вообще не имеет кавычек, а это значит, что любой
+            текст там трактуется как имя ключа. То есть туда принципиально нельзя вставить имя переменной - для этого
+            нужно пользоваться
+            синтаксисом с квадратными скобками.
+            <br>
+            Как вы уже поняли, я сделал в нашем объекте ключ, совпадающий с именем переменной. Если такого ключа не
+            будет, то JavaScript будет искать элемент с ключом key, не найдет его и выведет undefined:
+        </p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {text: '+++'};
+<span class="-n"></span>let key = 'text';
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj.key); // выведет undefined
+</pre>
+        </div>
+        <p>То есть наша переменная вообще никак не участвует в коде. Если ее убрать, то ничего и не поменяется: </p>
 
-
-
-
-
-
-
-
-
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {text: '+++'};
+<span class="-n"></span>console.log(obj.key); // выведет undefined
+</pre>
+        </div>
 
 
     </main>

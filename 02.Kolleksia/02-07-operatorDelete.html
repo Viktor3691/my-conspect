@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-02-kolleksia.html">Коллекции</a>
-            <a href="02-01-massiv.html"># of 312</a>
+            <a href="02-07-operatorDelete.html">44 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="02-06-operatorIn.html">Оператор in в
+                JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="02-08-constMassivObekt.html">Константы с массивами или объектами в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,7 +40,61 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Оператор delete в JavaScript</h2>
+
+        <p>Можно удалять элементы массивов и объектов с помощью оператора delete. Давайте посмотрим на примерах.
+            <br>
+            Объекты
+            Пусть у нас дан вот такой объект:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let obj = {a: 1, b: 2, c: 3};
+// Давайте удалим один из элементов нашего объекта:
+<span class="-n"></span>delete obj.b;
+// Посмотрим, что у нас получилось:
+<span class="-n"></span>console.log(obj); // выведет {a: 1, c: 3}
+</pre>
+        </div>
+
+
+
+        <h3>Задача 1</h3>
+
+        <p>Скажите, что выведется в консоль в результате выполнения следующего кода: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3, d: 4, e: 5};
+<span class="-n"></span>delete obj.e;
+<span class="-n"></span>console.log('e' in obj); // false
+</pre>
+        </div>
+
+        <script>
+            let obj = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+            delete obj.e;
+            console.log(`
+let obj = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+delete obj.e;
+console.log('e' in obj);
+`, 'e' in obj);
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -122,34 +122,74 @@
 
         </script>
 
-
-
-
-
-
         <h3> Задача 1 </h3>
 
         <p>Что выведется в результате выполнения следующего кода:</p>
 
-        const arr = ['a', 'b', 'c'];
-        arr[1] = '!';
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const arr = ['a', 'b', 'c'];
+<span class="-n"></span>arr[1] = '!';
+<span class="-n"></span>console.log(arr); // (3) ['a', '!', 'c']
+</pre>
+        </div>
+
+        <script>
+            const arr1 = ['a', 'b', 'c'];
+            arr1[1] = '!';
+            console.log(`
+const arr1 = ['a', 'b', 'c'];
+arr1[1] = '!';
+console.log(arr1);
+`, arr1);
+        </script>
+
+
 
         <h3> Задача 2 </h3>
 
         <p>Что выведется в результате выполнения следующего кода:</p>
 
-        const arr = ['a', 'b', 'c'];
-        arr = [1, 2, 3];
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const arr = ['a', 'b', 'c'];
+<span class="-n"></span>arr = [1, 2, 3];
+<span class="-n"></span>console.log(arr);
+ // Uncaught TypeError: Assignment to constant variable.
+</pre>
+        </div>
+
+        <!-- <script>
+            const arr2 = ['a', 'b', 'c'];
+            arr2 = [1, 2, 3];
+            console.log(arr2);
+        </script> -->
 
         <h3> Задача 3</h3>
 
         <p> Что выведется в результате выполнения следующего кода:</p>
 
-        const arr = ['a', 'b', 'c'];
-        arr = ['a', 'b', 'c'];
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const arr = ['a', 'b', 'c'];
+<span class="-n"></span>arr = ['a', 'b', 'c'];
+<span class="-n"></span>console.log(arr);
+// Uncaught TypeError: Assignment to constant variable.
+</pre>
+        </div>
+
+        <!-- <script>
+            const arr3 = ['a', 'b', 'c'];
+            arr3 = ['a', 'b', 'c'];
+            console.log(arr3);
+        </script> -->
+
+        <p>Ошибка Uncaught TypeError: Assignment to constant variable появляется, когда ты пытаешься переприсвоить
+            переменной,
+            объявленной через const, новое значение.</p>
 
 
 

@@ -19,10 +19,11 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-02-kolleksia.html">Коллекции</a>
-            <a href="02-01-massiv.html"># of 312</a>
+            <a href="02-10-poiskOshibokVCode.html">47 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="02-09-programCheresConst.html">Подход
+                программирования через константы в JavaScript</a>
 
             <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
         </div>
@@ -38,7 +39,326 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Поиск ошибок в коде с массивами и объектами JavaScript</h2>
+
+        <p>В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны
+            проверить, делает ли
+            код то, что описано. Если код работает некорректно, вы должны исправить ошибки. </p>
+
+        <h3>Задача 1</h3>
+
+        <p>Код должен вывести последний элемент массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>console.log(arr[arr.length]); // undefined
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>console.log(arr[arr.length - 1]); // 5
+</pre>
+        </div>
+
+
+        <script>
+            let arr1 = [1, 2, 3, 4, 5];
+            console.log(`let arr1 = [1, 2, 3, 4, 5];
+console.log(arr1[arr1.length - 1]);`, arr1[arr1.length - 1]);
+        </script>
+
+
+
+        <h3>Задача 2</h3>
+
+        <p>Код должен найти сумму элементов массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>console.log(arr[1] + arr[2] + arr[3] + arr[4] + arr[5]); // NaN
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>console.log(arr2[0] + arr2[1] + arr2[2] + arr2[3] + arr2[4]); // 15
+</pre>
+        </div>
+
+        <script>
+            let arr2 = [1, 2, 3, 4, 5];
+            console.log(`
+let arr2 = [1, 2, 3, 4, 5];
+console.log(arr2[0] + arr2[1] + arr2[2] + arr2[3] + arr2[4]);
+`, arr2[0] + arr2[1] + arr2[2] + arr2[3] + arr2[4]);
+        </script>
+
+
+
+        <h3>Задача 3</h3>
+
+        <p>Код должен вывести длину массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = {1, 2, 3, 4, 5};
+<span class="-n"></span>console.log(arr.length]);
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5]; // {} - []
+<span class="-n"></span>console.log(arr.length); // ]
+</pre>
+        </div>
+
+
+        <script>
+            let arr = [1, 2, 3, 4, 5];
+            console.log(`
+let arr = [1, 2, 3, 4, 5];
+console.log(arr.length);
+`, arr.length);
+        </script>
+
+
+
+        <h3>Задача 4</h3>
+
+        <p>Код должен вывести элемент объекта:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>console.log(obj[a]); // Uncaught ReferenceError: a is not defined
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>console.log(obj['a']); // 1  [a] - ['a']
+</pre>
+        </div>
+
+        <script>
+            let obj = { a: 1, b: 2, c: 3 };
+            console.log(`
+let obj = { a: 1, b: 2, c: 3 };
+console.log(obj['a']);
+`, obj['a']);
+        </script>
+
+
+
+        <h3>Задача 5</h3>
+
+        :<p>Код должен вывести элемент объекта по ключу из переменной</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>let key = 'a';
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj.key); // undefined
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <p>obj.key — это обращение к свойству с буквальным именем key, нужно получить значение по ключу, который
+            хранится в переменной key. Для этого используют квадратные скобки:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>let key = 'a';
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj5[key]); // 1 console.log(obj.key) - console.log(obj5[key])
+</pre>
+        </div>
+
+        <script>
+            let obj5 = { a: 1, b: 2, c: 3 };
+            let key = 'a';
+
+            console.log(`
+let obj5 = { a: 1, b: 2, c: 3 };
+let key = 'a';
+console.log(obj5[key]);
+`, obj5[key]);
+        </script>
+
+        <h3>Задача 6</h3>
+
+        <p>Код должен вывести сумму элементов объекта:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>let sum = obj[a] + obj[b] + obj[c];
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj); // Uncaught ReferenceError: a is not defined
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj6 = { a: 1, b: 2, c: 3 };
+<span class="-n"></span>let sum6 = obj6['a'] + obj6['b'] + obj6['c']; // obj[a] - obj6['a']
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum6); // 6 console.log(obj6); - console.log(sum6);
+</pre>
+        </div>
+
+        <script>
+            let obj6 = { a: 1, b: 2, c: 3 };
+            let sum6 = obj6['a'] + obj6['b'] + obj6['c'];
+            console.log(`
+let obj6 = { a: 1, b: 2, c: 3 };
+let sum6 = obj6['a'] + obj6['b'] + obj6['c'];
+console.log(sum6);
+`, sum6);
+        </script>
+
+        <h3>Задача 7</h3>
+
+        <p>Код должен вывести количество элементов объекта:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>console.log(obj.length); // undefined
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <p>В этом коде ошибка: у обычных объектов ({}) в JavaScript нет свойства length — оно есть только у массивов.
+            <br>
+            Для учебных задач чаще всего достаточно самого простого варианта: Object.keys(obj).length
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>console.log(Object.keys(obj).length); // ✅ Выведет: 3
+</pre>
+        </div>
+
+
+        <script>
+            let obj7 = { a: 1, b: 2, c: 3 };
+            console.log(`
+let obj7 = { a: 1, b: 2, c: 3 };
+console.log(Object.keys(obj7).length);
+`, Object.keys(obj7).length);
+        </script>
+
+        <h3>Альтернативные способы</h3>
+
+        <p><strong>Через</strong> <i>for...in</i> с проверкой собственных свойств:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>let count = 0;
+<span class="-n"></span>for (let key in obj) {
+<span class="-n"></span>if (obj.hasOwnProperty(key)) {
+<span class="-n"></span>count++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(count); // 3
+</pre>
+        </div>
+
+        <script>
+            let obj71 = { a: 1, b: 2, c: 3 };
+            let count = 0;
+            for (let key in obj71) {
+                if (obj.hasOwnProperty(key)) {
+                    count++;
+                }
+            }
+            console.log(`
+let obj71 = { a: 1, b: 2, c: 3 };
+let count = 0;
+for (let key in obj71) {
+if (obj.hasOwnProperty(key)) {
+count++;
+}
+}
+console.log(count);
+`, count); // 3
+        </script>
+
+        <p><strong>Через</strong> <i>Object.values():</i></p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>console.log(Object.values(obj).length); // 3
+</pre>
+        </div>
+
+        <script>
+            let obj72 = { a: 1, b: 2, c: 3 };
+            console.log(`
+let obj72 = { a: 1, b: 2, c: 3 };
+console.log(Object.values(obj72).length);
+`, Object.values(obj72).length); // 3
+        </script>
+
+        <p><strong>Через</strong> <i>Object.entries():</i></p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>console.log(Object.entries(obj).length); // 3
+</pre>
+        </div>
+
+        <script>
+            let obj73 = { a: 1, b: 2, c: 3 };
+            console.log(`let obj73 = { a: 1, b: 2, c: 3 };
+console.log(Object.entries(obj73).length);`, Object.entries(obj73).length); // 3
+        </script>
+
+
+
 
 
 

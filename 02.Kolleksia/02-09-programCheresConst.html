@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-02-kolleksia.html">Коллекции</a>
-            <a href="02-01-massiv.html"># of 312</a>
+            <a href="02-09-programCheresConst.html">46 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="02-08-constMassivObekt.html">Константы с
+                массивами или объектами в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="02-10-poiskOshibokVCode.html">Поиск ошибок в коде с массивами и объектами
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,9 +40,76 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Подход программирования через константы в JavaScript</h2>
+
+        <p>В последнее время в JavaScript возник новый подход к объявлению переменных. Суть подхода в том, что вместо
+            let мы везде
+            используем const, кроме тех случаев, когда мы точно знаем, что значение будет переменным.
+            <br>
+            Смотрите пример:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const a = 1;
+<span class="-n"></span>const b = 2;
+<span class="-n"></span>const c = a + b;
+<span class="-n"></span>
+<span class="-n"></span> console.log(c);
+</pre>
+        </div>
 
 
+        <p>Этот подход очень популярный и вы можете встретить его в различных сторонних источниках.
+            <br>
+            Я, однако, против этого модного подхода. Дело в том, что константы были придуманы для хранения значений типа
+            числа Пи.
+            То есть для таких значений, которые предопределены в вашей программе. Объявление же всех переменных
+            константами
+            противоречит этой идее.
+            <br>
+            Кроме того, не очень логично поведение массивов и объектов - мы объявляем их константами, при этом спокойно
+            можем
+            изменять их свойства. Что это за константы, если их можно изменять?
+            <br>
+            Часто объявление объектов константами используется для того, чтобы мы не смогли сменить тип данных - вместо
+            объекта
+            записать примитив. Но если нам нужен контроль типов, которого нет по умолчанию в JavaScript, то лучше
+            воспользоваться
+            его диалектом TypeScript.
+            <br>
+            В общем, вы можете пользоваться этим подходом, раз такая мода, но я против и дальше в учебнике переменные
+            по-прежнему
+            будут объявляться через let, как это было задумано авторами языка.
+        </p>
+
+        <h3>Задача 1</h3>
+
+        <p>Перепишите следующий код через описанный подход:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>let res = arr[1] + arr[2];
+<span class="-n"></span>
+<span class="-n"></span>console.log(res); // 5
+</pre>
+        </div>
+
+
+        <script>
+            let arr = [1, 2, 3, 4, 5];
+            let res = arr[1] + arr[2];
+
+            console.log(`
+            let arr = [1, 2, 3, 4, 5];
+            let res = arr[1] + arr[2];
+
+            console.log(res);
+            `, res);
+        </script>
 
     </main>
 

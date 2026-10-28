@@ -42,11 +42,12 @@
 
         <h2>Оператор delete в JavaScript</h2>
 
-        <p>Можно удалять элементы массивов и объектов с помощью оператора delete. Давайте посмотрим на примерах.
-            <br>
-            Объекты
-            Пусть у нас дан вот такой объект:
-        </p>
+        <p>Можно удалять элементы массивов и объектов с помощью оператора delete. Давайте посмотрим на примерах.</p>
+
+        <h2>Объекты </h2>
+
+        <p>Пусть у нас дан вот такой объект:</p>
+
 
         <div data-w="bock/code">
             script.js
@@ -84,6 +85,58 @@ console.log('e' in obj);
 `, 'e' in obj);
             console.log(`console.log(obj);`, obj);
         </script>
+
+        <h2>Массивы </h2>
+
+        <p>Пусть у нас дан вот такой массив: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c'];
+// Давайте удалим один из элементов нашего массива:
+<span class="-n"></span>delete arr[1];
+// В результате элемент удалиться, но массив станет разреженным:
+<span class="-n"></span>console.log(arr); // выведет ['a',, 'c']
+</pre>
+        </div>
+
+        <h3>Задача 2 </h3>
+
+        <p>Дан массив: let arr2 = ['a', 'b', 'c', 'd', 'e'];</p>
+
+        <p>Удалите из него два элемента. Проверьте, какое станет значение свойства length после этого.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = ['a', 'b', 'c', 'd', 'e'];
+<span class="-n"></span>
+<span class="-n"></span>delete arr2[1];
+<span class="-n"></span>delete arr2[2];
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr2); // (5) ['a', пусто × 2, 'd', 'e']
+<span class="-n"></span>console.log(arr2.length); // 5
+</pre>
+        </div>
+
+        <script>
+            let arr2 = ['a', 'b', 'c', 'd', 'e'];
+            delete arr2[1];
+            delete arr2[2];
+
+            console.log(`
+let arr2 = ['a', 'b', 'c', 'd', 'e'];
+delete arr2[1];
+delete arr2[2];
+
+console.log(arr2);
+`, arr2);
+            console.log(`console.log(arr2.length);`, arr2.length);
+        </script>
+
+
+
 
 
 

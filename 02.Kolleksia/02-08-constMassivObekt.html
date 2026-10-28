@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-02-kolleksia.html">Коллекции</a>
-            <a href="02-01-massiv.html"># of 312</a>
+            <a href="02-08-constMassivObekt.html">45 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="02-07-operatorDelete.html">Оператор delete в
+                JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="02-09-programCheresConst.html">Подход программирования через константы в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,7 +40,127 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Константы с массивами или объектами в JavaScript</h2>
+
+        <p> Константы, содержащие массивы и объекты, работают интересным образом. JavaScript не разрешает изменять
+            значения
+            этих
+            констант, но изменять свойства объектов и значения элементов массивов - можно.
+            <br>
+            Давайте посмотрим на примерах. Пусть у нас дан вот такой объект:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const obj = {a: 1, b: 2, c: 3};
+// Давайте попробуем записать в него что-то другое:
+<span class="-n"></span>obj = 123; // ошибка
+// Давайте попробуем записать в константу другой объект:
+<span class="-n"></span>obj = {x: 1, y: 2, z: 3}; // ошибка
+// Однако, если мы попробуем изменить свойство объекта, то это сработает:
+<span class="-n"></span>obj.a = '+'; // работает!
+</pre>
+        </div>
+
+        <p>Пример</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const obj = { a: 1, b: 2, c: 3 };
+// ✅ Можно менять свойства существующего объекта
+<span class="-n"></span>obj.a = 10; // теперь obj.a === 10
+<span class="-n"></span>obj.b = 'новое'; // obj.b теперь строка
+<span class="-n"></span>obj.c = true; // obj.c теперь boolean
+// ✅ Можно добавлять новые свойства
+<span class="-n"></span>obj.d = 'добавлено'; // у obj теперь есть свойство d
+// ✅ Можно удалять свойства
+<span class="-n"></span>delete obj.c; // свойства c больше нет
+<span class="-n"></span>console.log(obj);
+// Вывод: { a: 10, b: 'новое', d: 'добавлено' }
+// ❌ Нельзя переприсвоить константе другой объект
+<span class="-n"></span>obj = { x: 1 }; // TypeError: Assignment to constant variable
+// ❌ Нельзя сделать obj примитивом
+<span class="-n"></span>obj = 123; // тоже ошибка
+</pre>
+        </div>
+
+
+        <script>
+            const obj = { a: 1, b: 2, c: 3 };
+
+            // ✅ Можно менять свойства существующего объекта
+            obj.a = 10; // теперь obj.a === 10
+            obj.b = 'новое'; // obj.b теперь строка
+            obj.c = true; // obj.c теперь boolean
+
+            // ✅ Можно добавлять новые свойства
+            obj.d = 'добавлено'; // у obj теперь есть свойство d
+
+            // ✅ Можно удалять свойства
+            delete obj.c; // свойства c больше нет
+
+            console.log(`
+            const obj = { a: 1, b: 2, c: 3 };
+
+            // ✅ Можно менять свойства существующего объекта
+            obj.a = 10; // теперь obj.a === 10
+            obj.b = 'новое'; // obj.b теперь строка
+            obj.c = true; // obj.c теперь boolean
+
+            // ✅ Можно добавлять новые свойства
+            obj.d = 'добавлено'; // у obj теперь есть свойство d
+
+            // ✅ Можно удалять свойства
+            delete obj.c; // свойства c больше нет
+
+            console.log(obj);
+            // Вывод: { a: 10, b: 'новое', d: 'добавлено' }
+            `, obj);
+            // Вывод: { a: 10, b: 'новое', d: 'добавлено' }
+
+        </script>
+
+
+
+
+
+
+        <h3> Задача 1 </h3>
+
+        <p>Что выведется в результате выполнения следующего кода:</p>
+
+        const arr = ['a', 'b', 'c'];
+        arr[1] = '!';
+        console.log(arr);
+
+        <h3> Задача 2 </h3>
+
+        <p>Что выведется в результате выполнения следующего кода:</p>
+
+        const arr = ['a', 'b', 'c'];
+        arr = [1, 2, 3];
+        console.log(arr);
+
+        <h3> Задача 3</h3>
+
+        <p> Что выведется в результате выполнения следующего кода:</p>
+
+        const arr = ['a', 'b', 'c'];
+        arr = ['a', 'b', 'c'];
+        console.log(arr);
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="02-09-programCheresConst.html">Подход
                 программирования через константы в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="../03.uslovia/03-01-constrIf-else.html">Конструкция if-else в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -341,6 +342,10 @@ console.log(Object.values(obj72).length);
 `, Object.values(obj72).length); // 3
         </script>
 
+        <p><strong>Как это работает</strong> </p>
+        <p> Object.values(obj) возвращает массив значений объекта: [1, 2, 3].
+            У этого массива есть свойство .length, которое и даёт количество элементов — 3. </p>
+
         <p><strong>Через</strong> <i>Object.entries():</i></p>
 
         <div data-w="bock/code">
@@ -355,6 +360,43 @@ console.log(Object.values(obj72).length);
             let obj73 = { a: 1, b: 2, c: 3 };
             console.log(`let obj73 = { a: 1, b: 2, c: 3 };
 console.log(Object.entries(obj73).length);`, Object.entries(obj73).length); // 3
+        </script>
+
+        <p><strong>Как это работает</strong></p>
+
+        <p>Object.entries(obj) возвращает массив пар [ключ, значение]: <br>
+            [ ['a', 1], ['b', 2], ['c', 3] ]. <br>
+            У этого массива есть свойство .length — оно и даёт количество пар, то есть количество свойств объекта: 3.
+        </p>
+
+        <p><strong>Чем это отличается от других способов</strong></p>
+
+        <p>Object.keys(obj).length — считает только ключи. <br>
+            Object.values(obj).length — считает только значения.<br>
+            Object.entries(obj).length — считает пары ключ‑значение. Для простого подсчёта количества свойств все три
+            варианта дадут
+            одинаковый результат.<br>
+            Зато Object.entries() особенно полезен, если нужно сразу работать и с ключами, и со значениями — например, в
+            цикле: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (const [key, value] of Object.entries(obj)) {
+<span class="-n"></span>console.log(`${key}: ${value}`);
+<span class="-n"></span>}
+<span class="-n"></span>// Выведет:
+<span class="-n"></span>// a: 1
+<span class="-n"></span>// b: 2
+<span class="-n"></span>// c: 3
+</pre>
+        </div>
+
+        <script>
+            let obj74 = { a: 1, b: 2, c: 3 };
+            for (const [key, value] of Object.entries(obj74)) {
+                console.log(`${key}: ${value}`);
+            }
         </script>
 
 

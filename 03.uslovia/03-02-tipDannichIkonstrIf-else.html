@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-01-constrIf-else.html">Конструкция if-else
                 в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="03-03-sloYsloviaVif-else.html">Сложные условия в if-else в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -41,6 +42,664 @@
 
         <h2>Типы данных и конструкция if-else в
             JavaScript</h2>
+
+        <p>При использовании конструкции if можно сравнивать и строки. Для примера пусть в переменной test хранится
+            какая-то
+            строка, например 'abc':
+            <br>
+            let test = 'abc'; <br>
+            Давайте проверим, равно ли содержимое переменной test строке 'abc':
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 'abc';
+<span class="-n"></span>if (test == 'abc') {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span> }
+верно
+</pre>
+        </div>
+
+        <h2>Числа в кавычках </h2>
+
+        <p>Как вы знаете, число в кавычках представляет собой строку. Например, '3' - это строка. Однако, при сравнении
+            таких строк
+            с настоящими числами JavaScript считает, что строка в кавычках равна такому же числу.
+            <br>
+            Давайте для примера сравним строку '3' и число 3:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if ('3' == 3) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <h2>Равенство по значению и типу</h2>
+
+        <p>Пусть вы хотите сравнивать так, чтобы число в кавычках не было равно такому же числу без кавычек. Говоря
+            другими
+            словами, вы хотите сравнивать так, чтобы сравнение было не только по значению, но и по типу данных.
+            <br>
+            Для этого вместо оператора == следует использовать оператор ===. В следующем примере при сравнении строки
+            '3' и числа 3
+            на экран выведется 'неверно', так как переменные, хотя и равны по значению, но не равны по типу:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if ('3' === 3) {
+<span class="-n"></span> alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+
+        <p>А вот при сравнении двух строк '3' на экран выведется 'верно':</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if ('3' === '3') {
+<span class="-n"></span> alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <p>Так же, как и при сравнении чисел:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (3 === 3) {
+<span class="-n"></span> alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <p>Разница между оператором == и оператором === проявляется именно тогда, когда значения одинаковые, но разный
+            тип данных. В остальных случаях эти операторы работают одинаково. К примеру, при сравнении разных чисел,
+            конечно же, 'неверно':</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (2 === 3) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = '3';
+<span class="-n"></span>let test2 = '3';
+<span class="-n"></span>
+<span class="-n"></span>if (test1 == test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test1 = '3';
+            let test2 = '3';
+
+            if (test1 == test2) {
+                console.log(`
+let test1 = '3';
+let test2 = '3';
+
+if (test1 == test2) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = '3';
+<span class="-n"></span>let test2 = '3';
+<span class="-n"></span>
+<span class="-n"></span>if (test1 === test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test21 = '3';
+            let test22 = '3';
+
+            if (test21 === test22) {
+                console.log(`
+let test21 = '3';
+let test22 = '3';
+
+if (test21 === test22) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3> Задача 3</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = 3;
+<span class="-n"></span>let test2 = '3';
+<span class="-n"></span>
+<span class="-n"></span>if (test1 == test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test31 = 3;
+            let test32 = '3';
+
+            if (test31 == test32) {
+                console.log(`
+let test31 = 3;
+let test32 = '3';
+
+if (test31 == test32) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 4</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = 3;
+<span class="-n"></span>let test2 = '3';
+<span class="-n"></span>
+<span class="-n"></span>if (test1 === test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+        </pre>
+        </div>
+
+        <script>
+            let test41 = 3;
+            let test42 = '3';
+
+            if (test41 === test42) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test41 = 3;
+let test42 = '3';
+
+if (test41 === test42) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 5</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = 3;
+<span class="-n"></span>let test2 = 3;
+<span class="-n"></span>if (test1 === test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test51 = 3;
+            let test52 = 3;
+
+            if (test51 === test52) {
+                console.log(`
+let test51 = 3;
+let test52 = 3;
+
+if (test51 === test52) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h2>Неравенство по значению и типу</h2>
+
+        <p>Кроме оператора != существует также оператор !==, учитывающий тип при сравнении. Давайте рассмотрим различия
+            между ними
+            на примерах.
+            <br>
+            Пусть с помощью оператора != сравниваются два числа 3. Данный оператор сравнивает значения на то, что они НЕ
+            равны. Так
+            как наши значения как раз-таки равны, то на экран выведется 'неверно':
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (3 != 3) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <p>Пусть теперь одно из наших значений будет в кавычках. В этом случае оператор != все равно посчитает их
+            равными (так как
+            совпадает значение, а тип не важен для данного оператора) и опять выведет 'неверно':</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if ('3' != 3) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно'); // сработает этот alert, так как значения равны
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <p>Давайте теперь сравним два числа 3 с помощью оператора !==. Он также посчитает их равными и выведет
+            'неверно': </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (3 !== 3) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно'); // сработает этот alert, так как значения равны
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+
+        <p>А вот если теперь одну из троек взять в кавычки, то оператор !== посчитает наши тройки неравными, так как,
+            хотя значения
+            их и совпадают, но у них разный тип:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if ('3' !== 3) {
+<span class="-n"></span>alert('верно'); // сработает этот alert, так как значения НЕ равны
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <h3> Задача 6 </h3>
+
+        <p> Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = '3';
+<span class="-n"></span>let test2 = '3';
+<span class="-n"></span>
+<span class="-n"></span>if (test1 != test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test61 = '3';
+            let test62 = '3';
+
+            if (test61 != test62) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test61 = '3';
+let test62 = '3';
+
+if (test61 != test62) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 7</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = '3';
+<span class="-n"></span>let test2 = '3';
+<span class="-n"></span>
+<span class="-n"></span>if (test1 !== test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test71 = '3';
+            let test72 = '3';
+
+            if (test71 !== test72) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test71 = '3';
+let test72 = '3';
+
+if (test71 !== test72) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+
+
+        <h3> Задача 8</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = 3;
+<span class="-n"></span>let test2 = '3';
+<span class="-n"></span>
+<span class="-n"></span>if (test1 != test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test81 = 3;
+            let test82 = '3';
+
+            if (test81 != test82) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test81 = 3;
+let test82 = '3';
+
+if (test81 != test82) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <p> На экран выведется «неверно». <br>
+
+            Почему так
+            В условии используется оператор != (нестрогое неравенство). При его работе JavaScript приводит операнды к
+            одному типу.
+            <br>
+            test1 — число: 3
+            test2 — строка: '3' <br>
+            JS преобразует строку '3' в число 3, сравнивает 3 != 3 — это false, поэтому срабатывает блок else и
+            показывается
+            alert('неверно').
+            <br>
+            Если бы использовался строгий оператор !== (который не делает приведение типов), тогда условие было бы
+            истинным и
+            вывелось бы «верно».
+        </p>
+
+
+
+        <h3> Задача 9</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = 3;
+<span class="-n"></span>let test2 = '3';
+<span class="-n"></span>
+<span class="-n"></span>if (test1 !== test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test91 = 3;
+            let test92 = '3';
+
+            if (test91 !== test92) {
+                console.log(`
+let test91 = 3;
+let test92 = '3';
+
+if (test91 !== test92) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 10</h3>
+
+        <p> Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = 3;
+<span class="-n"></span>let test2 = 2;
+<span class="-n"></span>
+<span class="-n"></span>if (test1 !== test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test101 = 3;
+            let test102 = 2;
+
+            if (test101 !== test102) {
+                console.log(`
+let test101 = 3;
+let test102 = 2;
+
+if (test101 !== test102) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h2>Нюансы</h2>
+
+        <p>Обратите внимание на следующий код:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+ <span class="-n"></span>if (0 == '') {
+ <span class="-n"></span>alert('верно'); // выведет 'верно'
+ <span class="-n"></span>} else {
+ <span class="-n"></span>alert('неверно');
+ <span class="-n"></span>}
+верно
+ </pre>
+        </div>
+
+        <p>И на следующий:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (0 == '0') {
+<span class="-n"></span>alert('верно'); // выведет 'верно'
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

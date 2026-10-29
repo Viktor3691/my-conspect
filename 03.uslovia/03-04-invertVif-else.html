@@ -22,9 +22,11 @@
             <a href="03-04-invertVif-else.html">51 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-03-sloYsloviaVif-else.html">Сложные условия
+                в if-else в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="03-05-konstrIf-elseIbulZnach.html">Конструкция if-else и булевы значения</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,7 +40,71 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Инвертирование высказываний в if-else</h2>
+
+
+        <p>Рассмотрим следующий код:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (num > 0 && num &lt; 5)
+</pre>
+        </div>
+
+
+        <p>Сейчас наше условие такое: num должно быть от 0
+            до 5. Давайте инвертируем это условие, то есть превратим его в его противоположность. Противоположное
+            условие
+            получится таким: num должно быть меньше или равно 0 ИЛИ больше или равно 5: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (num &lt;=0 || num>= 5)
+</pre>
+        </div>
+
+        <p>Как вы видите, чтобы инвертировать условие, приходится несколько задуматься. Гораздо проще будет использовать
+            оператор !, представляющий собой логическое НЕ. С помощью этого оператора нам достаточно поставить знак !
+            перед
+            изначальным условием - и оно инвертируется само:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if ( !(num > 0 && num &lt; 5) )
+</pre>
+        </div>
+
+        <h3>Задача 1 </h3>
+
+        <p> Дан следующий код:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (num1>= 0 || num2 &lt;= 10)
+</pre>
+        </div>
+
+        <p>Используя оператор !
+            инвертируйте приведенное условие.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if ( !(num1>= 0 || num2 &lt;= 10))
+</pre>
+        </div>
+
+
+
+
+
+
 
 
 

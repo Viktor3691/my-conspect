@@ -327,13 +327,13 @@ console.log('неверно');
         <div data-w="bock/code">
             script.js
             <pre>
-        <span class="-n"></span>let test = 30;
-        <span class="-n"></span>if (test &lt;= 10) {
-        <span class="-n"></span>alert('верно');
-        <span class="-n"></span>} else {
-        <span class="-n"></span>alert('неверно');// сработает этот alert
-        <span class="-n"></span>}
-        </pre>
+<span class="-n"></span>let test = 30;
+<span class="-n"></span>if (test &lt;= 10) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');// сработает этот alert
+<span class="-n"></span>}
+</pre>
         </div>
 
         <script>
@@ -354,26 +354,369 @@ console.log('неверно');
             }
         </script>
 
+        <h2>Проверка на равенство </h2>
+
+        <p>Для проверки двух значений на равенство используется оператор == (не путайте его с оператором =, который
+            используется
+            для присваивания).</p>
+
+        <p>Давайте для примера проверим, что test переменная равна 0:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+ <span class="-n"></span>let test = 0; // пусть значение переменной равно 0
+ <span class="-n"></span>
+ <span class="-n"></span>if (test == 0) {
+ <span class="-n"></span>alert('верно'); // сработает этот alert, так как переменная равна 0
+ <span class="-n"></span>} else {
+ <span class="-n"></span>alert('неверно');
+ <span class="-n"></span>}
+ </pre>
+        </div>
+
+        <script>
+            let test8 = 0; // пусть значение переменной равно 0
+
+            if (test8 == 0) {
+                console.log(`
+let test8 = 0; // пусть значение переменной равно 0
+
+if (test8 == 0) {
+console.log('верно'); // сработает этот alert, так как переменная равна 0
+} else {
+console.log('неверно');
+}
+`, 'верно'); // сработает этот alert, так как переменная равна 0
+            } else {
+                console.log('неверно');
+            }
+        </script>
 
 
 
+        <p>Поменяем значение переменной так, чтобы условие не выполнялось:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 1; // пусть значение переменной равно 1
+<span class="-n"></span>
+<span class="-n"></span>if (test == 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно'); // сработает этот alert, так как переменная НЕ равна 0
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test9 = 1;
+
+            if (test9 == 0) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test9 = 1;
+
+if (test9 == 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 5</h3>
+
+        <p>Если переменная test равна 10, то выведите на экран слово 'верно', иначе выведите слово 'неверно'. </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 10;
+<span class="-n"></span>
+<span class="-n"></span>if (test == 10) {
+<span class="-n"></span>alert('верно'); // сработает этот alert, так как переменная  равна 10
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test10 = 10;
+
+            if (test10 == 10) {
+                console.log(`
+let test10 = 10;
+
+if (test10 == 10) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 20;
+<span class="-n"></span>
+<span class="-n"></span>if (test == 10) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно'); // сработает этот alert, так как переменная НЕ равна 10
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test11 = 20;
+
+            if (test11 == 10) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test11 = 20;
+
+if (test11 == 10) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h2>Проверка на неравенство </h2>
+
+        <p>Существует также оператор !=, который наоборот, проверяет на неравенство. Давайте для примера проверим, что
+            test
+            переменная не равна 0:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 1; // пусть значение переменной равно 1
+<span class="-n"></span>
+<span class="-n"></span>if (test != 0) {
+<span class="-n"></span>alert('верно'); // сработает этот alert, так как переменная НЕ равна 0
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test12 = 1; // пусть значение переменной равно 1
+
+            if (test12 != 0) {
+                console.log(`
+let test12 = 1; // пусть значение переменной равно 1
+
+if (test12 != 0) {
+console.log('верно'); // сработает этот alert, так как переменная НЕ равна 0
+} else {
+console.log('неверно');
+}
+`, 'верно'); // сработает этот alert, так как переменная НЕ равна 0
+            } else {
+                console.log('неверно');
+            }
+        </script>
 
 
 
+        <p>Поменяем значение переменной:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 0; // пусть значение переменной равно 0
+<span class="-n"></span>
+<span class="-n"></span>if (test != 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно'); // сработает этот alert, так как переменная равна 0
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test13 = 0; // пусть значение переменной равно 0
+
+            if (test13 != 0) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test13 = 0; // пусть значение переменной равно 0
+
+if (test13 != 0) {
+console.log('верно');
+} else {
+console.log('неверно'); // сработает этот alert, так как переменная равна 0
+}
+`, 'неверно'); // сработает этот alert, так как переменная равна 0
+            }
+        </script>
 
 
 
+        <h3>Задача 6</h3>
+
+        <p>Если переменная test не равна 10, то выведите на экран слово 'верно', иначе выведите слово 'неверно'.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 20; // пусть значение переменной равно 20
+<span class="-n"></span>
+<span class="-n"></span>if (test != 10) {
+<span class="-n"></span>alert('верно'); // сработает этот alert, так как переменная НЕ равна 10
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test14 = 20; // пусть значение переменной равно 20
+
+            if (test14 != 10) {
+                console.log(`
+let test12 = 20; // пусть значение переменной равно 1
+
+if (test12 != 10) {
+console.log('верно'); // сработает этот alert, так как переменная НЕ равна 10
+} else {
+console.log('неверно');
+}
+`, 'верно'); // сработает этот alert, так как переменная НЕ равна 10
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 10; // пусть значение переменной равно 10
+<span class="-n"></span>
+<span class="-n"></span>if (test != 10) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно'); // сработает этот alert, так как переменная  равна 10
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test15 = 10;
+
+            if (test15 != 10) {
+                console.log('верно'); // сработает этот alert, так как переменная НЕ равна 10
+            } else {
+                console.log(`
+let test15 = 10;
+
+if (test15 != 10) {
+console.log('верно');
+} else {
+console.log('неверно');// сработает этот alert, так как переменная  равна 10
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h2>Сравнение переменных</h2>
+
+        <p>В примерах выше мы сравнивали переменную с каким-то числом. Но никто не запрещает нам сравнивать две
+            переменные. <br>
+            Смотрите пример: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = 1;
+<span class="-n"></span>let test2 = 2;
+<span class="-n"></span>
+<span class="-n"></span>if (test2 > test1) {
+<span class="-n"></span>alert('верно'); // сработает этот alert, так как test2 больше test1
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test16 = 1;
+            let test17 = 2;
+
+            if (test17 > test16) {
+                console.log(`
+let test16 = 1;
+let test17 = 2;
+
+if (test17 > test16) {
+console.log('верно'); // сработает этот alert, так как test17 больше test16
+} else {
+console.log('неверно');
+}
+`, 'верно'); // сработает этот alert, так как test17 больше test16
+            } else {
+                console.log('неверно');
+            }
+        </script>
 
 
 
+        <h3>Задача 7 </h3>
 
+        <p>Даны переменные test1 и test2. Проверьте, что значение какой из этих переменных больше и выведите
+            соответствующее
+            сообщение на экран. </p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test1 = 12;
+<span class="-n"></span>let test2 = 22;
+<span class="-n"></span>
+<span class="-n"></span>if (test1 > test2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');// сработает этот alert, так как test1 меньше test2
+<span class="-n"></span>}
+</pre>
+        </div>
 
+        <script>
+            let test18 = 12;
+            let test19 = 22;
 
+            if (test18 > test19) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test18 = 12;
+let test19 = 22;
 
-
-
-
+if (test18 > test19) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
 
     </main>
 

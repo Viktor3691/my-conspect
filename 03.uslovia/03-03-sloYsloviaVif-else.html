@@ -22,9 +22,12 @@
             <a href="03-03-sloYsloviaVif-else.html">50 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-02-tipDannichIkonstrIf-else.html">Типы
+                данных и конструкция if-else в
+                JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="03-04-invertVif-else.html">Инвертирование высказываний в if-else</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,8 +41,673 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Сложные условия в if-else в JavaScript</h2>
 
+        <p>Иногда может быть нужно составить какое-то сложное условие.
+
+            Для этого существуют операторы && (логическое И) и || (логическое ИЛИ).</p>
+
+        <h2>Логическое И </h2>
+
+        <p>Логическое И позволяет задать одновременность условий. В следующем примере, если переменная num больше нуля и
+            одновременно меньше 10, только тогда выведется 'верно':
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 3;
+<span class="-n"></span>if (num > 0 && num &lt; 10) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span> } else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <p> Условия могут налагаться не на одну переменную,
+            а на разные. В следующем примере, если переменная num1 равна 2 и одновременно переменная num1 равна 3,
+            только тогда выведется 'верно' :
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1=2;
+<span class="-n"></span>let num2=3;
+<span class="-n"></span>if (num1==2 && num2==3) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <p> Если хотя бы одно из условий будет нарушено - то выведется 'неверно' .</p>
+
+        <h3>Задача 1 </h3>
+
+        <p>Если переменная num
+            больше нуля и меньше 5, то выведите на экран слово 'верно' , иначе выведите слово 'неверно' . </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num11 = 3;
+<span class="-n"></span>if (num11 > 0 && num11 &lt; 5) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num11 = 3;
+            if (num11 > 0 && num11 < 5) {
+                console.log(`
+let num11 = 3;
+if (num11 > 0 && num11 < 5) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 2 </h3>
+
+        <p> Если переменная num больше или равна 10 и меньше или равна 20, то выведите на экран слово 'верно' , иначе
+            выведите слово 'неверно' .
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num21 = 15;
+<span class="-n"></span>if (num21 > 10 && num21 &lt;= 20) {
+<span class="-n"></span>console.log('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num21 = 15;
+            if (num21 > 10 && num21 <= 20) {
+                console.log(`
+let num21 = 15;
+if (num21 > 10 && num21 <= 20) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 3</h3>
+
+        <p>Если переменная num1 равна или меньше 1, а переменная num2 больше или равна
+            3, то выведите на экран слово 'верно' , иначе выведите слово 'неверно' .
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num31 = 1;
+<span class="-n"></span>let nim32 = 3;
+<span class="-n"></span>if (num31 <= 1 && nim32>= 3) {
+<span class="-n"></span>console.log('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num31 = 1;
+            let nim32 = 3;
+            if (num31 <= 1 && nim32 >= 3) {
+                console.log(`
+let num31 = 1;
+let nim32 = 3;
+if (num31 <= 1 && nim32 >= 3) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h2>Логическое ИЛИ </h2>
+
+        <p>Логическое ИЛИ требует выполнения хотя бы одного условия.
+            <br>
+            В следующем примере, если переменная num1 больше 0 или переменная num2 больше 0, то выведется 'верно'
+            (достаточно
+            выполнения хотя бы одного из условий):
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 10;
+<span class="-n"></span>let num2 = -5;
+<span class="-n"></span>
+<span class="-n"></span>if (num1 > 0 || num2 > 0) {
+<span class="-n"></span>alert('верно'); // выведет 'верно'
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <h3>Задача 4 </h3>
+
+        <p>Не запуская код определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = -10;
+<span class="-n"></span>let num2 = -10;
+<span class="-n"></span>
+<span class="-n"></span>if (num1 >= 0 || num2 >= 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let num41 = -10;
+            let num42 = -10;
+
+            if (num41 >= 0 || num42 >= 0) {
+                console.log('верно');
+            } else {
+                console.log(`
+let num41 = -10;
+let num42 = -10;
+
+if (num41 >= 0 || num42 >= 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 5</h3>
+
+        <p>Не запуская код определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 0;
+<span class="-n"></span>let num2 = 0;
+<span class="-n"></span>
+<span class="-n"></span>if (num1 >= 0 || num2 >= 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num51 = 0;
+            let num52 = 0;
+
+            if (num51 >= 0 || num52 >= 0) {
+                console.log(`let num51 = 0;
+let num52 = 0;
+
+if (num51 >= 0 || num52 >= 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 6</h3>
+
+        <p>Не запуская код определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 0;
+<span class="-n"></span>let num2 = 5;
+<span class="-n"></span>
+<span class="-n"></span>if (num1 >= 0 || num2 >= 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num61 = 0;
+            let num62 = 5;
+
+            if (num61 >= 0 || num62 >= 0) {
+                console.log(`
+let num61 = 0;
+let num62 = 5;
+
+if (num61 >= 0 || num62 >= 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 7</h3>
+
+        <p>Не запуская код определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 5;
+<span class="-n"></span>let num2 = 5;
+<span class="-n"></span>
+<span class="-n"></span>if (num1 >= 0 || num2 >= 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num71 = 5;
+            let num72 = 5;
+
+            if (num71 >= 0 || num72 >= 0) {
+                console.log(`
+let num71 = 5;
+let num72 = 5;
+
+if (num71 >= 0 || num72 >= 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 8</h3>
+
+        <p>Не запуская код определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = -5;
+<span class="-n"></span>let num2 = 15;
+<span class="-n"></span>
+<span class="-n"></span>if (num1 >= 0 || num2 >= 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num81 = -5;
+            let num82 = 15;
+
+            if (num81 >= 0 || num82 >= 0) {
+                console.log(`
+let num81 = -5;
+let num82 = 15;
+
+if (num81 >= 0 || num82 >= 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h3>Задача 9</h3>
+
+        <p>Не запуская код определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (num == 0 || num == 1) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num91 = 1;
+
+            if (num91 == 0 || num91 == 1) {
+                console.log(`
+let num91 = 1;
+
+if (num91 == 0 || num91 == 1) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 10</h3>
+
+        <p>Не запуская код определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 2;
+<span class="-n"></span>
+<span class="-n"></span>if (num == 0 || num == 1) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let num101 = 2;
+
+            if (num101 == 0 || num101 == 1) {
+                console.log('верно');
+            } else {
+                console.log(`
+let num101 = 2;
+
+if (num101 == 0 || num101 == 1) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 11</h3>
+
+        <p>Не запуская код определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 2;
+<span class="-n"></span>
+<span class="-n"></span>if (num == 0 || num == 1 || num == 2) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num111 = 2;
+
+            if (num111 == 0 || num111 == 1 || num111 == 2) {
+                console.log(`
+let num111 = 2;
+
+if (num111 == 0 || num111 == 1 || num111 == 2) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h2>Приоритет операций сравнения</h2>
+
+        <p>Операция && имеет приоритет над ||.
+            <br>
+            В следующем примере выведется 'верно', если переменная num от 0 до 5 ИЛИ от 10 до 20:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 3;
+<span class="-n"></span>
+<span class="-n"></span>if (num > 0 && num &lt; 5 || num> 10 && num &lt; 20) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span> alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <h2>Группировка условий</h2>
+
+        <p>Хотя операция && и имеет приоритет над ||, часто удобнее использовать группирующие круглые скобки, чтобы явно
+            показать
+            приоритет операций:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 3;
+<span class="-n"></span>
+<span class="-n"></span>if ( (num > 0 && num &lt; 5) || (num> 10 && num &lt; 20) ) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let num = 3;
+
+            if ((num > 0 && num < 5) || (num > 10 && num < 20)) {
+                console.log(`
+let num = 3;
+
+if ((num > 0 && num < 5) || (num > 10 && num < 20)) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <p>Конечно же,
+            группировка может быть использована и в том случае, когда вам нужен свой приоритет операций, а не тот,
+            который
+            получается по умолчанию.</p>
+
+        <h3>Задача 12 </h3>
+
+        <p> В приведенном ниже коде укажите приоритет операций в явном
+            виде:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num=3;
+<span class="-n"></span>if (num> 5 && num &lt; 10 || num==20) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let num12 = 3;
+            if (num12 > 5 && num12 < 10 || num12 == 20) {
+                console.log('верно');
+            } else {
+                console.log(`
+let num12 = 3;
+if (num12 > 5 && num12 < 10 || num12 == 20) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 13</h3>
+
+        <p> В приведенном ниже коде укажите приоритет операций в явном виде:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num=3;
+<span class="-n"></span>if (num> 5 || num > 0 && num &lt; 3) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let num13 = 3;
+            if (num13 > 5 || num13 > 0 && num13 < 3) {
+                console.log('верно');
+            } else {
+                console.log(`
+let num13 = 3;
+if (num13 > 5 || num13 > 0 && num13 < 3) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 14</h3>
+
+        <p>В приведенном
+            ниже коде укажите приоритет операций в явном виде:</p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 3;
+<span class="-n"></span>
+<span class="-n"></span>if (num == 9 || num > 10 && num &lt; 20 || num> 20 && num &lt; 30) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num=3;
+<span class="-n"></span>
+<span class="-n"></span>if(
+<span class="-n"></span> (num==9) ||                   // 3 == 9 → false
+<span class="-n"></span> (num> 10 && num &lt; 20) ||      // (num > 10) && (num &lt; 20) → false && true → false
+<span class="-n"></span> (num> 20 && num &lt; 30)        // (num > 20) && (num &lt; 30) → false && true → false
+// (false потому что для && оба операнда должны быть истинными).
+<span class="-n"></span>)
+<span class="-n"></span>{
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
 
 
 

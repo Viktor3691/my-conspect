@@ -43,6 +43,334 @@
 
         <h2>Конструкция if-else в JavaScript</h2>
 
+        <p>Сейчас мы с вами изучим специальную конструкцию if-else, которая позволяет выполнять некоторый код в
+            зависимости от
+            выполнения какого-либо условия.
+            <br>
+            С помощью конструкции if-else мы можем задать программе, к примеру, вопрос "больше ли переменная a, чем
+            переменная b", и
+            в зависимости от ответа выполнить или один код, или другой.
+            <br>
+            Синтаксис конструкции выглядит так:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (операция сравнения) {
+<span class="-n"></span>/*
+<span class="-n"></span>расположенный здесь код выполниться,
+<span class="-n"></span>если результат операция сравнения верный
+<span class="-n"></span>*/
+<span class="-n"></span>} else {
+<span class="-n"></span>/*
+<span class="-n"></span>расположенный здесь код выполниться,
+<span class="-n"></span>если результат операция сравнения неверный
+<span class="-n"></span>*/
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> Для операций сравнения в JavaScript
+            существует много операторов. Давайте приступим к их изучению.</p>
+
+        <p> Операторы больше и меньше
+            Для проверки того, которое из значений больше, а которое меньше, используются операторы больше >, больше или
+            равно >=,
+            меньше &lt;, меньше или равно &lt;=. Изучим их работу на практическом примере. </p>
+
+        <p>Пусть у нас есть переменная test с
+            каким-то значением: let test=1; Давайте проверим, значение этой переменной больше нуля или нет: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test=1;
+<span class="-n"></span>if (test> 0) {
+<span class="-n"></span>alert('верно'); // сработает этот alert
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test = 1;
+            if (test > 0) {
+                console.log(`
+let test = 1;
+if (test > 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно'); // сработает этот alert
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <p>А теперь поменяем значение переменной на отрицательное:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = -1; // поменяем значение переменной
+<span class="-n"></span>if (test> 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');// сработает этот alert
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test1 = -1;
+
+            if (test1 > 0) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test1 = -1;
+
+if (test1 > 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <p>Пусть теперь значение переменной равно 0. В этом случае мы попадем в блок else, так как в нашем условии
+            написано,
+            что переменная test должна быть строго больше нуля:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 0;
+<span class="-n"></span>if (test> 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');// сработает этот alert
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test2 = 0;
+
+            if (test2 > 0) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test2 = 0;
+
+if (test2 > 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+
+
+        <p> Давайте поменяем условие на больше или равно:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 0;
+<span class="-n"></span>if (test >= 0) {
+<span class="-n"></span>alert('верно');// сработает этот alert
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test3 = 0;
+
+            if (test3 >= 0) {
+                console.log(`
+let test3 = 0;
+
+if (test3 >= 0) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <p> Операторы меньше &lt; и меньше или равно &lt;=работают аналогично.</p>
+
+        <h3> Задача 1 </h3>
+
+        <p> Если переменная test больше 10, то выведите на экран слово 'верно' , иначе выведите слово 'неверно' .</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 30;
+<span class="-n"></span>if (test > 10) {
+<span class="-n"></span>alert('верно');// сработает этот alert
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test4 = 30;
+
+            if (test4 > 10) {
+                console.log(`
+let test4 = 30;
+
+if (test4 > 10) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 2 </h3>
+
+        <p>переменная test меньше 10, то выведите на экран слово 'верно' , иначе выведите слово 'неверно'</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 30;
+<span class="-n"></span>if (test &lt; 10) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');// сработает этот alert
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test5 = 30;
+
+            if (test5 < 10) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test5 = 30;
+
+if (test5 < 10) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+
+        <h3>Задача 3 </h3>
+
+        <p> Если переменная test больше или равна 10, то выведите на экран слово 'верно' , иначе выведите слово
+            'неверно' . </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 30;
+<span class="-n"></span>if (test >= 10) {
+<span class="-n"></span>alert('верно');// сработает этот alert
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test6 = 30;
+
+            if (test6 >= 10) {
+                console.log(`
+let test6 = 30;
+
+if (test6 >= 10) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+        <h3>Задача 4 </h3>
+
+        <p>Если переменная test меньше или равна 10, то выведите на
+            экран слово 'верно' , иначе выведите слово 'неверно' .</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+        <span class="-n"></span>let test = 30;
+        <span class="-n"></span>if (test &lt;= 10) {
+        <span class="-n"></span>alert('верно');
+        <span class="-n"></span>} else {
+        <span class="-n"></span>alert('неверно');// сработает этот alert
+        <span class="-n"></span>}
+        </pre>
+        </div>
+
+        <script>
+            let test7 = 30;
+
+            if (test7 <= 10) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test5 = 30;
+
+if (test5 <= 10) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

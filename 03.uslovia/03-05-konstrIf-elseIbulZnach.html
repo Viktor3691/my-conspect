@@ -42,6 +42,1191 @@
 
         <h2>Конструкция if-else и булевы значения</h2>
 
+        <p>Пусть у нас есть какая-то булева переменная, которая может принимать значения true или false:
+            <br>
+            let test = true;
+            Давайте напишем if, проверяющий нашу переменную на значение true:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test === true) {
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Если переменная test равна true, то выведите на экран слово 'верно', иначе выведите слово 'неверно'.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test === true) {
+<span class="-n"></span>console.log('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let test1 = true;
+
+            if (test1 === true) {
+                console.log(`
+let test1 = true;
+
+if (test1 === true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+        <h3>Задача 2 </h3>
+
+        <p>Если переменная test равна false, то выведите на экран слово 'верно', иначе выведите слово 'неверно'.</p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test2 = false;
+<span class="-n"></span>
+<span class="-n"></span>if (test2 === true) {
+<span class="-n"></span>console.log('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test2 = false;
+
+            if (test2 === true) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test2 = false;
+
+if (test2 === true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h2>Логические значения и двойное равно </h2>
+
+        <p>В предыдущем примере я использовал для сравнения оператор ===. В этом случае наша переменная сравнивалась на
+            равенство
+            true как по значению, так и по типу.
+
+            В нашей задаче можно использовать и оператор ==. Если в переменной test всегда будет одно из значений true
+            или false, то
+            ничего и не изменится: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+// тут пишем или true, или false
+<span class="-n"></span>if (test == true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span> alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test = true;
+
+            if (test == true) {
+                console.log(`
+let test = true;
+
+if (test == true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <p>А вот если в переменную test могут попадать любые значения, то все становится намного сложнее.
+            <br>
+            В таком случае, если в переменной test будет не булево значение, то это значение вначале будет преобразовано
+            к булеву и
+            только затем будет сравниваться.
+            <br>
+            Пусть, например, в переменной test будет число 1. В этом случае оно вначале преобразуется к логическому
+            типу, то есть к
+            true. И затем будет выполнено сравнение:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 1;
+<span class="-n"></span>
+<span class="-n"></span> if (test == true) {
+<span class="-n"></span>alert('верно');
+ // сработает этот alert, тк 1 == true - это верно
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test051 = 1;
+
+            if (test051 == true) {
+                console.log(`
+let test051 = 1;
+
+if (test051 == true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <p>А вот, к примеру, число 0 преобразуется к false. И наше условие в результате выведет 'неверно':</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let test = 0;
+<span class="-n"></span>
+<span class="-n"></span>if (test == true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно'); // сработает этот alert, тк 0 == true - это НЕверно
+<span class="-n"></span>}
+неверно
+        </pre>
+        </div>
+
+        <script>
+            let test052 = 0;
+
+            if (test052 == true) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test052 = 0;
+
+if (test052 == true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <p>Напомню вам значения, которые при приведению <strong>к логическому типу дают false: 0, -0, +0, null, false,
+                NaN, undefined, ''
+                (пустая строка).</strong></p>
+
+        <h3>Задача 3 </h3>
+
+        :<p>Не запуская код, определите, что выведется на экран</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let test = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (test == true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span> }
+верно
+</pre>
+        </div>
+
+        <script>
+            let test3 = 1;
+
+            if (test3 == true) {
+                console.log(`
+let test3 = 1;
+
+if (test3 == true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 0;
+<span class="-n"></span>
+<span class="-n"></span>if (test == true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test4 = 0;
+
+            if (test4 == true) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test4 = 0;
+
+if (test4 == true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 5</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (test == false) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span> }
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test5 = 1;
+
+            if (test5 == false) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test5 = 1;
+
+if (test5 == false) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 6</h3>
+
+        <p> Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (test != true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span> } else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test6 = 1;
+
+            if (test6 != true) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test6 = 1;
+
+if (test6 != true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 7</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = '';
+<span class="-n"></span>
+<span class="-n"></span>if (test == false) {
+<span class="-n"></span> alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test7 = '';
+
+            if (test7 == false) {
+                console.log(`
+let test7 = '';
+
+if (test7 == false) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h3>Задача 8</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test;
+<span class="-n"></span>
+<span class="-n"></span>if (test == true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test8;
+
+            if (test8 == true) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test8;
+
+if (test8 == true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 9</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 3 * 'a';
+<span class="-n"></span>
+<span class="-n"></span>if (test == true) {
+<span class="-n"></span> alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test9 = 3 * 'a';
+
+            if (test9 == true) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test9 = 3 * 'a';
+
+if (test9 == true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h2>Сокращенный иф</h2>
+
+        <p>Пусть, к примеру, мы хотим узнать, равна ли переменная test значению true. В этом случае конструкцию if можно
+            записать
+            так: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test == true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <p>При программировании такие проверки требуются очень часто, поэтому для них существует более изящная
+            сокращенная форма:
+            <strong>вместо if (test == true) можно написать просто if (test).</strong>
+            <br>
+            Давайте перепишем наш код в сокращенной форме:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test) { // эквивалентно if (test == true)
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <p>Пусть теперь мы проверяем на то, что переменная test не равна true:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test != true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <p>В этом случае сокращенный синтаксис будет выглядеть так:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span> if (!test) { // используем логическое НЕ
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span> alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <p>Аналогичное сокращение существует и для проверки на false.
+            <br>
+            Пусть дан вот такой код:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test == false) {
+<span class="-n"></span> alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <p> Условие test == false на самом деле все равно, что test != true:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test != true) {// эквивалентно if (test == false)
+<span class="-n"></span> alert('верно');
+<span class="-n"></span> } else {
+<span class="-n"></span> alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <p> Ну, а такое условие мы уже научились сокращать в предыдущем примере. Сократим:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (!test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span> alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <h3> Задача 10</h3>
+
+        <p> Перепишите следующий код с использованием сокращенного сравнения:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test == true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test10 = true;
+
+            if (test10) {
+                console.log(`
+let test10 = true;
+
+if (test10) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h3>Задача 11</h3>
+
+        <p>Перепишите следующий код с использованием сокращенного сравнения:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>if (test == false) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span> } else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>if (test != true) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span> } else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test11 = true;
+            if (test11 != true) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test11 = true;
+if (test11 != true) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 12</h3>
+
+        <p>Перепишите следующий код с использованием сокращенного сравнения:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>if (test != true) {
+<span class="-n"></span> alert('верно');
+<span class="-n"></span> } else {
+<span class="-n"></span> alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <p>В этом коде условие test != true можно заменить на сокращённую форму с использованием логического отрицания.
+            Поскольку
+            test уже хранит булево значение, достаточно проверить его напрямую.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>if (!test) {
+<span class="-n"></span> alert('верно');
+<span class="-n"></span> } else {
+<span class="-n"></span> alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test12 = true;
+
+            if (!test12) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test12 = true;
+
+if (!test12) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 13</h3>
+
+        <p>Перепишите следующий код с использованием сокращенного сравнения:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test != false) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test13 = true;
+
+            if (test13) {
+                console.log(`
+let test13 = true;
+
+if (test13) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h2>Нюанс</h2>
+
+        <p>Учтите, что в сокращенных операциях сравнение идет по ==, а не по ===. </p>
+
+        <h3>Задача 14</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 3;
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test14 = 3;
+
+            if (test14) {
+                console.log(`
+let test14 = 3;
+
+if (test14) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h3>Задача 15</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 'abc';
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test15 = 'abc';
+
+            if (test15) {
+                console.log(`
+let test15 = 'abc';
+
+if (test15) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h3>Задача 16</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = '';
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span> alert('неверно');
+<span class="-n"></span>}
+'неверно
+</pre>
+        </div>
+
+        <script>
+            let test16 = '';
+
+            if (test16) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test16 = '';
+
+if (test16) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 17</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 3 * 'abc';
+<span class="-n"></span>
+<span class="-n"></span> if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test17 = 3 * 'abc';
+            if (test17) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test17 = 3 * 'abc';
+
+if (test17) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 18</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = null;
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test18 = null;
+
+            if (test18) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test18 = null;
+
+if (test18) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 19</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = false;
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test19 = false;
+
+            if (test19) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test19 = false;
+
+if (test19) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 20</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test;
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test20;
+
+            if (test20) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test20;
+
+if (test20) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 21</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 0;
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+неверно
+</pre>
+        </div>
+
+        <script>
+            let test21 = 0;
+
+            if (test21) {
+                console.log('верно');
+            } else {
+                console.log(`
+let test21 = 0;
+
+if (test21) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'неверно');
+            }
+        </script>
+
+        <h3>Задача 22</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = '0';
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test22 = '0';
+
+            if (test22) {
+                console.log(`
+let test22 = '0';
+
+if (test22) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+        <h3>Задача 23</h3>
+
+        <p>Не запуская код, определите, что выведется на экран:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = -1;
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <script>
+            let test23 = -1;
+
+            if (test23) {
+                console.log(`
+let test23 = -1;
+
+if (test23) {
+console.log('верно');
+} else {
+console.log('неверно');
+}
+`, 'верно');
+            } else {
+                console.log('неверно');
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

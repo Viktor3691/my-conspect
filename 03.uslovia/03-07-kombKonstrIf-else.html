@@ -22,9 +22,11 @@
             <a href="03-07-kombKonstrIf-else.html">54 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-06-sokrSintIf-else.html">Сокращенный
+                синтаксис if-else в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="03-08-oblastVidimIf-else.html">Область видимости let и var в if-else</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,20 +40,462 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Комбинации конструкций if-else в JavaScript</h2>
+
+        <p>Пусть переменная num может принимать значения 1, 2 или 3.
+            <br>
+            Пусть также для каждого значения мы хотим выводить на экран свою строку, например, если num имеет значение
+            1, то выведем
+            строку 'value1', если значение 2, то 'value2' и так далее.
+            <br>
+            Для решения задачи можно просто написать три if без else:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 1; // может быть 1, 2 или 3
+<span class="-n"></span>
+<span class="-n"></span>if (num == 1) {
+<span class="-n"></span>alert('value1'); // сработает, если num равно 1
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>if (num == 2) {
+<span class="-n"></span>alert('value2'); // сработает, если num равно 2
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>if (num == 3) {
+<span class="-n"></span>alert('value3'); // сработает, если num равно 3
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>В переменной day лежит какое-то число из интервала от 1 до 31. Определите в какую декаду месяца попадает это
+            число (в
+            первую, вторую или третью).</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let day1 = 15;
+<span class="-n"></span>
+<span class="-n"></span>if (day1 > 0 && day1 <= 10) {
+<span class="-n"></span>alert(`1 декада`)
+<span class="-n"></span>};
+<span class="-n"></span>
+<span class="-n"></span>if (day1 > 10 && day1 <= 20) {
+<span class="-n"></span>alert(`2 декада`)
+<span class="-n"></span>};
+<span class="-n"></span>
+<span class="-n"></span>if (day1 > 20 && day1 <= 31) {
+<span class="-n"></span>alert(`3 декада`)
+<span class="-n"></span>};
+2 декада
+</pre>
+        </div>
+
+        <script>
+            let day1 = 15;
+
+            if (day1 > 0 && day1 <= 10) {
+                console.log('1 декада')
+            };
+
+            if (day1 > 10 && day1 <= 20) {
+                console.log(`
+let day1 = 15;
+
+if (day1 > 0 && day1 <= 10) {
+console.log('1 декада')
+};
+
+if (day1 > 10 && day1 <= 20) {
+console.log('2 декада')
+};
+
+if (day1 > 20 && day1 <= 31) {
+console.log('3 декада')
+};
+`, '2 декада')
+            };
+
+            if (day1 > 20 && day1 <= 31) {
+                console.log('3 декада')
+            };
+        </script>
+
+        <h2>Конструкция else if</h2>
+        <p>Приведенный выше код можно переписать через специальную конструкцию else if:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+ <span class="-n"></span>let num = 1;
+ <span class="-n"></span>
+ <span class="-n"></span>if (num == 1) {
+ <span class="-n"></span>alert('value1');
+ <span class="-n"></span>} else if (num == 2) {
+ <span class="-n"></span>alert('value2');
+ <span class="-n"></span>} else if (num == 3) {
+ <span class="-n"></span>alert('value3');
+ <span class="-n"></span>}
+ </pre>
+        </div>
+
+        <h3>Важный нюанс: == vs ===</h3>
+
+        <p>В учебных примерах часто пишут ==, но в реальном коде почти всегда используют === (строгое равенство).
+            Разница:
+
+            <br>== делает неявное приведение типов.
+            <br>=== сравнивает и значение, и тип.
+            Пример, где это важно:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = '1';
+<span class="-n"></span>
+<span class="-n"></span>if (num == 1) { // true: строка '1' приводится к числу 1
+<span class="-n"></span>alert('совпало по ==');
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>if (num === 1) { // false: тип разный (string vs number)
+<span class="-n"></span>alert('не совпало по ===');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> <strong>когда будешь писать свой код — лучше сразу привыкать к ===.</strong></p>
+
+        <h3>Добавим else для полноты картины </h3>
+        <p> Часто полезно добавить ветку «ничего не подошло»:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 5;
+<span class="-n"></span>
+<span class="-n"></span>if (num === 1) {
+<span class="-n"></span>alert('value1');
+<span class="-n"></span>} else if (num === 2) {
+<span class="-n"></span>alert('value2');
+<span class="-n"></span> } else if (num === 3) {
+<span class="-n"></span>alert('value3');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('значение не подходит ни под одно условие');
+<span class="-n"></span> }
+значение не подходит ни под одно условие
+</pre>
+        </div>
+
+        <script>
+            let num11 = 5;
+
+            if (num11 === 1) {
+                console.log('value1');
+            } else if (num11 === 2) {
+                console.log('value2');
+            } else if (num11 === 3) {
+                console.log('value3');
+            } else {
+                console.log(`let num11 = 5;
+
+if (num11 === 1) {
+console.log('value1');
+} else if (num11 === 2) {
+console.log('value2');
+} else if (num11 === 3) {
+console.log('value3');
+} else {
+console.log('значение не подходит ни под одно условие');
+}`, 'значение не подходит ни под одно условие');
+            }
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Решите предыдущую задачу на декады месяца через конструкцию else if.</p>
+
+        <p>Решение через else if</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let day2 = 25;
+<span class="-n"></span>
+<span class="-n"></span>if (day2 >= 1 && day2 &lt;= 10) {
+<span class="-n"></span>alert('1 декада');
+<span class="-n"></span> } else if (day2> 10 && day2 &lt;= 20) {
+<span class="-n"></span>alert('2 декада');
+<span class="-n"></span>} else if (day2> 20 && day2 &lt;= 31) {
+<span class="-n"></span>alert('3 декада');
+<span class="-n"></span>} else {
+<span class="-n"></span> alert('Некорректное значение дня');
+<span class="-n"></span>}
+3 декада
+</pre>
+        </div>
+
+        <script>
+            let day2 = 25;
+
+            if (day2 >= 1 && day2 <= 10) {
+                console.log('1 декада');
+            } else if (day2 > 10 && day2 <= 20) {
+                console.log('2 декада');
+            } else if (day2 > 20 && day2 <= 31) {
+                console.log(`
+let day2 = 25;
+
+if (day2 >= 1 && day2 <= 10) {
+console.log('1 декада');
+} else if (day2 > 10 && day2 <= 20) {
+console.log('2 декада');
+} else if (day2 > 20 && day2 <= 31) {
+console.log('3 декада');
+} else {
+console.log('Некорректное значение дня');
+}
+`, '3 декада');
+            } else {
+                console.log('Некорректное значение дня');
+            }
+        </script>
+
+        <h3>Почему так лучше </h3>
+
+        <ul>
+            <li>Как только сработает одно условие — остальные else if не проверяются. Это и быстрее, и понятнее по
+                логике
+                «или‑или».</li>
+            <li>Блок else ловит все случаи вне диапазона 1–31 — это защита от ошибок (например, если случайно будет day2
+                = 0
+                или day2 =
+                40).</li>
+        </ul>
+
+        <h3>Про === vs сравнение диапазонов</h3>
+
+        <p>В твоём примере с num === 1 ты сравниваешь на точное равенство. А здесь у нас диапазоны, поэтому === не
+            подходит: нужно
+            именно сравнение >, &lt;,>=, &lt;=. И тут как раз уместно использовать===для проверки типа, если боишься,
+            что в переменную
+            попадёт строка: </p>
+
+        <h3>Как это связать с предыдущими темами</h3>
+
+        <ul>
+            <li>Приоритет операций: в условии day2 >= 1 && day2 &lt;= 10 сначала выполняются сравнения (>=, &lt;=), а
+                потом логическое И (&&). Это как раз тот приоритет, который ты разбирал.</li>
+            <li>Сокращённые сравнения: тут их не применить, потому что у нас не
+                проверка на истинность переменной, а проверка диапазона. Сокращённые формы полезны, когда пишешь if
+                (test)
+                вместо if (test===true).</li>
+        </ul>
+
+        <h3>Преимущество else if</h3>
+
+        <p>Преимуществом использования else if вместо нескольких ифов является возможность отловить ситуацию, когда
+            значение
+            переменной num не подходит ни под одно из условий:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (num == 1) {
+<span class="-n"></span>alert('value1');
+<span class="-n"></span>} else if (num == 2) {
+<span class="-n"></span>alert('value2');
+<span class="-n"></span>} else if (num == 3) {
+<span class="-n"></span>alert('value3');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверное значение переменной num');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+
+        <h3>Задача 3 </h3>
+
+        <p>Модифицируйте предыдущую задачу так, чтобы, если в переменной day будет не число от 1 до 31, выдавалось
+            сообщение об
+            ошибке.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let day3 = 40;
+<span class="-n"></span>
+<span class="-n"></span>if (day3 >= 1 && day3 &lt;= 10) {
+<span class="-n"></span>alert('1 декада');
+<span class="-n"></span>} else if (day3> 10 && day3 &lt;= 20) {
+<span class="-n"></span>alert('2 декада')
+<span class="-n"></span>} else if (day3> 20 && day3 &lt;= 31) {
+<span class="-n"></span>alert('3 декада');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('Некорректное значение дня');
+<span class="-n"></span>}
+Некорректное значение дня
+</pre>
+        </div>
+
+        <script>
+            let day3 = 40;
+
+            if (day3 >= 1 && day3 <= 10) {
+                console.log('1 декада');
+            } else if (day3 > 10 && day3 <= 20) {
+                console.log('2 декада');
+            } else if (day3 > 20 && day3 <= 31) {
+                console.log('3 декада');
+            } else {
+                console.log(`
+let day3 = 40;
+
+if (day3 >= 1 && day3 <= 10) {
+console.log('1 декада');
+} else if (day3 > 10 && day3 <= 20) {
+console.log('2 декада');
+} else if (day3 > 20 && day3 <= 31) {
+console.log('3 декада');
+} else {
+console.log('Некорректное значение дня');
+}
+`, 'Некорректное значение дня');
+            }
+        </script>
+
+        <h2>Вложенные if </h2>
+
+        <p>Конструкции if-else можно вкладывать друг в друга произвольным образом. Смотрите пример:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 3;
+<span class="-n"></span>
+<span class="-n"></span>if (num >= 0) {
+<span class="-n"></span>  if (num &lt;= 5) {
+<span class="-n"></span>    alert('меньше или равно 5');
+<span class="-n"></span>  } else {
+<span class="-n"></span>    alert('больше 5'); }
+<span class="-n"></span>  } else {
+<span class="-n"></span>    alert('меньше нуля');
+<span class="-n"></span>}
+
+</pre>
+        </div>
+
+        <h3>Задача4 </h3>
+
+        <p> Пусть в переменной num хранится число. Если это число не попадает в диапазон от 10 до 99, то
+            выведите на экран сообщение об этом. Если же число попадает в указанный диапазон, то найдите сумму цифр
+            этого числа.
+            Если полученная сумма меньше или равна 9, то выведите на экран сообщение о том, что сумма цифр однозначна, в
+            противном случае выведите сообщение о том, что сумма цифр двузначна.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+мой вариант
+<span class="-n"></span>let num4 = 55;
+<span class="-n"></span>let str4 = String(num4);
+<span class="-n"></span>
+<span class="-n"></span>if (num4 > 99) {
+<span class="-n"></span>alert('число не попадает в диапазон от 10 до 99')
+<span class="-n"></span>} else if ((+str4[0] + +str4[1]) &lt;= 9) {
+<span class="-n"></span>alert('сумма меньше или равна 9')
+<span class="-n"></span>} else {
+<span class="-n"></span>alert((+str4[0] + +str4[1]))
+<span class="-n"></span>}
+10
+</pre>
+        </div>
+
+        <p>код почти работает, но в нём есть логическая ошибка: он не проверяет нижнюю границу диапазона (числа
+            меньше 10) и
+            неправильно обрабатывает случаи вне диапазона.</p>
+
+        <h3>Что не так</h3>
+
+        <ul>
+            <li>Условие if (num4 > 99) ловит только числа больше 99, а числа меньше 10 (например, 5 или 0) сразу
+                попадают в else if и
+                обрабатываются как будто они в диапазоне.</li>
+            <li>В else выводится сама сумма, а по условию нужно вывести сообщение о том, что сумма двузначна.</li>
+        </ul>
+
+        <h3>Исправленный вариант</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num4 = 55;
+<span class="-n"></span>
+<span class="-n"></span>if (num4 &lt; 10 || num4> 99) {
+<span class="-n"></span>   alert('Число не попадает в диапазон от 10 до 99');
+<span class="-n"></span>} else {
+<span class="-n"></span>   const str4 = String(num4);
+<span class="-n"></span>   const sum = +str4[0] + +str4[1];
+<span class="-n"></span>
+<span class="-n"></span>   if (sum &lt;= 9) {
+<span class="-n"></span>       alert('Сумма цифр однозначна');
+<span class="-n"></span>   } else {
+<span class="-n"></span>       alert('Сумма цифр двузначна');
+<span class="-n"></span>   }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+
+        <script>
+            let num4 = 55;
+
+            if (num4 < 10 || num4 > 99) {
+                alert('Число не попадает в диапазон от 10 до 99');
+            } else {
+                const str4 = String(num4);
+                const sum = +str4[0] + +str4[1];
+
+                if (sum <= 9) {
+                    console.log('Сумма цифр однозначна');
+                } else {
+                    console.log(`
+let num4 = 55;
+
+if (num4 < 10 || num4 > 99) {
+alert('Число не попадает в диапазон от 10 до 99');
+} else {
+const str4 = String(num4);
+const sum = +str4[0] + +str4[1];
+
+if (sum <= 9) {
+console.log('Сумма цифр однозначна');
+} else {
+console.log('Сумма цифр двузначна');
+}
+}
+`, 'Сумма цифр двузначна');
+                }
+            }
+        </script>
 
 
 
+        <footer data-w="nict/finf">
+            <span data-e="text">Мой личный конспект © 2026</span>
+        </footer>
 
-
-    </main>
-
-    <footer data-w="nict/finf">
-        <span data-e="text">Мой личный конспект © 2026</span>
-    </footer>
-
-    <script src="../js/loader.js" defer></script>
-    <script src="../js/app.js" defer></script>
+        <script src="../js/loader.js" defer></script>
+        <script src="../js/app.js" defer></script>
 </body>
 
 </html>

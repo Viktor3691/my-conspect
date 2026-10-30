@@ -22,9 +22,11 @@
             <a href="03-06-sokrSintIf-else.html">53 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-05-konstrIf-elseIbulZnach.html">Конструкция
+                if-else и булевы значения</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="03-07-kombKonstrIf-else.html">Комбинации конструкций if-else в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,7 +40,240 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Сокращенный синтаксис if-else в JavaScript</h2>
+
+        <p>Необязательность конструкции else
+            Для начала вам следует знать, что конструкция else не является обязательной.
+            <br>
+            В следующем примере на экран выведется алерт только в том случае, если значение переменной равно 1. В
+            противном случае
+            просто ничего не случится:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let test = 1;
+<span class="-n"></span>if (test == 1) {
+<span class="-n"></span>alert('yes');
+<span class="-n"></span>}
+yes
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Если переменная test равна 10, то пусть на экран выведется слово 'верно'. В противном случае пусть ничего не
+            произойдет. </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let test1 = 10;
+<span class="-n"></span>if (test1 == 10) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>}
+верно
+</pre>
+        </div>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let test1 = 20;
+<span class="-n"></span>if (test1 == 10) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h2>Необязательность фигурных скобок</h2>
+
+        <p>В случае, если в фигурных скобках if или else будет только одно выражение, можно эти фигурные скобки не
+            писать. Пусть, к
+            примеру, дан вот такой код со всеми скобками:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (test == 0) {
+<span class="-n"></span> alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно!');
+<span class="-n"></span>}
+
+</pre>
+        </div>
+
+        <p> Можно сократить его вот так:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+        <span class="-n"></span>if (test == 0) alert('верно'); else alert('неверно!');
+        </pre>
+        </div>
+
+        <p>Или так:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+        <span class="-n"></span>if (test == 0) {
+        <span class="-n"></span> alert('верно');
+        <span class="-n"></span>} else alert('неверно!');
+        </pre>
+        </div>
+
+
+
+
+
+        <p>Можно также убрать все скобки, но оформить все не в линию, а вот так: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (test == 0)
+<span class="-n"></span>
+<span class="-n"></span> alert('верно');
+<span class="-n"></span> else
+<span class="-n"></span> alert('неверно!');
+</pre>
+        </div>
+
+        <h3>Задача 2 </h3>
+
+        <p>Перепишите следующий код в сокращенной форме:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (test == 0) {
+<span class="-n"></span>
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>} else {
+<span class="-n"></span>alert('неверно!');
+<span class="-n"></span>}
+
+</pre>
+        </div>
+
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (test == 0)
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>else
+<span class="-n"></span>alert('неверно!');
+</pre>
+        </div>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (test == 0) alert('верно'); else alert('неверно!');
+</pre>
+        </div>
+
+        <h3>Задача 3</h3>
+
+        <p>Перепишите следующий код в сокращенной форме:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (test == 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (test == 0)
+<span class="-n"></span>alert('верно');
+</pre>
+        </div>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (test == 0) alert('верно');
+</pre>
+        </div>
+
+        <h2>Замечание</h2>
+
+        <p>Не смотря на то, что JavaScript допускает показанные выше сокращения с фигурными скобками, я в общем-то не
+            рекомендую
+            так делать, так как это рассадник трудноуловимых ошибок. Пусть к примеру есть следующий код:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 3;
+<span class="-n"></span>if (test > 0)
+<span class="-n"></span>alert(test);
+</pre>
+        </div>
+
+        <p>Пусть теперь мы решили в том случае, если условие выполняется, выводить еще и второй алерт с текстом 'верно':
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let test = 3;
+<span class="-n"></span>if (test > 0)
+<span class="-n"></span> alert(test);
+<span class="-n"></span> alert('верно');
+</pre>
+        </div>
+
+        <p>Однако, без фигурных скобок внутри условия находится только первый алерт, то есть первый алерт будет
+            срабатывать при верном условии, а второй алерт - всегда.
+            <br>
+            Фактически наш код эквивалентен такому:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 3;
+<span class="-n"></span> if (test > 0) {
+<span class="-n"></span>alert(test);
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span> alert('верно'); // эта строка оказалась снаружи условия
+</pre>
+        </div>
+
+        <p>А мы бы хотели такой код:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>  let test = 3;
+<span class="-n"></span>if (test > 0) {
+<span class="-n"></span>alert(test);
+<span class="-n"></span> alert('верно'); // эта строка внутри условия
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Именно поэтому рекомендуется всегда выполнять расстановку фигурных скобок, дабы не попадать в такого рода
+            ошибки. </p>
+
+
 
 
 

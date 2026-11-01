@@ -22,7 +22,8 @@
             <a href="03-09-primerIspolzIf-else.html">56 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-08-oblastVidimIf-else.html">Область
+                видимости let и var в if-else</a>
 
             <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
         </div>
@@ -38,7 +39,517 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Примеры использования if-else в JavaScript</h2>
+
+        <h3>1. Проверка числа на положительность</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 10;
+<span class="-n"></span>
+<span class="-n"></span>if (num > 0) {
+<span class="-n"></span>      console.log('Число положительное');
+<span class="-n"></span>} else if (num &lt; 0) {
+<span class="-n"></span>      console.log('Число отрицательное');
+<span class="-n"></span> } else {
+<span class="-n"></span>      console.log('Число равно нулю');
+<span class="-n"></span>}
+Число положительное
+</pre>
+        </div>
+
+        <script>
+            let num1 = 10;
+
+            if (num1 > 0) {
+                console.log(`
+let num1 = 10;
+
+if (num1 > 0) {
+console.log('Число положительное');
+} else if (num1 < 0) {
+console.log('Число отрицательное');
+} else {
+console.log('Число равно нулю');
+}
+`, 'Число положительное');
+            } else if (num1 < 0) {
+                console.log('Число отрицательное');
+            } else {
+                console.log('Число равно нулю');
+            }
+        </script>
+
+        <h3>2. Проверка возраста (совершеннолетие)</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span>    console.log('Доступ разрешён');
+<span class="-n"></span>} else {
+<span class="-n"></span>    console.log('Доступ запрещён');
+<span class="-n"></span>}
+Доступ запрещён
+</pre>
+        </div>
+
+
+        <script>
+            let age2 = 17;
+
+            if (age2 >= 18) {
+                console.log('Доступ разрешён');
+            } else {
+                console.log(`
+let age2 = 17;
+
+if (age2 >= 18) {
+console.log('Доступ разрешён');
+} else {
+console.log('Доступ запрещён');
+}
+`, 'Доступ запрещён');
+            }
+        </script>
+
+
+        <h3>3. Определение чётности числа</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 7;
+<span class="-n"></span>
+<span class="-n"></span>if (num % 2 === 0) {
+<span class="-n"></span>console.log('Число чётное');
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('Число нечётное');
+<span class="-n"></span>}
+Число нечётное
+</pre>
+        </div>
+
+        <script>
+            let num3 = 7;
+
+            if (num3 % 2 === 0) {
+                console.log('Число чётное');
+            } else {
+                console.log(`
+let num3 = 7;
+
+if (num3 % 2 === 0) {
+console.log('Число чётное');
+} else {
+console.log('Число нечётное');
+}
+`, 'Число нечётное');
+            }
+        </script>
+
+        <h3>4. Оценка по баллам (несколько условий)</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let score = 85;
+<span class="-n"></span>
+<span class="-n"></span>if (score >= 90) {
+<span class="-n"></span>console.log('Отлично');
+<span class="-n"></span>
+<span class="-n"></span>} else if (score >= 75) {
+<span class="-n"></span>console.log('Хорошо');
+<span class="-n"></span>
+<span class="-n"></span>} else if (score >= 60) {
+<span class="-n"></span>console.log('Удовлетворительно');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('Неудовлетворительно');
+<span class="-n"></span>}
+Хорошо
+</pre>
+        </div>
+
+        <script>
+            let score = 85;
+
+            if (score >= 90) {
+                console.log('Отлично');
+
+            } else if (score >= 75) {
+                console.log(`
+let score = 85;
+
+if (score >= 90) {
+console.log('Отлично');
+
+} else if (score >= 75) {
+console.log('Хорошо');
+
+} else if (score >= 60) {
+console.log('Удовлетворительно');
+
+} else {
+console.log('Неудовлетворительно');
+}
+`, 'Хорошо');
+
+            } else if (score >= 60) {
+                console.log('Удовлетворительно');
+
+            } else {
+                console.log('Неудовлетворительно');
+            }
+        </script>
+
+        <h3>5. Проверка строки на пустоту</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let name = 'Виктор';
+<span class="-n"></span>
+<span class="-n"></span>if (name === '') {
+<span class="-n"></span>console.log('Имя не введено');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('Привет, ' + name);
+<span class="-n"></span>}
+Привет, Виктор
+</pre>
+        </div>
+
+        <script>
+            let name = 'Виктор';
+
+            if (name === '') {
+                console.log('Имя не введено');
+
+            } else {
+                console.log(`
+let name = 'Виктор';
+
+if (name === '') {
+console.log('Имя не введено');
+
+} else {
+console.log('Привет, ' + name);
+}
+`, 'Привет, ' + name);
+            }
+        </script>
+
+        <h3>6. Проверка диапазона (декада месяца)</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let day = 25;
+<span class="-n"></span>
+<span class="-n"></span>if (day >= 1 && day &lt;= 10) {
+<span class="-n"></span>    console.log('Первая декада');
+<span class="-n"></span>
+<span class="-n"></span>} else if (day> 10 && day &lt;= 20) {
+<span class="-n"></span>    console.log('Вторая декада');
+<span class="-n"></span>
+<span class="-n"></span>} else if (day> 20 && day &lt;= 31) {
+<span class="-n"></span>    console.log('Третья декада');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>    console.log('Некорректное значение дня');
+<span class="-n"></span>}
+Третья декада
+</pre>
+        </div>
+
+        <script>
+            let day6 = 25;
+
+            if (day6 >= 1 && day6 <= 10) {
+                console.log('Первая декада');
+
+            } else if (day6 > 10 && day6 <= 20) {
+                console.log('Вторая декада');
+
+            } else if (day6 > 20 && day6 <= 31) {
+                console.log(`
+    let day6 = 25;
+
+if (day6 >= 1 && day6 <= 10) {
+console.log('Первая декада');
+
+} else if (day6 > 10 && day6 <= 20) {
+console.log('Вторая декада');
+
+} else if (day6 > 20 && day6 <= 31) {
+console.log('Третья декада');
+
+} else {
+console.log('Некорректное значение дня');
+}
+`, 'Третья декада');
+
+            } else {
+                console.log('Некорректное значение дня');
+            }
+        </script>
+
+        <h3>7. Вложенные if (проверка числа и его суммы цифр)</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 55;
+<span class="-n"></span>
+<span class="-n"></span>if (num &lt; 10 || num> 99) {
+<span class="-n"></span>    console.log('Число не попадает в диапазон от 10 до 99');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>    const str = String(num);
+<span class="-n"></span>    const sum = +str[0] + +str[1];
+<span class="-n"></span>
+<span class="-n"></span>    if (sum &lt;= 9) {
+<span class="-n"></span>      console.log('Сумма цифр однозначна');
+<span class="-n"></span>
+<span class="-n"></span>    } else {
+<span class="-n"></span>      console.log('Сумма цифр двузначна');
+<span class="-n"></span> }
+<span class="-n"></span>}
+Сумма цифр двузначна
+</pre>
+        </div>
+
+        <script>
+            let num7 = 55;
+
+            if (num7 < 10 || num7 > 99) {
+                console.log('Число не попадает в диапазон от 10 до 99');
+
+            } else {
+                const str7 = String(num7);
+                const sum7 = +str7[0] + +str7[1];
+
+                if (sum7 <= 9) {
+                    console.log('Сумма цифр однозначна');
+
+                } else {
+                    console.log(`
+let num7 = 55;
+
+if (num7 < 10 || num7 > 99) {
+console.log('Число не попадает в диапазон от 10 до 99');
+
+} else {
+const str7 = String(num);
+const sum7 = +str7[0] + +str7[1];
+
+if (sum7 <= 9) {
+console.log('Сумма цифр однозначна');
+
+} else {
+console.log('Сумма цифр двузначна');
+}
+}
+`, 'Сумма цифр двузначна');
+                }
+            }
+        </script>
+
+        <h3>8. Проверка типа данных (строгое равенство)</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let value = '1';
+<span class="-n"></span>
+<span class="-n"></span>if (value === 1) {
+<span class="-n"></span>    console.log('Это число 1');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>    console.log('Это не число 1 (или не строгое равенство)');
+<span class="-n"></span>}
+Это не число 1 (или не строгое равенство)
+</pre>
+        </div>
+
+        <script>
+            let value8 = '1';
+
+            if (value8 === 1) {
+                console.log('Это число 1');
+
+            } else {
+                console.log(`
+let value8 = '1';
+
+if (value8 === 1) {
+console.log('Это число 1');
+
+} else {
+console.log('Это не число 1 (или не строгое равенство)');
+}
+`, 'Это не число 1 (или не строгое равенство)');
+            }
+        </script>
+
+        <h3>9. Проверка на существование (undefined / null)</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let user = null;
+<span class="-n"></span>
+<span class="-n"></span>if (user === null) {
+<span class="-n"></span>    console.log('Пользователь не найден');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>    console.log('Пользователь: ' + user);
+<span class="-n"></span>}
+Пользователь не найден
+</pre>
+        </div>
+
+        <script>
+            let user9 = null;
+
+            if (user9 === null) {
+                console.log(`
+let user9 = null;
+
+if (user9 === null) {
+console.log('Пользователь не найден');
+
+} else {
+console.log('Пользователь: ' + user9);
+}
+`, 'Пользователь не найден');
+
+            } else {
+                console.log('Пользователь: ' + user9);
+            }
+        </script>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let user91;
+<span class="-n"></span>
+<span class="-n"></span>if (user91 === undefined) {
+<span class="-n"></span>    console.log('Пользователь не найден');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>    console.log('Пользователь: ' + user91);
+<span class="-n"></span>}
+Пользователь не найден
+</pre>
+        </div>
+
+        <script>
+            let user91;
+
+            if (user91 === undefined) {
+                console.log('Пользователь не найден');
+
+            } else {
+                console.log('Пользователь: ' + user91);
+            }
+        </script>
+
+        <h3>10. Реальный сценарий — проверка формы (валидация)</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let email = 'test@mail.ru';
+<span class="-n"></span>let password = '123321';
+<span class="-n"></span>
+<span class="-n"></span>if (email === '' || password === '') {
+<span class="-n"></span>    console.log('Заполните все поля');
+<span class="-n"></span>
+<span class="-n"></span>} else if (password.length &lt; 6) {
+<span class="-n"></span>    console.log('Пароль слишком короткий');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>    console.log('Форма отправлена');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let email = 'test@mail.ru';
+            let password = '123321';
+
+            if (email === '' || password === '') {
+                console.log('Заполните все поля');
+
+            } else if (password.length < 6) {
+                console.log('Пароль слишком короткий');
+
+            } else {
+                console.log(`
+    let email = 'test@mail.ru';
+let password = '123321';
+
+if (email === '' || password === '') {
+console.log('Заполните все поля');
+
+} else if (password.length < 6) {
+console.log('Пароль слишком короткий');
+
+} else {
+console.log('Форма отправлена');
+}
+`, 'Форма отправлена');
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

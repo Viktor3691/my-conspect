@@ -42,6 +42,677 @@
 
         <h2>Область видимости let и var в if-else</h2>
 
+        <p>Область видимости let и var в if-else
+            Пусть для простоты у нас есть всегда выполняющееся условие:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (true) {
+<span class="-n"></span>
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Давайте рассмотрим следующий код: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (true) {
+<span class="-n"></span>let result = '!';
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+</pre>
+        </div>
+
+        <p>Как вы видите, в переменную result должно записаться значение '!'. Однако, если запустить этот код, то в
+            консоль
+            выведется ошибка!
+            <br>
+            Дело в том, что переменные, объявленные внутри фигурных скобок, видны только внутри этих скобок, и не видны
+            снаружи.
+            По-научному здесь идет речь об области видимости переменных.
+            <br>
+            Можно говорить о том, что областью видимости переменных, объявленных внутри фигурных скобок, являются только
+            эти
+            фигурные скобки. Однако, если переменная объявлена снаружи фигурных скобок, то видна и внутри них, и
+            снаружи:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result; // переменная объявлена снаружи
+<span class="-n"></span>
+<span class="-n"></span>if (true) {
+<span class="-n"></span>result = '!';
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result); // выведет '!'
+</pre>
+        </div>
+
+        <h3>Пример</h3>
+
+        <p> В следующем примере в переменную result в зависимости от условия записывается либо значение 1, либо значение
+            2:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let num = 5;
+<span class="-n"></span>
+<span class="-n"></span>if (num >= 0) {
+<span class="-n"></span>let result = 1;
+<span class="-n"></span> } else {
+<span class="-n"></span>let result = 2;
+<span class="-n"></span> }
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+
+</pre>
+        </div>
+
+        <p> Однако, если запустить этот код, то в консоль выведется ошибка. Как вы теперь уже понимаете, все дело в
+            видимости переменных. Для решения проблемы объявим переменную снаружи условия:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let test = true;
+<span class="-n"></span>let result; // объявим переменную снаружи условия
+<span class="-n"></span>
+<span class="-n"></span>if (test) {
+<span class="-n"></span>result = 1;
+<span class="-n"></span>} else {
+<span class="-n"></span> result = 2;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result); // выведет 1
+</pre>
+        </div>
+
+
+
+        <h3>Задача 1 </h3>
+
+        <p> Автор приведенного ниже кода хотел выполнить проверку возраста на достижение 18 лет. Код, однако, не
+            работает.
+            Исправьте ошибку автора кода. Вот проблемный код: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span>let adult = true;
+<span class="-n"></span> } else {
+<span class="-n"></span>let adult = false;
+<span class="-n"></span> }
+<span class="-n"></span>
+<span class="-n"></span> console.log(adult);
+Uncaught ReferenceError: adult is not defined
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <h3> Решим задачу 1 по шагам</h3>
+
+        <p> Ошибка в коде связана с областью видимости переменной adult. Она объявлена внутри блоков if и else с помощью
+            let,
+            поэтому недоступна за их пределами — отсюда ошибка Uncaught ReferenceError: adult is not defined. </p>
+
+        <p> <strong>Шаг 1.</strong> Объявим переменную adult до условного оператора, чтобы она была видна и вне блоков
+            if/else. <br>
+            <strong> Шаг 2. </strong> Уберём повторное объявление let внутри блоков — теперь мы просто присваиваем
+            значение существующей переменной
+        <div class="br"></div>
+        <strong> Шаг 3. </strong> Проверим, что console.log(adult) теперь корректно выводит false при age = 17.
+        <br>
+        Исправленный код:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span>let adult;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span>adult = true;
+<span class="-n"></span> } else {
+<span class="-n"></span>adult = false;
+<span class="-n"></span> }
+<span class="-n"></span>
+<span class="-n"></span> console.log(adult);
+// false
+</pre>
+        </div>
+
+        <script>
+            let age = 17;
+            let adult;
+
+            if (age >= 18) {
+                adult = true;
+            } else {
+                adult = false;
+            }
+
+            console.log(`
+let age = 17;
+let adult;
+
+if (age >= 18) {
+adult = true;
+} else {
+adult = false;
+}
+
+console.log(adult);
+`, adult);
+        </script>
+
+        <h2>Нюансы </h2>
+
+        <p>Область видимости переменных обладает некоторым нюансом. Давайте рассмотрим его на примере. Давайте объявим
+            снаружи
+            нашего условия переменную result с одним значением, а внутри условия поменяем это значение на другое:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (true) {
+<span class="-n"></span>result = 2;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+// выведет 2
+</pre>
+        </div>
+        <p>Как вы видите, переменная result поменялась внутри условия. Все, однако, поменяется, если внутри условия
+            также объявить переменную result через let: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let result = 1;
+<span class="-n"></span>
+<span class="-n"></span> if (true) {
+<span class="-n"></span>let result = 2; // объявим переменную через let
+<span class="-n"></span> }
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+// выведет 1, а не 2!
+
+</pre>
+        </div>
+        <p>Здесь все дело в том, что объявление переменой через let внутри условия создало локальную переменную result.
+            <br>
+            То есть внутри условия существует одна переменная result, а снаружи условия - другая. Убедится в этом можно,
+            выведя
+            значение переменной в консоль внутри условия:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (true) {
+<span class="-n"></span> let result = 2;
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+// выведет 2
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+// выведет 1
+</pre>
+        </div>
+
+        <h3>Задача 2</h3>
+
+        <p>Автор приведенного ниже кода хотел выполнить проверку возраста на достижение 18 лет. Код, однако, при любом
+            значение
+            возраста выводит в консоль значение undefined. Исправьте ошибку автора кода.
+            <br>
+            Вот проблемный код:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span>let adult;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span>let adult = true;
+<span class="-n"></span>} else {
+<span class="-n"></span>let adult = false;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(adult);
+
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span>let adult;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span>adult = true;
+// let adult
+<span class="-n"></span>} else {
+<span class="-n"></span>adult = false;
+// let adult
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(adult);
+// false
+</pre>
+        </div>
+
+
+        <script>
+            let age2 = 17;
+            let adult2;
+
+            if (age >= 18) {
+                adult2 = true;
+            } else {
+                adult2 = false;
+            }
+
+            console.log(adult2);
+        </script>
+
+        <h3>Задача 3</h3>
+
+        <p>Автор приведенного ниже кода хотел выполнить проверку возраста на достижение 18 лет. После проверки кода
+            оказалось, что
+            если возраст равен или больше 18 лет, то в переменную adult записывается true, как и должно быть, однако,
+            если возраст
+            меньше 18, то переменная adult имеет значение undefined. Исправьте ошибку автора кода.
+            <br>
+            Вот проблемный код:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span> let adult;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span> adult = true;
+<span class="-n"></span>} else {
+<span class="-n"></span>let adult = false;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(adult);
+
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span> let adult;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span> adult = true;
+<span class="-n"></span>} else {
+<span class="-n"></span>adult = false;
+// let adult
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(adult);
+</pre>
+        </div>
+
+        <script>
+            let age3 = 17;
+            let adult3;
+
+            if (age >= 18) {
+                adult3 = true;
+            } else {
+                adult3 = false;
+                // let adult
+            }
+
+            console.log(adult3);
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p>Автор приведенного ниже кода хотел выполнить проверку возраста. Код, однако, при любом значение возраста
+            выводит в
+            консоль значение undefined. Исправьте ошибку автора кода.
+            <br>
+            Вот проблемный код:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span>let result;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span>    if (age &lt;= 23) {
+<span class="-n"></span>      let result='от 18 до 23' ;
+<span class="-n"></span>    } else {
+<span class="-n"></span>      let result='больше 23' ;
+<span class="-n"></span>    }
+<span class="-n"></span>} else {
+<span class="-n"></span>    let result='меньше 18' ;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span>let result;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span>    if (age &lt;= 23) {
+<span class="-n"></span>      result='от 18 до 23' ;
+// let result
+<span class="-n"></span>    } else {
+<span class="-n"></span>      result='больше 23' ;
+// let result
+<span class="-n"></span>    }
+<span class="-n"></span>} else {
+<span class="-n"></span>    result='меньше 18' ;
+// let result
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+меньше 18
+</pre>
+        </div>
+
+        <script>
+            let age4 = 17;
+            let result4;
+
+            if (age4 >= 18) {
+                if (age4 <= 23) {
+                    result4 = 'от 18 до 23';
+                } else {
+                    result4 = 'больше 23';
+                }
+            } else {
+                result4 = 'меньше 18';
+            }
+
+            console.log(result4);
+        </script>
+
+        <h3>Задача 5</h3>
+
+        <p> Автор приведенного ниже кода хотел выполнить проверку возраста.
+            Код,
+            однако, при значение возраста большим 18 лет выводит в консоль значение undefined. Исправьте ошибку автора
+            кода.
+            <br>
+            Вот проблемный код:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age=19;
+<span class="-n"></span>let result;
+<span class="-n"></span>
+<span class="-n"></span>if (age>= 18) {
+<span class="-n"></span>let result;
+<span class="-n"></span>
+<span class="-n"></span>    if (age &lt;= 23) {
+<span class="-n"></span>      result='от 18 до 23' ;
+<span class="-n"></span>    } else {
+<span class="-n"></span>      result='больше 23' ;
+<span class="-n"></span>    }
+<span class="-n"></span>} else {
+<span class="-n"></span>    result='меньше 18' ;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+undefined
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age=19;
+<span class="-n"></span>let result;
+<span class="-n"></span>
+<span class="-n"></span>if (age>= 18) {
+<span class="-n"></span>result;
+// let result;
+<span class="-n"></span>
+<span class="-n"></span>    if (age &lt;= 23) {
+<span class="-n"></span>      result='от 18 до 23' ;
+<span class="-n"></span>    } else {
+<span class="-n"></span>      result='больше 23' ;
+<span class="-n"></span>    }
+<span class="-n"></span>} else {
+<span class="-n"></span>    result='меньше 18' ;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+от 18 до 23
+</pre>
+        </div>
+
+        <script>
+            let age5 = 19;
+            let result5;
+
+            if (age5 >= 18) {
+                result5;
+
+                if (age5 <= 23) {
+                    result5 = 'от 18 до 23';
+                } else {
+                    result5 = 'больше 23';
+                }
+            } else {
+                result5 = 'меньше 18';
+            }
+
+            console.log(`
+let age5 = 19;
+let result5;
+
+if (age5 >= 18) {
+result5;
+
+if (age5 <= 23) {
+result5 = 'от 18 до 23';
+} else {
+result5 = 'больше 23';
+}
+} else {
+result5 = 'меньше 18';
+}
+
+console.log(result5);
+`, result5);
+        </script>
+
+        <h2> Область видимости var </h2>
+
+        <p> В самом начале учебника я рассказывал вам, что переменные можно объявлять либо через let, либо через var.
+            Эти
+            два
+            способа объявления переменных создают для них разные области видимости.
+            <br>
+            Посмотрим на примерах. В следующем примере переменная объявлена через let внутри условия и поэтому не видна
+            снаружи
+            условия:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (true) {
+<span class="-n"></span>let result = '!';
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+// выдаст ошибку
+</pre>
+        </div>
+
+        <p>А вот если объявить переменную через var - то переменная будет видна снаружи условия: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (true) {
+<span class="-n"></span>var result = '!';
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+// выведет '!'
+</pre>
+        </div>
+
+        <h3>Задача 6 </h3>
+
+        <p> Определите, что выведет приведенный код:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (num == 1) {
+<span class="-n"></span>var result = 'верно';
+<span class="-n"></span>} else {
+<span class="-n"></span>var result = 'неверно';
+<span class="-n"></span> }
+<span class="-n"></span>
+<span class="-n"></span> console.log(result);
+// верно
+</pre>
+        </div>
+
+        <script>
+            let num6 = 1;
+
+            if (num6 == 1) {
+                var result6 = 'верно';
+            } else {
+                var result6 = 'неверно';
+            }
+
+            console.log(`
+let num6 = 1;
+
+if (num6 == 1) {
+var result6 = 'верно';
+} else {
+var result6 = 'неверно';
+}
+
+console.log(result6);
+`, result6);
+        </script>
+
+
+
+
+        <h3> Задача 7 </h3>
+
+        <p> Определите, что выведет приведенный код:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (num == 1) {
+<span class="-n"></span>let result = 'верно';
+<span class="-n"></span>} else {
+<span class="-n"></span>let result = 'неверно';
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result);
+// Uncaught ReferenceError: result7 is not defined
+</pre>
+        </div>
+
+        <script>
+            let num7 = 1;
+
+            if (num7 == 1) {
+                result7 = 'верно';
+            } else {
+                result7 = 'неверно';
+            }
+
+            console.log(result7);
+        </script>
+
+
+
+
+
+
+
+
+
+
+        <h2> Замечания по поводу let и var</h2>
+
+        <p> Как я упоминал ранее, объявление переменных через let появилось в JavaScript позже, чем объявление
+            переменных
+            через var.
+            В настоящее время рекомендуется объявлять переменные именно через let, так как область видимости таких
+            переменных
+            ограничена фигурными скобками (это защищает код от случайных ошибок).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

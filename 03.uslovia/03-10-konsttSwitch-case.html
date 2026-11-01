@@ -22,9 +22,11 @@
             <a href="03-10-konsttSwitch-case.html">58 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-09-primerIspolzIf-else.html">Примеры
+                использования if-else в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="03-11-ternOperator.html">Тернарный оператор в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,7 +40,474 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Конструкция "switch</h2>
+
+        <p>Конструкция switch заменяет собой сразу несколько if.
+            <br>
+            Она представляет собой более наглядный способ сравнить выражение сразу с несколькими вариантами.
+        </p>
+
+        <h3>Синтаксис</h3>
+
+        <p>Конструкция switch имеет один или более блок case и необязательный блок default.
+            <br>
+            Выглядит она так:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>switch(x) {
+<span class="-n"></span>case 'value1': // if (x === 'value1')
+<span class="-n"></span>...
+<span class="-n"></span>[break]
+<span class="-n"></span>case 'value2': // if (x === 'value2')
+<span class="-n"></span>...
+<span class="-n"></span>[break]
+<span class="-n"></span>
+<span class="-n"></span>default:
+<span class="-n"></span>...
+<span class="-n"></span>[break]
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <ul>
+            <li>Переменная x проверяется на строгое равенство первому значению value1, затем второму value2 и так далее.
+            </li>
+            <li>Если соответствие установлено – switch начинает выполняться от соответствующей директивы case и далее,
+                до ближайшего
+                break (или до конца switch).</li>
+            <li>Если ни один case не совпал – выполняется (если есть) вариант default.</li>
+        </ul>
+
+        <h3>Пример работы </h3>
+
+        <p>Пример использования switch :</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 + 2;
+<span class="-n"></span>
+<span class="-n"></span>switch (a) {
+<span class="-n"></span>case 3:
+<span class="-n"></span>alert( 'Маловато' );
+<span class="-n"></span>break;
+<span class="-n"></span>
+<span class="-n"></span>case 4:
+<span class="-n"></span>alert( 'В точку!' );
+<span class="-n"></span>break;
+<span class="-n"></span>
+<span class="-n"></span> case 5:
+<span class="-n"></span>alert( 'Перебор' );
+<span class="-n"></span> break;
+<span class="-n"></span>
+<span class="-n"></span> default:
+<span class="-n"></span> alert( "Нет таких значений" );
+<span class="-n"></span>}
+// 4 В точку!
+</pre>
+        </div>
+
+        <p>Здесь оператор switch последовательно сравнит a со всеми вариантами из case.
+            <br>
+            Сначала 3, затем – так как нет совпадения – 4. Совпадение найдено, будет выполнен этот вариант, со строки
+            alert( 'В
+            точку!' ) и далее, до ближайшего break, который прервёт выполнение. <br>
+            <br>
+            <strong>Если <i>break </i>нет, то выполнение пойдёт ниже по следующим case, при этом остальные проверки
+                игнорируются. </strong>
+        </p>
+
+        <p>Пример без break:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 + 2;
+<span class="-n"></span>
+<span class="-n"></span>switch (a) {
+<span class="-n"></span>case 3:
+<span class="-n"></span>alert( 'Маловато' );
+<span class="-n"></span>
+<span class="-n"></span>case 4:
+<span class="-n"></span>alert( 'В точку!' );
+<span class="-n"></span>
+<span class="-n"></span>case 5:
+<span class="-n"></span>alert( 'Перебор' );
+<span class="-n"></span>
+<span class="-n"></span>default:
+<span class="-n"></span>alert( "Нет таких значений" );
+<span class="-n"></span>}
+В точку!
+Перебор
+Нет таких значений
+</pre>
+        </div>
+
+        <p>В примере выше последовательно выполнятся три alert:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>alert( 'В точку!' );
+<span class="-n"></span>alert( 'Перебор' );
+<span class="-n"></span>alert( "Нет таких значений" );
+</pre>
+        </div>
+
+        <p><strong>Любое выражение может быть аргументом для switch/case</strong></p>
+
+        <p>И switch и case допускают любое выражение в качестве аргумента.</p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = "1";
+<span class="-n"></span>let b = 0;
+<span class="-n"></span>
+<span class="-n"></span>switch (+a) {
+<span class="-n"></span>case b + 1:
+<span class="-n"></span>
+<span class="-n"></span>alert("Выполнится, т.к. значением +a будет 1,
+ что в точности равно b+1");
+<span class="-n"></span>break;
+<span class="-n"></span>
+<span class="-n"></span>default:
+<span class="-n"></span>alert("Это не выполнится");
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let a = "1";
+            let b = 0;
+
+            switch (+a) {
+                case b + 1:
+                    console.log(`
+let a = "1";
+let b = 0;
+
+switch (+a) {
+case b + 1:
+console.log("Выполнится, т.к. значением +a будет 1, что в точности равно b+1");
+break;
+
+default:
+console.log("Это не выполнится");
+}
+`, "Выполнится, т.к. значением +a будет 1, что в точности равно b+1");
+                    break;
+
+                default:
+                    console.log("Это не выполнится");
+            }
+        </script>
+
+        <i>В этом примере выражение +a вычисляется в 1, что совпадает с выражением b + 1 в case, и следовательно, код в
+            этом блоке
+            будет выполнен.</i>
+
+        <h2>Группировка «case»</h2>
+
+        <p>Несколько вариантов case, использующих один код, можно группировать.
+            <br>
+            Для примера, выполним один и тот же код для case 3 и case 5, сгруппировав их:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 3;
+<span class="-n"></span>
+<span class="-n"></span>switch (a) {
+<span class="-n"></span>    case 4:
+<span class="-n"></span>        alert('Правильно!');
+<span class="-n"></span>        break;
+<span class="-n"></span>
+<span class="-n"></span>    case 3: // (*) группируем оба case
+<span class="-n"></span>    case 5:
+<span class="-n"></span>        alert('Неправильно!');
+<span class="-n"></span>        alert("Может вам посетить урок математики?");
+<span class="-n"></span>        break;
+<span class="-n"></span>
+<span class="-n"></span>    default:
+<span class="-n"></span>        alert('Результат выглядит странновато. Честно.');
+<span class="-n"></span>}
+
+</pre>
+        </div>
+
+        <script>
+            let a1 = 3;
+
+            switch (a1) {
+                case 4:
+                    console.log('Правильно!');
+                    break;
+
+                case 3: // (*) группируем оба case
+                case 5:
+                    console.log('Неправильно!');
+                    console.log(`
+let a1 = 3;
+
+switch (a1) {
+case 4:
+console.log('Правильно!');
+break;
+
+case 3: // (*) группируем оба case
+case 5:
+console.log('Неправильно!');
+console.log("Может вам посетить урок математики?");
+break;
+
+default:
+alert('Результат выглядит странновато. Честно.');
+}
+`, "Может вам посетить урок математики?");
+                    break;
+
+                default:
+                    alert('Результат выглядит странновато. Честно.');
+            }
+        </script>
+
+        <p>Теперь оба варианта 3 и 5 выводят одно сообщение.
+            <br>
+            Возможность группировать case – это побочный эффект того, как switch/case работает без break. Здесь
+            выполнение case 3
+            начинается со строки (*) и продолжается в case 5, потому что отсутствует break.
+        </p>
+
+        <h2>Тип имеет значение</h2>
+
+        <p>Нужно отметить, что проверка на равенство всегда строгая. Значения должны быть одного типа, чтобы выполнялось
+            равенство.
+            <br>
+            Для примера, давайте рассмотрим следующий код:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arg = prompt("Введите число?");
+<span class="-n"></span>
+<span class="-n"></span>switch (arg) {
+<span class="-n"></span>case '0':
+<span class="-n"></span>case '1':
+<span class="-n"></span>alert( 'Один или ноль' );
+<span class="-n"></span>break;
+<span class="-n"></span>
+<span class="-n"></span>case '2':
+<span class="-n"></span>alert( 'Два' );
+<span class="-n"></span>break;
+<span class="-n"></span>
+<span class="-n"></span>case <strong>3</strong>:
+<span class="-n"></span>alert( 'Никогда не выполнится!' );
+<span class="-n"></span>break;
+<span class="-n"></span>
+<span class="-n"></span>default:
+<span class="-n"></span>alert( 'Неизвестное значение' );
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <ul>
+            <li>Для '0' и '1' выполнится первый alert.</li>
+            <li>Для '2' – второй alert.</li>
+            <li>Но для 3, результат выполнения prompt будет строка "3", которая не соответствует строгому равенству ===
+                с числом <strong>3</strong>.</li>
+        </ul>
+
+        <p>Таким образом, мы имеем «мёртвый код» в case <strong>3</strong>! Выполнится вариант default.</p>
+
+        <h3>Напишите "if", аналогичный "switch"</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>switch (browser) {
+<span class="-n"></span>case 'Edge':
+<span class="-n"></span>alert( "You've got the Edge!" );
+<span class="-n"></span>break;
+<span class="-n"></span>
+<span class="-n"></span>case 'Chrome':
+<span class="-n"></span>case 'Firefox':
+<span class="-n"></span>case 'Safari':
+<span class="-n"></span>case 'Opera':
+<span class="-n"></span> alert( 'Okay we support these browsers too' );
+<span class="-n"></span> break;
+<span class="-n"></span>
+<span class="-n"></span> default:
+<span class="-n"></span> alert( 'We hope that this page looks ok!' );
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if(browser == 'Edge') {
+<span class="-n"></span>alert("You've got the Edge!");
+<span class="-n"></span>
+<span class="-n"></span>} else if (browser == 'Chrome'
+<span class="-n"></span>|| browser == 'Firefox'
+<span class="-n"></span>|| browser == 'Safari'
+<span class="-n"></span>|| browser == 'Opera') {
+<span class="-n"></span>alert( 'Okay we support these browsers too' );
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>alert( 'We hope that this page looks ok!' );
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Обратите внимание: конструкция browser == 'Chrome' || browser == 'Firefox' ... разбита на несколько строк для
+            лучшей
+            читаемости.
+            <br>
+            Но всё равно запись через switch нагляднее.
+        </p>
+
+        <h3>Переписать условия "if" на "switch"</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const number = +prompt('Введите число между 0 и 3', '');
+<span class="-n"></span>
+<span class="-n"></span>if (number === 0) {
+<span class="-n"></span>    alert('Вы ввели число 0');
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>if (number === 1) {
+<span class="-n"></span>    alert('Вы ввели число 1');
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>if (number === 2 || number === 3) {
+<span class="-n"></span>    alert('Вы ввели число 2, а может и 3');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let number = 2;
+<span class="-n"></span>
+<span class="-n"></span>switch (number) {
+<span class="-n"></span>    case 0:
+<span class="-n"></span>        console.log('Вы ввели число 0');
+<span class="-n"></span>        break;
+<span class="-n"></span>    case 1:
+<span class="-n"></span>        console.log('Вы ввели число 1');
+<span class="-n"></span>        break;
+<span class="-n"></span>    case 2:
+<span class="-n"></span>    case 3:
+<span class="-n"></span>        console.log('Вы ввели число 2, а может и 3');
+<span class="-n"></span>        break;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let number = 2;
+
+            switch (number) {
+                case 0:
+                    console.log('Вы ввели число 0');
+                    break;
+                case 1:
+                    console.log('Вы ввели число 1');
+                    break;
+                case 2:
+                case 3:
+                    console.log(`
+let number = 2;
+
+switch (number) {
+case 0:
+console.log('Вы ввели число 0');
+break;
+case 1:
+console.log('Вы ввели число 1');
+break;
+case 2:
+case 3:
+console.log('Вы ввели число 2, а может и 3');
+break;
+
+}
+`, 'Вы ввели число 2, а может и 3');
+                    break;
+
+            }
+        </script>
+
+        <p>Обратите внимание: break внизу не обязателен, но ставится по «правилам хорошего тона».
+
+            Допустим, он не стоит. Есть шанс, что в будущем нам понадобится добавить в конец ещё один case, например
+            case 4, и мы,
+            вполне вероятно, забудем этот break поставить. В результате выполнение case 2/case 3 продолжится на case 4 и
+            будет
+            ошибка.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

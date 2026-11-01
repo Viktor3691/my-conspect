@@ -22,7 +22,8 @@
             <a href="03-11-ternOperator.html">59 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-10-konsttSwitch-case.html">Конструкция
+                "switch</a>
 
             <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
         </div>
@@ -38,7 +39,236 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Тернарный оператор в JavaScript</h2>
+
+        <p>Тернарный оператор в JavaScript — это компактный способ записать условие, аналог простой конструкции if‑else.
+            Он
+            возвращает значение, поэтому его удобно использовать для присваивания или в выражениях.</p>
+
+        <h3>Синтаксис</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>условие ? выражениеЕслиИстина : выражениеЕслиЛожь
+</pre>
+        </div>
+
+        <ul>
+            <li>Если условие истинно (truthy), выполнится и вернётся выражениеЕслиИстина.</li>
+            <li>Если ложно (falsy) — вернётся выражениеЕслиЛожь.</li>
+        </ul>
+
+        <h3> Базовые примеры</h3>
+
+        <p>Присваивание значения по условию:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const age = 20;
+<span class="-n"></span>
+<span class="-n"></span>const status = age >= 18 ? 'совершеннолетний' : 'несовершеннолетний';
+<span class="-n"></span>console.log(status);
+ // "совершеннолетний"
+</pre>
+        </div>
+
+        <p>Это то же самое, что:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let status;
+<span class="-n"></span>
+<span class="-n"></span>if (age >= 18) {
+<span class="-n"></span>status = 'совершеннолетний';
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>status = 'несовершеннолетний';
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Использование прямо в выводе:</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(идёт дождь ? 'Возьми зонт' : 'Можно без зонта');
+</pre>
+        </div>
+
+        <script>
+            console.log(`
+console.log('идёт дождь' ? 'Возьми зонт' : 'Можно без зонта');
+`, 'идёт дождь' ? '``Возьми зонт' : 'Можно без зонта');
+        </script>
+
+        <h3>В шаблонной строке:</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const isNew = true;
+<span class="-n"></span>console.log(`Товар ${isNew ? 'новый' : 'б/у'}`);
+</pre>
+        </div>
+
+        <script>
+            const isNew = true;
+            console.log("const isNew = true; Товар ${isNew ? 'новый' : 'б/у'}");
+            console.log(`Товар ${isNew ? 'новый' : 'б/у'}`);
+        </script>
+
+        <h3>Проверка возраста</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let age = 17;
+<span class="-n"></span>let adult = age >= 18 ? true : false;
+<span class="-n"></span>console.log(adult);
+// false
+</pre>
+        </div>
+
+        <h3>Выбор текста по диапазону</h3>
+
+        <p>Допустим, нужно вывести категорию по числу:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const num = 45;
+<span class="-n"></span>const category = num < 10 ? 'однозначное' : num &lt; 100
+? 'двузначное' : 'трёхзначное и более' ;
+<span class="-n"></span>console.log(category);
+<span class="-n"></span>// "двузначное"
+
+</pre>
+        </div>
+
+        <script>
+            const num = 45;
+            const category = num < 10 ? 'однозначное' : num < 100 ? 'двузначное' : 'трёхзначное и более';
+            console.log(`
+const num = 45;
+const category = num < 10 ? 'однозначное' : num < 100 ? 'двузначное' : 'трёхзначное и более';
+console.log(category);
+`, category);
+        </script>
+
+        <p>Здесь используется вложенный тернарный оператор. Он допустим для простых случаев, но если условий много,
+            лучше взять
+            if/else if или switch — так код легче читать и поддерживать.</p>
+
+        <h3>Важные нюансы для начинающего разработчика</h3>
+
+        <ol>
+            <li> Тернарный оператор — это выражение. Он что‑то возвращает, а if — это инструкция (statement). Поэтому
+                тернарный
+                можно писать там, где ожидается значение (в присваивании, аргументах функций, шаблонных строках).</li>
+            <li> Не стоит делать сложные ветки. Если внутри ? или : много действий, лучше оставить if/else.</li>
+            <li> Приоритет и скобки. В сложных выражениях лучше ставить скобки, чтобы явно показать порядок:
+                <div data-w="bock/code">
+                    script.js
+                    <pre>
+<span class="-n"></span>const result = (a > b ? a : b) + 1;
+</pre>
+                </div>
+            </li>
+            <li>
+                <strong>Truthy/falsy.</strong> Условие работает так же, как в if: пустые строки, 0, null, undefined, NaN
+                считаются ложными. Если важна
+                точность (например, отличить 0 от null), лучше писать явные сравнения.
+            </li>
+        </ol>
+
+        <h2>Частые полезные шаблоны</h2>
+
+        <h3>Значение по умолчанию:</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const name = '';
+<span class="-n"></span>const displayName = name.trim() !== '' ? name : 'Аноним';
+</pre>
+        </div>
+
+        <p><strong>Разбор по шагам:</strong></p>
+
+        <ol>
+            <li>name.trim() — убирает пробелы по краям строки.</li>
+            <li>name.trim() !== '' — проверяет: «осталось ли что-то после удаления пробелов?»</li>
+            <li>Если ДА (строка не пустая) → берём name.</li>
+            <li>Если НЕТ (строка пустая или состоит из одних пробелов) → берём 'Аноним'.</li>
+        </ol>
+
+        <p><strong>Результат для <i>name = '':</i></strong></p>
+
+        <ul>
+            <li>''.trim() → ''</li>
+            <li>'' !== '' → false</li>
+            <li>Тернарник вернёт 'Аноним'.</li>
+        </ul>
+
+        <h3>Выбор класса/стиля:</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const isDark = true;
+<span class="-n"></span>const bgColor = isDark ? 'black' : 'white';
+<span class="-n"></span>const textColor = isDark ? 'white' : 'black';
+<span class="-n"></span>console.log(bgColor, textColor);
+// 'black', 'white'
+</pre>
+        </div>
+
+        <script>
+            const isDark = true;
+            const bgColor = isDark ? 'black' : 'white';
+            const textColor = isDark ? 'white' : 'black';
+            console.log(`
+const isDark = true;
+const bgColor = isDark ? 'black' : 'white';
+const textColor = isDark ? 'white' : 'black';
+console.log(bgColor, textColor);
+`, bgColor, textColor);
+        </script>
+
+        <h3>Возврат из функции:</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>function getStatus(isOnline) {
+<span class="-n"></span>return isOnline ? 'online' : 'offline';
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        Дано целое число. Если оно является положительным, то прибавить к нему 1; в противном случае вычесть из него 2.
+        Вывести
+        полученное число
+
+        Категория: Условный оператор
+
+        <script>
+            let d = Number(require('fs').readFileSync(0, 'utf8'))
+
+            if (d > 0) {
+                console.log(d + 1);
+            } else {
+                console.log(d - 2);
+            }
+
+        </script>
+
+
+
 
 
 

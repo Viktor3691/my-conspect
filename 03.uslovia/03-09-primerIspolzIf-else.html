@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-08-oblastVidimIf-else.html">Область
                 видимости let и var в if-else</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="03-10-konsttSwitch-case.html">Конструкция "switch"</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -507,46 +508,189 @@ console.log('Форма отправлена');
             }
         </script>
 
+        <h2>Проверка частей часа через if-else в JavaScript</h2>
+
+        <p>Пусть у нас есть переменная min, в которой хранится количество минут от 1 до 60:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let min = 10;
+</pre>
+        </div>
+
+        <p>Давайте определим, в какую <strong>четверть часа</strong> попадает указанное количество минут:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let min = 10;
+<span class="-n"></span>
+<span class="-n"></span>if (min >= 0 && min &lt;= 14) {
+<span class="-n"></span>    console.log('1 четверть часа');
+<span class="-n"></span>
+<span class="-n"></span>} if (min>= 15 && min &lt;= 29) {
+<span class="-n"></span>    console.log('2 четверть часа');
+<span class="-n"></span>
+<span class="-n"></span>} if (min>= 30 && min &lt;= 44) {
+<span class="-n"></span>    console.log('3 четверть часа');
+<span class="-n"></span>
+<span class="-n"></span> } if (min>= 45 && min &lt;= 59) {
+<span class="-n"></span>    console.log('4 четверть часа');
+<span class="-n"></span>}
+1 четверть часа'
+</pre>
+        </div>
+
+        <script>
+            let min = 10;
+
+            if (min >= 0 && min <= 14) {
+                console.log(`
+let min = 10;
+
+if (min >= 0 && min <= 14) {
+console.log('1 четверть');
+
+} if (min >= 15 && min <= 29) {
+console.log('2 четверть');
+
+} if (min >= 30 && min <= 44) {
+console.log('3 четверть');
+
+} if (min >= 45 && min <= 59) {
+console.log('4 четверть');
+}
+`, '1 четверть');
+
+            } if (min >= 15 && min <= 29) {
+                console.log('2 четверть');
+
+            } if (min >= 30 && min <= 44) {
+                console.log('3 четверть');
+
+            } if (min >= 45 && min <= 59) {
+                console.log('4 четверть');
+            }
+        </script>
+
+        <h3> Задача №11 </h3>
+
+        <p> Решите аналогичную задачу, только определите в какую <strong>треть часа</strong> попадает указанное
+            количество минут.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let min = 22;
+<span class="-n"></span>
+<span class="-n"></span>if (min >= 0 && min &lt;= 19) {
+<span class="-n"></span>    console.log('1 треть часа');
+<span class="-n"></span>
+<span class="-n"></span>} if (min>= 20 && min &lt;= 39) {
+<span class="-n"></span>    console.log('2 треть часа');
+<span class="-n"></span>
+<span class="-n"></span>} if (min>= 40 && min &lt;= 59) {
+<span class="-n"></span>    console.log('3 треть часа');
+<span class="-n"></span>}
+2 треть часа
+</pre>
+        </div>
+
+        <script>
+            let min11 = 22;
+
+            if (min11 >= 0 && min11 <= 20) {
+                console.log('1 треть часа');
+
+            } if (min11 >= 21 && min11 <= 40) {
+                console.log(`
+let min11 = 22;
+
+if (min11 >= 0 && min11 <= 20) {
+console.log('1 треть часа');
+
+} if (min11 >= 21 && min11 <= 40) {
+console.log('2 треть часа');
+
+} if (min11 >= 40 && min11 <= 60) {
+console.log('3 треть часа');
+}
+`, '2 треть часа');
+
+            } if (min11 >= 40 && min11 <= 60) {
+                console.log('3 треть часа');
+            }
+        </script>
+
+        <h2>Проверка длины строк и массивов в JavaScript</h2>
+
+        <p>Пусть у нас есть переменная str, в которой хранится некоторая произвольная строка: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = '12345';
+</pre>
+        </div>
+
+        <p>Давайте напишем условие, которое выведет сообщение в консоль, если длина строки равна или больше трех
+            символов:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+ <span class="-n"></span>let str = '12345';
+ <span class="-n"></span>
+ <span class="-n"></span>if (str.length >= 3) {
+ <span class="-n"></span>console.log('длина строки равна или больше трех символов!');
+ <span class="-n"></span>}
+ </pre>
+        </div>
+
+        <script>
+            let str = '12345';
+
+            if (str.length >= 3) {
+                console.log('длина строки равна или больше трех символов!');
+            }
+        </script>
+
+        <h3>Задача №12 </h3>
+
+        <p>В переменной arr содержится некоторый массив с числами. Напишите условие, которое проверит, что в массиве 3
+            элемента.
+            Если это так, выведите на экран сумму элементов массива.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr12 = [1, 5, 9,]
+<span class="-n"></span>
+<span class="-n"></span>if (arr12.length == 3) {
+<span class="-n"></span>console.log(`в массиве ${arr12.length} элемента`);
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('в массиве 3 НЕ элемента');
+<span class="-n"></span>}
+</pre>
+        </div>
 
 
+        <script>
+            let arr12 = [1, 5, 9,]
 
+            if (arr12.length == 3) {
+                console.log(`в массиве ${arr12.length} элемента`);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            } else {
+                console.log('в массиве 3 НЕ элемента');
+            }
+        </script>
 
 
 

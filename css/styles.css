@@ -218,7 +218,8 @@ body[data-gmT="N"] main[data-w="cont/pane"] p[data-sComment] {
 /* ============================================================
    6. БЛОК КОДА — сетка + нумерация
    ============================================================ */
-[data-w="bock/code"] {
+[data-w="bock/code"],
+[data-w="block/code"] {
   position: relative;
   display: block;
   overflow-x: auto;

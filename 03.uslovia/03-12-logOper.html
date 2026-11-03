@@ -22,9 +22,11 @@
             <a href="03-12-logOper.html">60 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-11-ternOperator.html">Тернарный оператор в
+                JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="03-13-funkciaConfirm.html">Функция confirm в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -38,7 +40,215 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Логические операции в JavaScript</h2>
+
+        <p>Операторы сравнения можно использовать вне конструкций if. Смотрите пример:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(1 == 1); // выведет true
+<span class="-n"></span>console.log(1 == 2); // выведет false
+</pre>
+        </div>
+
+
+
+
+        <p>Можно сравнивать переменные:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span>let b = 2;
+<span class="-n"></span>
+<span class="-n"></span>console.log(a == b);
+</pre>
+        </div>
+
+
+
+
+
+
+        <p>Можно не выводить результат сразу в консоль, а присвоить его какой-нибудь переменной:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 1;
+<span class="-n"></span> let b = 2;
+<span class="-n"></span>
+<span class="-n"></span>let result = a == b;
+<span class="-n"></span>console.log(result);
+// false
+</pre>
+        </div>
+
+        <script>
+            let a = 1;
+            let b = 2;
+
+            let result = a == b;
+            console.log(`
+let a = 1;
+let b = 2;
+
+let result = a == b;
+console.log(result);
+`, result);
+        </script>
+
+        <h3>Задача №1</h3>
+
+        <p>Пусть даны следующие переменные:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 * (3 - 1);
+<span class="-n"></span>let b = 6 - 2;
+
+</pre>
+        </div>
+
+        <p> Используя оператор ==, узнайте, равны ли значения этих переменных или нет.</p>
+
+        <p>Решение 1</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a1 = 2 * (3 - 1);
+<span class="-n"></span>let b1 = 6 - 2;
+<span class="-n"></span>
+<span class="-n"></span>let res1 = a1 == b1 ? ' значения переменных равны' : 'значения переменных НЕ равны'
+<span class="-n"></span>console.log(res1);
+<span class="-n"></span>console.log(a1 == b1);
+</pre>
+        </div>
+
+        <script>
+            let a1 = 2 * (3 - 1);
+            let b1 = 6 - 2;
+
+            let res1 = a1 == b1 ? ' значения переменных равны' : 'значения переменных  НЕ равны'
+            console.log(`
+let a1 = 2 * (3 - 1);
+let b1 = 6 - 2;
+
+let res1 = a1 == b1 ? 'значения переменных равны' : 'значения переменных  НЕ равны'
+console.log(res1);
+`, res1);
+            console.log(a1 == b1);
+
+        </script>
+
+        <h3>Задача №2</h3>
+
+        <p> Пусть даны следующие переменные:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 5 * (7 - 4);
+<span class="-n"></span>let b = 1 + 2 + 7;
+</pre>
+        </div>
+
+        .<p>Используя оператор >, узнайте, больше ли переменная a, чем b</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a2 = 5 * (7 - 4);
+<span class="-n"></span>let b2 = 1 + 2 + 7;
+<span class="-n"></span>
+<span class="-n"></span>let res2 = a2 > b2 ? 'переменная a больше b' : 'переменная a меньше b'
+<span class="-n"></span>console.log(res2);
+<span class="-n"></span>console.log(a2 > b2);
+</pre>
+        </div>
+
+        <script>
+            let a2 = 5 * (7 - 4);
+            let b2 = 1 + 2 + 7;
+
+            let res2 = a2 > b2 ? 'переменная a больше b' : 'переменная a меньше b'
+            console.log(`
+let a2 = 5 * (7 - 4);
+let b2 = 1 + 2 + 7;
+
+let res2 = a2 > b2 ? 'переменная a больше b' : 'переменная a меньше b'
+console.log(res2);
+`, res2);
+            console.log(a2 > b2);
+        </script>
+
+        <h3>Задача №3</h3>
+
+        <p>Пусть даны следующие переменные:</p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a = 2 ** 4;
+<span class="-n"></span>let b = 4 ** 2;
+
+</pre>
+        </div>
+
+        .<p>Используя операцию оператор !=, узнайте, разные ли значения этих переменных или нет</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let a3 = 2 ** 4;
+<span class="-n"></span>let b3 = 4 ** 2;
+<span class="-n"></span>
+<span class="-n"></span>console.log(a3); //16
+<span class="-n"></span>console.log(b3); //16
+<span class="-n"></span>
+<span class="-n"></span>let res3 = a3 != b3 ? 'переменные РАЗНЫЕ' : 'переменные НЕ РАЗНЫЕ'
+<span class="-n"></span>console.log(res3);
+<span class="-n"></span>console.log(a3 != b3);
+</pre>
+        </div>
+
+        <script>
+            let a3 = 2 ** 4;
+            console.log(a3);
+            let b3 = 4 ** 2;
+            console.log(b3);
+            let res3 = a3 != b3 ? 'переменные  РАЗНЫЕ' : 'переменные НЕ РАЗНЫЕ'
+            console.log(`
+let a3 = 2 ** 4;
+console.log(a3);
+let b3 = 4 ** 2;
+console.log(b3);
+let res3 = a3 != b3 ? 'переменные  РАЗНЫЕ' : 'переменные НЕ РАЗНЫЕ'
+console.log(res3);
+console.log(a3 != b3);
+`, res3);
+            console.log(a3 != b3);
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

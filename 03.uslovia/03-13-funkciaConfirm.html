@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-12-logOper.html">Логические операции в
                 JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="03-14-poiskOshibok.html">Поиск ошибок в коде с условиями JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -41,9 +42,73 @@
 
         <h2>Функция confirm в JavaScript</h2>
 
+        <p>Функция confirm вызывает окошко с вопросом, на который нужно ответить пользователю, и двумя кнопками для
+            ответа: с
+            кнопкой 'ОК' и с кнопкой 'Отмена'. Если пользователь нажмет 'ОК' - то функция вернет true, а если 'Отмена' -
+            то вернет
+            false.
+            <br>
+            В следующем примере функция confirm выведет диалоговое окно с вопросом. Если вы нажмете 'Ок', то в
+            переменную ok
+            запишется true, а если нажмете 'Отмена' - то false:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let ok = confirm('Текст вопроса');
+<span class="-n"></span>console.log(ok);
+</pre>
+        </div>
 
 
 
+        <p>Используем конструкцию if для обработки ответа пользователя: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let ok = confirm('Текст вопроса');
+<span class="-n"></span>
+<span class="-n"></span>if (ok) {
+<span class="-n"></span>console.log('вы ответили да');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('вы ответили нет');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>№1</h3>
+
+        <p>Спросите у пользователя, есть ли ему уже 18 лет. Если есть - выведите на экран алерт с текстом для взрослых,
+            а если нет,
+            выведите сообщение о том, что доступ пользователю запрещен.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let ok = confirm('Есть ли Вам 18 лет?');
+<span class="-n"></span>
+<span class="-n"></span>if (ok) {
+<span class="-n"></span>console.log('доступ пользователю разрешен');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('доступ пользователю запрещен');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <!-- <script>
+            let ok = confirm('Есть ли Вам 18 лет?');
+
+            if (ok) {
+                console.log('доступ пользователю разрешен');
+
+            } else {
+                console.log('доступ пользователю запрещен');
+            }
+        </script> -->
 
     </main>
 

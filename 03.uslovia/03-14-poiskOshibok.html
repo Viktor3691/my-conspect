@@ -22,7 +22,8 @@
             <a href="03-14-poiskOshibok.html">62 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="03-13-funkciaConfirm.html">Функция confirm в
+                JavaScript</a>
 
             <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
         </div>
@@ -38,97 +39,242 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Поиск ошибок в коде с условиями JavaScript</h2>
 
-        Поиск ошибок в коде с условиями JavaScript
-        В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны проверить,
-        делает ли
-        код то, что описано. Если код работает некорректно, вы должны исправить ошибки.
 
-        Задача 1⋕js.Pm.Cd.Mst.1
+        <p>В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны
+            проверить,
+            делает ли
+            код то, что описано. Если код работает некорректно, вы должны исправить ошибки.</p>
 
-        Код должен проверить сумму чисел:
+        <h3> Задача 1</h3>
 
-        let num1 = 1;
-        let num2 = 2;
+        <p> Код должен проверить сумму чисел:</p>
 
-        if (num1 + num2 === 3) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
-        Задача 2⋕js.Pm.Cd.Mst.2
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num11 = 1;
+<span class="-n"></span>let num12 = 2;
+<span class="-n"></span>
+<span class="-n"></span>if (num11 + num12 === 3) {
+<span class="-n"></span>console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
++++
+</pre>
+        </div>
 
-        Код должен проверить сумму чисел:
+        <h3>Задача 2</h3>
 
-        let num1 = 1;
-        let num2 = 2;
+        <p>Код должен проверить сумму чисел:</p>
 
-        if (num1 + num1 === 3) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
-        Задача 3⋕js.Pm.Cd.Mst.3
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num21 = 1;
+<span class="-n"></span>let num22 = 2;
+<span class="-n"></span>
+<span class="-n"></span>if (num21 + num21 === 3) {
+<span class="-n"></span>console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+// num21 + num21 <span class="arrow-right">&rarr;</span> num21 + num22
+</pre>
+        </div>
 
-        Код должен проверить сумму чисел:
+        <h3> Задача 3</h3>
 
-        let num1 = '1';
-        let num2 = '2';
+        <p>Код должен проверить сумму чисел:</p>
 
-        if (num1 + num2 === 3) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
-        Задача 4⋕js.Pm.Cd.Mst.4
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num31 = '1';
+<span class="-n"></span>let num32 = '2';
+<span class="-n"></span>
+<span class="-n"></span>if (num31 + num31 === 3) {
+<span class="-n"></span>console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+//<span class="arrow-right">&rarr;</span> Number(num31) + Number(num32)
+</pre>
+        </div>
 
-        Код должен проверить сумму чисел:
+        <script>
+            let num31 = '1';
+            let num32 = '2';
 
-        let num1 = '1';
-        let num2 = '2';
+            if (Number(num31) + Number(num32) === 3) {
+                console.log('+++');
+            } else {
+                console.log('---');
+            }
+        </script>
 
-        if (Number(num1 + num2) === 3) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
-        Задача 5⋕js.Pm.Cd.Mst.5
+        <h3>Задача 4</h3>
 
-        Код должен проверить первую цифру числа:
+        <p> Код должен проверить сумму чисел:</p>
 
-        let num = 123;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num41 = '1';
+<span class="-n"></span>let num42 = '2';
+<span class="-n"></span>
+<span class="-n"></span>if (Number(num41 + num42) === 3) {
+<span class="-n"></span>console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+//<span class="arrow-right">&rarr;</span> Number(num41) + Number(num42)
+</pre>
+        </div>
 
-        if (num[0] === 1) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
-        Задача 6⋕js.Pm.Cd.Mst.6
+        <h3>Задача 5</h3>
 
-        Код должен проверить первую цифру числа:
+        <p>Код должен проверить первую цифру числа:</p>
 
-        let num = 123;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num5 = 123;
+<span class="-n"></span>
+<span class="-n"></span>if (num5[0] === 1) {
+<span class="-n"></span>console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        if (String(num[0]) === 1) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
-        Задача 7⋕js.Pm.Cd.Mst.7
+        <p>Решение</p>
 
-        Код должен проверить первую цифру числа:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num5 = 123;
+<span class="-n"></span>num5 = String(num5);
+<span class="-n"></span>
+<span class="-n"></span>if (Number(num5[0]) === 1) {
+<span class="-n"></span>console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        let num = 123;
+        <script>
+            let num5 = 123;
+            num5 = String(num5);
 
-        if (String(num)[0] === 1) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
-        Задача 8⋕js.Pm.Cd.Mst.8
+            if (Number(num5[0]) === 1) {
+                console.log('5+++');
 
-        Код должен проверить первую цифру числа:
+            } else {
+                console.log('5---');
+            }
+        </script>
+
+
+        <h3>Задача 6</h3>
+
+        <p>Код должен проверить первую цифру числа:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num6 = 123;
+<span class="-n"></span>
+<span class="-n"></span>if (String(num6[0]) === 1) {
+<span class="-n"></span>console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num6 = 123;
+<span class="-n"></span>num6 = String(num6);
+<span class="-n"></span>
+<span class="-n"></span>if (Number(num6[0]) === 1) {
+<span class="-n"></span>console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3> Задача 7</h3>
+
+        <p> Код должен проверить первую цифру числа:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num7 = '123';
+<span class="-n"></span>num7 = String(num7);
+<span class="-n"></span>
+<span class="-n"></span>if (Number(num7[0]) === 1) {
+<span class="-n"></span>console.log('7+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('7---');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num7 = '123';
+<span class="-n"></span>
+<span class="-n"></span>
+<span class="-n"></span>if (Number(num7[0]) === 1) {
+<span class="-n"></span>console.log('7+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('7---');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let num71 = '123';
+
+            console.log('num71 =', num71, '| символ =', num71[0], '| как число =', Number(num71[0]));
+
+
+            if (Number(num71[0]) === 1) {
+                console.log('7+++');
+
+            } else {
+                console.log('7---');
+            }
+        </script>
+
+
+        <h3>Задача 8</h3>
+
+        <p>Код должен проверить первую цифру числа:</p>
 
         let num = 123;
         let first = String(num)[0];
@@ -138,9 +284,9 @@
         } else {
         console.log('---');
         }
-        Задача 9⋕js.Pm.Cd.Mst.9
+        <h3>Задача 9</h3>
 
-        Код должен проверить, что в числе ровно две цифры:
+        <p>Код должен проверить, что в числе ровно две цифры:</p>
 
         let num = 12;
 
@@ -149,9 +295,9 @@
         } else {
         console.log('---');
         }
-        Задача 10⋕js.Pm.Cd.Mst.10
+        <h3>Задача 10</h3>
 
-        Код должен проверить, что в числе ровно две цифры:
+        <p>Код должен проверить, что в числе ровно две цифры:</p>
 
         let num = 12;
         let str = Number(str);
@@ -161,9 +307,9 @@
         } else {
         console.log('---');
         }
-        Задача 11⋕js.Pm.Cd.Mst.11
+        <h3>Задача 11</h3>
 
-        Код должен проверить, что в числе ровно две цифры:
+        <p>Код должен проверить, что в числе ровно две цифры:</p>
 
         let num = 12;
 
@@ -172,9 +318,9 @@
         } else {
         console.log('---');
         }
-        Задача 12⋕js.Pm.Cd.Mst.12
+        <h3>Задача 12</h3>
 
-        Код должен проверить, что в числе ровно две цифры:
+        <p> Код должен проверить, что в числе ровно две цифры:</p>
 
         let num = 12;
 
@@ -183,9 +329,9 @@
         } else {
         console.log('---');
         }
-        Задача 13⋕js.Pm.Cd.Mst.13
+        <h3>Задача 13</h3>
 
-        Код должен проверить, что в числе ровно две цифры:
+        <p>Код должен проверить, что в числе ровно две цифры:</p>
 
         let num = 12;
 
@@ -194,9 +340,9 @@
         } else {
         console.log('---');
         }
-        Задача 14⋕js.Pm.Cd.Mst.14
+        <h3>Задача 14</h3>
 
-        Код должен проверить равна ли сумма первых трех цифр числа сумме вторых трех чисел:
+        <p>Код должен проверить равна ли сумма первых трех цифр числа сумме вторых трех чисел:</p>
 
         let num = '123033'; // берем в кавычки, чтобы обращаться к цифрам
 
@@ -207,7 +353,7 @@
         console.log('суммы равны');
         } else {
         console.log('суммы не равны');
-
+        }
 
 
 

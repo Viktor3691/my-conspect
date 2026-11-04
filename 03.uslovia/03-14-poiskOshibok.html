@@ -276,84 +276,351 @@
 
         <p>Код должен проверить первую цифру числа:</p>
 
-        let num = 123;
-        let first = String(num)[0];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num81 = 123;
+<span class="-n"></span>let first81 = String(num81)[0];
+<span class="-n"></span>
+<span class="-n"></span>if (first81 === 1) {
+<span class="-n"></span>console.log('8+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('8---');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        if (first === 1) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num81 = 123;
+<span class="-n"></span>let first81 = String(num81)[0];
+<span class="-n"></span>first81 = Number(first81);
+<span class="-n"></span>
+<span class="-n"></span>if (first81 === 1) {
+<span class="-n"></span>console.log('8+++');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('8---');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let num81 = 123;
+            let first81 = String(num81)[0];
+            first81 = Number(first81);
+            if (first81 === 1) {
+                console.log('8+++');
+            } else {
+                console.log('8---');
+            }
+        </script>
+
         <h3>Задача 9</h3>
 
         <p>Код должен проверить, что в числе ровно две цифры:</p>
 
-        let num = 12;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num91 = 12;
+<span class="-n"></span>
+<span class="-n"></span>if (num91.length === 2) {
+<span class="-n"></span> console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        if (num.length === 2) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num91 = 12;
+<span class="-n"></span>num91 = String(num91);
+<span class="-n"></span>
+<span class="-n"></span>if (num91.length === 2) {
+<span class="-n"></span> console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let num91 = 12;
+            num91 = String(num91);
+
+            if (num91.length === 2) {
+                console.log('9+++');
+
+            } else {
+                console.log('9---');
+            }
+        </script>
+
         <h3>Задача 10</h3>
 
         <p>Код должен проверить, что в числе ровно две цифры:</p>
 
-        let num = 12;
-        let str = Number(str);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num101 = 12;
+<span class="-n"></span>let str10 = Number(str10);
+<span class="-n"></span>
+<span class="-n"></span>if (str10.length === 2) {
+<span class="-n"></span> console.log('10+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('10---');
+<span class="-n"></span>}
+// Uncaught ReferenceError: Cannot access 'str10' before initialization
+</pre>
+        </div>
 
-        if (str.length === 2) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num101 = 12;
+<span class="-n"></span>let str10 = String(num101);
+<span class="-n"></span>
+<span class="-n"></span>if (str10.length === 2) {
+<span class="-n"></span> console.log('10+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('10---');
+<span class="-n"></span>}
+// Uncaught ReferenceError: Cannot access 'str10' before initialization
+</pre>
+        </div>
+
+        <script>
+            let num101 = 12;
+            let str10 = String(num101);
+
+            if (str10.length === 2) {
+                console.log('10+++');
+            } else {
+                console.log('10---');
+            }
+        </script>
+
+
         <h3>Задача 11</h3>
 
         <p>Код должен проверить, что в числе ровно две цифры:</p>
 
-        let num = 12;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num111 = 12;
+<span class="-n"></span>
+<span class="-n"></span>if (String(num111.length) === 2) {
+<span class="-n"></span> console.log('10+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('10---');
+<span class="-n"></span>}
+// Uncaught ReferenceError: Cannot access 'str10' before initialization
+</pre>
+        </div>
 
-        if (String(num.length) === 2) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num111 = 12;
+<span class="-n"></span>num111 = String(num111);
+<span class="-n"></span>
+<span class="-n"></span>if (Number(num111.length) === 2) {
+<span class="-n"></span> console.log('10+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('10---');
+<span class="-n"></span>}
+// Uncaught ReferenceError: Cannot access 'str10' before initialization
+</pre>
+        </div>
+
+        <script>
+            let num111 = 12;
+            num111 = String(num111);
+
+            if (Number(num111.length) === 2) {
+                console.log('11+++');
+
+            } else {
+                console.log('11---');
+            }
+        </script>
+
         <h3>Задача 12</h3>
 
         <p> Код должен проверить, что в числе ровно две цифры:</p>
 
-        let num = 12;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 12;
+<span class="-n"></span>
+<span class="-n"></span>if (String(num).length === String(2)) {
+<span class="-n"></span> console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        if (String(num).length === String(2)) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num121 = 12;
+<span class="-n"></span>
+<span class="-n"></span>if (String(num121).length === 2) {
+<span class="-n"></span> console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let num121 = 12;
+
+            if (String(num121).length === 2) {
+                console.log('12+++');
+
+            } else {
+                console.log('12---');
+            }
+        </script>
+
         <h3>Задача 13</h3>
 
         <p>Код должен проверить, что в числе ровно две цифры:</p>
 
-        let num = 12;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num131 = 12;
+<span class="-n"></span>
+<span class="-n"></span>if (String(num).lenght === 2) {
+<span class="-n"></span> console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        if (String(num).lenght === 2) {
-        console.log('+++');
-        } else {
-        console.log('---');
-        }
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num131 = 12;
+<span class="-n"></span>
+<span class="-n"></span>if (String(num131).length === 2) {
+    //  lenght <span class="arrow-right">&rarr;</span> length
+<span class="-n"></span> console.log('+++');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('---');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+
+        <script>
+            let num131 = 12;
+
+            if (String(num131).length === 2) {
+                console.log('13+++');
+
+            } else {
+                console.log('13---');
+            }
+        </script>
+
         <h3>Задача 14</h3>
 
         <p>Код должен проверить равна ли сумма первых трех цифр числа сумме вторых трех чисел:</p>
 
-        let num = '123033'; // берем в кавычки, чтобы обращаться к цифрам
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num141 = '123033'; // берем в кавычки, чтобы обращаться к цифрам
+<span class="-n"></span>
+<span class="-n"></span>let sum141 = num141[0] + num141[1] + num141[2];
+<span class="-n"></span>let sum142 = num141[3] + num141[4] + num141[5];
+<span class="-n"></span>
+<span class="-n"></span>if (sum141 == sum142) {
+<span class="-n"></span>console.log('суммы равны');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('суммы не равны');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        let sum1 = num[0] + num[1] + num[2];
-        let sum2 = num[3] + num[4] + num[5];
+        <p>Решение</p>
 
-        if (sum1 == sum2) {
-        console.log('суммы равны');
-        } else {
-        console.log('суммы не равны');
-        }
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num141 = '123033'; // берем в кавычки, чтобы обращаться к цифрам
+<span class="-n"></span>
+<span class="-n"></span>let sum141 = Number(num141[0]) + Number(num141[1]) + Number(num141[2]);
+<span class="-n"></span>let sum142 = Number(num141[3]) + Number(num141[4]) + Number(num141[5]);
+<span class="-n"></span>
+<span class="-n"></span>if (sum141 == sum142) {
+<span class="-n"></span>console.log('суммы равны');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>console.log('суммы не равны');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let num141 = '123033'; // берем в кавычки, чтобы обращаться к цифрам
+
+            let sum141 = Number(num141[0]) + Number(num141[1]) + Number(num141[2]);
+            let sum142 = Number(num141[3]) + Number(num141[4]) + Number(num141[5]);
+
+
+            if (sum141 == sum142) {
+                console.log('суммы равны');
+
+            } else {
+                console.log('суммы не равны');
+            }
+        </script>
+
+
+
+
+
+
+
+
+
 
 
 

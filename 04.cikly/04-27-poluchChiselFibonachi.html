@@ -38,20 +38,27 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Получение чисел Фибоначчи в JavaScript</h2>
 
+        Сейчас мы с вами научимся получать числа Фибоначчи. Данные числа представляют собой последовательность, в
+        которой первые
+        два числа равны 0 и 1, а каждое последующее число равно сумме двух предыдущих чисел. Вот решение описанной
+        задачи:
 
+        let one = 0;
+        let two = 1;
 
+        for (let i = 1; i <= 10; i++) { let current=one + two; one=two; two=current; console.log(current); } Задача
+            1⋕js.Pm.Lp.FiNb.1 Разберите мое решение описанной задачи, а затем самостоятельно, не подсматривая в мой код,
+            решите эту задачу. Задача 2⋕js.Pm.Lp.FiNb.2 Решите задачу на нахождение ряда чисел, каждое из которых равно
+            сумме трех предыдущих, а первые три числа равны 0, 1 и 2. </main>
 
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
 
-    </main>
-
-    <footer data-w="nict/finf">
-        <span data-e="text">Мой личный конспект © 2026</span>
-    </footer>
-
-    <script src="../js/loader.js" defer></script>
-    <script src="../js/app.js" defer></script>
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
 </body>
 
 </html>

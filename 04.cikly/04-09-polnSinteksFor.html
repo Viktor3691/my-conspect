@@ -38,20 +38,29 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Общий синтаксис цикла for в JavaScript</h2>
 
+        Вы уже знаете синтаксис цикла for:
 
+        for ( начальные команды; условие окончания; команды после прохода ) {
+        тело цикла
+        }
+        На самом деле начальные команды и команды после прохода цикла могут состоять не из одной, а из нескольких,
+        разделяемых
+        запятыми.
 
+        Для примера давайте сделаем два счетчика: первый пусть каждую итерацию цикла увеличивается на единицу, а второй
+        - на
+        двойку:
 
+        for (let i = 0, j = 0; i <= 9; i++, j +=2) { console.log(i, j); } </main>
 
-    </main>
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
 
-    <footer data-w="nict/finf">
-        <span data-e="text">Мой личный конспект © 2026</span>
-    </footer>
-
-    <script src="../js/loader.js" defer></script>
-    <script src="../js/app.js" defer></script>
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
 </body>
 
 </html>

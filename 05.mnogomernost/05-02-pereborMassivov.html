@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-05-mnogomernost.html">Многомерность</a>
+            <a href="05-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Перебор многомерных массивов в JavaScript</h2>
+
+        Пусть дан следующий двухмерный массив:
+
+        let arr = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];
+        Давайте выведем все его элементы на экран. Для этого нам необходимо запустить два вложенных друг в друга цикла:
+
+        let arr = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];
+
+        for (let subArr of arr) {
+        for (let elem of subArr) {
+        console.log(elem);
+        }
+        }
+        Задача 1⋕js.Pm.Md.MAI.1
+
+        Дан двухмерный массив с числами:
+
+        let arr = [[1, 2, 3], [4, 5], [6]];
+        С помощью вложенных циклов найдите сумму элементов этого массива.
+
+        Задача 2⋕js.Pm.Md.MAI.2
+
+        Дан трехмерный массив с числами:
+
+        let arr = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+        С помощью вложенных циклов найдите сумму элементов этого массива.
+
+        Перебор через обычный for
+        Массивы также можно перебирать не через цикл for-of, а через обычный for:
+
+        let arr = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];
+
+        for (let i = 0; i < arr.length; i++) { for (let j=0; j < arr[i].length; j++) { console.log(arr[i][j]); } }
+            Задача 3⋕js.Pm.Md.MAI.3 Решите предыдущие две задачи через цикл for. </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

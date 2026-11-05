@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-05-mnogomernost.html">Многомерность</a>
+            <a href="05-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Многомерные массивы и объекты в JavaScript</h2>
+
+        Можно комбинировать многомерные массивы и объекты, создавая различные конструкции.
+
+        Давайте, к примеру, сделаем объект, содержащий внутри себя массивы:
+
+        let days = {
+        'ru': ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
+        'en': ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'],
+        };
+        Выведем какие-нибудь элементы из этого объекта:
+
+        console.log(days['ru'][0]); // выведет 'пн'
+        console.log(days['en'][2]); // выведет 'wd'
+        Массив объектов
+        А вот в следующем примере вы можете наблюдать массив, состоящий из объектов:
+
+        let users = [
+        {
+        name: 'name1',
+        age: 31,
+        },
+        {
+        name: 'name2',
+        age: 32,
+        },
+        {
+        name: 'name3',
+        age: 33,
+        },
+        ];
+        Давайте выведем данные какого-либо из юзеров на экран:
+
+        console.log(users[1]); // выведет {name: 'name2', age: 32}
+        А теперь выведем имя юзера из элемента массива с номером 1:
+
+        console.log(users[1]['name']); // выведет 'name2'
+        Можно также использовать обращение через точку:
+
+        console.log(users[1].name); // выведет 'name2'
+        Задача 1⋕js.Pm.Md.MS.1
+
+        Дан следующий массив работников:
+
+        let employees = [
+        {
+        name: 'name1',
+        salary: 300,
+        },
+        {
+        name: 'name2',
+        salary: 400,
+        },
+        {
+        name: 'name3',
+        salary: 500,
+        },
+        ];
+        Выведите на экран сумму зарплат первого и второго работников.
+
+        Задача 2⋕js.Pm.Md.MS.2
+
+        Дан следующий объект со студентами:
+
+        let students = {
+        'boys': ['Коля', 'Вася', 'Петя'],
+        'girls': ['Даша', 'Маша', 'Лена'],
+        };
+        Выведите на экран элемент 'Вася' и элемент 'Лена'.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

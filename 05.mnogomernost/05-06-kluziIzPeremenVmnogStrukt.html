@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-05-mnogomernost.html">Многомерность</a>
+            <a href="05-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Ключи из переменных в многомерных структурах JavaScript</h2>
+
+        Пусть дан следующий объект:
+
+        let obj = {
+        'ru': ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
+        'en': ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'],
+        };
+        Давайте выведем какой-нибудь элемент из нашего объекта, например, элемент 'чт':
+
+        let obj = {
+        'ru': ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
+        'en': ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'],
+        };
+
+        console.log(obj['ru'][3]);
+        Пусть теперь язык и номер дня хранятся в переменных:
+
+        let lang = 'ru';
+        let day = 3;
+        Выведем с помощью наших переменных какой-нибудь день недели:
+
+        let obj = {
+        'ru': ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
+        'en': ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'],
+        };
+
+        let lang = 'ru';
+        let day = 3;
+        console.log(obj[lang][day]);
+        Задача 1⋕js.Pm.Md.VK.1
+
+        Дан следующий объект с названиями месяцев:
+
+        let months = {
+        'ru': [
+        'январь',
+        'февраль',
+        'март',
+        'апрель',
+        'май',
+        'июнь',
+        'июль',
+        'август',
+        'сентябрь',
+        'октябрь',
+        'ноябрь',
+        'декабрь',
+        ],
+        'en': [
+        'january',
+        'february',
+        'march',
+        'april',
+        'may',
+        'june',
+        'july',
+        'august',
+        'september',
+        'october',
+        'november',
+        'december',
+        ],
+        };
+        Даны также следующие переменные:
+
+        let lang = 'ru'; // может быть или 'ru' или 'en'
+        let month = 5; // число от 0 до 11
+        Выведите на экран название месяца, соответствующее значениям переменных lang и month.
+
+        Задача 2⋕js.Pm.Md.VK.2
+
+        Дана вот такая структура для хранения списка дел за года, месяцы и дни:
+
+        let affairs = {
+        '2018': {
+        11: {
+        29: ['дело111', 'дело112', 'дело113'],
+        30: ['дело121', 'дело122', 'дело123'],
+        },
+        12: {
+        30: ['дело211', 'дело212', 'дело213'],
+        31: ['дело221', 'дело222', 'дело223'],
+        },
+        },
+        '2019': {
+        12: {
+        29: ['дело311', 'дело312', 'дело313'],
+        30: ['дело321', 'дело322', 'дело323'],
+        31: ['дело331', 'дело332', 'дело333'],
+        }
+        },
+        }
+        Пусть даны также 3 переменные, содержащие год, месяц и день. Выведите дело, соответствующее значениям
+        переменных.
+
+        Подводный камень с ключами объектов
+        Пусть у нас опять дан наш объект с днями и переменные с языком и номером дня:
+
+        let obj = {
+        'ru': ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
+        'en': ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'],
+        };
+
+        let lang = 'ru';
+        let day = 3;
+
+        console.log(obj[lang][day]);
+        Сейчас я хочу обратить ваше внимание на распространенные ошибки, возникающие в подобном коде.
+
+        Ошибка первая - имена переменных не следует брать в кавычки:
+
+        let obj = {
+        'ru': ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
+        'en': ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'],
+        };
+
+        let lang = 'ru';
+        let day = 3;
+
+        console.log(obj['lang']['day']); // так делать неправильно
+        Ошибка вторая - имена переменных нельзя записывать как свойства объекта:
+
+        let obj = {
+        'ru': ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
+        'en': ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'],
+        };
+
+        let lang = 'ru';
+        let day = 3;
+
+        console.log(obj.lang[day]); // так делать неправильно
+        Задача 3⋕js.Pm.Md.VK.3
+
+        Автор следующего кода хотел вывести элемент со значением '24':
+
+        let obj = {
+        key1: {
+        key2: '12',
+        key3: '13',
+        },
+        key2: {
+        key4: '24',
+        key5: '25',
+        },
+        }
+
+        let key1 = 'key2';
+        let key2 = 'key4';
+        console.log(obj['key1'][key2]);
+        Код, однако, выводит не то, что ожидал автор. Исправьте ошибку.
+
+        Задача 4⋕js.Pm.Md.VK.4
+
+        Автор следующего кода хотел вывести элемент со значением '24':
+
+        let obj = {
+        key1: {
+        key2: '12',
+        key3: '13',
+        },
+        key2: {
+        key4: '24',
+        key5: '25',
+        },
+        }
+
+        let key1 = 'key2';
+        let key2 = 'key4';
+        console.log(obj.key1.key2);
+        Код, однако, выводит не то, что ожидал автор. Исправьте ошибку.
+
+        Задача 5⋕js.Pm.Md.VK.5
+
+        Автор следующего кода хотел вывести элемент со значением '24':
+
+        let obj = {
+        key1: {
+        key2: '12',
+        key3: '13',
+        },
+        key2: {
+        key4: '24',
+        key5: '25',
+        },
+        }
+
+        let key1 = 'key2';
+        let key2 = 'key4';
+        console.log(obj.key1['key2']);
+        Код, однако, выводит не то, что ожидал автор. Исправьте ошибку.
+
+        Задача 6⋕js.Pm.Md.VK.6
+
+        Автор следующего кода хотел вывести элемент со значением '24':
+
+        let obj = {
+        key1: {
+        key2: '12',
+        key3: '13',
+        },
+        key2: {
+        key4: '24',
+        key5: '25',
+        },
+        }
+
+        let key1 = 'key2';
+        console.log(obj['key1']['key4']);
+        Код, однако, выводит не то, что ожидал автор. Исправьте ошибку.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

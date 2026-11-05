@@ -38,20 +38,24 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Вложенные циклы и область видимости в JavaScript</h2>
 
+        Если у нас есть цикл в цикле, то переменные, объявленные во внешнем цикле, будут доступны во внутреннем. В
+        следующем
+        примере переменная num доступна во внутреннем цикле:
 
+        for (let i = 0; i <= 9; i++) { let num=3; for (let j=0; j <=9; j++) { console.log(num); // выведет 3 } } А вот
+            снаружи внешнего цикла переменная num недоступна: for (let i=0; i <=9; i++) { let num=3; for (let j=0; j
+            <=9; j++) { } } console.log(num); // выдаст ошибку Переменные, объявленные во внутреннем цикле, недоступны
+            снаружи: for (let i=0; i <=9; i++) { for (let j=0; j <=9; j++) { let num=3; } console.log(num); // выдаст
+            ошибку } console.log(num); // выдаст ошибку </main>
 
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
 
-
-    </main>
-
-    <footer data-w="nict/finf">
-        <span data-e="text">Мой личный конспект © 2026</span>
-    </footer>
-
-    <script src="../js/loader.js" defer></script>
-    <script src="../js/app.js" defer></script>
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
 </body>
 
 </html>

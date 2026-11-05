@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-06-standart_metod.html">Стандартные методы</a>
+            <a href="06-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Практика на использования изученных методов</h2>
+
+        Регистр символов
+        Пусть у нас есть некоторая переменная с текстом:
+
+        let str = 'london';
+        Давайте преобразуем первую букву этой строки в верхний регистр:
+
+        let str = 'london';
+
+        let result = str.slice(0, 1).toUpperCase() + str.slice(1);
+        console.log(result); // выведет 'London'
+        Задача 1⋕js.Pm.SM.Prm.1
+
+        Преобразуйте последнюю букву строки в верхний регистр.
+
+        Задача 2⋕js.Pm.SM.Prm.2
+
+        Преобразуйте первые 2 буквы строки в верхний регистр.
+
+        Задача 3⋕js.Pm.SM.Prm.3
+
+        Пусть дана строка, у которой первая буква в верхнем регистре, например вот такая:
+
+        let str = 'London';
+        Преобразуйте первую букву строки в нижний регистр.
+
+        Слова в строке
+        Пусть у нас есть некоторая переменная с текстом, состоящим из нескольких слов:
+
+        let str = 'word1 word2 word3';
+        Давайте напишем код, который преобразует первую букву каждого слова в верхний регистр. Сразу приведу решение с
+        комментариями:
+
+        let str = 'word1 word2 word3';
+
+        // Разобьем строку в массив слов:
+        let words = str.split(' ');
+
+        for (let i = 0; i < words.length; i++) { // Увеличим регистр каждого слова: words[i]=words[i].slice(0,
+            1).toUpperCase() + words[i].slice(1); } // Сольем массив обратно в строку: let result=words.join(' ');
+console.log(result); // выведет ' Word1 Word2 Word3' Задача 4⋕js.Pm.SM.Prm.4 Самостоятельно, не подсматривая в мой код,
+            повторите мое решение описанной задачи. Задача 5⋕js.Pm.SM.Prm.5 Преобразуйте строку 'var_test_text'
+            в 'VarTestText' . Написанный код должен работать для любых строк такого типа (то есть для строк, в которых
+            слова разделены символов подчеркивания). Задача 6⋕js.Pm.SM.Prm.6 Модифицируйте предыдущую задачу так, чтобы
+            первая буква новой строки была в нижнем регистре. Переворот строки Пусть у нас есть некоторая переменная со
+            строкой: let str='12345' ; Давайте перевернем символы этой строки в обратном порядке: let str='12345' ; let
+            result=str.split('').reverse().join(''); console.log(result); // выведет '54321' Задача 7⋕js.Pm.SM.Prm.7
+            Дана строка со словами. Напишите скрипт, который переставит слова в строке в обратном порядке. </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

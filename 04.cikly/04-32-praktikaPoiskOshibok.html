@@ -38,20 +38,82 @@
 
     <main data-w="cont/pane">
 
-        <h2>#</h2>
+        <h2>Поиск ошибок в коде с циклами JavaScript</h2>
 
+        В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны проверить,
+        делает ли
+        код то, что описано. Если код работает некорректно, вы должны исправить ошибки.
 
+        Задача 1⋕js.Pm.Lp.Mst.1
 
+        Код должен вывести числа от 0 до 10:
 
+        for (let i = 0; i > 10; i++) {
+        console.log(i);
+        }
+        Задача 2⋕js.Pm.Lp.Mst.2
 
-    </main>
+        Код должен вывести числа от 10 до 0:
 
-    <footer data-w="nict/finf">
-        <span data-e="text">Мой личный конспект © 2026</span>
-    </footer>
+        for (let i = 10; i > 0; i++) {
+        console.log(i);
+        }
+        Задача 3⋕js.Pm.Lp.Mst.3
 
-    <script src="../js/loader.js" defer></script>
-    <script src="../js/app.js" defer></script>
+        Код должен вывести числа от 10 до 0:
+
+        for (let i = 10; i == 0; i--) {
+        console.log(i);
+        }
+        Задача 4⋕js.Pm.Lp.Mst.4
+
+        Код должен вывести числа от 0 до 10:
+
+        let i = 0;
+
+        while (i >= 10) {
+        console.log(i);
+        i++;
+        }
+        Задача 5⋕js.Pm.Lp.Mst.5
+
+        Код должен найти сумму целых чисел от 1 до 10:
+
+        let res;
+
+        for (let i = 1; i <= 10; i++) { res +=i; } console.log(res); Задача 6⋕js.Pm.Lp.Mst.6 Код должен найти
+            произведение целых чисел от 1 до 10: let res=0; for (let i=1; i <=10; i++) { res *=i; } console.log(res);
+            Задача 7⋕js.Pm.Lp.Mst.7 Код должен найти сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5' ]; let
+            sum=0; for (let elem of arr) { sum +=elem; } console.log(sum); // должно вывести 15 Задача 8⋕js.Pm.Lp.Mst.8
+            Код должен найти сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5' ]; let sum='' ; for (let elem
+            of arr) { sum +=+elem; } console.log(sum); // должно вывести 15 Задача 9⋕js.Pm.Lp.Mst.9 Код должен найти
+            сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5' ]; let sum=0; for (let elem of arr) {
+            sum=+elem; } console.log(sum); // должно вывести 15 Задача 10⋕js.Pm.Lp.Mst.10 Код должен найти сумму
+            элементов массива, однако, всегда выводит NaN: let arr=['1', '2' , '3' , '4' , '5' ]; let sum=0; for (let
+            i=0; i <=arr.length; i++) { sum +=+arr[i]; } console.log(sum); // почему-то выводит NaN Задача
+            11⋕js.Pm.Lp.Mst.11 Код должен найти сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5' ]; let
+            sum=0; for (let i=0; i < arr.length - 1; i++) { sum +=+arr[i]; } console.log(sum); // почему-то выводит не
+            15 Задача 12⋕js.Pm.Lp.Mst.12 Код должен найти сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5'
+            ]; let sum=0; for (let i=0; i < arr.length; i++) { sum +=+i; } console.log(sum); // почему-то выводит не 15
+            Задача 13⋕js.Pm.Lp.Mst.13 Код должен возвести в квадрат каждый элемент массива: let arr=[1, 2, 3, 4, 5]; for
+            (let elem of arr) { elem=elem ** 2; } console.log(arr); Задача 14⋕js.Pm.Lp.Mst.14 Код должен заполнить
+            массив числами от 1 до 5: let arr; for (let i=1; i <=5; i++) { arr.push(i); } console.log(arr); Задача
+            15⋕js.Pm.Lp.Mst.15 Код должен найти сумму элементов объекта: let obj={a: 1, b: 2, c: 3}; let sum=0; for (let
+            elem in obj) { sum +=elem; } console.log(sum); Задача 16⋕js.Pm.Lp.Mst.16 Код должен найти сумму элементов
+            объекта: let obj={a: 1, b: 2, c: 3}; let sum=0; for (let key in obj) { sum=+obj.key; } console.log(sum);
+            Задача 17⋕js.Pm.Lp.Mst.17 Код должен проверить, есть ли в массиве число 3 или нет: let arr=[1, 2, 3, 4, 5];
+            let res='' ; for (let elem of arr) { if (elem===3) { res='+++' ; } else { res='---' ; } } console.log(res);
+            Задача 18⋕js.Pm.Lp.Mst.18 Код должен проверить, есть ли в массиве число 3 или нет: let arr=[1, 2, 3, 4, 5];
+            let res=false; for (let elem of arr) { if (elem===3) { let res=true; break; } } console.log(res); Задача
+            19⋕js.Pm.Lp.Mst.19 Код должен вывести только четные элементы из массива: let arr=[1, 2, 3, 4, 5]; for (let
+            elem of arr) { if (elem % 2=0) { console.log(elem); } } </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
 </body>
 
 </html>

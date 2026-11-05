@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-04-cikly.html">Циклы</a>
+            <a href="04.html">63 of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Работа с флагами в JavaScript</h2>
+
+        Сейчас мы с вами научимся работать с флагами. Флаг - это специальная переменная, которое может принимать только
+        два
+        значения: true и false. С помощью флагов можно решать задачи, проверяющие отсутствие чего-либо: к примеру, можно
+        проверить, что в массиве нет элемента с определенным значением. Давайте приступим.
+
+        Давайте решим следующую задачу: дан массив с числами, нужно проверить, есть ли в нем элемент со значением 3 или
+        нет.
+        Если есть - выведем 'есть', если нет - выведем 'нет'.
+
+        Для начала давайте попробуем вывести 'есть'. Для этого переберем все элементы нашего массива и ифом будем
+        спрашивать -
+        равен ли текущий элемент значению 3. Если равен - выведем 'есть':
+
+        let arr = [1, 2, 3, 4, 5];
+
+        for (let elem of arr) {
+        if (elem == 3) {
+        console.log('есть');
+        }
+        }
+        Но наше решение не очень хорошо: ведь если в массиве будет не одно значение 3, а несколько, то 'есть' выведется
+        несколько раз. Давайте исправим наш массив (сделаем два элемента со значением 3) и убедимся в этом:
+
+        let arr = [1, 2, 3, 4, 3, 5];
+
+        for (let elem of arr) {
+        if (elem == 3) {
+        console.log('есть'); // выведет несколько раз
+        }
+        }
+        Поправим проблему: завершим цикл с помощью break, если элемент уже найден:
+
+        let arr = [1, 2, 3, 4, 3, 5];
+
+        for (let elem of arr) {
+        if (elem == 3) {
+        console.log('есть');
+        break; // завершим цикл
+        }
+        }
+        Давайте теперь попробуем сделать так, чтобы, если в массиве вообще нет элементов со значением 3, выводилось
+        'нет'.
+        Распространенным заблуждением будет добавить else к нашему ифу - в этом случае 'нет' будет выводиться на все
+        элементы,
+        не являющиеся 3:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        for (let elem of arr) {
+        if (elem == 3) {
+        console.log('есть'); // выведет на элементе 3
+        } else {
+        console.log('нет'); // выведет на элементах 1, 2, 4, 5
+        }
+        }
+        Итак, идея добавить else - плохая идея, не рабочая. Для решения задач подобного типа (такие задачи встречаются
+        достаточно часто) и используют так называемые флаги.
+
+        Как уже упоминалось выше, флаг - это такая переменная, которая может принимать два значения: true или false.
+
+        Итак, давайте сделаем переменную flag с таким значением: если она равна true, то в массиве есть элемент 3, а
+        если false,
+        то такого элемента нет.
+
+        Изначально поставим переменную flag в значение false - то есть будем считать, что элемента 3 в массиве нет:
+
+        let arr = [1, 2, 3, 4, 5];
+        let flag = false; // считаем, что элемента 3 нету в массиве
+        Затем запустим цикл с ифом так, как мы делали это раньше. Если цикл обнаружит, что в массиве есть элемент 3 - то
+        поставим переменную flag в значение true и выйдем из цикла с помощью break:
+
+        let arr = [1, 2, 3, 4, 5];
+        let flag = false; // считаем, что элемента 3 нет в массиве
+
+        for (let elem of arr) {
+        if (elem == 3) {
+        flag = true; // элемент есть - переопределим переменную flag
+        break; // выйдем из цикла
+        }
+        }
+        Ответ на вопрос, если в массиве 3 или нет, мы можем дать только после цикла. И этот ответ у нас уже есть: после
+        цикла
+        переменная flag могла остаться false или могла сменить свое значение на true, если цикл обнаружил в массиве 3:
+
+        let arr = [1, 2, 3, 4, 5];
+        let flag = false;
+
+        for (let elem of arr) {
+        if (elem == 3) {
+        flag = true;
+        break;
+        }
+        }
+
+        // тут переменная flag равна или true, или false
+        Теперь после цикла мы можем сделать иф, который посмотрит на переменную flag и выведет на экран 'есть' или
+        'нет':
+
+        let arr = [1, 2, 3, 4, 5];
+        let flag = false;
+
+        for (let elem of arr) {
+        if (elem == 3) {
+        flag = true;
+        break;
+        }
+        }
+
+        if (flag === true) {
+        console.log('есть');
+        } else {
+        console.log('нет');
+        }
+        Задача 1⋕js.Pm.Lp.Fl.1
+
+        Дан массив:
+
+        let arr = ['a', 'b', 'c', 'd', 'e'];
+        Проверьте, что в этом массиве есть элемент 'c'. Если есть - выведите 'да', а если нет - выведите 'нет'.
+
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Работа с текстом тега на JavaScript</h2>
+
+        Как вы уже знаете, переменная, содержащая ссылку на DOM элемент, представляет собой объект со своими свойствами.
+        Эти
+        свойства можно прочитывать и записывать.
+
+        Первым свойством, которое мы изучим, является свойство innerHTML, позволяющее прочитывать текст DOM элементов
+        (то есть
+        текст тегов).
+
+        Давайте посмотрим, как оно работает. Пусть у нас есть переменная elem, содержащая ссылку на какой-то элемент.
+        Тогда с
+        помощью elem.innerHTML мы сможем прочитать текст этого элемента.
+
+        Давайте посмотрим на практическом примере. Пусть у нас есть абзац и кнопка:
+
+        <p id="elem">text</p>
+        <input id="button" type="submit">
+        Получим ссылки на абзац и кнопку в соответствующие переменные:
+
+        let button = document.querySelector('#button');
+        let elem = document.querySelector('#elem');
+        Выведем по нажатию на кнопку текст абзаца на экран:
+
+        button.addEventListener('click', function() {
+        alert(elem.innerHTML);
+        });
+        Задача 1⋕js.Pm.Dm.EH.1
+
+        Даны два абзаца, содержащие своим текстом какие-то числа, и кнопка. По нажатию на кнопку выведите на экран сумму
+        хранящихся чисел.
+
+        Задача 2⋕js.Pm.Dm.EH.2
+
+        Даны два абзаца и две кнопки. Пусть нажатие на первую кнопку выводит текст первого абзаца, а нажатие на вторую
+        кнопку -
+        текст второго абзаца.
+
+        Запись
+        Свойство innerHTML позволяет не только прочитывать, но и записывать текст. Давайте для примера по нажатию на
+        кнопку
+        запишем в наш абзац какой-нибудь текст:
+
+        button.addEventListener('click', function() {
+        elem.innerHTML = '!!!';
+        });
+        Задача 3⋕js.Pm.Dm.EH.3
+
+        Дан абзац и две кнопки. По нажатию на первую кнопку запишите в абзац слово 'привет', а по нажатию на вторую
+        кнопку -
+        слово 'пока'.
+
+        Задача 4⋕js.Pm.Dm.EH.4
+
+        Даны 3 абзаца с текстом. По нажатию на первый абзац запишите в его текст число 1, по нажатию на второй абзац
+        запишите в
+        его текст число 2, а по нажатию на третий - запишите в его текст число 3.
+
+        Задача 5⋕js.Pm.Dm.EH.5
+
+        Дан абзац и кнопка. В абзаце записано какое-то число. По нажатию на кнопку возведите значение абзаца в квадрат и
+        запишите его обратно.
+
+        Задача 6⋕js.Pm.Dm.EH.6
+
+        Дан абзац с числом и кнопка. По нажатию на кнопку прибавьте к значению абзаца единицу и запишите полученное
+        число
+        обратно.
+
+        Задача 7⋕js.Pm.Dm.EH.7
+
+        Дан абзац с текстом и кнопка. По нажатию на кнопку запишите в конец текста абзаца восклицательный знак.
+
+        Задача 8⋕js.Pm.Dm.EH.8
+
+        Модифицируйте предыдущую задачу так, чтобы восклицательный знак записывался не в конец текста, а в начало.
+
+        Запись тегов
+        Можно записывать не только обычный текст, но и текст с тегами. В таком случае теги будут восприняты браузером
+        как
+        команды. В следующем примере мы запишем в элемент жирный текст:
+
+        button.addEventListener('click', function() {
+        elem.innerHTML = '<b>жирный текст</b>';
+        });
+        Задача 9⋕js.Pm.Dm.EH.9
+
+        Дан абзац и кнопка. По нажатию на кнопку запишите в абзац текст '<i>hello</i>'.
+
+        Задача 10⋕js.Pm.Dm.EH.10
+
+        Дан абзац с текстом и кнопка. По нажатию на кнопку прочитайте текст абзаца, оберните этот текст в теги <b> и
+            запишите
+            новый текст обратно в абзац.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

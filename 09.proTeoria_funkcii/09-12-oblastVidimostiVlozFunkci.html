@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Область видимости вложенных функций в JavaScript</h2>
+
+        Если функция содержит внутри другую функцию - переменные внешней функции видны во внутренней:
+
+        function test() {
+        let num = 1; // переменная внешней функции
+
+        function func() {
+        alert(num); // выведет 1
+        }
+
+        func(); // вызываем внутреннюю функцию
+        }
+
+        test(); // вызываем внешнюю функцию
+        Также во внутренней функции будут видны переменные, определенные снаружи внешней функции:
+
+        let num = 1; // глобальная переменная
+
+        function test() {
+        function func() {
+        alert(num); // выведет 1
+        }
+
+        func(); // вызываем внутреннюю функцию
+        };
+
+        test(); // вызываем внешнюю функцию
+        Задача 1⋕js.Pm.FA.NFS.1
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test() {
+        let num = 1;
+
+        function func() {
+        alert(num);
+        }
+
+        func();
+        }
+
+        test();
+        Задача 2⋕js.Pm.FA.NFS.2
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test() {
+        let num = 1;
+
+        function func() {
+        alert(num);
+        }
+        }
+
+        test();
+        Задача 3⋕js.Pm.FA.NFS.3
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test() {
+        let num = 1;
+
+        function func() {
+        alert(num);
+        }
+
+        func();
+        }
+        Задача 4⋕js.Pm.FA.NFS.4
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test() {
+        let num;
+
+        function func() {
+        alert(num);
+        }
+
+        num = 1
+        func();
+
+        num = 2
+        func();
+        }
+
+        test();
+        Параметры
+        Параметры внешней функции также будут доступны во внутренней:
+
+        function test(num) {
+        function func() {
+        alert(num); // выведет 1
+        }
+
+        func(); // вызываем внутреннюю функцию
+        };
+
+        test(1); // передаем параметром число
+        Задача 5⋕js.Pm.FA.NFS.5
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num1, num2) {
+        function func() {
+        alert(num1 + num2);
+        }
+
+        func();
+        }
+
+        test(1, 2);
+        Задача 6⋕js.Pm.FA.NFS.6
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num1, num2) {
+        function func() {
+        alert(num1 + num2);
+        }
+
+        num1 = 2;
+        func();
+        }
+
+        test(1, 2);
+        Параметры
+        Давайте сделаем так, чтобы и внешняя функция и внутренняя принимали параметры:
+
+        function test(num) {
+        function func(localNum) {
+        alert(localNum);
+        }
+        }
+        Передадим параметр внешней функции в вызов внутренней функции:
+
+        function test(num) {
+        function func(localNum) {
+        alert(localNum); // выведет 1
+        }
+
+        func(num); // передаем параметр
+        }
+
+        test(1); // передаем параметром число
+        Получается, что во внутренней функции будет доступна переменная num как внешняя переменная из родительской
+        функции и
+        переменная localNum, являющаяся локальной переменной внутренней функции.
+
+        Обе эти переменные будут иметь одинаковые значения:
+
+        function test(num) {
+        function func(localNum) {
+        alert(num); // выведет 1
+        alert(localNum); // выведет 1
+        }
+
+        func(num);
+        }
+
+        test(1);
+        Разница между ними будет в следующем: если во внутренней функции изменить переменную num - она поменяется и во
+        внешней
+        функции:
+
+        function test(num) {
+        function func(localNum) {
+        num = 2; // меняем переменную num
+        }
+
+        func(num); // передаем параметр
+        alert(num); // выведет 2
+        }
+
+        test(1); // передаем параметром число
+        А переменная localNum будет локальной. Ее изменения не будут приводить ни к каким изменениям во внешней функции.
+        Да и
+        сама переменная localNum не будет видна снаружи внутренней функции:
+
+        function test(num) {
+        function func(localNum) {
+        localNum = 2; // меняем переменную num
+        }
+
+        func(num); // передаем параметр
+        }
+
+        test(1); // передаем параметром число
+        Задача 7⋕js.Pm.FA.NFS.7
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(localNum) {
+        alert(localNum);
+        }
+
+        func(num);
+        }
+
+        test(1);
+        Задача 8⋕js.Pm.FA.NFS.8
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(localNum) {
+        alert(localNum);
+        }
+
+        func(num + 1);
+        }
+
+        test(1);
+        Задача 9⋕js.Pm.FA.NFS.9
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(localNum) {
+        alert(num);
+        }
+
+        func(num + 1);
+        }
+
+        test(1);
+        Задача 10⋕js.Pm.FA.NFS.10
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(localNum) {
+        localNum = 2;
+        }
+
+        func(num);
+        alert(num);
+        }
+
+        test(1);
+        Задача 11⋕js.Pm.FA.NFS.11
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(localNum) {
+        localNum = 2;
+        }
+
+        func(num);
+        alert(localNum);
+        }
+
+        test(1);
+        Задача 12⋕js.Pm.FA.NFS.12
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(localNum) {
+        num = 2;
+        }
+
+        func(num);
+        alert(num);
+        }
+
+        test(1);
+        Одноименные параметры
+        Пусть теперь внешняя и внутренняя функция имеют одноименные параметры:
+
+        function test(num) {
+        function func(num) {
+        alert(num); // выведет 1
+        }
+
+        func(num);
+        };
+
+        test(1);
+        В этом случае во внутренней функции будет локальная переменная num. Ее изменение во внутренней функции никак не
+        будет
+        влиять на внешнюю переменную num:
+
+        function test(num) {
+        function func(num) {
+        num = 2; // меняем локальную переменную num
+        }
+
+        func(num);
+        alert(num); // выведет 1 - ничего не поменялось
+        }
+
+        test(1);
+        Получится, что внутренняя функция никак не сможет обратиться к внешней переменной num для того, чтобы изменить
+        ее:
+
+        function test(num) {
+        function func(num) {
+        // тут нельзя получить доступ в внешней переменной num
+        }
+
+        func(num);
+        }
+        test(1);
+        Задача 13⋕js.Pm.FA.NFS.13
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(num) {
+        alert(num);
+        }
+
+        func(num);
+        }
+
+        test(1);
+        Задача 14⋕js.Pm.FA.NFS.14
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(num) {
+        num = 2;
+        }
+
+        func(num);
+        alert(num);
+        }
+
+        test(1);
+        Задача 15⋕js.Pm.FA.NFS.15
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(num) {
+        alert(num);
+        }
+
+        num = 2;
+        func(num);
+        }
+
+        test(1);
+        Задача 16⋕js.Pm.FA.NFS.16
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test(num) {
+        function func(num) {
+        alert(num);
+        }
+
+        func(num);
+        num = 2;
+        }
+
+        test(1);
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

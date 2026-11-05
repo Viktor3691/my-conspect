@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-10-pereborMetod.html">Перебирающие методы</a>
+            <a href="10-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Метод filter для фильтрации массива в JavaScript</h2>
+
+        Давайте теперь изучим очень полезный метод filter, позволяющий отфильтровать элементы массива. Подобно уже
+        изученным
+        нами методам, этот метод в параметре получает функцию-коллбэк (с такими же параметрами, как и методы map и
+        forEach),
+        которая выполнится для каждого элемента массива.
+
+        Своим результатом filter возвращает новый массив, в который войдут только те элементы, для которых коллбэк
+        вернет true.
+
+        Посмотрим работу функции на примере. Пусть у нас дан массив с числами:
+
+        let arr = [1, 2, 3, 4, 5];
+        Давайте отфильтруем массив, оставив в нем только четные числа:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let result = arr.filter(function(elem) {
+        if (elem % 2 == 0) {
+        return true;
+        } else {
+        return false;
+        }
+        });
+
+        console.log(result); // выведет [2, 4]
+        Упростим код, используя логические операторы:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let result = arr.filter(function(elem) {
+        return elem % 2 == 0;
+        });
+
+        console.log(result); // выведет [2, 4]
+        Еще больше упростим код, используя стрелочные функции:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let result = arr.filter(elem => elem % 2 == 0);
+        console.log(result); // выведет [2, 4]
+        Это решение настолько короткое, что его можно разместить в параметре console.log:
+
+        let arr = [1, 2, 3, 4, 5];
+        console.log( arr.filter(elem => elem % 2 == 0) );
+        Задача 1⋕js.Pm.Enm.Fi.1
+
+        Дан массив с числами. Оставьте в нем только положительные числа.
+
+        Задача 2⋕js.Pm.Enm.Fi.2
+
+        Дан массив с числами. Оставьте в нем только отрицательные числа.
+
+        Задача 3⋕js.Pm.Enm.Fi.3
+
+        Дан массив с числами. Оставьте в нем только числа, которые больше нуля, но меньше 10.
+
+        Задача 4⋕js.Pm.Enm.Fi.4
+
+        Дан массив со строками. Оставьте в нем только те строки, длина которых больше 5-ти символов.
+
+        Задача 5⋕js.Pm.Enm.Fi.5
+
+        Дан массив с числами. Оставьте в нем только те числа, произведение которых на их порядковый номер меньше 30.
+
+        Задача 6⋕js.Pm.Enm.Fi.6
+
+        Дан массив, в нем могут быть обычные элементы и подмассивы, например [1, 2, [3, 4], 5, [6, 7]]. Оставьте в нем
+        только
+        обычные элементы.
+
+        Еще применение
+        Пусть у нас опять есть наш массив:
+
+        let arr = [1, 2, 3, 4, 5];
+        Давайте подсчитаем количество четных элементов в нем:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let filtered = arr.filter(elem => elem % 2 == 0);
+        console.log( filtered.length ); // выведет 2
+        Перепишем еще проще:
+
+        let arr = [1, 2, 3, 4, 5];
+        console.log( arr.filter(elem => elem % 2 == 0).length );
+        Задача 7⋕js.Pm.Enm.Fi.7
+
+        Дан массив с числами. Посчитайте количество отрицательных чисел в этом массиве.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-07-polz_funkcii.html">Пользовательские функции</a>
+            <a href="07-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Флаги в функциях JavaScript</h2>
+
+        Пусть у нас есть код, проверяющий число на простоту:
+
+        let num = 31;
+
+        let flag = true;
+        for (let i = 2; i < num; i++) { if (num % i==0) { flag=false; break; } } console.log(flag); Давайте оформим этот
+            код в виде функции: function isPrime(num) { let flag=true; for (let i=2; i < num; i++) { if (num % i==0) {
+            flag=false; break; } } return flag; } Проверим работу нашей функции: console.log( isPrime(10) );
+            console.log( isPrime(31) ); Давайте теперь посмотрим, как можно упростить работу с флагами, если мы
+            используем их в функции. На самом деле в случае с функцией переменная flag и команда break нам не
+            понадобятся - вместо них все сделает команда return. Делается это следующим образом: внутри функции
+            запускаем наш цикл с ифом и, если мы попали в иф - возвращаем false, тем самым выходя из цикла и из функции.
+            А если цикл прокрутился, но выхода из функции не случилось - после цикла возвращаем true: function
+            isPrime(num) { for (let i=2; i < num; i++) { if (num % i==0) { return false; } } return true; } Еще раз как
+            это работает: если в массиве найдется нужный элемент - мы выйдем из функции (и из цикла тоже) с помощью
+            return. Но если в массиве не найдется нужный элемент - выхода из функции не произойдет и выполнение дойдет
+            до команды return true. И получится, что функция вернет true в знак того, что число простое. Проверка по
+            массиву Давайте теперь сделаем функцию, которая параметром будет принимать массив, и проверять, что все
+            элементы в этом массиве положительные. Пусть функция возвращает true, если это так, и false, если хотя бы
+            один из элементов массива отрицательный. Вот примеры того, как должна работать наша функция: console.log(
+            isPositive([1, -2, 3, 4, -5]) ); // выведет false console.log( isPositive([1, 2, 3, 4, 5]) ); // выведет
+            true Реализуем описанную функцию с помощью неявного использования флагов: function isPositive(arr) { for
+            (let elem of arr) { if (elem < 0) { return false; } } return true; } Задача 1⋕js.Pm.UF.Fl.1 Сделайте
+            функцию, которая параметром будет принимать массив с числами, и проверять, что все элементы в этом массиве
+            являются четными числами. Задача 2⋕js.Pm.UF.Fl.2 Сделайте функцию, которая параметром будет принимать число
+            и проверять, что все цифры это числа являются нечетными. Задача 3⋕js.Pm.UF.Fl.3 Сделайте функцию, которая
+            параметром будет принимать массив и проверять, есть ли в этом массиве два одинаковых элемента подряд.
+            </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

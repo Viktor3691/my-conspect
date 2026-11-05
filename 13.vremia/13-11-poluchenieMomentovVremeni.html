@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-13-vremia.html">Время</a>
+            <a href="13-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Получение моментов времени в JavaScript</h2>
+
+        В данном уроке мы с вами научимся получать различные моменты времени в виде объекта с датой. Также мы научимся
+        находить
+        разность между этими моментами времени.
+
+        День текущего года
+        Давайте получим объект с датой, содержащий 8-е марта текущего года. Под словами текущий год имеется ввиду то,
+        что скрипт
+        должен работать в любом году, всегда получая тот год, который сейчас на планете.
+
+        Для этого нам нужно сделать еще один вспомогательный объект с датой, содержащий текущий момент времени. С
+        помощью этого
+        объекта мы сможем получить текущий год, а затем использовать этот год при создании объекта с желаемой нами
+        датой, вот
+        так:
+
+        let now = new Date(); // получаем текущий момент
+        let date = new Date(now.getFullYear(), 2, 8); // получаем нашу дату
+        Полученный момент времени мы можем использовать, например, чтобы определить день недели, соответствующий этой
+        дате:
+
+        console.log(date.getDay());
+        Задача 1⋕js.Pm.Tm.GOTM.1
+
+        Определите, какой день недели будет 31 декабря текущего года.
+
+        День текущего месяца
+        Давайте получим объект с датой, содержащий 25-е число текущего месяца текущего года:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), 25);
+        Задача 2⋕js.Pm.Tm.GOTM.2
+
+        Определите, какой день недели будет 1 числа текущего месяца.
+
+        День следующего или предыдущего года
+        Давайте получим объект с датой, содержащий 21 января следующего года. Для этого прибавим к текущему году
+        единицу:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear() + 1, 0, 21);
+        Задача 3⋕js.Pm.Tm.GOTM.3
+
+        Определите, какой день недели будет 31 декабря следующего года.
+
+        Задача 4⋕js.Pm.Tm.GOTM.4
+
+        Определите, какой день недели будет через год в такую же дату, как сегодня.
+
+        Задача 5⋕js.Pm.Tm.GOTM.5
+
+        Определите, какой день недели был год назад в такую же дату, как сегодня.
+
+        День следующего или предыдущего месяца
+        Давайте узнаем день недели первого числа предыдущего месяца. Для этого от текущего месяца отнимем единицу:
+
+        let now = new Date();
+
+        let date = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+        console.log(date.getDay());
+        Задача 6⋕js.Pm.Tm.GOTM.6
+
+        Вопрос: не будет ли проблемы, если текущий месяц январь? Ведь он имеет номер 0, и при вычитании из него единицы
+        мы
+        получим минус первый месяц.
+
+        Задача 7⋕js.Pm.Tm.GOTM.7
+
+        Определите, какой день недели был месяц назад в такой же день месяца, как сегодня.
+
+        Разность моментов
+        Давайте найдем разность между двумя моментами времени:
+
+        let date1 = new Date();
+        let date2 = new Date(2015, 4, 25, 12, 59, 59);
+
+        console.log(date1 - date2); // разность в миллисекундах
+        Задача 8⋕js.Pm.Tm.GOTM.8
+
+        Определите, сколько дней между 1 января и 10 сентября текущего года.
+
+        Задача 9⋕js.Pm.Tm.GOTM.9
+
+        Определите, сколько дней между 20 числом текущего месяца и 10 числом следующего.
+
+        Момент времени дня
+        Давайте получим объект с датой, содержащий полдень сегодняшнего дня:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12);
+        А теперь полдень завтрашнего дня:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 12);
+        Задача 10⋕js.Pm.Tm.GOTM.10
+
+        Определите, сколько часов прошло между вчерашним полднем и текущим моментом времени.
+
+        Начало дня
+        Давайте получим объект с датой, содержащий начало текущего дня:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+        Как вы уже знаете, параметры объекта Date можно опускать с конца. В этом случае часы, минуты и секунды будут
+        иметь
+        значение 0. Опустим их:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        А вот день опустить нельзя, так как если он опущен, то пример значение 1, а нам нужен текущий день. Опустить
+        месяц, не
+        опуская год также нельзя по правилам работы с Date.
+
+        Опустить одновременно год, месяц и день также нельзя - в этом случае возьмется текущий момент времени. Почему
+        это плохо,
+        ведь нам и нужен текущий год, текущий месяц и текущий день? Дело в том, что нам нужна полночь, то есть часы,
+        минуты и
+        секунды должны иметь значение 0, а в текущем моменте времени они будут иметь текущие значения, а не полночь.
+
+        Задача 11⋕js.Pm.Tm.GOTM.11
+
+        Определите, сколько часов прошло между началом дня и текущим моментом времени.
+
+        Конец дня
+        Давайте получим объект с датой, содержащий конец текущего дня:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+        Можно посчитать концом текущего дня полночь следующего (разница в 1 секунду):
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+        Как вы уже знаете, нули в таком случае можно опустить:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        Кстати, полночью также будет является время 24:00:00 текущего дня:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 24, 0, 0);
+        Опустим нули:
+
+        let now = new Date();
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 24);
+        Задача 12⋕js.Pm.Tm.GOTM.12
+
+        Определите, сколько часов осталось до конца дня.
+
+        Циклическая проверка
+        Давайте найдем все первые числа месяцев текущего года, которые являются воскресеньем:
+
+        let now = new Date();
+        let year = now.getFullYear();
+
+        for (let month = 0; month <= 11; month++) { let date=new Date(year, month, 1); if (date.getDay()==0) {
+            console.log(year + '-' + month + '-1' ); } } Задача 13⋕js.Pm.Tm.GOTM.13 Рассмотрите промежуток от 2000 года
+            до текущего года. Определите, сколько раз 1 января в этом промежутке попадало на выходной день, то есть на
+            субботу или на воскресенье. </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

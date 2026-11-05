@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Пользовательские атрибуты в JavaScript</h2>
+
+        В HTML разрешено добавлять свои, пользовательские атрибуты тегам. Такие атрибуты должны начинаться с data-, а
+        затем
+        должно идти любое название атрибута, которое вам удобно.
+
+        Пользовательские атрибуты могут быть использованы огромным количеством различных способов. Многие из этих
+        способов мы
+        изучим далее в учебнике, а еще больше вы сможете в дальнейшем изобрести самостоятельно.
+
+        Обращение к таким атрибутам устроено не стандартным образом. Нельзя просто обратиться к одноименному свойству
+        элемента,
+        как мы делали это раньше, а следует использовать специальное свойство dataset, после которого через точку
+        пишется имя
+        атрибута без data-. Например, если наш атрибут называется data-test, то для обращения к нему мы будем писать
+        elem.dataset.test, где elem - переменная с нашим элементом.
+
+        Давайте посмотрим на примере. Пусть у нас дан вот такой элемент:
+
+        <div id="elem" data-num="1000"></div>
+        Выведем на экран значение его атрибута data-num:
+
+        let elem = document.querySelector('#elem');
+        alert(elem.dataset.num); // выведет 1000
+        А теперь присвоим этому атрибуту другое значение:
+
+        let elem = document.querySelector('#elem');
+        elem.dataset.num = 123;
+        Задача 1⋕js.Pm.Dm.DA.1
+
+        Дан следующий код:
+
+        <div id="elem" data-text="str">text</div>
+        Сделайте так, чтобы по клику на див в конец его текста добавилось содержимое его атрибута data-text.
+
+        Задача 2⋕js.Pm.Dm.DA.2
+
+        Даны дивы, содержащие в атрибуте data-num свой порядковый номер:
+
+        <div data-num="1">text</div>
+        <div data-num="2">text</div>
+        <div data-num="3">text</div>
+        <div data-num="4">text</div>
+        <div data-num="5">text</div>
+        Сделайте так, чтобы по клику на любой из дивов ему в конец записывался его порядковый номер.
+
+        Задача 3⋕js.Pm.Dm.DA.3
+
+        Дана кнопка. Сделайте так, чтобы эта кнопка считала количество кликов по ней, записывая их в какой-нибудь
+        пользовательский атрибут. Пусть по двойному клику на эту кнопку на экран выводится, сколько кликов по этой
+        кнопке было
+        сделано.
+
+        Задача 4⋕js.Pm.Dm.DA.4
+
+        Дан инпут:
+
+        <input id="elem" data-length="5">
+        В этом инпуте в атрибуте data-length содержится количество символов, которое нужно ввести в инпут. Сделайте так,
+        чтобы
+        по потери фокуса, если количество введенных символов не совпадает с заданным, выводилось сообщение об этом.
+
+        Задача 5⋕js.Pm.Dm.DA.5
+
+        Дан инпут:
+
+        <input id="elem" data-min="5" data-max="10">
+        В этом инпуте атрибуты data-min и data-max содержат диапазон. Сделайте так, чтобы по потери фокуса, если
+        количество
+        введенных символов не попадает в этот диапазон, выводилось сообщение об этом.
+
+        Имена с дефисами
+        Пользовательские атрибуты могут содержать дефисы в своем названии, например, вот так:
+
+        <div id="elem" data-my-test="1000"></div>
+        Для обращения к таким атрибутам следует использовать camelCase:
+
+        let elem = document.querySelector('#elem');
+        alert(elem.dataset.myTest);
+        Задача 6⋕js.Pm.Dm.DA.6
+
+        Дан следующий код:
+
+        <div id="elem" data-product-price="1000" data-product-amount="5">
+            товар яблоки
+        </div>
+        Сделайте так, чтобы по клику на див в конец его текста добавлялась стоимость покупки, равная цене, умноженной на
+        количество.
+
+        Обращение через методы
+        К пользовательским атрибутам можно также обращаться с помощью методов типа getAttribute, в этом случае следует
+        писать
+        полное название атрибута:
+
+        <div id="elem" data-num="1000" data-my-num="2000"></div>
+        let elem = document.querySelector('#elem');
+
+        alert(elem.getAttribute('data-num')); // выведет 1000
+        alert(elem.getAttribute('data-my-num')); // выведет 2000
+        Задача 7⋕js.Pm.Dm.DA.7
+
+        Даны абзацы. Переберите их циклом и каждому абзацу в атрибут data-num запишите порядковый номер этого абзаца.
+        Используйте метод setAttribute.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

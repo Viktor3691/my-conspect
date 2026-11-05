@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-08-praktika_funkcii.html">Практика на функции</a>
+            <a href="08-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Счастливые билеты на JavaScript</h2>
+
+        Давайте попрактикуемся использовать вспомогательные функции при решении какой-нибудь более сложной задачи.
+
+        Пусть нам нужно вывести на экран все возможные счастливые автобусные билеты. Билет называется счастливым, если
+        сумма
+        первых трех цифр билета равна сумме вторых трех цифр (будем рассматривать только билеты, в номере которых 6
+        цифр).
+
+        Итак, давайте решать задачу. Я покажу вам процесс моих рассуждений при решении этой задачи.
+
+        Первое, о чем я думаю, это то, какие функции мне нужны для решения задачи. Пока я вижу только одну функцию,
+        которая
+        параметром будет принимать номер билета и проверять, счастливый он или нет:
+
+        function isLucky(num) {
+        // тут я потом напишу нужный код
+        }
+        Если бы у меня была такая функция, тогда я бы вывел все счастливые билеты вот так:
+
+        for (let i = 100000; i <= 999999; i++) { if (isLucky(i)) { console.log(i); } } function isLucky(num) { // тут
+            будет код функции } Теперь я напишу реализацию нашей функции isLucky: function isLucky(num) { let
+            str=String(num); let sum1=Number(str[0]) + Number(str[1]) + Number(str[2]); let sum2=Number(str[3]) +
+            Number(str[4]) + Number(str[5]); return sum1==sum2; } После этого я обязательно отдельно потестирую
+            созданную функцию: console.log(isLucky(123321)); // выведет true - верно console.log(isLucky(123345)); //
+            выведет false - верно Собрав все вместе, я получу решение задачи: for (let i=100000; i <=999999; i++) { if
+            (isLucky(i)) { console.log(i); } } function isLucky(num) { let str=String(num); let sum1=Number(str[0]) +
+            Number(str[1]) + Number(str[2]); let sum2=Number(str[3]) + Number(str[4]) + Number(str[5]); return
+            sum1==sum2; } После этого мне в голову придет следующая мысль: а ведь, к примеру, билет 006123 - тоже
+            счастливый. То есть следует начинать цикл не с числа 100000, а с какого-то другого числа, с учетом того, что
+            спереди разрешены нули. Обдумав проблему, я прихожу к выводу, что самый первый счастливый билет вот такой:
+            001001, и значит начинать цикл нужно с числа 1001. Здесь нас ждет проблема: ведь функция isLucky ожидает,
+            что будет передано число из 6 цифр, а получается, что число может иметь и 4 цифры, и 5, и 6. Давайте
+            доработаем нашу функцию isLucky, чтобы она при необходимости добавляла нули к числу так, чтобы в числе
+            всегда было 6 цифр. Обращаю ваше внимание на то, что нельзя сделать число с нулем спереди, но можно сделать
+            такую строку. Итак, доработаем код нашей функции: function isLucky(num) { let str=String(num); if
+            (str.length==5) { str='0' + str; } if (str.length==4) { str='00' + str; } let sum1=Number(str[0]) +
+            Number(str[1]) + Number(str[2]); let sum2=Number(str[3]) + Number(str[4]) + Number(str[5]); return
+            sum1==sum2; } Теперь я решаю, что добавление нулей лучше вынести в еще одну вспомогательную функцию. Назовем
+            эту функцию normalizeNum - нормализация числа, в знак того, что данная функция будет приводить число к
+            какому-то стандартному виду. В нашем случае я хочу, чтобы этот стандартный вид числа был строкой из 6 цифр.
+            То есть функция будет получать число и, если в числе 6 цифр, то функция просто будет преобразовывать число в
+            строку, а если там 4 или 5 цифр, то будет еще и добавлять нули спереди: function normalizeNum(num) { let
+            str=String(num); if (str.length==5) { str='0' + str; } if (str.length==4) { str='00' + str; } return str; }
+            // Не забудем потестировать функцию: console.log(normalizeNum(1001)); // выведет '001001'
+            console.log(normalizeNum(10001)); // выведет '010001' console.log(normalizeNum(100001)); // выведет '100001'
+            Теперь в функции isLucky мы просто вначале выполняем нормализацию числа, превращая его в строку из 6 цифр
+            (именно строка нам нужна для того, чтобы далее обращаться к цифрам этой строки): function isLucky(num) { let
+            str=normalizeNum(num); // используем вспомогательную функцию let sum1=Number(str[0]) + Number(str[1]) +
+            Number(str[2]); let sum2=Number(str[3]) + Number(str[4]) + Number(str[5]); return sum1==sum2; } Не забудем
+            опять потестировать функцию isLucky: console.log(isLucky(1001)); // выведет true - верно
+            console.log(isLucky(10001)); // выведет true - верно console.log(isLucky(100001)); // выведет true - верно
+            console.log(isLucky(120123)); // выведет false - верно console.log(isLucky(120012)); // выведет true - верно
+            После тестирования всех измененных функций, мы можем запустить окончательный код и потестировать уже его:
+            for (let i=1001; i <=999999; i++) { if (isLucky(i)) { console.log(i); } } function isLucky(num) { let
+            str=normalizeNum(num); let sum1=Number(str[0]) + Number(str[1]) + Number(str[2]); let sum2=Number(str[3]) +
+            Number(str[4]) + Number(str[5]); return sum1==sum2; } function normalizeNum(num) { let str=String(num); if
+            (str.length==5) { str='0' + str; } if (str.length==4) { str='00' + str; } return str; } Теперь я бы оформил
+            получение всех билетов также в виде функции, назвав ее, например, getLuckyTickets. Пусть эта функция
+            возвращает массив счастливых билетов: function getLuckyTickets() { let result=[]; for (let i=1001; i
+            <=999999; i++) { if (isLucky(i)) { result.push(i); } } return result; } console.log(getLuckyTickets()); //
+            выведем в консоль массив билетов Окончательный код примет следующий вид: console.log(getLuckyTickets());
+            function getLuckyTickets() { let result=[]; for (let i=1001; i <=999999; i++) { if (isLucky(i)) {
+            result.push(i); } } return result; } function isLucky(num) { let str=normalizeNum(num); let
+            sum1=Number(str[0]) + Number(str[1]) + Number(str[2]); let sum2=Number(str[3]) + Number(str[4]) +
+            Number(str[5]); return sum1==sum2; } function normalizeNum(num) { let str=String(num); if (str.length==5) {
+            str='0' + str; } if (str.length==4) { str='00' + str; } return str; } Задача 1⋕js.Pm.FP.LT.1 Самостоятельно,
+            не подсматривая в мой код, повторите решение описанной задачи. </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

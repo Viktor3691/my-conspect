@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Рекурсия и многомерные структуры в JavaScript</h2>
+
+        Дан массив многомерный произвольного уровня вложенности, например, такой:
+
+        let arr = [
+        1,
+        [
+        2, 7, 8
+        ],
+        [
+        3, 4, [5, [6, 7]],
+        ]
+        ];
+        Как вы видите, данный массив имеет сложную структуру, причем предполагается, что эта структура может быть
+        произвольной и
+        уровни вложенности могут быть сколь угодно глубоко.
+
+        Пусть мы хотим вывести на экран все примитивные (то есть не массивы) элементы нашего массива. В этом случае для
+        перебора
+        такого массива у нас просто не получится использовать циклы, так как массив имеет неправильную структуру и
+        неизвестный
+        уровень вложенности.
+
+        Зато для перебора такого массива очень удобно будет использовать рекурсию.
+
+        Для начала сделаем функцию, в которую параметром будем передавать наш массив, а в функции сделаем цикл для
+        перебора
+        нашего массива:
+
+        function func(arr) {
+        for (let elem of arr) {
+        console.log(elem);
+        }
+        }
+
+        func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);
+        Сделанный нами цикл будет перебирать только элементы основного массива. То есть вначале он выведет 1, потом [2,
+        7, 8], а
+        потом [3, 4, [5, [6, 7]].
+
+        Давайте теперь будем разделять в цикле элементы-примитивы и элементы-массивы:
+
+        function func(arr) {
+        for (let elem of arr) {
+        if (typeof elem == 'object') {
+        // элемент - массив
+        } else {
+        // элемент - примитив
+        console.log(elem);
+        }
+        }
+        }
+
+        func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);
+        А теперь сделаем так, чтобы если наш элемент - массив, функция вызывала сама себя, передавая параметром этот
+        массив:
+
+        function func(arr) {
+        for (let elem of arr) {
+        if (typeof elem == 'object') {
+        func(elem);
+        } else {
+        console.log(elem);
+        }
+        }
+        }
+
+        func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);
+        Задача 1⋕js.Pm.FA.RMs.1
+
+        Дан многомерный объект произвольного уровня вложенности, например, такой:
+
+        {a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}}
+        С помощью рекурсии выведите все примитивные элементы этого объекта на экран.
+
+        Задача 2⋕js.Pm.FA.RMs.2
+
+        Дан многомерный массив произвольного уровня вложенности, например, такой:
+
+        [1, [2, 7, 8], [3, 4, [5, [6, 7]]]]
+        Напишите код, который развернет наш многомерный массив в одномерный. Для приведенного выше массива это будет
+        выглядеть
+        вот так:
+
+        [1, 2, 7, 8, 3, 4, 5, 6, 7]
+        Сумма элементов массива
+        Давайте найдем сумму примитивных элементов нашего массива:
+
+        function func(arr) {
+        let sum = 0;
+
+        for (let elem of arr) {
+        if (typeof elem == 'object') {
+        sum += func(elem);
+        } else {
+        sum += elem;
+        }
+        }
+
+        return sum;
+        }
+
+        console.log(func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]));
+        Задача 3⋕js.Pm.FA.RMs.3
+
+        Дан многомерный объект произвольного уровня вложенности, например, такой:
+
+        {a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}}
+        С помощью рекурсии найдите сумму элементов этого объекта.
+
+        Задача 4⋕js.Pm.FA.RMs.4
+
+        Дан многомерный массив произвольного уровня вложенности, содержащий внутри себя строки, например, такой:
+
+        ['a', ['b', 'c', 'd'], ['e', 'f', ['g', ['j', 'k']]]]
+        С помощью рекурсии слейте элементы этого массива в одну строку:
+
+        'abcdefgjk'
+        Манипуляции с элементами
+        Давайте что-нибудь сделаем с перебираемыми элементами массива, к примеру, запишем им в конец знак '!'.
+
+        В этом случае нам придется воспользоваться обычным циклом for, а не for-of, вот так:
+
+        function func(arr) {
+        for (let i = 0; i < arr.length; i++) { if (typeof arr[i]=='object' ) { arr[i]=func(arr[i]); } else {
+            arr[i]=arr[i] + '!' ; } } return arr; } console.log(func([1, [2, 7, 8], [3, 4, [5, 6]]])); Задача
+            5⋕js.Pm.FA.RMs.5 Дан многомерный массив произвольного уровня вложенности, например, такой: [1, [2, 7, 8],
+            [3, 4], [5, [6, 7]]] Возведите все элементы-числа этого массива в квадрат. </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

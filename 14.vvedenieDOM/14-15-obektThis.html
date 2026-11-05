@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Объект this в JavaScript</h2>
+
+        Сейчас мы с вами будем работать со специальным объектом this, доступным в функции-обработчике события. Этот
+        объект
+        указывает на элемент, в котором произошло событие.
+
+        Объект this удобен, когда элемент, в котором произошло событие, и элемент, с которым совершаются действия в
+        результате
+        события, - это один и тот же элемент.
+
+        Например, если у нас есть инпут, мы можем привязать к нему обработчик потери фокуса и по наступлению этого
+        события
+        что-то сделать с текстом инпута. Давайте сделаем описанное. Пусть у нас дан инпут:
+
+        <input id="elem" value="text">
+        Давайте получим ссылку на него в переменную elem:
+
+        let elem = document.querySelector('#elem');
+        Привяжем к нему функцию-обработчик события blur:
+
+        elem.addEventListener('blur', func);
+        Внутри этой функции func будет доступен объект this, указывающий на наш инпут:
+
+        function func() {
+        console.log(this); // содержит ссылку на наш элемент
+        }
+        Выведем содержимое атрибута value нашего инпута:
+
+        function func() {
+        console.log(this.value); // выведем содержимое атрибута
+        }
+        Ну, а теперь запишем в инпут какой-нибудь текст:
+
+        function func() {
+        this.value = '!!!';
+        }
+        Можно использовать и анонимную функцию:
+
+        elem.addEventListener('blur', function() {
+        this.value = '!!!';
+        });
+        Задача 1⋕js.Pm.Dm.Ths.1
+
+        Дан инпут. По получению фокуса этим инпутом запишите в него число 1, а по потери фокуса - число 2. Для обращения
+        у
+        инпуту внутри функции-обработчика используйте объект this.
+
+        Задача 2⋕js.Pm.Dm.Ths.2
+
+        Дана кнопка, значением которой служит число 1. Сделайте так, чтобы по клику на эту кнопку ее значение каждый раз
+        увеличивалось на единицу.
+
+        Особое преимущество this
+        Из сказанного выше пока не очевидно особое преимущество this. Ведь внутри функции-обработчика и так будет
+        доступен наш
+        элемент - ведь переменная elem будет глобальной для нашей функции func:
+
+        let elem = document.querySelector('#elem');
+        elem.addEventListener('click', func);
+
+        function func() {
+        // здесь доступна переменная elem с нашим элементом
+        }
+        И, несложно сообразить, что содержимое this и содержимое переменной elem в нашем случае равны:
+
+        let elem = document.querySelector('#elem');
+        elem.addEventListener('click', func);
+
+        function func() {
+        console.log(elem === this); // выведет true
+        }
+        В чем же особое преимущество this? Оно проявляется, когда у нас несколько элементов, и к каждому привязана одна
+        и та же
+        функция.
+
+        Посмотрим на примере. Пусть у нас есть 3 кнопки:
+
+        <input id="button1" type="submit" value="text1">
+        <input id="button2" type="submit" value="text2">
+        <input id="button3" type="submit" value="text3">
+        Получим ссылки на них в переменные:
+
+        let button1 = document.querySelector('#button1');
+        let button2 = document.querySelector('#button2');
+        let button3 = document.querySelector('#button3');
+        Привяжем к этим кнопкам одну и ту же функцию:
+
+        button1.addEventListener('click', func);
+        button2.addEventListener('click', func);
+        button3.addEventListener('click', func);
+        А внутри функции будем выводить this.value:
+
+        function func() {
+        console.log(this.value);
+        }
+        Получится, что у нас есть три кнопки. Нажатие на каждую кнопку будет приводить к вызову функции func. При этом
+        при
+        каждом клике this будет содержать ссылку на ту кнопку, в которой произошло событие.
+
+        То есть каждое нажатие будет выводить в консоль value той кнопки, на которой произошло нажатие, но делать это
+        будет одна
+        и та же функция func! Вот в чем преимущество использования this.
+
+        Задача 3⋕js.Pm.Dm.Ths.3
+
+        Даны 5 абзацев с какими-то текстами. По клику на любой абзац запишите в конец его текста восклицательный знак.
+
+        Задача 4⋕js.Pm.Dm.Ths.4
+
+        Даны 3 инпута, в которых записаны какие-то числа. По потери фокуса в любом из инпутов возведите стоящее в нем
+        число в
+        квадрат.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

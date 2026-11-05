@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Функция, возвращающая функцию в JavaScript</h2>
+
+        Пусть у нас есть вот такая функция, возвращающая строку:
+
+        function func() {
+        return '!';
+        }
+
+        let result = func();
+        alert(result); // выведет '!'
+        Давайте теперь вместо строки, по аналогии, вернем анонимную функцию:
+
+        function func() {
+        return function() {
+        return '!';
+        };
+        }
+
+        let result = func(); // в переменной result будет функция
+        alert(result); // выведет 'function() {return '!';}'
+        Как вы видите, переменная result теперь представляет собой функцию. Давайте выведем на экран результат ее
+        работы. Для
+        этого напишем ей круглые скобки:
+
+        function func() {
+        return function() {
+        return '!';
+        };
+        }
+
+        let result = func();
+        alert( result() ); // выведет '!'
+        Так как вызов func() возвращает функцию, то мы можем сразу же и вызвать эту возвращаемую функцию, вот так:
+        func()() -
+        первые круглые скобки получают результат функции func (который сам является функцией), а вторые круглые скобки
+        применяются к результату func.
+
+        Давайте попробуем:
+
+        function func() {
+        return function() {
+        return '!';
+        };
+        }
+
+        alert( func()() ); // выведет '!'
+        Задача 1⋕js.Pm.FA.FRF.1
+
+        Сделайте функцию func1, которая будучи вызвана вот так: func1()(), вернет число 1. Сделайте аналогичную функцию
+        func2,
+        возвращающую число 2. Найдите сумму результатов этих функций.
+
+        Любой уровень вложенности
+        Могут быть и такие вызовы функций: func()()() и func()()()() - и так далее до бесконечности.
+
+        Для этого нужно, чтобы внутренняя функция тоже возвращала функцию, та - еще одну и так далее. Вот пример:
+
+        function func() {
+        return function() {
+        return function() {
+        return '!';
+        };
+        };
+        }
+
+        alert( func()()() ); // выведет '!'
+        Задача 2⋕js.Pm.FA.FRF.2
+
+        Сделайте функцию func, которая будучи вызвана вот так: func()()()()(), вернет '!'.
+
+        Параметры
+        В изученные нами вызовы функций можно передавать параметры. В следующем примере внутренняя функция ожидает
+        параметром
+        строку и выводит ее на экран:
+
+        function func() {
+        return function(str) {
+        return str;
+        };
+        }
+        Внутренней функции соответствует вторая скобка при вызове, значит в эту вторую скобку и передаем желаемую
+        строку:
+
+        function func() {
+        return function(str) {
+        return str;
+        };
+        }
+
+        alert( func()('!') ); // выведет '!'
+        Давайте сделаем так, чтобы и первая функция принимала параметр, и вторая. А результатом вызова сделаем сумму
+        этих
+        параметров:
+
+        function func(num1) {
+        return function(num2) {
+        return num1 + num2;
+        };
+        }
+
+        alert( func(1)(2) ); // выведет 3
+        Задача 3⋕js.Pm.FA.FRF.3
+
+        Сделайте функцию func, которая будучи вызвана вот так: func(2)(3)(4), вернет сумму переданных в параметры чисел.
+
+        Задача 4⋕js.Pm.FA.FRF.4
+
+        Сделайте функцию func, которая будучи вызвана вот так: func(2)(3)(4)(5)(), вернет массив переданных в параметры
+        чисел.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

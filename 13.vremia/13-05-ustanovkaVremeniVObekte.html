@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-13-vremia.html">Время</a>
+            <a href="13-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Установка времени в объекте Date в JavaScript</h2>
+
+        Когда мы с вами создавали объект с датой вот таким образом: new Date(), - мы оставляли круглые скобки пустыми. В
+        этом
+        случае мы получали текущий момент времени.
+
+        Можно, однако, поступить и по-другому - передать ему параметры в формате new Date(год, месяц, день, часы,
+        минуты,
+        секунды, миллисекунды) и в этом случае в переменную date запишется не текущий момент времени, а тот, который мы
+        указали
+        в параметрах. При этом при передаче параметром отсчет месяцев начинается с нуля.
+
+        Параметры можно опускать с конца. При этом отсутствующие параметры для миллисекунд, секунд и часов считаются
+        равными
+        нулю, а для дней - единице. Год и месяц опускать нельзя.
+
+        Давайте создадим объект с датой за определенный момент времени:
+
+        let date = new Date(2025, 10, 5, 12, 59, 59);
+        Возможность задания момента времени можно использовать, например, для того, чтобы узнать день недели за
+        определенную
+        дату:
+
+        let date = new Date(2025, 10, 5); // установим 5 ноября 2025 года
+        let day = date.getDay();
+        let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+
+        console.log(days[day]);
+        Задача 1⋕js.Pm.Tm.TS.1
+
+        Узнайте, какой день недели был в ваш день рождения.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

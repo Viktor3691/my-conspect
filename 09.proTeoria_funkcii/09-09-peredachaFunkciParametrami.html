@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Передача функций параметрами в JavaScript</h2>
+
+        Функции, подобно числам, строкам и массивам, могут передаваться параметрами в другие функции.
+
+        Рассмотрим подробнее на практическом примере. Пусть у нас есть функция test, принимающая два параметра:
+
+        test(параметр1, параметр2);
+        Давайте в первый параметр функции test передадим анонимную функцию, возвращающую 1, а во второй параметр -
+        анонимную
+        функцию, возвращающую 2:
+
+        test(
+        function() {return 1;},
+        function() {return 2;}
+        );
+        Код, приведенный выше, пока не рабочий, так как мы не создали саму функцию. Сделаем это:
+
+        function test(func1, func2) {
+
+        }
+        При определении функции мы указали два параметра - func1 и func2. Эти параметры ничего не знают про то, что в
+        них будет
+        передаваться. Можем, например, передать числа:
+
+        test(1, 2); // вызываем функцию
+
+        function test(func1, func2) {
+        alert(func1); // выведет 1
+        alert(func2); // выведет 2
+        }
+        А можем передать функции:
+
+        test(
+        function() {return 1;}, // первый параметр
+        function() {return 2;} // второй параметр
+        );
+
+        function test(func1, func2) {
+        alert(func1); // выведет 'function() {return 1;}'
+        alert(func2); // выведет 'function() {return 2;}'
+        }
+        Как вы видите, теперь алерт выводит исходный код функций. Давайте сделаем так, чтобы он выводил их результаты.
+        Для этого
+        напишем функциям круглые скобки:
+
+        test(
+        function() {return 1;},
+        function() {return 2;}
+        );
+
+        function test(func1, func2) {
+        alert( func1() ); // выведет 1
+        alert( func2() ); // выведет 2
+        }
+        Давайте выведем на экран сумму результатов первой и второй функции:
+
+        test(
+        function() {return 1;},
+        function() {return 2;}
+        );
+
+        function test(func1, func2) {
+        alert( func1() + func2() ); // выведет 3
+        }
+        Задача 1⋕js.Pm.FA.PFAP.1
+
+        Сделайте функцию test, параметрами принимающую 3 функции. Передайте в нее первым параметром функцию,
+        возвращающую 1,
+        вторым - функцию, возвращающую 2, третьим - функцию, возвращающую 3. Выведите на экран сумму результатов
+        функций.
+
+        Именованные функции
+        Функции, которые передаются параметрами, не обязательно должны быть анонимными.
+
+        Давайте сделаем их как Function Declaration. Первую функцию назовем get1, а вторую - get2:
+
+        function get1() {
+        return 1;
+        }
+        function get2() {
+        return 2;
+        }
+        Передадим в параметры функции test имена функций get1 и get2 (то есть их исходный код, а не результат):
+
+        function get1() {
+        return 1;
+        }
+        function get2() {
+        return 2;
+        }
+
+        test(get1, get2); // выведет 3
+
+        function test(func1, func2) {
+        alert( func1() + func2() );
+        }
+        Переделаем на Function Expression:
+
+        let get1 = function() {
+        return 1;
+        }
+        let get2 = function() {
+        return 2;
+        }
+
+        test(get1, get2); // выведет 3
+
+        function test(func1, func2) {
+        alert( func1() + func2() );
+        }
+        Задача 2⋕js.Pm.FA.PFAP.2
+
+        Сделайте функцию test, параметрами принимающую 3 функции и возвращающую сумму результатов переданных функций.
+
+        Задача 3⋕js.Pm.FA.PFAP.3
+
+        Сделайте 3 функции, объявив их как Function Declaration и дав им имена func1, func2 и func3. Пусть первая
+        функция
+        возвращает 1, вторая - 2, а третья - 3. Передайте эти функции параметром в функцию test из предыдущей задачи.
+
+        Задача 4⋕js.Pm.FA.PFAP.4
+
+        Модифицируйте предыдущую задачу так, чтобы функции были объявлены как Function Expression с теми же именами.
+
+        Параметры передаваемых функций
+        Пусть у нас есть функция test, которая параметром принимает другую функцию и алертом выводит результат работы
+        этой
+        переданной функции:
+
+        function test(func) {
+        alert( func() );
+        }
+        Пусть переданная функция func параметром принимает число и что-то с ним делает. Передадим ей, например, число 3:
+
+        function test(func) {
+        alert( func(3) );
+        }
+        Давайте теперь вызовем функцию test, передав в нее параметром анонимную функцию. Эта анонимная функции
+        параметром будет
+        принимать число и возвращать квадрат этого числа.
+
+        В результате всего этого наша конструкция выведет квадрат числа 3, то есть 9:
+
+        // Выведет 9:
+        test(
+        function(num) {
+        return num * num;
+        }
+        );
+
+        function test(func) {
+        alert(func(3));
+        }
+        Оформим код более изящно:
+
+        // Выведет 9:
+        test(function(num) {
+        return num * num;
+        });
+
+        function test(func) {
+        alert(func(3));
+        }
+        Задача 5⋕js.Pm.FA.PFAP.5
+
+        Скопируйте код моей функции test. Вызовите эту функцию, передав ей параметром анонимную функцию, которая
+        параметром
+        будет принимать число и возвращать его куб.
+
+        Задача 6⋕js.Pm.FA.PFAP.6
+
+        Переделайте ваш код так, чтобы передаваемая функция была не анонимной, а была определена как Function
+        Declaration с
+        именем func.
+
+        Задача 7⋕js.Pm.FA.PFAP.7
+
+        Переделайте передаваемую функцию на Function Expression с тем же именем func.
+
+        Задача 8⋕js.Pm.FA.PFAP.8
+
+        Пусть передаваемая функция теперь принимает два параметра и возвращает их сумму. При вызове передаваемая функции
+        внутри
+        test передайте в передаваемую функцию число 2 и число 3. Выведите алертом результат.
+
+        Передадим и число параметром
+        Давайте теперь число, с которым что-то делает передаваемая функция, не будем жестко хранить внутри test, а
+        передадим
+        первым параметром:
+
+        function test(num, func) { // первым параметром приходит число
+        alert(func(num));
+        }
+        Воспользуемся нашей функцией:
+
+        function test(num, func) {
+        alert(func(num));
+        }
+
+        // Выведет 4:
+        test(2, function(num) {
+        return num * num;
+        });
+        В удобство нашей конструкции: у нас есть одна функция test, параметром принимающая число. Но то, что будет
+        происходить с
+        числом не зашито жестко в функции test.
+
+        Мы можем, к примеру, вторым параметром функции test передать функцию, возводящую в квадрат, а можем, к примеру,
+        возводящую в куб:
+
+        function test(num, func) {
+        alert(func(num));
+        }
+
+        // Найдем квадрат числа:
+        test(2, function(num) {
+        return num * num; // возвращает квадрат
+        });
+
+        // Найдем куб числа:
+        test(2, function(num) {
+        return num * num * num; // возвращает куб
+        });
+        Задача 9⋕js.Pm.FA.PFAP.9
+
+        Пусть функция test первым параметром принимает число, а вторым и третьим параметрами - функции, также параметром
+        принимающие числа.
+
+        Пусть функция test возвращает сумму результатов переданных функций:
+
+        function test(num, func1, func2) {
+        return func1(num) + func2(num);
+        }
+        Вызовите функцию test, первым параметром передав число 3, вторым параметром функцию, возводящую число в квадрат,
+        а
+        третьим - функцию, возводящую число в куб. Выведите результат работы на экран.
+
+        Применение
+        Давайте сделаем функцию, которая параметром будет принимать массив, а вторым параметром - функцию. Переданная
+        функция
+        должна будет применится к каждому элементу массива:
+
+        function test(arr, func) {
+        // вернем измененный массив
+        }
+        Реализуем:
+
+        function test(arr, func) {
+        // Запускаем цикл:
+        for (let i = 0; i < arr.length; i++) { arr[i]=func(arr[i]); // применяем функцию к каждому элементу } return
+            arr; // возвращаем измененный массив } Применим нашу функцию к какому-нибудь массиву: function test(arr,
+            func) { for (let i=0; i < arr.length; i++) { arr[i]=func(arr[i]); } return arr; } // Преобразуем массив
+            чисел в массив их квадратов: let result=test( [1, 2, 3], function(num) {return num * num;} );
+            console.log(result); // выведет [1, 4, 9] Оформим вызов нашей функции изящнее (так более принято): function
+            test(arr, func) { for (let i=0; i < arr.length; i++) { arr[i]=func(arr[i]); } return arr; } // Оформим код
+            изящнее: let result=test([1, 2, 3], function(num) { return num * num; }); console.log(result); // выведет
+            [1, 4, 9] Задача 10⋕js.Pm.FA.PFAP.10 Не подсматривая в мой код реализуйте такую же функцию test
+            самостоятельно. Задача 11⋕js.Pm.FA.PFAP.11 Вызовите созданную вами функцию test, передав ей параметром
+            массив с числами. Сделайте так, чтобы функция вернула массив с кубами этих чисел. </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

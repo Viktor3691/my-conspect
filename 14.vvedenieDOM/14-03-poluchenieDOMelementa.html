@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Получение DOM элемента в JavaScript</h2>
+
+        Сейчас мы с вами научимся получать DOM элементы страницы, чтобы в дальнейшем производить с ними какие-нибудь
+        манипуляции.
+
+        Пусть у нас есть некоторая кнопка:
+
+        <input id="button" type="submit">
+        Давайте получим ссылку на эту кнопку в переменную. Для этого следует использовать метод querySelector
+        специального
+        объекта document. Этот метод параметром принимает CSS селектор и возвращает ссылку на найденный по этому
+        селектору
+        элемент.
+
+        У нашей кнопочки есть атрибут id со значением button. Значит, мы можем найти это кнопку по селектору #button.
+        Итак,
+        давайте найдем нашу кнопочку и запишем ссылку на нее в переменную:
+
+        let button = document.querySelector('#button');
+        console.log(button);
+        Задача 1⋕js.Pm.Dm.EG.1
+
+        Даны 3 абзаца:
+
+        <p id="elem1">1</p>
+        <p id="elem2">2</p>
+        <p id="elem3">3</p>
+        Запишите ссылку на каждый из абзацев в отдельную переменную и выведите содержимое каждой из этих переменных в
+        консоль.
+
+        Более сложные селекторы
+        Давайте сделаем что-нибудь более сложное. Пусть, к примеру, у нас есть вот такой HTML код:
+
+        <div id="parent">
+            <input>
+        </div>
+        Давайте получим ссылку на инпут, находящийся внутри блока #parent:
+
+        let elem = document.querySelector('#parent input');
+        console.log(elem);
+        Как вы видите, мы получили наш инпут по селектору #parent input. На самом деле под этот CSS селектор попадают
+        все
+        инпуты, находящиеся в #parent.
+
+        Пусть, к примеру, у нас два таких инпута:
+
+        <div id="parent">
+            <input value="1">
+            <input value="2">
+        </div>
+        Тогда, если написать селектор #parent input в CSS коде, он затронет оба наших инпута:
+
+        #parent input {
+        color: red;
+        }
+        Метод querySelector, однако, работает не так. Он всегда получает только один элемент - первый, попавший под
+        указанный
+        селектор. Давайте посмотрим на примере. Пусть у нас есть инпуты с классом elem:
+
+        <input class="elem">
+        <input class="elem">
+        Давайте получим первый из этих инпутов:
+
+        let elem = document.querySelector('.elem');
+        console.log(elem); // здесь будет первый инпут
+        Задача 2⋕js.Pm.Dm.EG.2
+
+        Дан следующий HTML:
+
+        <div id="block">
+            <p>1</p>
+            <p>2</p>
+        </div>
+        Получите ссылку на первый абзац из дива с id, равным block.
+
+        Задача 3⋕js.Pm.Dm.EG.3
+
+        Дан следующий HTML:
+
+        <div class="block">
+            <p>1</p>
+            <p>2</p>
+        </div>
+        Получите ссылку на первый абзац из дива с классом block.
+
+        Задача 4⋕js.Pm.Dm.EG.4
+
+        Дан следующий HTML:
+
+        <p class="www">text</p>
+        <p class="www">text</p>
+        Получите ссылку на первый абзац с классом www.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

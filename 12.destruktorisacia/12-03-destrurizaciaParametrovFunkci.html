@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-12-destruktorisacia.html">Деструктуризация</a>
+            <a href="12-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Деструктуризация параметров функций в JavaScript</h2>
+
+        Деструктуризация имеет еще одну очень важную область применения - передача параметров функций. Суть в следующем:
+        если
+        функция принимает в качестве параметра массив, мы можем задать прямо в объявлении функции то, как
+        деструктуризировать
+        этот массив.
+
+        Давайте посмотрим на примере. Пусть у нас есть функция, параметром принимающая массив с годом, месяцем и днем:
+
+        func([2025, 12, 31]);
+        Давайте прямо в параметре функции укажем, на какие переменные следует разбивать этот массив:
+
+        function func([year, month, day]) {
+        console.log(year); // выведет 2025
+        console.log(month); // выведет 12
+        console.log(day); // выведет 31
+        }
+        Приведенную выше конструкцию следует рассматривать как один параметр функции. Можно при желании добавить еще
+        параметры:
+
+        func('str1', [2025, 12, 31], 'str2');
+
+        function func(param1, [year, month, day], param2) {
+        console.log(param1); // выведет 'str1'
+
+        console.log(year); // выведет 2025
+        console.log(month); // выведет 12
+        console.log(day); // выведет 31
+
+        console.log(param2); // выведет 'str2'
+        }
+        А в следующем примере первым и вторым параметром функции передаются массивы и мы деструктуризируем оба из них:
+
+        func([2025, 12, 31], [2026, 11, 30]);
+
+        function func([year1, month1, day1], [year2, month2, day2]) {
+        console.log(year1); // выведет 2025
+        console.log(month1); // выведет 12
+        console.log(day1); // выведет 31
+
+        console.log(year2); // выведет 2026
+        console.log(month2); // выведет 11
+        console.log(day2); // выведет 30
+        }
+        Задача 1⋕js.Pm.Dst.Fn.1
+
+        Переделайте следующий код через деструктуризацию согласно изученной теории:
+
+        function func(employee) {
+        let name = employee[0];
+        let surname = employee[1];
+        let department = employee[2];
+        let position = employee[3];
+        let salary = employee[4];
+        }
+
+        func( ['Иван', 'Иванов', 'отдел разработки', 'программист', 2000] );
+        Задача 2⋕js.Pm.Dst.Fn.2
+
+        Переделайте следующий код через деструктуризацию согласно изученной теории:
+
+        function func(employee) {
+        let name = employee[0];
+        let surname = employee[1];
+        let info = employee[2];
+        }
+
+        func( ['Иван', 'Иванов', 'отдел разработки', 'программист', 2000] );
+        Задача 3⋕js.Pm.Dst.Fn.3
+
+        Переделайте следующий код через деструктуризацию согласно изученной теории:
+
+        function func(employee) {
+        let name = employee[0];
+        let surname = employee[1];
+        let department = employee[2];
+
+        let position;
+        if (arr[3] !== undefined) {
+        position = arr[3];
+        } else {
+        position = 'джуниор';
+        }
+        }
+
+        func( ['Иван', 'Иванов', 'отдел разработки'] );
+        Задача 4⋕js.Pm.Dst.Fn.4
+
+        Переделайте следующий код через деструктуризацию согласно изученной теории:
+
+        function func(department, employee, hired) {
+        let name = employee[0];
+        let surname = employee[1];
+
+        let year = hired[0];
+        let month = hired[1];
+        let day = hired[2];
+        }
+
+        func( 'отдел разработки', ['Иван', 'Иванов'], [2018, 12, 31] );
+        Объекты в параметрах
+        Аналогичным образом можно деструктуризировать параметры-объекты:
+
+        function func({year, month, day}) {
+        console.log(year); // выведет 2025
+        console.log(month); // выведет 12
+        console.log(day); // выведет 31
+        }
+
+        func({year: 2025, month: 12, day: 31,});
+        Задача 5⋕js.Pm.Dst.Fn.5
+
+        Переделайте следующий код через деструктуризацию согласно изученной теории:
+
+        function func(options) {
+        let color = options.color;
+        let width = options.width;
+        let height = options.height;
+        }
+
+        func( {color: 'red', width: 400, height: 500} );
+        Задача 6⋕js.Pm.Dst.Fn.6
+
+        Переделайте следующий код через деструктуризацию согласно изученной теории:
+
+        function func(options) {
+        let width = options.width;
+        let height = options.height;
+
+        let color;
+        if (options.color !== undefined) {
+        color = options.color;
+        } else {
+        color = 'black';
+        }
+        }
+
+        func( {color: 'red', width: 400, height: 500} );
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

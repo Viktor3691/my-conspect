@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-11-operSpreadRest.html">Операторы spread и rest</a>
+            <a href="11-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Пересечение произвольного количества массивов на JavaScript</h2>
+
+        Давайте напишем функцию getInt, которая будет находить пересечение любого количества массивов.
+
+        Пример работы такой функции:
+
+        let result = getInt([1, 2, 3], [2, 3, 4], [4, 3, 2]);
+        console.log(result); // выведет [2, 3]
+        Давайте за основу возьмем функцию getInt для двух массивов, полученную нами в предыдущих уроках:
+
+        function getInt(arr1, arr2) {
+        let result = [];
+
+        for (let elem of arr1) {
+        if (inArray(elem, arr2)) {
+        result.push(elem);
+        }
+        }
+
+        return result;
+        }
+
+        function inArray(elem, arr){
+        return arr.indexOf(elem) !== -1;
+        }
+        Для начала сделаем так, чтобы параметром можно было передавать любое количество массивов:
+
+        function getInt(...arrs){
+
+        }
+        В функции getInt, которую мы взяли за основу, есть следующий цикл для проверки наличия элемента в обоих
+        массивах:
+
+        for (let elem of arr1) {
+        if (inArray(elem, arr2)) {
+        result.push(elem);
+        }
+        }
+        Очевидно, что если мы расширяем нашу функцию на много массивов, этот цикл уже не годится.
+
+        Теперь у нас должна быть следующая логика: мы должны брать элементы какого-нибудь из массивов (любого) и
+        проверять, что
+        эти элементы есть во всех остальных массивах.
+
+        Давайте для начала отделим какой-нибудь из массивов (пусть нулевой) и все остальные массивы:
+
+        function getInt(...arrs){
+        let arr0 = arrs.shift();
+        }
+        В приведенном выше коде в переменную arr0 запишется нулевой массив, при этом из переменной arrs он исчезнет и
+        там
+        останутся все остальные массивы.
+
+        Пусть теперь у нас есть функция inArrays, параметром принимающая элемент и двухмерный массив, и проверяющая
+        наличия
+        этого элемента в каждом из подмассивов:
+
+        function inArrays(elem, arrs){
+        // код мы напишем позже
+        }
+        Если бы у нас была описанная функция inArrays, тогда решение всей поставленной задачи выглядело бы так:
+
+        function getInt(...arrs){
+        let result = [];
+
+        let arr0 = arrs.shift();
+
+        for (let elem of arr0) {
+        if (inArrays(elem, arrs)) {
+        result.push(elem);
+        }
+        }
+
+        return result;
+        }
+        Реализуем теперь функцию inArrays:
+
+        function inArrays(elem, arrs){
+        for (let arr of arrs) {
+        if (!inArray(elem, arr)) {
+        return false;
+        }
+        }
+
+        return true;
+        }
+        Как вы видите, данная функция в своей основе использует функцию inArray, код которой мы взяли из реализации
+        getInt для
+        двух массивов.
+
+        Давайте соберем весь наш код вместе и получим решение задачи:
+
+        function getInt(...arrs){
+        let result = [];
+
+        let arr0 = arrs.shift();
+
+        for (let elem of arr0) {
+        if (inArrays(elem, arrs)) {
+        result.push(elem);
+        }
+        }
+
+        return result;
+        }
+
+        function inArrays(elem, arrs){
+        for (let arr of arrs) {
+        if (!inArray(elem, arr)) {
+        return false;
+        }
+        }
+
+        return true;
+        }
+
+        function inArray(elem, arr) {
+        return arr.indexOf(elem) !== -1;
+        }
+
+        // Проверим работу:
+        let result = getInt([1, 2, 3], [2, 3, 4], [4, 3, 2]);
+        console.log(result); // выведет [2, 3]
+        Задача 1⋕js.Pm.Osr.ArInt.1
+
+        Самостоятельно, не подсматривая в мой код, повторите решение описанной задачи.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

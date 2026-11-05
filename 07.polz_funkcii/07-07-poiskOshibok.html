@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-07-polz_funkcii.html">Пользовательские функции</a>
+            <a href="07-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Поиск ошибок в коде с функциями JavaScript</h2>
+
+        В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны проверить,
+        делает ли
+        код то, что описано. Если код работает некорректно, вы должны исправить ошибки.
+
+        Задача 1⋕js.Pm.UF.Mst.1
+
+        Код должен найти сумму результатов работы двух функций:
+
+        function func1() {
+        alert(3);
+        }
+        function func2() {
+        alert(5);
+        }
+
+        console.log( func1() + func2() );
+        Задача 2⋕js.Pm.UF.Mst.2
+
+        Код должен найти сумму элементов массива:
+
+        function sum(arr) {
+        let res = 0;
+
+        for (let elem of arr) {
+        res += elem;
+        return res;
+        }
+        }
+
+        alert(sum([1, 2, 3, 4, 5]));
+        Задача 3⋕js.Pm.UF.Mst.3
+
+        Код должен найти сумму элементов массива, однако, ничего не выводит на экран:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        function func(arr) {
+        let res = 0;
+
+        for (let elem of arr) {
+        res += elem;
+        }
+
+        alert(res);
+        }
+        Задача 4⋕js.Pm.UF.Mst.4
+
+        Код должен найти сумму результатов работы двух функций:
+
+        function func1() {
+        return 3;
+        }
+        function func2() {
+        return 5;
+        }
+
+        console.log( func1 + func2 );
+        Задача 5⋕js.Pm.UF.Mst.5
+
+        Код должен найти сумму элементов массива:
+
+        let sum = sum([1, 2, 3, 4, 5]);
+        alert(sum);
+
+        function sum(arr) {
+        let sum = 0;
+
+        for (let elem of arr) {
+        sum += elem;
+        }
+
+        return elem;
+        }
+        Задача 6⋕js.Pm.UF.Mst.6
+
+        Код должен найти сумму элементов массива:
+
+        let res = sum([1, 2, 3, 4, 5]);
+        alert(res);
+
+        function sum(arr) {
+        let sum = 0;
+
+        for (let elem of arr) {
+        sum += elem;
+        }
+        }
+        Задача 7⋕js.Pm.UF.Mst.7
+
+        Функция добавляет ноль к числу от 1 до 9, а числа больше 9 возвращает без изменений:
+
+        function add(num) {
+        if (num <= 9) { return '0' + num; } } Задача 8⋕js.Pm.UF.Mst.8 Код должен найти сумму элементов массива: let
+            arr=[1, 2, 3, 4, 5]; let sum=sum(arr); console.log(sum); function sum(arr) { let res=0; for (let elem of
+            arr) { res +=elem; } return res; } Задача 9⋕js.Pm.UF.Mst.9 Код должен найти сумму цифр числа: let num=12345;
+            let res=getDigitsSum(num); console.log(res); function getDigitsSum(num) { let arr=num.split(''); let sum=0;
+            for (let elem of arr) { sum +=elem; } return sum; } </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

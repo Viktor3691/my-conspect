@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-08-praktika_funkcii.html">Практика на функции</a>
+            <a href="08-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Пересечение массивов на JavaScript</h2>
+
+        Пусть у нас даны два массива:
+
+        let arr1 = [1, 2, 3];
+        let arr2 = [2, 3, 4, 5];
+        Можно заметить, что числа 2 и 3 присутствуют и в одном, и во втором массиве. Такие общие элементы называются
+        пересечением массивов.
+
+        Давайте напишем функцию getInt, которая будет находить пересечение массивов и возвращать пересечение этих
+        массивов.
+        Пусть пересечение возвращается в виде массива, состоящего из общих элементов.
+
+        Итак, давайте решать задачу. В данном уроке я опять покажу вам процесс моих рассуждений при решении.
+
+        Первая мысль, которая у меня возникает, следующая: мне нужна функция, которая параметром принимает элемент, а
+        вторым -
+        массив, и проверяет, есть ли такой элемент в этом массиве.
+
+        Я бы назвал такую функцию inArray. Пусть у меня уже есть такая функция:
+
+        function inArray(elem, arr) {
+        // код я напишу позже
+        }
+        Рассуждаем далее.
+
+        Я вижу следующий алгоритм нахождения пересечения: нужно перебрать циклом элементы одного массива и в каждой
+        итерации
+        проверять, есть ли такой элемент во втором массиве. Если есть - добавим его в результат.
+
+        Для такой проверки мне и понадобится функция inArray. Запрограммирую описанное:
+
+        function getInt(arr1, arr2) {
+        let result = [];
+
+        for (let elem of arr1) {
+        if (inArray(elem, arr2)) {
+        result.push(elem);
+        }
+        }
+
+        return result;
+        }
+
+        function inArray(elem, arr) {
+        // код я напишу позже
+        }
+        Здесь уместно задаться вопросом, а есть ли разница, какой массив (первый или второй) перебирать в цикле? Обдумав
+        вопрос,
+        я прихожу к выводу, что разницы нет (можете сами подумать об этом).
+
+        Теперь пришла пора реализовать функцию inArray. Ее легко можно сделать с помощью метода indexOf:
+
+        function inArray(elem, arr) {
+        if (arr.indexOf(elem) == -1) {
+        return false;
+        } else {
+        return true;
+        }
+        }
+        Можно переписать в более компактном виде:
+
+        function inArray(elem, arr) {
+        return arr.indexOf(elem) !== -1;
+        }
+        Следующий мой шаг такой: я потестирую созданную функцию:
+
+        console.log( inArray(3, [1, 2, 3]) ); // выведет true - верно
+        console.log( inArray(5, [1, 2, 3]) ); // выведет false - верно
+        Теперь можно собрать весь код вместе:
+
+        function getInt(arr1, arr2) {
+        let result = [];
+
+        for (let elem of arr1) {
+        if (inArray(elem, arr2)) {
+        result.push(elem);
+        }
+        }
+
+        return result;
+        }
+
+        function inArray(elem, arr){
+        return arr.indexOf(elem) !== -1;
+        }
+        Обязательно потестируем созданную функцию:
+
+        console.log( getInt([1, 2, 3], [2, 3, 4, 5]) );
+        Задача 1⋕js.Pm.FP.ArInt.1
+
+        Самостоятельно, не подсматривая в мой код, повторите решение описанной задачи.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

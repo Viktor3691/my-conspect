@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Лексическое окружение функций в JavaScript</h2>
+
+        Давайте рассмотрим следующий код:
+
+        let num = 1; // задаем значение переменной
+
+        function func() {
+        alert(num); // выводим его на экран
+        }
+
+        func(); // вызываем функцию
+        Как я уже упоминал ранее, значение переменной не обязательно должно быть перед определением функции, главное,
+        чтобы оно
+        стояло перед ее вызовом:
+
+        function func() {
+        alert(num);
+        }
+
+        let num = 1;
+        func();
+        На самом деле это не совсем так. Наша функция даже до своего вызова знает значение переменной num:
+
+        let num = 1;
+
+        function func() {
+        alert(num); // функция уже знает, что num = 1
+        }
+        Вот более сложный пример:
+
+        let num = 1; // функция в этот момент узнает, что num = 1
+
+        function func() {
+        alert(num);
+        }
+
+        num = 2; // функция в этот момент узнает, что num = 2
+        Добавим вызовы функции:
+
+        let num = 1; // функция в этот момент узнает, что num = 1
+        func(); // выведет 1
+
+        function func() {
+        alert(num);
+        }
+
+        func(); // выведет 1
+        num = 2; // функция в этот момент узнает, что num = 2
+        func(); // выведет 2
+        Еще раз: на самом деле функция знает значения внешних переменных, даже не будучи вызванной.
+
+        Лексическое окружение
+        Все внешние, доступные функции переменные, называются ее лексическим окружением (англ. LexicalEnvironment).
+
+        В следующем примере функции доступны две переменные: num1 и num2, которые и являются лексическим окружением
+        нашей
+        функции:
+
+        let num1 = 1;
+        let num2 = 2;
+
+        function func() {
+        // функция знает про переменные num1 и num2
+        }
+        Само лексическое окружение представляет собой некий внутренний объект JavaScript, привязанный к нашей функции. В
+        данном
+        случае его можно представить в следующем виде:
+
+        {num1: 1, num2: 2}
+        Значение любой переменной лексического окружения всегда равно текущему значению этой переменной:
+
+        let num1 = 1; // окружение {num1: 1}
+        let num2 = 2; // окружение {num1: 1, num2: 2}
+
+        // Поменяем переменную num1:
+        num1 = 123; // окружение {num1: 123, num2: 2}
+
+        function func() {
+
+        }
+        Когда мы пытаемся обратится к какой-либо переменной внутри функции, эта переменная вначале ищется среди
+        локальных
+        переменных функции и, если такой переменной там нет, то ищется в лексическом окружении функции.
+
+        Практическое применение
+        Пусть у нас есть функция, своим результатом возвращающая другую функцию:
+
+        function test() {
+        return function() {
+
+        }
+        }
+        Если родительская функция имеет какие-либо переменные, то эти переменные будут содержаться в лексическом
+        окружении
+        возвращаемой функции:
+
+        function test() {
+        let num = 1; // переменная родительской функции
+
+        return function() {
+        // лексическое окружение = {num: 1}
+        }
+        }
+        Напишем в коде нашей возвращаемой функции алерт, выводящий на экран значение переменной num:
+
+        function test() {
+        let num = 1;
+
+        return function() {
+        alert(num);
+        }
+        }
+        Давайте теперь вызовем родительскую функцию test и результат ее работы запишем в переменную func:
+
+        function test() {
+        let num = 1;
+
+        return function() {
+        alert(num);
+        }
+        }
+
+        let func = test();
+        В переменную func запишется возвращаемая функция. Давайте вызовем нашу функцию - своим результатом она выведет
+        содержимое переменной num:
+
+        function test() {
+        let num = 1;
+
+        return function() {
+        alert(num);
+        }
+        }
+
+        let func = test();
+        func(); // выведет 1
+        Если же просто попытаться вывести переменную num вне функции - она будет недоступна:
+
+        function test() {
+        let num = 1;
+
+        return function() {
+        alert(num);
+        }
+        }
+
+        alert(num); // переменная num тут недоступна
+        Как вы видите, локальная переменная num привязалась к лексическому окружению нашей функции и теперь, вызвав в
+        любом
+        месте кода эту функцию, мы сможем получить значение переменной num, даже если в месте вызова сама по себе эта
+        переменная
+        и недоступна.
+
+        На самом деле аналогичного результата можно добиться, сделав переменную num глобальной:
+
+        function test() {
+        return function() {
+        alert(num);
+        }
+        }
+
+        let num = 1; // глобальная переменная
+        let func = test();
+        func(); // выведет 1
+        Здесь, однако, будет существенная разница: в новом варианте переменную num можно менять вне функций (так как она
+        глобальная), а в старом - нет.
+
+        Задача 1⋕js.Pm.FA.LEF.1
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test() {
+        let num1 = 1;
+        let num2 = 2;
+
+        return function() {
+        return num1 + num2;
+        }
+        }
+
+        let func = test();
+        alert(func());
+        Задача 2⋕js.Pm.FA.LEF.2
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test() {
+        let num1 = 1;
+        let num2 = 2;
+
+        return function() {
+        return num1 + num2;
+        }
+        }
+
+        alert(test()());
+        Задача 3⋕js.Pm.FA.LEF.3
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test() {
+        let num1 = 1;
+
+        return function() {
+        return num1 + num2;
+        }
+        }
+
+        let num2 = 2;
+        let func = test();
+        alert(func());
+        Задача 4⋕js.Pm.FA.LEF.4
+
+        Определите, не запуская код, что выведется на экран:
+
+        function test() {
+        let num = 1;
+
+        return function() {
+        return num;
+        }
+        }
+
+        let num = 2;
+        let func = test();
+        alert(func());
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

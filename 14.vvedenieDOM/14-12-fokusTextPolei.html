@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Фокус текстовых полей в JavaScript</h2>
+
+        Пусть у нас есть инпут. Вы можете нажать на этот инпут и после этого в нем заморгает курсор-палочка и можно
+        будет
+        вводить в него текст.
+
+        Про такое состояние говорят, что инпут сейчас имеет фокус ввода. На практике это означает, что если начать
+        вводить текст
+        с клавиатуры, то этот текст будет попадать в тот инпут, который сейчас имеет фокус ввода. Если затем кликнуть
+        куда-нибудь вне инпута, то этот инпут потеряет фокус ввода и в него нельзя будет вводить текст.
+
+        Для того, чтобы поймать момент получения или потери фокуса инпутом, в JavaScript предусмотрены специальные
+        события:
+        cобытие focus позволяет отловить получение фокуса инпутом, а событие blur - потерю. Попробуем на практике. Пусть
+        у нас
+        инпут:
+
+        <input id="elem" value="text">
+        Получим ссылку на него в переменную:
+
+        let elem = document.querySelector('#elem');
+        А теперь сделаем так, чтобы по получению фокуса в консоль вывелся текущий текст инпута:
+
+        elem.addEventListener('focus', function() {
+        console.log(elem.value);
+        });
+        Задача 1⋕js.Pm.Dm.TFF.1
+
+        Дан инпут. По получению фокуса запишите в него число 1, а по потери фокуса - число 2.
+
+        Задача 2⋕js.Pm.Dm.TFF.2
+
+        Дан инпут. Пусть в него вводится число. По потери фокуса выведите на экран квадрат этого числа.
+
+        Задача 3⋕js.Pm.Dm.TFF.3
+
+        Дан инпут, в котором изначально есть какой-то текст. По получению фокуса инпутом очистите содержимое этого
+        инпута.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

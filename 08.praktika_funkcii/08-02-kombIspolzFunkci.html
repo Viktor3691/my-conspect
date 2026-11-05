@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-08-praktika_funkcii.html">Практика на функции</a>
+            <a href="08-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Комбинация вспомогательных функций JavaScript</h2>
+
+        Пусть у нас дана функция getSum, возвращающая сумму элементов переданного массива:
+
+        function getSum(arr) {
+        let sum = 0;
+
+        for (let elem of arr) {
+        sum += elem;
+        }
+
+        return sum;
+        }
+        Пусть также дана функция getSquare, возвращающая квадрат переданного числа:
+
+        function getSquare(num) {
+        return num * num;
+        }
+        Пусть у нас есть какой-то массив с числами. Давайте найдем квадрат суммы элементов этого массива, используя
+        комбинацию
+        приведенных выше функций:
+
+        console.log( getSquare(getSum([1, 2, 3, 4, 5])) );
+        Задача 1⋕js.Pm.FP.AFC.1
+
+        Дана функция getSum, находящая сумму элементов переданного массива:
+
+        function getSum(arr) {
+        let sum = 0;
+
+        for (let elem of arr) {
+        sum += Number(elem);
+        }
+
+        return sum;
+        }
+        Дана функция getDigits, возвращающая массив цифр числа:
+
+        function getDigits(num) {
+        return String(num).split('');
+        }
+        Используя комбинацию приведенных функций найдите сумму цифр числа 12345.
+
+        Задача 2⋕js.Pm.FP.AFC.2
+
+        Дано число. Нужно найти его делители (без 1 и самого числа), а затем найти среднее арифметическое (сумма делить
+        на
+        количество) делителей числа и вывести результат на экран. Некий программист уже написал решение задачи:
+
+        console.log( getAvg(getDivisors(24)) );
+
+        // Нахождение среднего арифметического:
+        function getAvg(arr) {
+        let sum = 0;
+
+        for (let elem of arr) {
+        sum = elem;
+        }
+
+        return sum / arr.length;
+        }
+
+        // Нахождение массива делителей числа:
+        function getDivisors(num) {
+        let result = [];
+
+        for (let i = 2; i > num; i++) {
+        if (num % i == 0) {
+        result.push(i);
+        }
+        }
+        }
+        Программист не тестировал отдельно работу своих функций, а написал весь код сразу и затем запустил его. При
+        запуске
+        оказалось, что код работает неверно.
+
+        Найдите и исправьте ошибки программиста. Потестируйте отдельно работу всех функций, чтобы убедиться, что они
+        работают
+        корректно после ваших правок. После того, как вы убедитесь в корректности работы функций - проверьте полный код
+        решения
+        задачи.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Нахождение элементов по родственным связям</h2>
+
+        Потомки элементов
+        Изучите теорию по следующим ссылкам:
+
+        firstElementChild
+        Свойство firstElementChild
+        Свойство firstElementChild содержит первый дочерний элемент. Дочерними элементами считаются все теги, которые
+        непосредственно расположены внутри блока. Если у элемента нет дочерних элементов - возвращается null.
+
+        Синтаксис
+        элемент.firstElementChild
+        Пример
+        Получим содержимое первого потомка элемента:
+
+        <div id="parent">
+            <p>1</p>
+            <p>2</p>
+        </div>
+        let parent = document.querySelector('#parent');
+        let text = parent.firstElementChild.innerHTML;
+
+        console.log(text);
+        Результат выполнения кода:
+
+        '1'
+        Пример
+        А теперь у элемента нет дочерних элементов и поэтому выведется null:
+
+        <div id="parent"></div>
+        let parent = document.querySelector('#parent');
+        console.log(parent.firstElementChild);
+        Результат выполнения кода:
+
+        null
+
+
+        lastElementChild
+        Свойство lastElementChild
+        Свойство lastElementChild хранит в себе последний дочерний элемент. Дочерними элементами считаются все теги,
+        которые
+        непосредственно расположены внутри блока. Если у элемента нет дочерних элементов - возвращается null.
+
+        Синтаксис
+        элемент.lastElementChild
+        Пример
+        Получим содержимое последнего потомка элемента:
+
+        <div id="parent">
+            <p>1</p>
+            <p>2</p>
+        </div>
+        let parent = document.querySelector('#parent');
+        let text = parent.lastElementChild.innerHTML;
+
+        console.log(text);
+        Результат выполнения кода:
+
+        '2'
+        Пример
+        А теперь у элемента нет дочерних элементов и поэтому выведется null:
+
+        <div id="parent"></div>
+        let parent = document.querySelector('#parent');
+        console.log(parent.lastElementChild);
+        Результат выполнения кода:
+
+        null
+
+
+        children
+
+        Свойство children
+        Свойство children хранит в себе псевдомассив дочерних элементов. Дочерними элементами считаются все теги,
+        которые
+        непосредственно расположены внутри блока.
+
+        Синтаксис
+        элемент.children
+        Пример
+        Давайте переберем в цикле всех потомков элемента и выведем их содержимое:
+
+        <div id="parent">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+        </div>
+        let parent = document.querySelector('#parent');
+        let elems = parent.children;
+
+        for (let elem of elems) {
+        console.log(elem.innerHTML);
+
+        Задача 1⋕js.Pm.Dm.PRS.1
+
+        Дан элемент #elem:
+
+        <ul id="elem">
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+        </ul>
+        Найдите первого потомка этого элемента и сделайте его текст красного цвета.
+
+        Задача 2⋕js.Pm.Dm.PRS.2
+
+        Дан элемент #elem:
+
+        <ul id="elem">
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+        </ul>
+        Найдите последнего потомка этого элемента и сделайте его текст красного цвета.
+
+        Задача 3⋕js.Pm.Dm.PRS.3
+
+        Дан элемент #elem:
+
+        <ul id="elem">
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+        </ul>
+        Найдите всех потомков этого элемента и добавьте им в конец текст '!'.
+
+        Родители элементов
+        Изучите теорию по следующим ссылкам:
+
+        parentElement
+
+        Задача 4⋕js.Pm.Dm.PRS.4
+
+        Дан элемент #elem:
+
+        <div>
+            <ul>
+                <li>text</li>
+                <li>text</li>
+                <li id="elem">text</li>
+                <li>text</li>
+                <li>text</li>
+            </ul>
+        </div>
+        Найдите его родителя и задайте ему красную границу.
+
+        Задача 5⋕js.Pm.Dm.PRS.5
+
+        Дан элемент #elem:
+
+        <div>
+            <ul>
+                <li>text</li>
+                <li>text</li>
+                <li id="elem">text</li>
+                <li>text</li>
+                <li>text</li>
+            </ul>
+        </div>
+        Найдите его родителя его родителя и задайте ему красную границу.
+
+        Поиск всех родителей
+        Изучите теорию по следующим ссылкам:
+
+        closest
+
+        Задача 6⋕js.Pm.Dm.PRS.6
+
+        Дан элемент:
+
+        <header>
+            <div>
+                <p>
+                    <span id="elem"></span>
+                </p>
+            </div>
+        </header>
+        Найдите ближайшего родителя этого элемента, являющегося тегом div.
+
+        Задача 7⋕js.Pm.Dm.PRS.7
+
+        Дан элемент:
+
+        <header>
+            <div class="www">
+                <p class="www">
+                    <span id="elem"></span>
+                </p>
+            </div>
+        </header>
+        Найдите ближайшего родителя этого элемента, являющегося элементом с классом www.
+
+        Поиск соседей
+        Изучите теорию по следующим ссылкам:
+
+        previousElementSibling nextElementSibling
+
+        Задача 8⋕js.Pm.Dm.PRS.8
+
+        Дан элемент #elem:
+
+        <ul>
+            <li>text</li>
+            <li>text</li>
+            <li id="elem">text</li>
+            <li>text</li>
+            <li>text</li>
+        </ul>
+        Найдите его соседа сверху и добавьте ему в конец текст '!'.
+
+        Задача 9⋕js.Pm.Dm.PRS.9
+
+        Дан элемент #elem:
+
+        <ul>
+            <li>text</li>
+            <li>text</li>
+            <li id="elem">text</li>
+            <li>text</li>
+            <li>text</li>
+        </ul>
+        Найдите его соседа снизу и добавьте ему в конец текст '!'.
+
+        Задача 10⋕js.Pm.Dm.PRS.10
+
+        Дан элемент #elem:
+
+        <ul>
+            <li>text</li>
+            <li>text</li>
+            <li id="elem">text</li>
+            <li>text</li>
+            <li>text</li>
+        </ul>
+        Найдите его соседа снизу его соседа снизу (следующий элемент за соседним) и добавьте ему в конец текст '!'.
+
+        Задача 11⋕js.Pm.Dm.PRS.11
+
+        Дан элемент #elem:
+
+        <ul>
+            <li>text1</li>
+            <li>text2</li>
+            <li id="elem">text3</li>
+            <li>text4</li>
+            <li>text5</li>
+        </ul>
+        Поменяйте местами текст его соседа сверху и текст его соседа снизу.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

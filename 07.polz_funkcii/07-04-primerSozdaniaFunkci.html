@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-07-polz_funkcii.html">Пользовательские функции</a>
+            <a href="07-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Примеры на создание функций в JavaScript</h2>
+
+        В этом уроке мы с вами будем отрабатывать полученные ранее знания по пользовательским функциям на практических
+        задачах.
+
+        Пусть у нас дан какой-то произвольный массив с числами, например, такой:
+
+        let arr = [1, 2, 3, 4];
+        Пусть теперь перед нами, к примеру, стоит задача найти сумму элементов этого массива.
+
+        Пока не будем использовать пользовательские функции, чтобы показать, какие проблемы возникнут в этом случае.
+        Давайте
+        напишем код, реализующий нашу задачу:
+
+        let arr = [1, 2, 3, 4];
+
+        // Код, находящий сумму:
+        let sum = 0;
+
+        for (let elem of arr) {
+        sum += elem;
+        }
+
+        alert(sum);
+        Пусть теперь у нас даны два массива:
+
+        let arr1 = [1, 2, 3, 4];
+        let arr2 = [5, 6, 7, 8];
+        Пусть теперь перед нами стоит задача найти сумму элементов и одного массива, и второго. В этом случае нам
+        придется код,
+        находящий сумму, повторить два раза: для первого и для второго массива, вот так:
+
+        let arr1 = [1, 2, 3, 4];
+        let arr2 = [5, 6, 7, 8];
+
+        // Код, находящий сумму первого массива:
+        let sum1 = 0;
+
+        for (let elem of arr1) {
+        sum1 += elem;
+        }
+
+        // Код, находящий сумму второго массива:
+        let sum2 = 0;
+
+        for (let elem of arr2) {
+        sum2 += elem;
+        }
+
+        // Код, выводящий найденные суммы:
+        alert(sum1);
+        alert(sum2);
+        Как мы видим, у нас возникает дублирование кода. Давайте избавимся от него, создав свою функцию, находящую сумму
+        элементов переданного параметром массива. Вот код этой функции:
+
+        function getSum(arr) {
+        let sum = 0;
+
+        for (let elem of arr) {
+        sum += elem;
+        }
+
+        return sum;
+        }
+        Используем теперь нашу функцию для нахождения суммы одного и второго массива:
+
+        function getSum(arr) {
+        let sum = 0;
+
+        for (let elem of arr) {
+        sum += elem;
+        }
+
+        return sum;
+        }
+
+        let arr1 = [1, 2, 3, 4];
+        let arr2 = [5, 6, 7, 8];
+        alert(getSum(arr1));
+        alert(getSum(arr2));
+        Задача 1⋕js.Pm.UF.Ex.1
+
+        Напишите функцию, которая будет находить сумму квадратов элементов массива.
+
+        Задача 2⋕js.Pm.UF.Ex.2
+
+        Сделайте функцию getDigitsSum, которая параметром будет принимать целое число и возвращать сумму его цифр.
+
+        Задача 3⋕js.Pm.UF.Ex.3
+
+        Реализуйте функцию getDivisors, которая параметром будет принимать число и возвращать массив его делителей, то
+        есть
+        чисел, на которое делится наше число. К примеру, если мы передадим число 24 - мы должны получить следующий
+        массив:
+
+        [1, 2, 3, 4, 6, 8, 12, 24]
+        Задача 4⋕js.Pm.UF.Ex.4
+
+        Сделайте функцию reverseStr, которая параметром будет принимать строку и переворачивать ее символы в обратном
+        порядке.
+        Решите задачу без цикла, используя комбинацию стандартных функций JavaScript.
+
+        Задача 5⋕js.Pm.UF.Ex.5
+
+        Сделайте функцию delElem, которая параметрами будет принимать значение и массив и удалять из массива все
+        элементы с
+        таким значением.
+
+        Задача 6⋕js.Pm.UF.Ex.6
+
+        Сделайте функцию, заполняющую массив целыми числами от 1 до заданного. Пример работы такой функции:
+
+        console.log(func(5)); // выведет [1, 2, 3, 4, 5]
+        Задача 7⋕js.Pm.UF.Ex.7
+
+        Сделайте функцию, заполняющую массив целыми числами от начального до конечного заданных чисел. Пример работы
+        такой
+        функции:
+
+        console.log(func(3, 7)); // выведет [3, 4, 5, 6, 7]
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

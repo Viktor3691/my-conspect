@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-11-operSpreadRest.html">Операторы spread и rest</a>
+            <a href="11-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Оператор spread для строк и чисел в JavaScript</h2>
+
+        Оператор spread, примененный к строке, разбивает эту строку посимвольно:
+
+        ...'abcde'; // разобьет строку в символы через запятую: 'a','b','c','d','e'
+        Результат такого разбиения можно передать в параметры функции:
+
+        function func(s1, s2, s3, s4, s5) {
+        return s1 + '-' + s2 + '-' + s3 + '-' + s4 + '-' + s5;
+        }
+
+        console.log( func(...'abcde') ); // выведет 'a-b-c-d-e'
+        А можно преобразовать этот результат в массив:
+
+        let arr = [...'abcde']; // получим массив ['a', 'b', 'c', 'd', 'e']
+        Задача 1⋕js.Pm.Osr.SWSN.1
+
+        Не запуская код определите, что выведется в консоль:
+
+        let arr = [...'12345'];
+        console.log(arr);
+        Задача 2⋕js.Pm.Osr.SWSN.2
+
+        Не запуская код определите, что выведется в консоль:
+
+        let arr = ['a', ...'12345'];
+        console.log(arr);
+        Задача 3⋕js.Pm.Osr.SWSN.3
+
+        Не запуская код определите, что выведется в консоль:
+
+        let arr = [...'12345', ...'56789'];
+        console.log(arr);
+        Задача 4⋕js.Pm.Osr.SWSN.4
+
+        Не запуская код определите, что выведется в консоль:
+
+        let arr1 = ['a', 'b', 'c'];
+        let arr2 = [...arr1, ...'12345'];
+
+        console.log(arr2);
+        Оператор spread и числа
+        Оператор spread не применим к числам:
+
+        let arr = [...12345]; // будет ошибка
+        Для решения проблемы следует преобразовывать число в строку, вот так:
+
+        let arr = [...String(12345)]; // получится массив ['1', '2', '3', '4', '5']
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

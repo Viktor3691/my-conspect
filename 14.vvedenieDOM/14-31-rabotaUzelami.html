@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Работа с узлами в JavaScript</h2>
+
+        Как вы знаете, теги могут содержать другие теги или, говоря в терминах JavaScript, DOM элементы могут содержать
+        другие
+        DOM элементы. Кроме этого, однако, в них могут быть комментарии и обычный текст. Комментарии, тексты и DOM
+        элементы
+        объединяют одним названием - узлы.
+
+        Вам уже знакомы свойства firstElementChild, lastElementChild, nextElementSibling, previousElementSibling. Эти
+        свойства
+        работают именно с DOM элементами, игнорируя остальные узлы. Как правило, именно это нам и требуется.
+
+        Однако, существуют также свойства firstChild, lastChild, nextSibling, previousSibling. Эти свойства работают
+        аналогичным
+        образом, однако, учитывая все узлы. Давайте посмотрим разницу между этими свойствами на примере. Пусть у нас
+        есть див,
+        содержащий в себе три узла:
+
+        <div id="elem"><!--сomm-->text<span>tag</span></div>
+        Получим ссылку на этот див в переменную:
+
+        let elem = document.querySelector('#elem');
+        А теперь давайте посмотрим, что содержится в свойствах firstChild и firstElementChild:
+
+        console.log(elem.firstChild); // комментарий
+        console.log(elem.firstElementChild); // тег span
+        Задача 1⋕js.Pm.Dm.Nds.1
+
+        Напишите код, который покажет разницу между lastChild и lastElementChild.
+
+        Задача 2⋕js.Pm.Dm.Nds.2
+
+        Напишите код, который покажет разницу между nextSibling и nextElementSibling.
+
+        Задача 3⋕js.Pm.Dm.Nds.3
+
+        Напишите код, который покажет разницу между previousSibling и previousElementSibling.
+
+        Перебор циклом
+        Как вы уже должны знать, в свойстве children содержатся все DOM элементы, являющиеся непосредственными потомками
+        данного
+        элемента. Существует аналогичное свойство childNodes, которое содержит в себе все потомки-узлы элемента.
+
+        Давайте, например, с помощью этого свойства выведем различные узлы из нашего элемента:
+
+        console.log(elem.childNodes[0]);
+        console.log(elem.childNodes[1]);
+        console.log(elem.childNodes[2]);
+        А теперь давайте переберем узлы элемента циклом:
+
+        for (let node of elem.childNodes) {
+        console.log(node);
+        }
+        Задача 4⋕js.Pm.Dm.Nds.4
+
+        Дан див:
+
+        <div id="elem">txt<b>tag</b><!--com-->txt<b>tag</b><!--com--></div>
+        Переберите циклом все узлы этого дива и выведите их в консоль.
+
+        Название узлов
+        Все узлы имеют свойство nodeName. Для комментария оно содержит значение 'comment', для текстового узла -
+        значение
+        'text', а для узла-элемента - имя тега в верхнем регистре. Получается, что nodeName для элементов аналогичен
+        свойству
+        tagName, но работает также и для других типов узлов.
+
+        Задача 5⋕js.Pm.Dm.Nds.5
+
+        Дан див:
+
+        <div id="elem">txt<b>tag</b><!--com-->txt<b>tag</b><!--com--></div>
+        Переберите циклом все узлы этого дива и выведите в консоль их названия.
+
+        Тип узлов
+        Все узлы имеют свойство nodeType. Его значение числовое: 1 для элементов, 3 для текстовых узлов, 8 для
+        комментариев.
+        Остальные значения в настоящее время или малоиспользуемы, или устарели.
+
+        Задача 6⋕js.Pm.Dm.Nds.6
+
+        Дан див:
+
+        <div id="elem">txt<b>tag</b><!--com-->txt<b>tag</b><!--com--></div>
+        Переберите циклом все узлы этого дива и выведите в консоль только узлы-элементы и текстовые узлы.
+
+        Текст узлов
+        Давайте теперь разберемся, как прочитать или изменить текст узлов. Для всех узлов работает свойство textContent.
+        Для
+        текстовых узлов и комментариев есть свойства nodeValue и data (они практически одинаковые, второе - короче,
+        лучше
+        пользоваться им). Для элементов есть свойство innerHTML, прочитывающее текст вместе с тегами.
+
+        Задача 7⋕js.Pm.Dm.Nds.7
+
+        Дан див:
+
+        <div id="elem">txt<b>tag</b><!--com-->txt<b>tag</b><!--com--></div>
+        Переберите циклом все узлы этого дива и выведите в консоль тексты всех узлов.
+
+        Задача 8⋕js.Pm.Dm.Nds.8
+
+        Дан див:
+
+        <div id="elem">txt<b>tag</b><!--com-->txt<b>tag</b><!--com--></div>
+        Переберите циклом все узлы этого дива и выведите в консоль тексты всех комментариев и текстовых узлов.
+
+        Задача 9⋕js.Pm.Dm.Nds.9
+
+        Дан див:
+
+        <div id="elem">txt<b>tag</b><!--com-->txt<b>tag</b><!--com--></div>
+        Переберите циклом все узлы этого дива и выведите в консоль тексты текстовых узлов и элементов.
+
+        Задача 10⋕js.Pm.Dm.Nds.10
+
+        Дан див:
+
+        <div id="elem">txt<b>tag</b><!--com-->txt<b>tag</b><!--com--></div>
+        Переберите циклом все узлы этого дива и каждому узлу в конец запишите его тип.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

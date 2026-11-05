@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Массив с анонимными функциями в JavaScript</h2>
+
+        Я уже упоминал ранее, что функции в JavaScript ведут себя, будто строки или числа. В частности, можно сделать
+        массив,
+        состоящий из функций. Сделаем:
+
+        let arr = [
+        function() {alert('1')},
+        function() {alert('2')},
+        function() {alert('3')},
+        ];
+        Давайте, например, выведем алертом содержимое нулевого элемента массива:
+
+        let arr = [
+        function() {alert('1')},
+        function() {alert('2')},
+        function() {alert('3')},
+        ];
+
+        alert(arr[0]); // увидим исходный код первой функции
+        Как вы видите, в примере выше мы получаем исходный код функции, а не результат.
+
+        Чтобы происходил вызов функции, к ней нужно дописать круглые скобки. Так как наша функция хранится в arr[0], то
+        круглые
+        скобки нужно будет написать после квадратных, вот так: arr[0](). Проверим:
+
+        let arr = [
+        function() {alert('1')},
+        function() {alert('2')},
+        function() {alert('3')},
+        ];
+
+        arr[0](); // выведет '1'
+        Можно также перебрать наш массив с функциями циклом и в этом цикле вызвать каждую из функций:
+
+        let arr = [
+        function() {alert('1')},
+        function() {alert('2')},
+        function() {alert('3')},
+        ];
+
+        for (let func of arr) {
+        func(); // вызываем наши функции в цикле
+        }
+        Задача 1⋕js.Pm.FA.FA.1
+
+        Сделайте массив arr с тремя функциями. Пусть первая возвращает через return число 1, вторая - число 2, третья -
+        число 3.
+
+        Задача 2⋕js.Pm.FA.FA.2
+
+        Используя созданный вами массив arr выведите на экран число 3, вызвав соответствующую функцию.
+
+        Задача 3⋕js.Pm.FA.FA.3
+
+        Используя созданный вами массив arr найдите сумму результатов функций (без цикла).
+
+        Задача 4⋕js.Pm.FA.FA.4
+
+        Переберите созданный вами массив arr циклом и выведите результаты работы всех функций на экран.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

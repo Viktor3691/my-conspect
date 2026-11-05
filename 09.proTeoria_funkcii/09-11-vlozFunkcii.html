@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Вложенные функции в JavaScript</h2>
+
+        Пусть у нас есть функция, параметром принимающая два числа и возвращающая сумму квадратов этих чисел:
+
+        function func(num1, num2) {
+        return num1 * num1 + num2 * num2;
+        }
+
+        alert(func(2, 3)); // выведет 13 (результат 2 * 2 + 3 * 3)
+        Давайте операцию возведения в квадрат вынесем в вспомогательную функцию square:
+
+        function square(num) {
+        return num * num;
+        }
+
+        function func(num1, num2) {
+        return square(num1) + square(num2);
+        }
+
+        alert(func(2, 3)); // выведет 13
+        Пусть мы уверены, что функция square будет использоваться только в функции func и больше ни в какой другой.
+
+        В этом случае было бы удобно сделать так, чтобы ее никто случайно не использовал (вы сами или другой
+        программист,
+        работающий вместе с вами).
+
+        В JavaScript есть изящное решение: можно нашу вспомогательную функцию square поместить вовнутрь func. В этом
+        случае наша
+        вспомогательная функция будет доступна только внутри func, а снаружи - не будет.
+
+        Сделаем это:
+
+        function func(num1, num2) {
+        function square(num) {
+        return num * num;
+        }
+
+        return square(num1) + square(num2);
+        }
+
+        alert(func(2, 3)); // выведет 13
+        Попытка вызвать square снаружи func приведет к ошибке:
+
+        function func(num1, num2) {
+        function square(num) {
+        return num * num;
+        }
+
+        return square(num1) + square(num2);
+        }
+
+        alert(square(2)); // выдаст ошибку
+        Задача 1⋕js.Pm.FA.NF.1
+
+        Сделайте функцию func, которая параметрами будет принимать два числа, а возвращать сумму квадрата первого числа
+        с кубом
+        второго числа.
+
+        Сделайте для этого вспомогательную функцию square, возводящую число в квадрат, и вспомогательную функцию cube,
+        возводящую число в куб.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

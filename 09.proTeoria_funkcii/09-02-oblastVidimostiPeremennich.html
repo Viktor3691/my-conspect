@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Область видимости и параметры функций JavaScript</h2>
+
+        Пусть у нас есть функция, принимающая параметром число:
+
+        function func(localNum) {
+        alert(localNum);
+        }
+        Пусть снаружи функции есть переменная num:
+
+        function func(localNum) {
+        alert(localNum);
+        }
+
+        let num = 1; // внешняя глобальная переменная
+        Давайте вызовем нашу функцию, передав ей параметром переменную num:
+
+        function func(localNum) {
+        alert(localNum);
+        }
+
+        let num = 1;
+        func(num); // вызываем функцию с параметром, выведет 1
+        Получится, что внутри функции будет доступна как переменная localNum (параметр функции), так и переменная num
+        (как
+        внешняя переменная):
+
+        function func(localNum) {
+        alert(num); // выведет 1
+        alert(localNum); // выведет 1
+        }
+
+        let num = 1;
+        func(num);
+        Сама переменная localNum будет локальной переменной функции и не будет доступна извне:
+
+        function func(localNum) {
+
+        }
+
+        let num = 1;
+        func(num); // вызываем функцию с параметром
+        alert(localNum); // выдаст ошибку
+        Так как переменная localNum - локальная, то никакие изменения с ней ничего не поменяют снаружи:
+
+        function func(localNum) {
+        localNum = 2; // ничего не меняет снаружи
+        }
+
+        let num = 1;
+        func(num);
+        Если же поменять внутри переменную num (глобальную), то изменения появятся и снаружи:
+
+        function func(localNum) {
+        num = 2;
+        }
+
+        let num = 1;
+        func(num);
+        alert(num); // выведет 2
+        Однако, если внутри функции объявить переменную переменную num через let, то мы создадим таким образом локальную
+        переменную num, никак не влияющую на внешнюю переменную:
+
+        function func(localNum) {
+        let num = 2; // объявим через let
+        }
+
+        let num = 1;
+        func(num);
+        alert(num); // выведет 1 - ничего не поменялось
+        Задача 1⋕js.Pm.FA.ScPr.1
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func(localNum) {
+        alert(localNum);
+        }
+
+        func(1);
+        Задача 2⋕js.Pm.FA.ScPr.2
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func(localNum) {
+        alert(localNum);
+        }
+
+        let num = 1;
+        func(num);
+        Задача 3⋕js.Pm.FA.ScPr.3
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func(localNum) {
+        alert(localNum);
+        }
+
+        let num = 1;
+        func(num);
+        num = 2;
+        Задача 4⋕js.Pm.FA.ScPr.4
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func(localNum) {
+        alert(localNum);
+        }
+
+        num = 2;
+        func(num);
+        Задача 5⋕js.Pm.FA.ScPr.5
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func(localNum) {
+        localNum = 2;
+        }
+
+        let num = 1;
+        func(num);
+        alert(num);
+        Задача 6⋕js.Pm.FA.ScPr.6
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func(localNum) {
+        num = 2;
+        }
+
+        let num = 1;
+        func(num);
+        alert(num);
+        Задача 7⋕js.Pm.FA.ScPr.7
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func(localNum) {
+        let num = 2;
+        }
+
+        let num = 1;
+        func(num);
+        alert(num);
+        Одноименные параметры
+        Как мы уже выяснили, параметры функции являются локальными переменными внутри нее.
+
+        Давайте назовем параметр функции таким же именем, как и внешнюю глобальную переменную:
+
+        function func(num) {
+        alert(num);
+        }
+
+        let num = 1;
+        func(num);
+        В данном случае у нас получится так, что снаружи функции будет переменная num и внутри функции будет переменная
+        num.
+
+        Но это будут разные переменные! Изменение переменной num внутри функции будет приводить к изменению локальной
+        переменной
+        функции:
+
+        function func(num) {
+        num = 2; // меняем локальную переменную
+        }
+
+        let num = 1;
+        func(num);
+        alert(num); // выведет 1 - ничего не поменялось
+        А внешняя переменная num внутри функции будет недоступна и не сможет быть изменена никаким способом.
+
+        Задача 8⋕js.Pm.FA.ScPr.8
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func(num) {
+        num = 2;
+        }
+
+        let num = 1;
+        func(num);
+        alert(num);
+        Задача 9⋕js.Pm.FA.ScPr.9
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func() {
+        num = 2;
+        }
+
+        let num = 1;
+        func();
+        alert(num);
+        Задача 10⋕js.Pm.FA.ScPr.10
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func() {
+        let num = 2;
+        }
+
+        let num = 1;
+        func();
+        alert(num);
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

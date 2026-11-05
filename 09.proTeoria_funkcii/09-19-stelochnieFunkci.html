@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Стрелочные функции в JavaScript</h2>
+
+        Давайте теперь рассмотрим стрелочные функции, упрощающие синтаксис функций.
+
+        В следующем примере кода первой написана обычная функция, а второй - соответствующая ей стрелочная (обе функции
+        делают
+        одно и тоже):
+
+        let func1 = function(num1, num2) {
+        let result = num1 * num2;
+        return result;
+        }
+
+        let func2 = (num1, num2) => {
+        let result = num1 * num2;
+        return result;
+        }
+        Если в функции одна строка кода, то в стрелочных функциях можно не писать return и фигурные скобки:
+
+        let func1 = function(num1, num2) {
+        return num1 * num2
+        }
+
+        let func2 = (num1, num2) => num1 * num2;
+        Если параметр стрелочной функции один - круглые скобки можно не писать:
+
+        let func1 = function(num) {
+        return num * num;
+        }
+
+        let func2 = num => num * num
+        Если в функции вообще нет параметров - нужно писать пустые круглые скобки:
+
+        let func1 = function() {
+        alert('!!!');
+        }
+
+        let func2 = () => alert('!!!')
+        Пример применения
+        Особое преимущество стрелочные функции имеют в качестве коллбэков. Давайте посмотрим на примере, на сколько
+        упрощается
+        код в таком случае. Возьмем функцию filter из предыдущего урока:
+
+        let result = filter([1, 2, 3, 4, 5], function(elem) {
+        if (elem % 2 === 0) {
+        return true;
+        } else {
+        return false;
+        }
+        });
+        Для начала давайте избавимся от конструкции if и напишем условие просто через оператор ===:
+
+        let result = filter([1, 2, 3, 4, 5], function(elem) {
+        return elem % 2 == 0;
+        });
+        Заменим теперь обычную функцию на стрелочную:
+
+        let result = filter([1, 2, 3, 4, 5], elem => elem % 2 == 0);
+        Задача 1⋕js.Pm.FA.AF.1
+
+        Дана следующая функция с коллбэком:
+
+        let result = every([1, 2, 3, 4, 5], function(elem) {
+        if (elem > 0) {
+        return true;
+        } else {
+        return false;
+        }
+        });
+        Упростите коллбэк через стрелочную функцию.
+
+        Задача 2⋕js.Pm.FA.AF.2
+
+        Дана следующая функция с коллбэком:
+
+        let result = every([1, 2, 3, 4, 5], function(elem, index) {
+        if (elem * index > 10) {
+        return true;
+        } else {
+        return false;
+        }
+        });
+        Упростите коллбэк через стрелочную функцию.
+
+        Задача 3⋕js.Pm.FA.AF.3
+
+        Дана следующая функция с коллбэком:
+
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+        let result = each(arr, function(elem, index) {
+        if (elem * index > 10) {
+        return true;
+        } else {
+        return false;
+        }
+        });
+        Упростите коллбэк через стрелочную функцию.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2></h2>
+        Советы по написанию кода на примере DOM в JavaScript
+        Пусть перед вами стоит задача достаточной сложности, для реализации которой нужно написать некоторое количество
+        строк
+        кода.
+
+        Неправильным подходом будет пытаться написать весь код решения целиком, а потом начать его проверять. В этом
+        случае
+        высока вероятность, что у вас ничего не заработает, а ошибку придется искать в большом количестве кода.
+
+        Правильным подходом является разбиение задачи на маленькие элементарные шаги, которые вы будете реализовывать и
+        сразу
+        проверять их правильность. В этом случае, даже если вы где-то ошибетесь, вы сразу заметите проблему и исправите
+        ее.
+
+        Давайте попробуем на практике. Пусть у вас есть абзацы:
+
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        Пусть перед вами стоит задача найти абзацы с числами, кратными 3, и добавить им в конец какой-нибудь текст.
+
+        Первым маленьким шагом я бы предложил получить наши абзацы в виде массива и вывести этот массив в консоль, чтобы
+        посмотреть, что мы все правильно получили. Сделаем это:
+
+        let elems = document.querySelectorAll('p');
+        console.log(elems);
+        Следующим маленьким шагом нужно перебрать наши абзацы циклом и вывести каждый из них в консоль по отдельности:
+
+        let elems = document.querySelectorAll('p');
+
+        for (let elem of arr) {
+        console.log(elem);
+        }
+        А теперь в цикле выведем тексты наших абзацев:
+
+        let elems = document.querySelectorAll('p');
+
+        for (let elem of arr) {
+        console.log(elem.textContent);
+        }
+        Теперь давайте выведем тексты тех абзацев, чье число делится на 3:
+
+        let elems = document.querySelectorAll('p');
+
+        for (let elem of arr) {
+        let text = +elem.textContent;
+
+        if (text % 3 === 0) {
+        console.log(text);
+        }
+        }
+        Убедившись, что мы получаем правильные абзацы, можно приступать к суммированию их чисел:
+
+        let elems = document.querySelectorAll('p');
+        let sum = 0;
+
+        for (let elem of arr) {
+        let text = +elem.textContent;
+
+        if (text % 3 === 0) {
+        sum += text;
+        }
+        }
+
+        console.log(sum);
+        Задача 1⋕js.Pm.Dm.Cdg.1
+
+        Дан список с годами:
+
+        <ul>
+            <li>2000</li>
+            <li>2004</li>
+            <li>2021</li>
+            <li>2022</li>
+            <li>2025</li>
+            <li>2031</li>
+        </ul>
+        Получите года, сумма цифр которых равна 6. Найдите сумму полученных годов.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

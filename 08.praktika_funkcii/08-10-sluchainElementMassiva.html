@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-08-praktika_funkcii.html">Практика на функции</a>
+            <a href="08-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Случайные элементы из массива на JavaScript</h2>
+
+        Давайте теперь реализуем функцию randoms, возвращающую заданное количество случайных элементов из массива. Пусть
+        первым
+        параметром функция принимает массив, а вторым - количество элементов, которое следует вернуть.
+
+        Для решения задачи можно использовать функцию random, созданную нами в предыдущих уроках, вот так:
+
+        function randoms(arr, length) {
+        let result = [];
+
+        for (let i = 0; i < length; i++) { result.push( random(arr) ); // используем функцию random } return result; }
+            console.log( randoms([1, 2, 3, 4, 5], 3) ); Это, однако, плохое решение, так как один и тот же элемент
+            массива может быть получен несколько раз. Следует полагать, что это не то, что мы ожидаем от нашей функции.
+            Давайте лучше перемешаем наш массив с помощью ранее созданной нами функции shuffle, а потом возьмем первые
+            length элементов перемешенного массива. Для решения описанной задачи было бы неплохо иметь следующую функцию
+            first, получающую первые элементы массива: function first(arr, length) { // код мы напишем позже }
+            console.log( first([1, 2, 3, 4, 5], 3) ); // выведет [1, 2, 3] При наличии такой функции first мы сможем
+            решить поставленную задачу следующим образом: function randoms(arr, length) { return first(shuffle(arr),
+            length); } console.log( randoms([1, 2, 3, 4, 5], 3) ); Реализуем теперь функцию first: function first(arr,
+            length) { return arr.slice(0, length); } Обязательно потестируем созданную функцию: console.log( first([1,
+            2, 3, 4, 5], 3) ); // выведет [1, 2, 3] Соберем весь код вместе (с кодом функции shuffle) и получим итоговое
+            решение нашей задачи: function randoms(arr, length) { return first(shuffle(arr), length); } function
+            first(arr, length) { return arr.slice(0, length); } function shuffle(arr) { let result=[]; while
+            (arr.length> 0) {
+            let random = getRandomInt(0, arr.length - 1);
+            let elem = arr.splice(random, 1)[0];
+            result.push(elem);
+            }
+
+            return result;
+            }
+
+            function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            Обязательно потестируем созданную функцию randoms (каждый запуск приведенного ниже кода должен выдавать 3
+            случайных
+            неповторяющихся элемента):
+
+            console.log( randoms([1, 2, 3, 4, 5], 3) );
+            Задача 1⋕js.Pm.FP.ARs.1
+
+            Самостоятельно, не подсматривая в мой код, реализуйте описанную функцию. При решении задачи код функций
+            getRandomInt
+            и shuffle скопируйте из учебника.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

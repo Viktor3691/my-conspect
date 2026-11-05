@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-07-polz_funkcii.html">Пользовательские функции</a>
+            <a href="07-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Инструкция return в JavaScript</h2>
+
+        Пусть у нас есть функция, которая выводит на экран квадрат переданного числа:
+
+        function func(num) {
+        alert(num * num);
+        }
+
+        func(3); // выведет 9
+        Пусть мы хотим не выводить значение на экран, а записать в какую-нибудь переменную, вот так:
+
+        let result = func(3); // в переменной result теперь 9
+        Для этого в JavaScript существует специальная инструкция return, которая позволяет указать значение, которое
+        возвращает
+        функция. Под словом "возвращает" понимают то значение, которое запишется в переменную, если ей присвоить
+        вызванную
+        функцию.
+
+        Итак, давайте перепишем нашу функцию так, чтобы она не выводила результат на экран, а возвращала его в
+        переменную:
+
+        function func(num) {
+        return num * num;
+        }
+
+        let result = func(3); // в переменной result теперь 9
+        После того, как данные записаны в переменную, их можно, например, вывести на экран:
+
+        function func(num) {
+        return num * num;
+        }
+
+        let result = func(3);
+        alert(result); // выведет 9
+        А можно сначала как-то изменить эти данные, а затем вывести их на экран:
+
+        function func(num) {
+        return num * num;
+        }
+
+        let result = func(3);
+        result = result + 1;
+        alert(result); // выведет 10
+        Можно сразу выполнять какие-то действия с результатом работы функции перед записью в переменную:
+
+        function func(num) {
+        return num * num;
+        }
+
+        let result = func(3) + 1;
+        alert(result); // выведет 10
+        А можно не записывать результат в переменную, а сразу вывести его на экран:
+
+        function func(num) {
+        return num * num;
+        }
+
+        alert(func(3)); // выведет 9
+        Задача 1⋕js.Pm.UF.Rt.1
+
+        Сделайте функцию, которая параметром принимает число, а возвращает куб этого числа. С помощью этой функции
+        найдите куб
+        числа 3 и запишите его в переменную result.
+
+        Использование функций в выражении
+        В следующем примере с помощью функции func мы сначала найдем квадрат числа 2, а затем - 3 квадрат числа, сложим
+        эти
+        значения и запишем в переменную:
+
+        function func(num) {
+        return num * num;
+        }
+
+        let result = func(2) + func(3);
+        alert(result); // выведет 13
+        Задача 2⋕js.Pm.UF.Rt.2
+
+        Сделайте функцию, которая параметром принимает число, а возвращает квадратный корень из этого числа. С помощью
+        этой
+        функции найдите корень числа 3, затем найдите корень числа 4. Просуммируйте полученные результаты и выведите их
+        на
+        экран.
+
+        Функции в функциях
+        Можно также результат работы одной функции передать параметром в другую, например, вот так мы сначала найдем
+        квадрат
+        числа 2, а затем квадрат результата:
+
+        function func(num) {
+        return num * num;
+        }
+
+        let result = func(func(2));
+        alert(result); // выведет 16
+        Функции, конечно же, не обязательно должны быть одинаковыми. Пусть, например, у нас есть функция, возвращающая
+        квадрат
+        числа, и функция, возвращающая куб числа:
+
+        function square(num) {
+        return num * num;
+        }
+
+        function cube(num) {
+        return num * num * num;
+        }
+        Давайте с помощью этих функций возведем число 2 в квадрат, а затем результат этой операции возведем в куб:
+
+        let result = cube(square(2));
+        alert(result);
+        Пусть теперь у нас есть функция, возвращающая квадрат числа, и функция, находящая сумму двух чисел:
+
+        function square(num) {
+        return num * num;
+        }
+
+        function sum(num1, num2) {
+        return num1 + num2;
+        }
+        Найдем с помощью этих функций сумму квадрата числа 2 и сумму квадрата числа 3:
+
+        let result = sum(square(2), square(3));
+        alert(result);
+        Задача 3⋕js.Pm.UF.Rt.3
+
+        Пусть у вас есть функция, возвращающая квадратный корень из числа, и функция, округляющая дробь до трех знаков в
+        дробной
+        части:
+
+        function sqrt(num) {
+        return Math.sqrt(num);
+        }
+
+        function round(num) {
+        return num.toFixed(3);
+        }
+        С помощью этих функций найдите квадратный корень из числа 2 и округлите его до трех знаков в дробной части.
+
+        Задача 4⋕js.Pm.UF.Rt.4
+
+        Пусть у вас есть функция, возвращающая квадратный корень из числа, и функция, возвращающая сумму трех чисел:
+
+        function sqrt(num) {
+        return Math.sqrt(num);
+        }
+
+        function sum(num1, num2, num3) {
+        return num1 + num2 + num3;
+        }
+        С помощью этих функций найдите сумму корней чисел 2, 3 и 4 и запишите ее в переменную result.
+
+        Задача 5⋕js.Pm.UF.Rt.5
+
+        Пусть у вас есть функция, округляющая дробь до трех знаков в дробной части:
+
+        function round(num) {
+        return num.toFixed(3);
+        }
+        С помощью этой функции модифицируйте предыдущую задачу так, чтобы в переменную result записывалась дробь,
+        округленная до
+        3-х знаков в дробной части.
+
+        Тонкое место return
+        После того, как выполнится инструкция return - функция закончит свою работу и никакой код дальше не выполнится.
+        Смотрите
+        пример:
+
+        function func(num) {
+        return num * num;
+
+        alert('!'); // этот код никогда не выполнится
+        }
+
+        let result = func(3);
+        Это не значит, что в функции должен быть один return. Но выполнится только один из них. В следующем примере в
+        зависимости от значения параметра выполнится либо первый, либо второй return:
+
+        function func(num) {
+        if (num >= 0) {
+        return '+';
+        } else {
+        return '-';
+        }
+        }
+
+        alert(func( 3)); // выведет '+'
+        alert(func(-3)); // выведет '-'
+        Задача 6⋕js.Pm.UF.Rt.6
+
+        Что выведется на экран в результате выполнения следующего кода:
+
+        function func(num) {
+        return num;
+
+        let result = num * num;
+        return result;
+        }
+
+        alert( func(3) );
+        Объясните почему.
+
+        Задача 7⋕js.Pm.UF.Rt.7
+
+        Что выведет каждый из алертов в результате выполнения следующего кода:
+
+        function func(num) {
+        if (num <= 0) { return Math.abs(num); } else { return num * num; } } alert( func(10) ); alert( func(-5) );
+            Объясните почему. Задача 8⋕js.Pm.UF.Rt.8 Что выведет каждый из алертов в результате выполнения следующего
+            кода: function func(num) { if (num <=0) { return Math.abs(num); } return num * num; } alert( func(10) );
+            alert( func(-5) ); Объясните почему. Цикл и return Пусть у нас есть функция, возвращающая сумму чисел от 1
+            до 5: function func() { let sum=0; for (let i=1; i <=5; i++) { sum +=i; } return sum; } let result=func();
+            alert(result); // выведет 15 Пусть теперь мы расположим return внутри цикла, вот так: function func() { let
+            sum=0; for (let i=1; i <=5; i++) { sum +=i; return sum; } } let result=func(); alert(result); В этом случае
+            цикл прокрутится лишь одну итерацию и произойдет автоматический выход из функции (ну и заодно из цикла). А
+            за одну итерацию цикла в переменной sum окажется лишь число 1, а не вся нужная сумма. Задача 9⋕js.Pm.UF.Rt.9
+            Что выведется на экран в результате выполнения следующего кода: function func(num) { let sum=0; for (let
+            i=1; i <=num; i++) { sum +=i; return sum; } } alert( func(5) ); Объясните почему. Что хотел сделать автор
+            данного кода? Исправьте ошибку автора. Применение return в цикле То, что return расположен внутри цикла, не
+            всегда может быть ошибкой. В следующем примере сделана функция, которая определяет, сколько первых элементов
+            массива нужно сложить, чтобы сумма стала больше или равна 10: function func(arr) { let sum=0; for (let i=0;
+            i < arr.length; i++) { sum +=arr[i]; // Если сумма больше или равна 10: if (sum>= 10) {
+            return i + 1; // выходим из цикла и из функции
+            }
+            }
+            }
+
+            let result = func([1, 2, 3, 4, 5]);
+            alert(result);
+            А в следующем примере сделана функция, которая вычисляет, сколько целых чисел, начиная с 1, нужно сложить,
+            чтобы
+            результат был больше 100:
+
+            function func() {
+            let sum = 0;
+            let i = 1;
+
+            while (true) { // бесконечный цикл
+            sum += i;
+
+            if (sum >= 100) {
+            return i; // цикл крутится пока не выйдет тут
+            }
+
+            i++;
+            }
+            }
+
+            alert( func() );
+            Задача 10⋕js.Pm.UF.Rt.10
+
+            Напишите функцию, которая параметром будет принимать число и делить его на 2 столько раз, пока результат не
+            станет
+            меньше 10. Пусть функция возвращает количество итераций, которое потребовалось для достижения результата.
+
+            Приемы работы с return
+            Существуют некоторые приемы работы с return, упрощающие код. Рассмотрим, к примеру, следующий код:
+
+            function func(num) {
+            let result;
+
+            if (num >= 0) {
+            result = Math.sqrt(num);
+            } else {
+            result = 0;
+            }
+
+            return result;
+            }
+
+            alert(func(3));
+            Как вы видите, в данном коде в зависимости от условия в переменную result будет попадать либо одно, либо
+            другое
+            значение. А последней строкой функции содержимое переменной result возвращается через return.
+
+            Давайте перепишем этот код в более сокращенной форме, избавившись от ненужной здесь переменной result:
+
+            function func(num) {
+            if (num >= 0) {
+            return Math.sqrt(num);
+            } else {
+            return 0;
+            }
+            }
+
+            alert(func(3));
+            Задача 11⋕js.Pm.UF.Rt.11
+
+            Дана следующая функция:
+
+            function func(num1, num2) {
+            let result;
+
+            if (num1 > 0 && num2 > 0) {
+            result = num1 * num2;
+            } else {
+            result = num1 - num2;
+            }
+
+            return result;
+            }
+
+            alert(func(3, 4));
+            Перепишите ее в сокращенной форме согласно изученной теории.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

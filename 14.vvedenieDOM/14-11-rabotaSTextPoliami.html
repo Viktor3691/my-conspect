@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Работа с текстовыми полями в JavaScript</h2>
+
+        Сейчас мы с вами научимся получать текст от пользователей нашего сайта. Для этого в HTML предусмотрен
+        специальный тег
+        input, представляющий собой текстовое поле для ввода данных:
+
+
+        У данного тега есть специальный атрибут value, задающий начальный текст, который будет написан в инпуте по
+        заходу на
+        страницу:
+
+        <input value="text">
+        Пользователь нашего сайта после захода на страницу может поменять текст инпута. При этом, если у нас есть
+        переменная,
+        содержащая ссылку на этот инпут, то свойство value этой переменной всегда будет содержать текущее значение
+        текста
+        инпута.
+
+        Попробуем на практике. Пусть у нас инпут с атрибутом value:
+
+        <input id="elem" value="text">
+        Получим ссылку на этот инпут в переменную:
+
+        let elem = document.querySelector('#elem');
+        А теперь выведем на экран текущий текст инпута:
+
+        alert(elem.value);
+        А теперь поменяем текст инпута на другой:
+
+        elem.value = 'new text';
+        Задача 1⋕js.Pm.Dm.TF.1
+
+        Дан инпут:
+
+        <input id="elem" value="text">
+        Сделайте кнопку, нажатие на которую будет выводить текущий текст инпута. После захода на страницу нажмите на
+        кнопку,
+        чтобы увидеть текущий текст инпута, затем поредактируйте текст в инпуте и еще раз нажмите на кнопку. Убедитесь в
+        том,
+        что выведется новый текст инпута.
+
+        Задача 2⋕js.Pm.Dm.TF.2
+
+        Дан инпут и кнопка. По нажатию на кнопку запишите в инпут какой-нибудь текст.
+
+        Задача 3⋕js.Pm.Dm.TF.3
+
+        Дан инпут, абзац и кнопка. По нажатию на кнопку запишите в абзац текст из инпута.
+
+        Задача 4⋕js.Pm.Dm.TF.4
+
+        Даны два инпута и кнопка. В первый инпут пользователем вводится число. По нажатию на кнопку запишите во второй
+        инпут
+        квадрат введенного числа.
+
+        Задача 5⋕js.Pm.Dm.TF.5
+
+        Даны два инпута и кнопка. По нажатию на кнопку запишите в первый инпут значение второго инпута, а во второй
+        инпут -
+        значение первого. Ваш код должен работать универсально, для любых значений инпутов.
+
+        Задача 6⋕js.Pm.Dm.TF.6
+
+        Даны 5 инпутов, абзац и кнопка. В инпут вводятся числа. По нажатию на кнопку запишите среднее арифметическое
+        введенных
+        чисел в абзац.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

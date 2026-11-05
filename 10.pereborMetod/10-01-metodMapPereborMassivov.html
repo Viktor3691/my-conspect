@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-10-pereborMetod.html">Перебирающие методы</a>
+            <a href="10-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Метод map для перебора массива в JavaScript</h2>
+
+        В данном уроке мы с вами разберем специальный метод map, предназначенный для преобразования массивов. Этот метод
+        работает следующим образом: принимает параметром функцию-коллбэк и применяет ее для каждого элемента массива, а
+        затем
+        возвращает измененный массив.
+
+        Вот схема работы метода на примере кода:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let result = arr.map(function() {
+        // функция применится для каждого элемента массива
+        });
+        Если в коллбэке указать первый параметр (имя параметра значения не имеет), то в него автоматически будут
+        попадать
+        значения элементов массива:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let result = arr.map(function(elem) {
+        console.log(elem); // последовательно выведет 1, 2, 3, 4, 5
+        });
+        Давайте теперь разберемся, как метод map преобразует массив. В нашем случае преобразованный массив запишется в
+        переменную result. В этом массиве будет такое же количество элементов, как и в исходном, но значения элементов
+        будут
+        другими. Для каждого элемента вместо исходного значение будет стоять то значение, которое вернул для него вызов
+        коллбэка.
+
+        Полагаю, что пока не очень понятно, этому давайте смотреть на примере. Сделаем так, чтобы вызов коллбэка
+        возвращал
+        квадрат элемента, для которого он был вызван:
+
+        function(elem) {
+        return elem * elem;
+        }
+        Применим наш коллбэк для каждого элемента массива:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let result = arr.map(function(elem) {
+        return elem * elem;
+        });
+
+        console.log(result); // выведет [1, 4, 9, 16, 25]
+        Для примера давайте посмотрим, что будет, если коллбэк для каждого элемента будет возвращать одно и тоже (пусть,
+        например, число 0):
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let result = arr.map(function(elem) {
+        return 0;
+        });
+
+        console.log(result); // выведет [0, 0, 0, 0, 0]
+        Задача 1⋕js.Pm.Enm.Mp.1
+
+        Дан массив с числами. Используя метод map извлеките из каждого элемента массива квадратный корень и запишите
+        результат в
+        новый массив.
+
+        Задача 2⋕js.Pm.Enm.Mp.2
+
+        Дан массив со строками. Используя метод map в конец значению каждого элемента массива добавьте символ '!'.
+
+        Задача 3⋕js.Pm.Enm.Mp.3
+
+        Дан массив со строками. Используя метод map переверните символы каждой строки в обратном порядке.
+
+        Задача 4⋕js.Pm.Enm.Mp.4
+
+        Дан следующий массив:
+
+        let arr = ['123', '456', '789'];
+        Используя метод map преобразуйте этот массив в следующий:
+
+        let arr = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+        ];
+        Ключ элемента
+        Функция-коллбэк может также принимать второй параметр - в него JavaScript разместит ключ элемента массива.
+
+        Давайте посмотрим на примере. Пусть дан вот такой массив:
+
+        let arr = ['a', 'b', 'c', 'd', 'e'];
+        Давайте в конец каждого элемента запишем его порядковый номер в массиве:
+
+        let arr = ['a', 'b', 'c', 'd', 'e'];
+
+        let result = arr.map(function(elem, index) {
+        return elem + index;
+        });
+
+        console.log(result); // выведет ['a0', 'b1', 'c2', 'd3', 'e4']
+        Задача 5⋕js.Pm.Enm.Mp.5
+
+        Дан массив с числами. Используя метод map запишите в каждый элемент массива значение этого элемента, умноженное
+        на его
+        порядковый номер в массиве.
+
+        Перебор многомерных массивов
+        Метод map можно использовать и для перебора многомерных массивов. Пусть, к примеру, дан вот такой массив:
+
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        Давайте переберем этот массив через map и выведем его элементы в консоль:
+
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+        let result = arr.map(function(elem) {
+        console.log(elem);
+        });
+        В результате console.log выведет [1, 2, 3], потом [4, 5, 6], потом [7, 8, 9].
+
+        Как вы видите, в переменную elem попадают подмассивы. Давайте теперь применим метод map к каждому подмассиву и
+        возведем
+        каждый его элемент в квадрат:
+
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+        let result = arr.map(function(elem) {
+        return elem.map(function(num) {
+        return num * num;
+        });
+        });
+
+        console.log(result);
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

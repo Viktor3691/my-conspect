@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Function expression и Function declaration в JavaScript</h2>
+
+        После изучения предыдущего урока вы теперь знаете, что в JavaScript функцию можно объявить двумя способами.
+
+        Первый способ - это просто объявить функцию через function, сразу задав ее имя:
+
+        function func() {
+        alert('!');
+        }
+
+        func(); // выведет '!'
+        Второй способ - это сделать безымянную функцию и записать ее в какую-либо переменную:
+
+        let func = function() {
+        alert('!');
+        };
+
+        func(); // выведет '!'
+        По научному первый способ называется Function Declaration (объявление функции), а второй - Function Expression
+        (функциональное выражение).
+
+        Задача 1⋕js.Pm.FA.FDE.1
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        function func() {
+        alert('!');
+        }
+        Задача 2⋕js.Pm.FA.FDE.2
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        let func = function() {
+        alert('!');
+        }
+        Разница
+        Оба способа объявления функции эквивалентны, но есть существенная разница: функции, объявленные как Function
+        Declaration, будут доступны, даже если обратится к ним до того, как они были объявлены.
+
+        Смотрите пример:
+
+        // Обращаемся к функции до ее объявления:
+        func(); //выведет '!'
+
+        function func() {
+        alert('!');
+        }
+        А функциональные выражения создаются в момент выполнения кода и недоступны выше. Поэтому такой код выдаст
+        ошибку:
+
+        func(); //ошибка, такой функции еще нет!
+
+        let func = function() {
+        alert('!');
+        };
+        Задача 3⋕js.Pm.FA.FDE.3
+
+        Создайте функцию как Function Declaration. Проверьте то, что она будет доступна выше места своего объявления.
+
+        Задача 4⋕js.Pm.FA.FDE.4
+
+        Создайте функцию как Function Expression. Проверьте то, что она не будет доступна выше места своего объявления.
+
+        Объяснение работы Function Declaration
+        Почему функции, созданные как Function Declaration доступны до объявления?
+
+        Как вы должны уже знать, интерпретатор JavaScript обрабатывает код строка за строкой. Функции, однако, являются
+        исключениями: интерпретатор вначале пробегается по всему документу с кодом и ищет все функции, объявленные как
+        Function
+        Declaration, и только потом начинает выполнять код документа построчно.
+
+        Функции, созданные как Function Expression, создаются в тот момент, когда до них доходит интерпретатор. Поэтому
+        они и
+        недоступны выше места своего объявления.
+
+        Точка с запятой
+        При объявлении функции как Function Declaration после фигурной скобки } точка с запятой не ставится:
+
+        function func() {
+        alert('!');
+        }
+        Если же функция объявлена Function Expression, то после } ставится точка с запятой:
+
+        let func = function() {
+        alert('!');
+        };
+        Почему: потому что в JavaScript любое выражение должно заканчиваться точкой с запятой, а в данном случае у нас
+        как
+        раз-таки выражение. Эта точка с запятой не обязательна, так как JavaScript вообще разрешает их не ставить, но
+        желательна. Ставьте всегда:)
+
+        Задача 5⋕js.Pm.FA.FDE.5
+
+        Расставьте точки с запятой во всех необходимых местах:
+
+        let func1 = function() {alert('!')}
+        let func2 = function() {
+        alert('!')
+        }
+        function func3() {
+        alert('!')
+        }
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

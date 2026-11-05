@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-08-praktika_funkcii.html">Практика на функции</a>
+            <a href="08-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Дружественные числа на JavaScript</h2>
+
+        В данном уроке мы снова потренируемся в решении сложных задач с использованием вспомогательных функций.
+
+        Решим задачу на определение дружественных чисел. Числа являются дружественными, если сумма собственных делителей
+        (с
+        числом 1, но без самого числа) первого числа равна второму числу и, наоборот, сумма делителей второго числа
+        равна
+        первому.
+
+        Примером таких чисел может служить пара 220 и 284. Собственными делителями числа 220 являются следующие числа:
+        1, 2, 4,
+        5, 10, 11, 20, 22, 44, 55, 110. Сумма этих чисел 284. Собственными делителями числа 284, являются числа 1, 2, 4,
+        71, 142
+        и сумма этих чисел равна 220.
+
+        Если у нас есть два числа и сумма одного числа равна делителям другого и наоборот, то такая пара чисел
+        называется
+        дружественными.
+
+        Давайте сделаем функцию isFreindly, которая параметром будет принимать два числа и возвращать true, если числа
+        дружественные друг с другом и falsе, если нет:
+
+        function isFreindly(num1, num2) {
+        // тут будет какой-то код
+        }
+        Давайте я расскажу вам, как бы я рассуждал, решая такую задачу.
+
+        Очевидно, что задача достаточно сложная, чтобы решить ее одной только функцией isFreindly - нужны
+        вспомогательные
+        функции.
+
+        Обдумав ситуацию, я прихожу к выводу, что неплохо было бы иметь функцию getOwnDivisors, которая параметром будет
+        принимать число и возвращать массив собственных делителей этого числа:
+
+        function getOwnDivisors(num) {
+        // тут будет какой-то код
+        }
+        Также было бы неплохо иметь функцию getSum, которая параметром будет принимать массив и возвращать сумму
+        элементов этого
+        массива:
+
+        function getSum(num) {
+        // тут будет какой-то код
+        }
+        Имея описанные функции, я легко смогу найти сумму делителей любого числа:
+
+        let sum1 = getSum(getOwnDivisors(220));
+        let sum2 = getSum(getOwnDivisors(284));
+        Со вспомогательными функциями написать код функции isFreindly не составит труда:
+
+        function isFreindly(num1, num2) {
+        let sum1 = getSum(getOwnDivisors(num1));
+        let sum2 = getSum(getOwnDivisors(num2));
+
+        if (sum1 == num2 && sum2 == num1) {
+        return true;
+        } else {
+        return false;
+        }
+        }
+
+        function getOwnDivisors(num) {
+        // тут будет какой-то код
+        }
+
+        function getSum(arr) {
+        // тут будет какой-то код
+        }
+        Задача 1⋕js.Pm.FP.FrNm.1
+
+        Реализуйте функцию getOwnDivisors. Потестируйте ее работу.
+
+        Задача 2⋕js.Pm.FP.FrNm.2
+
+        Реализуйте функцию getSum. Потестируйте ее работу.
+
+        Задача 3⋕js.Pm.FP.FrNm.3
+
+        Проверьте работу функции isFreindly.
+
+        Задача 4⋕js.Pm.FP.FrNm.4
+
+        Сделайте функцию getFreindly, которая будет находить пары дружественных чисел в заданном промежутке и возвращать
+        их в
+        виде двухмерного массива вида следующего вида:
+
+        [ [220, 284], [1184, 1210], [2620, 2924] ]
+        С помощью созданной функции найдите все пары дружественных чисел на промежутке от 1 до 3000.
+
+        Задача 5⋕js.Pm.FP.FrNm.5
+
+        Совершенное число - целое число, равное сумме всех своих собственных делителей (то есть всех положительных
+        делителей,
+        отличных от самого числа). Сделайте функцию getPerfect, которая будет находить совершенные числа в заданном
+        диапазоне.
+        Проверьте работу функции в промежутке от 1 до 1000.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

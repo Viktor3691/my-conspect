@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Работа с рекурсией в JavaScript</h2>
+
+        В программировании есть такое понятие, как рекурсия - это когда функция вызывает сама себя. Давайте посмотрим на
+        примере. Выведем с помощью рекурсии числа от 1 до 10:
+
+        let i = 1;
+
+        function func(){
+        console.log(i);
+        i++;
+
+        if (i <= 10){ func(); // здесь функция вызывает сама себя } } func(); Давайте обсудим, как работает этот код. У
+            нас есть глобальная переменная i и функция func, внутри которой в консоль выводится содержимое переменной i,
+            а затем делается ++. Если наша переменная i меньше или равна 10, то функция вызывается повторно. Так как
+            переменная i - глобальная, то при каждом новом вызове функции в ней будет заданное при предыдущем вызове
+            значение переменной i. Получится, что функция будет вызывать сама себя до тех пор, пока i не станет больше
+            10. Учтите, что в нашем случае нельзя функцию запустить без if - если это сделать, то получится бесконечный
+            вызов функций. Пример с параметром Давайте, с помощью рекурсии последовательно выведем элементы массива.
+            Пусть массив изначально передается параметрам функции: func([1, 2, 3]); Давайте пока без рекурсии используя
+            метод shift выведем все элементы массива по очереди: function func(arr) { console.log(arr.shift()); //
+            выведет 1 console.log(arr); // выведет [2, 3] - массив уменьшился console.log(arr.shift()); // выведет 2
+            console.log(arr); // выведет [3] - массив уменьшился console.log(arr.shift()); // выведет 3
+            console.log(arr); // выведет [] - массив пуст } func([1, 2, 3]); Как вы видите, метод shift вырезает и
+            возвращает первый элемент массива, при этом сам массив уменьшается на этот элемент. Давайте теперь
+            используем рекурсию: function func(arr) { console.log(arr.shift(), arr); if (arr.length !=0) { func(arr); }
+            } func([1, 2, 3]); На самом деле, конечно же, проще всего перебрать элементы массива циклом. Приведенные
+            примеры пока просто демонстрируют работу рекурсии на простых примерах (не жизненных). Более полезные примеры
+            применения рекурсии просто более сложные, мы их разберем чуть ниже. Задача 1⋕js.Pm.FA.Rc.1 Дан массив: let
+            arr=[1, 2, 3, 4, 5]; С помощью рекурсии выведите элементы этого массива на экран. Сумма элементов массива
+            Давайте теперь не будем выводить элементы массива на экран, а найдем сумму элементов этого массива: function
+            getSum(arr) { let sum=arr.shift(); if (arr.length !==0) { sum +=getSum(arr); } return sum; }
+            console.log(getSum([1, 2, 3])); Задача 2⋕js.Pm.FA.Rc.2 Дан массив: let arr=[1, 2, 3, 4, 5]; С помощью
+            рекурсии найдите сумму квадратов элементов этого массива. </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2></h2>
+        <!DOCTYPE html>
+        <html lang="ru">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Запуск JavaScript — конспект</title>
+            <link rel="stylesheet" href="../css/styles.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+                rel="stylesheet">
+        </head>
+
+        <body data-gmT="D" data-mType="L">
+
+            <header data-w="nict/mainmenu">
+                <span data-e="head">Мой конспект по JavaScript</span>
+                <div data-e="subb">
+                    <a href="../index.html">Оглавление</a>
+                    <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+                    <a href="09-.html"># of 312</a>
+                </div>
+                <div data-e="subb">
+                    <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+                    <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+                </div>
+
+            </header>
+
+            <div data-w="nict/them">
+                <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+                    Тёмная</button>
+                <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+                    Светлая</button>
+            </div>
+
+            <main data-w="cont/pane">
+
+                <h2>Замыкания в JavaScript</h2>
+
+                Давайте теперь изучим понятие замыкание (англ. closure). На самом деле вы уже знакомы с этим понятием,
+                осталось только
+                узнать правильную терминологию.
+
+                Итак, замыкание - это функция вместе со всеми внешними переменными, которые ей доступны. Или, другими
+                словами, замыкание
+                - это функция вместе со своим лексическим окружением.
+
+                В JavaScript чаще всего, говоря "замыкание функции", имеют ввиду не саму эту функцию, а именно ее
+                внешние переменные.
+                Если же какая-то функция получает переменную из своего лексического окружения, то говорят "переменная
+                берется из
+                замыкания".
+
+                Вспомним код, который мы сделали в предыдущем уроке:
+
+                function test() {
+                let num = 1;
+
+                return function() {
+                alert(num);
+                }
+                }
+
+                let func = test();
+                func(); // выведет 1
+                В данном случае и можно сказать, что функция func получает значение переменной num из замыкания. Также
+                можно сказать,
+                что функция func хранит значение переменной num в замыкании.
+
+                Счетчик на замыканиях
+                Давайте перепишем рассмотренный нами код так, чтобы возвращаемая функция каждый раз увеличивала значение
+                переменной num
+                на единицу:
+
+                function test() {
+                let num = 1;
+
+                return function() {
+                alert(num);
+                num++; // прибавляем единицу
+                }
+                }
+
+                let func = test();
+                Получится, что каждый вызов функции func будет выводить на экран новое значение:
+
+                function test() {
+                let num = 1;
+
+                return function() {
+                alert(num);
+                num++;
+                }
+                }
+
+                let func = test();
+
+                func(); //выведет 1
+                func(); //выведет 2
+                func(); //выведет 3
+                func(); //выведет 4
+                func(); //выведет 5
+                Получается, что мы реализовали счетчик вызова функций, используя замыкание (точнее используя переменную
+                num из замыкания
+                нашей функции).
+
+                Учтите, что каждый вызов функции test будет возвращать новую функцию, у которой будет свое замыкание. То
+                есть разные
+                счетчики будут работать независимо:
+
+                function test() {
+                let num = 1;
+
+                return function() {
+                alert(num);
+                num++;
+                };
+                };
+
+                let func1 = test(); // первый счетчик
+                func1(); //выведет 1
+                func1(); //выведет 2
+
+                let func2 = test(); // второй счетчик
+                func2(); //выведет 1
+                func2(); //выведет 2
+                Получается, что одна и та же переменная num для разных функций будет иметь разное значение!
+
+                То есть если мы вызовем функцию test два раза, то полученные из нее функции будут работать независимым
+                образом и каждая
+                из этих функций будет иметь свою независимую переменную num.
+
+                Задача 1⋕js.Pm.FA.Cls.1
+
+                Самостоятельно, не подсматривая в мой код, реализуйте счетчик вызова функции, работающий на замыканиях.
+
+                Задача 2⋕js.Pm.FA.Cls.2
+
+                Пусть функция в замыкании хранит число 10. Сделайте так, чтобы каждый вызов функции уменьшал это число
+                на 1 и выводил на
+                экран уменьшенное число.
+
+                Задача 3⋕js.Pm.FA.Cls.3
+
+                Модифицируйте предыдущую задачу так, чтобы отсчет доходил до 0, а затем каждый последующий вызов функции
+                выводил на
+                экран сообщение о том, что отсчет окончен.
+
+                Нюанс
+                Рассмотрим следующий код:
+
+                function test() {
+                let num = 1;
+
+                return function() {
+                alert(num);
+                num++;
+                };
+                };
+
+                test()(); //выведет 1
+                test()(); //выведет 1
+                Почему всегда будет выводится число 1? Для того, чтобы понять это, перепишем наш код по другому:
+
+                function test() {
+                let num = 1;
+
+                return function() {
+                alert(num);
+                num++;
+                };
+                };
+
+                let func1 = test(); // первая функция
+                func1(); //выведет 1
+
+                let func2 = test(); // вторая функция
+                func2(); //выведет 1
+                То есть каждый вызов функции test таким образом: test()(), создает свою функцию со своим замыканием и
+                сразу же вызывает
+                эту функцию.
+
+                Задача 4⋕js.Pm.FA.Cls.4
+
+                Определите, не запуская код, что выведется на экран:
+
+                function func() {
+                let num = 0;
+
+                return function() {
+                alert(num);
+                num++;
+                };
+                };
+
+                func()();
+                func()();
+                func()();
+                Задача 5⋕js.Pm.FA.Cls.5
+
+                Определите, не запуская код, что выведется на экран:
+
+                function func() {
+                let num = 0;
+
+                return function() {
+                alert(num);
+                num++;
+                };
+                };
+
+                let test = func;
+
+                test()();
+                test()();
+                test()();
+                Нюанс
+                Вынесем переменную num за функции, тем самым сделав ее глобальной:
+
+                let num = 1; // глобальная переменная
+
+                function test() {
+                return function() {
+                alert(num);
+                num++;
+                };
+                };
+                В этом случае все возвращаемые функции будут изменять эту глобальную переменную и счетчики будут
+                работать уже зависимо
+                друг от друга:
+
+                let num = 1;
+
+                function test() {
+                return function() {
+                alert(num);
+                num++;
+                };
+                };
+
+                let func1 = test(); // первый счетчик
+                func1(); //выведет 1
+                func1(); //выведет 2
+
+                let func2 = test(); // второй счетчик
+                func2(); //выведет 3
+                func2(); //выведет 4
+                Почему же наш предыдущий код делал независимые счетчики? Напомню этот код:
+
+                function test() {
+                let num = 1;
+
+                return function() {
+                alert(num);
+                num++;
+                };
+                };
+                Дело в том, что переменная num - локальная внутри функции test. Поэтому каждый вызов test порождает свою
+                локальную
+                переменную.
+
+                Поэтому возвращаемые функции будут ссылаться каждая на свою локальную переменную функции test. Именно
+                так и достигается
+                независимость работы.
+
+                Если же сделать num глобальной переменной - это тоже будет замыканием. Просто лексические окружения
+                возвращаемых функций
+                ссылаются на одну и ту же переменную num - любые изменения с этой переменной будут видны во всех
+                функциях.
+
+                Задача 6⋕js.Pm.FA.Cls.6
+
+                Определите, не запуская код, что выведется на экран:
+
+                let counter = 0;
+
+                function test() {
+                return function() {
+                alert(counter);
+                counter++;
+                };
+                };
+
+                let func = test;
+
+                let func1 = func();
+                let func2 = func();
+                func1();
+                func2();
+                func1();
+                func2();
+                Задача 7⋕js.Pm.FA.Cls.7
+
+                Определите, не запуская код, что выведется на экран:
+
+                function test() {
+                let counter = 0;
+
+                return function() {
+                return function() {
+                alert(counter);
+                counter++;
+                };
+                };
+                };
+
+                let func = test()();
+
+                let func1 = func;
+                let func2 = func;
+                func1();
+                func2();
+                func1();
+                func2();
+                Задача 8⋕js.Pm.FA.Cls.8
+
+                Определите, не запуская код, что выведется на экран:
+
+                function test() {
+                let counter = 0;
+
+                return function() {
+                return function() {
+                alert(counter);
+                counter++;
+                };
+                };
+                };
+
+                let func = test();
+
+                let func1 = func();
+                let func2 = func();
+                func1();
+                func2();
+                func1();
+                func2();
+
+
+
+
+            </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+        </body>
+
+        </html>
+
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Именованные функциональные выражения в JavaScript</h2>
+
+        Пусть у нас есть вот такое функциональное выражение:
+
+        let test = function() {
+        alert('!');
+        };
+
+        test(); // выведет '!'
+        Давайте нашей функции дадим имя func:
+
+        let test = function func() {
+        alert('!');
+        };
+
+        test();
+        Как вы уже знаете, по этому имени не обратиться к функции:
+
+        let test = function func() {
+        alert('!');
+        };
+
+        test(); // выведет '!'
+        func(); // выдаст ошибку
+        Зачем же давать имя функции, если оно не будет доступно? Дело в том, что это имя будет недоступно снаружи
+        функции, но
+        доступно внутри этой функции.
+
+        Давайте проверим:
+
+        let test = function func() {
+        alert(func); // функция выведет свой же исходный код
+        };
+
+        test(); // вызываем функцию
+        Давайте вызовем нашу функцию внутри нее самой:
+
+        let test = function func() {
+        alert('!'); // выводим '!'
+        func(); // вызываем сами себя
+        };
+
+        test();
+        Если запустить данный код, то на экран будет выводится бесконечное количество алертов.
+
+        На самом деле наша функция может быть вызвана внутри себя не только как func, но и как test:
+
+        let test = function func() {
+        alert('!');
+        test(); // вызываем сами себя
+        };
+
+        test();
+        В чем же разница? Разница в том, что имя test - это просто переменная. В процессе работы скрипта наша функция
+        может
+        записаться в другую переменную или предаться параметром - в этом случае связь между переменной test и функцией
+        может
+        пропасть.
+
+        Имя func же жестко привязано к функции специально для того, чтобы можно было обратиться к нашей функции внутри
+        нее
+        самой.
+
+        Такие Function Expression с именем функции называются именованными функциональными выражениями.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

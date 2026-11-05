@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Функция как переменная в JavaScript</h2>
+
+        Итак, в предыдущем уроке мы с вами выяснили, что обратившись к функции без круглых скобок, мы получаем ее
+        исходный код.
+
+        На самом деле все намного интереснее. В JavaScript, в отличие от других языков, функции являются такими же
+        значениями
+        переменных, как числа, строки и массивы.
+
+        Давайте посмотрим на примере. Пусть у нас есть, например, функция func:
+
+        function func() {
+        alert('!');
+        }
+        На самом деле у нас нет функции func. У нас есть переменная func, хранящая в себе исходный код функции.
+
+        Мы можем, к примеру, затереть переменную func чем-нибудь другим, например, строкой. В этом случае функция func
+        больше не
+        будет функцией, а будет строкой. Смотрите на примере:
+
+        function func() {
+        alert('!');
+        }
+        func(); // выведет '!'
+
+        func = 'string'; // затрем переменную func
+        alert(func); // выведет 'string'
+        Задача 1⋕js.Pm.FA.FAV.1
+
+        Сделайте функцию func, которая будет возвращать через return какую-либо строку.
+
+        Задача 2⋕js.Pm.FA.FAV.2
+
+        Выведите результат работы функции func алертом на экран.
+
+        Задача 3⋕js.Pm.FA.FAV.3
+
+        Выведите исходный код функции func алертом на экран.
+
+        Задача 4⋕js.Pm.FA.FAV.4
+
+        Запишите в переменную func число 123, тем самым затерев функцию из этой переменной. Выведите новое значение
+        переменной
+        func на экран.
+
+        Запись функции в другую переменную
+        Пусть у нас есть наша функция func:
+
+        function func() {
+        alert('!');
+        }
+        Давайте скопируем ее исходный код в переменную test:
+
+        function func() {
+        alert('!');
+        }
+
+        let test = func; // теперь test такая же функция, как и func
+
+        // Проверим:
+        test(); //выведет '!'
+        func(); //выведет '!'
+        Задача 5⋕js.Pm.FA.FAV.5
+
+        Сделайте функцию func1, которая будет возвращать через return число 3.
+
+        Задача 6⋕js.Pm.FA.FAV.6
+
+        Скопируйте исходный код функции func1, в переменную func2.
+
+        Задача 7⋕js.Pm.FA.FAV.7
+
+        Выведите на экран сумму результатов работы функций func1 и func2.
+
+        Присваивание функций в переменные при создании
+        Итак, мы с вами уже выяснили, что название функции и ее исходный код отделены друг от друга. Поэтому в
+        JavaScript
+        существует альтернативный синтаксис для создания функции: создается функция без имени и присваивается в
+        какую-нибудь
+        переменную. Эта переменная и становится именем функции.
+
+        Давайте посмотрим на примере:
+
+        let func = function() {
+        alert('!');
+        };
+
+        func(); // выведет '!'
+        Задача 8⋕js.Pm.FA.FAV.8
+
+        Сделайте безымянную функцию, которая будет возвращать через return число 1. Запишите эту функцию в переменную
+        func1.
+
+        Задача 9⋕js.Pm.FA.FAV.9
+
+        Сделайте безымянную функцию, которая будет возвращать через return число 2. Запишите эту функцию в переменную
+        func2.
+
+        Задача 10⋕js.Pm.FA.FAV.10
+
+        Найдите сумму значений функций func1 и func2. Выведите эту сумму алертом на экран.
+
+        Важный нюанс
+        Из описанного выше следует, что существование переменной и функции с одинаковым именем легко может привести к
+        проблеме.
+
+        В следующем примере функция func будет затерта и вместо нее станет строка 'string':
+
+        function func() {
+        return '!';
+        }
+
+        func = 'string'; // затрем переменную с функцией строкой
+        func(); // получим ошибку, тк func - не функция
+        Чтобы такого не происходило, следует придерживаться правила, общего для всех языков программирования: функции
+        должны
+        быть глаголами, а переменные - существительными.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

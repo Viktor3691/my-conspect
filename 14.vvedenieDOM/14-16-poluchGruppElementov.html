@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Получение группы элементов</h2>
+
+        В предыдущих уроках мы вами с помощью метода querySelector получали один элемент страницы. Теперь пришло время
+        научится
+        получать группу элементов и проделывать какие-нибудь операции сразу со многими элементами.
+
+        Для этого существует метод querySelectorAll, получающий все теги, подпадающие под CSS селектор, в виде массива
+        элементов. Чтобы сделать что-нибудь с найденными элементами, нужно поработать с полученным массивом, например,
+        перебрать
+        его циклом и в цикле выполнить какую-либо операцию с каждым элементом по отдельности.
+
+        Пусть, к примеру, у нас даны абзацы с классом www:
+
+        <p class="www">text1</p>
+        <p class="www">text2</p>
+        <p class="www">text3</p>
+        Давайте получим массив этих абзацев, переберем их циклом и в цикле выведем тексты найденных абзацев в консоль:
+
+        let elems = document.querySelectorAll('.www');
+
+        for (let elem of elems) {
+        console.log(elem.innerHTML);
+        }
+        А теперь давайте в конец текста каждого абзаца добавим восклицательный знак:
+
+        let elems = document.querySelectorAll('.www');
+
+        for (let elem of elems) {
+        elem.innerHTML = elem.innerHTML + '!';
+        }
+        Задача 1⋕js.Pm.Dm.EGG.1
+
+        Даны абзацы и кнопка. По нажатию на кнопку найдите все абзацы, переберите из циклом и установите текст каждого
+        абзаца в
+        значение 'text'.
+
+        Задача 2⋕js.Pm.Dm.EGG.2
+
+        Даны абзацы с текстом и кнопка. По нажатию на кнопку запишите в конец текста каждого абзаца его порядковый
+        номер.
+
+        Задача 3⋕js.Pm.Dm.EGG.3
+
+        Даны инпуты с числами, абзац и кнопка. По нажатию на кнопку найдите сумму чисел из инпутов и запишите эту сумму
+        в текст
+        абзаца.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

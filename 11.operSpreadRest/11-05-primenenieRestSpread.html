@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-11-operSpreadRest.html">Операторы spread и rest</a>
+            <a href="11-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Применение операторов rest и spread в JavaScript</h2>
+
+        Функция, находящая сумму чисел
+        Давайте напишем функцию, которая будет принимать параметрами произвольное количество чисел и возвращать их
+        сумму.
+
+        Вот примеры работы нашей функции:
+
+        console.log( func(1, 2, 3) ); // выведет 6
+        console.log( func(1, 2, 3, 4) ); // выведет 10
+        console.log( func(1, 2, 3, 4, 5) ); // выведет 15
+        Для начала давайте сделаем так, чтобы все переданные параметрами числа попадали в массив:
+
+        function func(...nums) {
+        console.log(nums);
+        }
+
+        func(1, 2, 3); // выведет [1, 2, 3]
+        А теперь запустим цикл по переданному массиву и найдем сумму переданных чисел:
+
+        function func(...nums) {
+        let sum = 0;
+
+        for (let num of nums) {
+        sum += num;
+        }
+
+        return sum;
+        }
+
+        let result = func(1, 2, 3);
+        console.log(result); // выведет 6
+        Задача 1⋕js.Pm.Osr.SRAp.1
+
+        Напишите функцию, которая будет принимать параметрами произвольное количество чисел и возвращать их среднее
+        арифметическое (сумма делить на количество).
+
+        Функция, сливающая массивы в двухмерный
+        Давайте сделаем функцию unite, которая параметрами будет принимать произвольное количество массивов и сливать их
+        в один
+        двухмерный.
+
+        Вот пример работы описанной функции:
+
+        let result = unite([1, 2, 3], [4, 5, 6], [7, 8, 9]);
+        console.log(result); // выведет [ [1, 2, 3,] [4, 5, 6], [7, 8, 9] ]
+        Не смотря на достаточную сложность функции, ее реализация с помощью оператора rest будет очень лаконичной:
+
+        function unite(...arrs) {
+        return arrs;
+        }
+        Функция, сливающая массивы в один
+        Давайте теперь реализуем функцию merge, параметрами принимающую произвольное количество массивов и сливающую их
+        элементы
+        в один массив.
+
+        Вот пример работы нашей функции:
+
+        let result = merge([1, 2, 3], [4, 5, 6], [7, 8, 9]);
+        console.log(result); // выведет [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        Приступим к реализации. Давайте для начала получим переданные массивы в виде одного двухмерного:
+
+        merge([1, 2, 3], [4, 5, 6], [7, 8, 9]);
+
+        function merge(...arrs){
+        console.log(arrs); // выведет [ [1, 2, 3,] [4, 5, 6], [7, 8, 9] ]
+        }
+        Давайте теперь сольем этот двухмерный массив в одномерный. Используем для этого метод concat и оператор spread:
+
+        let arrs = [ [1, 2, 3,] [4, 5, 6], [7, 8, 9] ];
+
+        let result = [].concat(...arrs);
+        console.log(result); // выведет [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        Давайте добавим этот код в нашу функцию merge:
+
+        function merge(...arrs) {
+        return [].concat(...arrs);
+        }
+
+        let result = merge([1, 2, 3], [4, 5, 6], [7, 8, 9]);
+        console.log(result); // выведет [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        Как вы видите, эта функция также получилась очень лаконичной.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

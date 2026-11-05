@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Замыкания и вызов функции на месте в JavaScript</h2>
+
+        Как вы уже знаете, можно вызвать анонимную функцию на месте и присвоить результат работы какой-либо переменной:
+
+        let result = function() {
+        return '!';
+        }();
+
+        alert(result); // выведет '!'
+        Часто функцию, вызывающуюся на месте, в таком случае берут в круглые скобки, хотя в этом и нет нужды. Это
+        делается для
+        того, чтобы сразу было видно, что функция вызывается на месте:
+
+        let result = (function() {
+        return '!';
+        })();
+
+        alert(result); // выведет '!'
+        Пусть теперь результатом вызванной на месте функции будет анонимная функция:
+
+        let func = (function() {
+        return function() {
+        alert('!');
+        }
+        })();
+
+        func(); // выведет '!'
+        Давайте сделаем так, чтобы возвращаемая функция хранила в замыкании переменную num:
+
+        let func = (function() {
+        let num = 1;
+
+        return function() {
+        alert(num);
+        }
+        })();
+        Если добавить еще num++, то функция func станет готовым счетчиком:
+
+        let func = (function() {
+        let num = 1;
+
+        return function() {
+        alert(num);
+        num++;
+        }
+        })();
+
+        func(); //выведет 1
+        func(); //выведет 2
+        func(); //выведет 3
+        func(); //выведет 4
+        func(); //выведет 5
+        Задача 1⋕js.Pm.FA.CIIFE.1
+
+        Не подсматривая в мой код, самостоятельно реализуйте такой же счетчик.
+
+        Задача 2⋕js.Pm.FA.CIIFE.2
+
+        Модифицируйте работу счетчика так, чтобы он считал до 5, а потом отсчет начинался сначала.
+
+        Сравнение с предыдущим способом
+        Давайте сравним наш счетчик со счетчиком на замыканиях, который мы делали ранее:
+
+        function test() {
+        let num = 1;
+
+        return function() {
+        alert(num);
+        num++;
+        }
+        }
+
+        let func = test();
+
+        func(); //выведет 1
+        func(); //выведет 2
+        func(); //выведет 3
+        func(); //выведет 4
+        func(); //выведет 5
+        Как вы видите, наш новый способ проще: в переменную сразу попадает готовый счетчик, в отличие от старого
+        способа, в
+        котором у нас появляется дополнительная функция test. Кроме того, в старом способе можно создать несколько
+        счетчиков:
+
+        function test() {
+        let num = 1;
+
+        return function() {
+        alert(num);
+        num++;
+        };
+        };
+
+        let func1 = test(); // первый счетчик
+        func1(); //выведет 1
+        func1(); //выведет 2
+
+        let func2 = test(); // второй счетчик
+        func2(); //выведет 1
+        func2(); //выведет 2
+        В новом способе получится только один уникальный счетчик. Если вам действительно нужен только один счетчик, то
+        удобно
+        использовать новый способ: так вы обезопасите себя от случайного создания нескольких счетчиков.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

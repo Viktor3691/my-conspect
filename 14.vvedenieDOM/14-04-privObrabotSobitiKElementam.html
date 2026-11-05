@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Привязывание обработчиков событий к элементам</h2>
+
+        Давайте теперь научим наши DOM элементы реагировать на действия пользователя сайта. Например, пользователь
+        нажмет
+        куда-либо мышкой, а наш код в ответ должен будет обработать это нажатие и вывести на экран какую-либо
+        информацию.
+
+        Действия пользователя, которые мы можем отследить через JavaScript, называются событиями. События могут быть
+        следующими:
+        клик мышкой на элемент страницы, наведение мышкой на элемент страницы или наоборот - уход курсора мыши с
+        элемента и так
+        далее. Кроме того, есть события, не зависящие от действий пользователя, например, событие по загрузке HTML
+        страницы в
+        браузер.
+
+        Давайте для примера сделаем кнопку, по нажатию на которую на экран алертом выведется какой-то текст. Для начала
+        сделаем
+        HTML код кнопки:
+
+        <input id="button" type="submit">
+        Получим теперь ссылку на кнопку в переменную:
+
+        let button = document.querySelector('#button');
+        Теперь нам необходимо задать реакцию нашей кнопки при клике по ней. Для этого в JavaScript существует
+        специальный метод
+        addEventListener, первым параметром принимающий название события (клик на кнопку имеет название 'click'), а
+        вторым
+        параметром - функцию-коллбэк, выполняющуюся при возникновении этого события.
+
+        Давайте, например, по клику на кнопку выведем какой-нибудь текст:
+
+        button.addEventListener('click', function() {
+        alert('!!!');
+        });
+        Задача 1⋕js.Pm.Dm.EHB.1
+
+        Даны 3 кнопки:
+
+        <input id="button1" type="submit">
+        <input id="button2" type="submit">
+        <input id="button3" type="submit">
+        Сделайте так, чтобы по клику на первую кнопку на экран выводилось число 1, по клику на вторую - число 2, а по
+        клику на
+        третью - число 3.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-08-praktika_funkcii.html">Практика на функции</a>
+            <a href="08-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Счастливые билеты любой длины на JavaScript</h2>
+
+        В предыдущем уроке мы с вами решили задачу на нахождение всех счастливых чисел. Давайте теперь обобщим наш код
+        так,
+        чтобы в билете было не 6 цифр, а любое заданное количество.
+
+        Теперь уже я не буду писать весь код за вас, а буду говорить, какие функции нам будут нужны, как мы ими будем
+        пользоваться, а сам код функций вы напишите самостоятельно.
+
+        Итак, приступим.
+
+        Функция isLucky
+        В предыдущем уроке у нас была функция isLucky, которая параметром принимала число, нормализовала его с помощью
+        вспомогательной функции normalizeNum, находила суммы цифр и проверяла равенства сумм:
+
+        function isLucky(num) {
+        let str = normalizeNum(num);
+
+        let sum1 = Number(str[0]) + Number(str[1]) + Number(str[2]);
+        let sum2 = Number(str[3]) + Number(str[4]) + Number(str[5]);
+
+        return sum1 == sum2;
+        }
+        Сейчас я предлагаю вынести нормализацию за функцию. Пусть isLucky параметром принимает уже нормализованное число
+        (то
+        есть строку, дополненную при необходимости нулями спереди).
+
+        Давайте считать, что в функцию всегда будет передаваться число с любым четным количеством цифр. Наша функция
+        должна
+        взять первую половину цифр, найти их сумму, затем взять вторую половину цифр, найти их сумму, а затем проверить
+        равенство сумм.
+
+        Вот примеры того, как мы можем пользоваться нашей функцией:
+
+        console.log(isLucky('1203'));
+        console.log(isLucky('012003'));
+        console.log(isLucky('123006'));
+        console.log(isLucky('33'));
+        Задача 1⋕js.Pm.FP.ALLT.1
+
+        Реализуйте описанную функцию. Потестируйте ее работу.
+
+        Функция normalizeNum
+        Давайте теперь доработаем функцию normalizeNum, чтобы она работала с числами произвольной длины, а не только с
+        6-тью
+        цифрами.
+
+        Напомню код этой функции, созданный нами в предыдущем уроке:
+
+        function normalizeNum(num) {
+        let str = String(num);
+
+        if (str.length == 5) {
+        str = '0' + str;
+        }
+        if (str.length == 4) {
+        str = '00' + str;
+        }
+
+        return str;
+        }
+        Как вы видите, функция просто проверяла длину строки и, если длина была 5, то добавляла спереди один ноль, а
+        если длина
+        была 4 - то два нуля.
+
+        Давайте теперь будем передавать вторым параметром количество цифр, которое должно быть в билете. К примеру, если
+        мы
+        передадим 4, то в билете должно быть 4 цифры и, если их меньше, то наше число будет спереди дополнятся нулями
+        так, чтобы
+        цифр стало 4.
+
+        Вот примеры того, как наша функция будет дополнять до 4-х цифр:
+
+        console.log(normalizeNum(1, 4)); // выведет '0001'
+        console.log(normalizeNum(12, 4)); // выведет '0012'
+        console.log(normalizeNum(123, 4)); // выведет '0123'
+        console.log(normalizeNum(1234, 4)); // выведет '1234'
+        А вот примеры того, как наша функция будет дополнять до 6-ти цифр:
+
+        console.log(normalizeNum(123, 6)); // выведет '000123'
+        console.log(normalizeNum(1234, 6)); // выведет '001234'
+        console.log(normalizeNum(12345, 6)); // выведет '012345'
+        console.log(normalizeNum(123456, 6)); // выведет '123456'
+        Аналогично можно привести примеры дополнения до 8-ми цифр, до 10 цифр, и так далее.
+
+        Наша функция normalizeNum будет выглядеть примерно вот так:
+
+        function normalizeNum(num, digitsAmount) {
+        let str = String(num);
+
+        // код, дополняющий количество цифр
+        // нулями до количества из digitsAmount
+
+        return str;
+        }
+        Для реализации функции normalizeNum было бы неплохо иметь функцию, которая будет формировать строку, заполненную
+        нужным
+        количеством нулей.
+
+        Пусть эта функция будет называться formStr. Посмотрим на ожидаемые нами примеры ее работы:
+
+        console.log( formStr('0', 4) ); // выведет '0000'
+        console.log( formStr('0', 3) ); // выведет '000'
+        console.log( formStr('0', 2) ); // выведет '00'
+        console.log( formStr('0', 1) ); // выведет '0'
+        console.log( formStr('0', 0) ); // выведет ''
+        Если бы у нас была такая функция, то сделать функцию normalizeNum не составило бы труда - мы бы сделали ее вот
+        так:
+
+        function normalizeNum(num, digitsAmount) {
+        let str = String(num);
+        return formStr('0', digitsAmount - str.length) + str;
+        }
+        Задача 2⋕js.Pm.FP.ALLT.2
+
+        Объясните работу следующей строки функции normalizeNum:
+
+        return formStr('0', digitsAmount - str.length) + str;
+        Задача 3⋕js.Pm.FP.ALLT.3
+
+        Вот так будет выглядеть наша функция formStr:
+
+        function formStr(data, length) {
+        // какой-то код
+        }
+        Допишите недостающий код функции formStr. Потестируйте ее работу.
+
+        Задача 4⋕js.Pm.FP.ALLT.4
+
+        Возьмите код функции normalizeNum:
+
+        function normalizeNum(num, digitsAmount) {
+        let str = String(num);
+        return formStr('0', digitsAmount - str.length) + str;
+        }
+        Возьмите написанную вами функцию formStr и потестируйте работу функции normalizeNum, например, вот так:
+
+        function normalizeNum(num, digitsAmount) {
+        let str = String(num);
+        return formStr('0', digitsAmount - str.length) + str;
+        }
+
+        function formStr(data, length) {
+        // написанный вами код
+        }
+
+        console.log(normalizeNum(123, 6)); // выведет '000123'
+        console.log(normalizeNum(1234, 6)); // выведет '001234'
+        console.log(normalizeNum(12345, 6)); // выведет '012345'
+        console.log(normalizeNum(123456, 6)); // выведет '123456'
+        Задача 5⋕js.Pm.FP.ALLT.5
+
+        Потестируйте совместную работу функций normalizeNum и isLucky, например, вот так:
+
+        console.log(isLucky(normalizeNum(1203, 4))); // выведет true
+        console.log(isLucky(normalizeNum(312, 4))); // выведет true
+
+        console.log(isLucky(normalizeNum(6123, 6))); // выведет true
+        console.log(isLucky(normalizeNum(600123, 6))); // выведет true
+
+        console.log(isLucky(normalizeNum(700123, 6))); // выведет false
+        console.log(isLucky(normalizeNum(70123, 6))); // выведет false
+        Функция getLuckyTickets
+        Вспомним теперь код функции getLuckyTickets:
+
+        function getLuckyTickets() {
+        let result = [];
+
+        for (let i = 1001; i <= 999999; i++) { if (isLucky(i)) { result.push(i); } } return result; } Мы вызывали данную
+            функцию вот так: console.log(getLuckyTickets()); Давайте теперь будем при вызове функции передавать в нее
+            параметром количество цифр в билетах: console.log(getLuckyTickets(4)); // ищем билеты с 4-мя цифрами Пусть
+            передаваемое число попадает в параметр digitsAmount: function getLuckyTickets(digitsAmount) { // какой-то
+            код } Теперь перед нами встает некоторая проблема. Посмотрите внимательно на цикл из нашей функции: for (let
+            i=1001; i <=999999; i++) { } Как вы видите, цикл крутится от числа 1001 до числа 999999. Эти числа, однако,
+            соответствуют той ситуации, когда у нас 6 цифр в билете. Если количество цифр в билете будет иным, то и
+            начало и конец цикла должны быть другими. Конец цикла получить легко: там должно быть digitsAmount девяток.
+            То есть для 6-ти цифр в билете там будет 6 девяток, для 4-х цифр в билете там будет 4 девятки и так далее. С
+            началом цикла сложнее. Давайте для начала выпишем соответствия между количеством цифр в билете и началом
+            цикла: 4 - 101, 6 - 1001, 8 - 10001, 10 - 100001 и так далее. Самостоятельно определите логику, по которой
+            формируются данные числа. Задача 6⋕js.Pm.FP.ALLT.6 Сделайте функцию getLast, которая параметром будет
+            принимать число цифр в билете и возвращать число, соответствующее концу цикла. Потестируйте эту функцию на
+            различных значениях. Задача 7⋕js.Pm.FP.ALLT.7 Сделайте функцию getFirst, которая параметром будет принимать
+            число цифр в билете и возвращать число, соответствующее началу цикла. Потестируйте эту функцию на различных
+            значениях. Функция getLuckyTickets Давайте теперь, имея функции getFirst и getLast, перепишем цикл внутри
+            функции getLuckyTickets так, чтобы начало и конец цикла зависели от количества цифр в билете: function
+            getLuckyTickets(digitsAmount) { let result=[]; let first=getFirst(digitsAmount); let
+            last=getLast(digitsAmount); for (let i=first; i <=last; i++) { // тут будет какой-то код } return result; }
+            Напишем теперь код внутри цикла, используя там функции normalizeNum и isLucky: for (let i=first; i <=last;
+            i++) { // Получим нормализованнй номер билета: let ticket=normalizeNum(i, digitsAmount); // Если
+            нормализованный номер счастливый: if (isLucky(ticket)) { result.push(ticket); // запишем счастливый номер в
+            массив } } Полный код функции getLuckyTickets получится таким: function getLuckyTickets(digitsAmount) { let
+            result=[]; let first=getFirst(digitsAmount); let last=getLast(digitsAmount); for (let i=first; i <=last;
+            i++) { let ticketNum=normalizeNum(i, digitsAmount); if (isLucky(ticketNum)) { result.push(ticketNum); } }
+            return result; } Задача 8⋕js.Pm.FP.ALLT.8 Соберите весь код вместе, запустите его. Потестируйте общую работу
+            кода для билетов с различным количеством цифр. </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

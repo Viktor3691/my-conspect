@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-08-praktika_funkcii.html">Практика на функции</a>
+            <a href="08-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Перемешивание массива на JavaScript</h2>
+
+        Реализуем функцию shuffle, параметром принимающую массив и перемешивающую его элементы в случайном порядке.
+
+        Давайте рассмотрим алгоритм решения данной задачи.
+
+        Я предлагаю следующее: запустим цикл и в каждой итерации будем вырезать случайный элемент массива и записывать
+        его в
+        новый массив. Будем повторять пока элементы не закончатся. Полученный новый массив и будет содержать элементы
+        старого
+        массива в случайном порядке.
+
+        Для реализации описанного нам понадобится функция, возвращающая случайное целое число в заданном диапазоне:
+
+        function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        Давайте попробуем с помощью приведенной выше функции вырезать элементы массива в случайном порядке. Пусть у нас
+        есть
+        массив:
+
+        let arr = [1, 2, 3, 4, 5];
+        Вырежем из него один случайный элемент, используя метод splice:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let random = getRandomInt(0, arr.length - 1);
+        let elem = arr.splice(random, 1);
+
+        console.log(elem);
+        Здесь, однако, нас ждет подвох: метод splice возвращает массив элементов и в нашем случае это будет массив,
+        состоящий из
+        одного нашего элемента. А мы хотели бы не массив, а сам элемент. Поправим проблему:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let random = getRandomInt(0, arr.length - 1);
+        let elems = arr.splice(random, 1);
+        let elem = elems[0];
+
+        console.log(elem);
+        Перепишем в более компактном виде:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let random = getRandomInt(0, arr.length - 1);
+        let elem = arr.splice(random, 1)[0];
+
+        console.log(elem);
+        Вспомним теперь то, как работает splice - он вырезает элемент из массива, при этом изменяя сам массив. В нашем
+        случае
+        это замечательно, так нам нужно вырезать элементы массива так, чтобы они не дублировались. В этом случае
+        поведение
+        splice - это то, что нам нужно: уже вырезанный элемент не будет вырезан снова.
+
+        Кроме того, есть еще один положительный момент в работе splice. Суть в следующем: когда мы будем вырезать
+        элемент второй
+        раз, логично, что нам нужно генерировать случайное число в диапазоне до arr.length-2, а в третий раз - до
+        arr.length-3 и
+        так далее.
+
+        Однако splice изменяет массив, а значит и длину массива. Это значит, что arr.length-1 после каждого вырезания
+        будет
+        становится на единицу меньше, как нам и надо!
+
+        Давайте с учетом вышесказанного вырежем все элементы массива:
+
+        let arr = [1, 2, 3, 4, 5];
+        let random, elem;
+
+        random = getRandomInt(0, arr.length - 1); // здесь в arr.length лежит 5
+        elem = arr.splice(random, 1)[0];
+        console.log(elem);
+
+        random = getRandomInt(0, arr.length - 1); // здесь в arr.length лежит 4
+        elem = arr.splice(random, 1)[0];
+        console.log(elem);
+
+        random = getRandomInt(0, arr.length - 1); // здесь в arr.length лежит 3
+        elem = arr.splice(random, 1)[0];
+        console.log(elem);
+
+        random = getRandomInt(0, arr.length - 1); // здесь в arr.length лежит 2
+        elem = arr.splice(random, 1)[0];
+        console.log(elem);
+
+        random = getRandomInt(0, arr.length - 1); // здесь в arr.length лежит 1
+        elem = arr.splice(random, 1)[0];
+        console.log(elem);
+        Преобразуем приведенный выше код в цикл:
+
+        let arr = [1, 2, 3, 4, 5];
+
+        while (arr.length > 0) {
+        let random = getRandomInt(0, arr.length - 1);
+        let elem = arr.splice(random, 1)[0];
+        console.log(elem);
+        }
+        Будем теперь вырезанные элементы записывать в новый массив:
+
+        let arr = [1, 2, 3, 4, 5];
+        let result = [];
+
+        while (arr.length > 0) {
+        let random = getRandomInt(0, arr.length - 1);
+        let elem = arr.splice(random, 1)[0];
+        result.push(elem);
+        }
+
+        console.log(result);
+        Соберем все вместе и получим решение нашей задачи:
+
+        function shuffle(arr) {
+        let result = [];
+
+        while (arr.length > 0) {
+        let random = getRandomInt(0, arr.length - 1);
+        let elem = arr.splice(random, 1)[0];
+        result.push(elem);
+        }
+
+        return result;
+        }
+
+        function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        console.log(shuffle([1, 2, 3, 4, 5]));
+        Задача 1⋕js.Pm.FP.ASh.1
+
+        Самостоятельно, не подсматривая в мой код, реализуйте описанную функцию. При решении задачи код функции
+        getRandomInt
+        скопируйте из учебника.
+
+        Задача 2⋕js.Pm.FP.ASh.2
+
+        Сделайте функцию range принимающую параметрами 2 целых числа - начало и конец диапазона, и возвращающую массив,
+        заполненный целыми числами из этого диапазона.
+
+        Задача 3⋕js.Pm.FP.ASh.3
+
+        Сделайте функцию rangeRand, возвращающую массив, заполненный случайными целыми числами из заданного диапазона.
+        При этом
+        числа не должны повторяться. Для решения задачи используйте комбинацию функций range и shuffle.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

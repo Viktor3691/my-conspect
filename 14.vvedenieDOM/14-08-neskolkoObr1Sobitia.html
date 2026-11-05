@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Несколько обработчиков одного события в JavaScript</h2>
+
+        К одному элементу можно привязать сразу несколько функций. Давайте посмотрим на примере. Пусть у нас есть
+        кнопка:
+
+        <input id="button" type="submit">
+        Пусть у нас есть две функции:
+
+        function func1() {
+        alert('1');
+        }
+
+        function func2() {
+        alert('2');
+        }
+        Получим ссылку на нашу кнопку в переменную:
+
+        let button = document.querySelector('#button');
+        А теперь давайте привяжем к нашей кнопке в качестве обработчиков клика и первую, и вторую функции:
+
+        button.addEventListener('click', func1);
+        button.addEventListener('click', func2);
+        Задача 1⋕js.Pm.Dm.SH.1
+
+        Дан абзац:
+
+        <p id="elem">text</p>
+        Даны следующие функции:
+
+        function func1() {
+        alert('1');
+        }
+
+        function func2() {
+        alert('2');
+        }
+
+        function func3() {
+        alert('3');
+        }
+        Привяжите все эти функции к нашему абзацу.
+
+        Анонимные обработчики
+        Привязываемые функции, конечно же, могут быть и анонимными. Давайте, например, привяжем к нашей кнопке две
+        анонимные
+        функции:
+
+        button.addEventListener('click', function() {
+        alert('1');
+        });
+        button.addEventListener('click', function() {
+        alert('2');
+        });
+        Задача 2⋕js.Pm.Dm.SH.2
+
+        Дана кнопка. Привяжите к ней три анонимных обработчика двойного клика по ней. Пусть первый обработчик выводит
+        число 1,
+        второй обработчик - число 2, а третий - число 3.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

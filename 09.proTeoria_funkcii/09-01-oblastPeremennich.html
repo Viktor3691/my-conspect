@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Область видимости переменных в функциях JavaScript</h2>
+
+        В JavaScript (в других языках чаще всего не так) переменные, определенные снаружи функции, будут видны внутри
+        этой
+        функции. Такие переменные называются глобальными. Посмотрим на примере:
+
+        let num = 1; // переменная снаружи функции
+
+        function func() {
+        alert(num); // переменная num видна внутри функции
+        }
+
+        func(); // выведет 1
+        На самом деле переменная должна быть определена не перед определением функции, а перед ее вызовом:
+
+        function func() {
+        alert(num);
+        }
+
+        let num = 1; // переменная снаружи функции
+        func(); // выведет 1
+        Если менять значение переменной и после этого каждый раз вызывать функцию - алерт каждый раз будет выдавать
+        разные
+        результат:
+
+        function func() {
+        alert(num);
+        }
+
+        let num; // объявим переменную
+
+        num = 1; // задаем значение 1
+        func(); // выведет 1
+
+        num = 2; // задаем значение 2
+        func(); // выведет 2
+        Если у нас несколько функций, то глобальная переменная будет доступна в каждой из этих функций:
+
+        function func1() {
+        alert(num);
+        }
+
+        function func2() {
+        alert(num);
+        }
+
+        let num = 1;
+
+        func1(); // выведет 1
+        func2(); // выведет 1
+        Если в одной из функций произойдут изменения с глобальной переменной, то эта переменная поменяется во всех
+        функциях,
+        использующих эту переменную:
+
+        function func1() {
+        alert(num);
+        num++; // меняем глобальную переменную
+        }
+
+        function func2() {
+        alert(num);
+        }
+
+        let num = 1;
+
+        func1(); // выведет 1
+        func2(); // выведет 2
+        Так как любая из функций легко может поменять глобальную переменную, то их использование представляет собой
+        рассадник
+        трудноуловимых ошибок. По этой причине использование глобальных переменных в скрипте нужно сводить к минимуму.
+        Желательно, чтобы их вообще не было или было самое минимальное количество.
+
+        Задача 1⋕js.Pm.FA.ScVr.1
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        alert(num);
+        }
+
+        func();
+        Задача 2⋕js.Pm.FA.ScVr.2
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        alert(num);
+        }
+
+        num = 2;
+        func();
+        Задача 3⋕js.Pm.FA.ScVr.3
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func() {
+        alert(num);
+        }
+
+        let num;
+
+        num = 1;
+        func();
+
+        num = 2;
+        func();
+        Локальные переменные
+        Переменные, определенные внутри функции, называются локальными. В отличии от глобальных переменных, локальные
+        переменные
+        видны только внутри функции, и не видны снаружи:
+
+        function func() {
+        let num = 5; // локальная переменная
+        alert(num);
+        }
+
+        alert(num); // ничего не выведет, а выдаст ошибку в консоль
+        Задача 4⋕js.Pm.FA.ScVr.4
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func() {
+        let num = 5;
+        return num;
+        }
+
+        alert(num);
+        Задача 5⋕js.Pm.FA.ScVr.5
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func() {
+        let num = 5;
+        return num;
+        }
+
+        alert(func());
+        Одноименные локальные и глобальные переменные
+        Пусть и снаружи функции, и внутри есть переменная num. В этом случае любые изменения с локальной переменной num
+        никак не
+        влияют на глобальную переменную num:
+
+        let num = 1; // глобальная переменная
+
+        function func() {
+        let num = 2; // локальная переменная
+        alert(num);
+        }
+        func(); // вызываем функцию, выведет 2
+
+        alert(num); // выведет 1 - глобальная переменная не поменялась
+        Но, если мы забудем объявить локальную переменную num через let, то внутри функции не создастся локальная
+        переменная
+        num, а просто изменится глобальная переменная:
+
+        let num = 1;
+
+        function func() {
+        num = 2; // забыли написать let - меняем внешнюю переменную
+        alert(num);
+        }
+        func(); // вызываем функцию, выведет 2
+
+        alert(num); // выведет 2 - переменная поменялась
+        Тут может быть две ситуации: или мы действительно хотели поменять глобальную переменную (тогда все ок), или мы
+        забыли
+        let и случайно поменяли глобальную переменную.
+
+        Второй случай является трудноуловимой ошибкой, ведущей к непредсказуемому поведению скрипта. Поэтому всегда,
+        вводя новую
+        переменную объявляйте ее через let.
+
+        Задача 6⋕js.Pm.FA.ScVr.6
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        num = 2;
+        }
+        func();
+
+        alert(num);
+        Задача 7⋕js.Pm.FA.ScVr.7
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        let num = 2;
+        }
+        func();
+
+        alert(num);
+        Нюанс
+        Учтите, что глобальная переменная будет меняться только в момент вызова функции. Если вызова функции нет -
+        переменная не
+        изменится:
+
+        let num = 1;
+
+        function func() {
+        num = 2; // не написан let - меняем внешнюю переменную
+        alert(num);
+        }
+        // func(); - закомментировали вызов функции
+
+        alert(num); // выведет 1 - переменная не поменялась
+        А сейчас продемонстрируем кодом то, что глобальная переменная поменяется только после вызова функции:
+
+        let num = 1;
+
+        function func() {
+        num = 2;
+        }
+
+        alert(num); // выведет 1
+        func(); // меняем переменную
+        alert(num); // выведет 2
+        Задача 8⋕js.Pm.FA.ScVr.8
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        num = 2;
+        }
+        func();
+
+        alert(num);
+        Задача 9⋕js.Pm.FA.ScVr.9
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        num = 2;
+        }
+
+        alert(num);
+        Задача 10⋕js.Pm.FA.ScVr.10
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        let num = 2;
+        }
+        func();
+
+        alert(num);
+        Задача 11⋕js.Pm.FA.ScVr.11
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        let num = 2;
+        }
+
+        alert(num);
+        func();
+        Задача 12⋕js.Pm.FA.ScVr.12
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        num = 2;
+        }
+
+        alert(num);
+        func();
+        Задача 13⋕js.Pm.FA.ScVr.13
+
+        Определите, не запуская код, что выведется на экран:
+
+        let num = 1;
+
+        function func() {
+        num++;
+        }
+
+        func();
+        func();
+        func();
+        alert(num);
+        Задача 14⋕js.Pm.FA.ScVr.14
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func() {
+        num = 2;
+        }
+
+        let num = 1;
+        alert(num);
+        func();
+        Задача 15⋕js.Pm.FA.ScVr.15
+
+        Определите, не запуская код, что выведется на экран:
+
+        function func() {
+        num = 2;
+        }
+
+        let num = 1;
+        func();
+        alert(num);
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

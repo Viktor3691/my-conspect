@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Цепочки методов и свойств в JavaScript</h2>
+
+        Пусть у нас есть инпут:
+
+        <input id="elem" value="text">
+        Давайте выведем на экран текст инпута:
+
+        let elem = document.querySelector('#elem');
+        alert(elem.value); // выведет 'text'
+        Как вы видите, мы сначала получаем элемент по его id, записываем этот элемент в переменную elem, а затем выводим
+        на
+        экран свойство value из этой переменной.
+
+        На самом деле можно не вводить переменную elem, а строить цепочку из точек таким образом:
+
+        alert( document.querySelector('#elem').value ); // выведет 'text'
+        Таким же образом - цепочкой - можно производить и перезапись атрибутов:
+
+        document.querySelector('#elem').value = 'www';
+        Задача 1⋕js.Pm.Dm.Chn.1
+
+        Дан следующий код:
+
+        <img id="image" src="avatar.png">
+        let image = document.querySelector('#image');
+        console.log(image.src);
+        Переделайте приведенный выше код так, чтобы вместо введения переменной image использовалась цепочка.
+
+        Преимущества и недостатки цепочек
+        Не смотря на то, что цепочки сокращают код, в большинстве случаев введение переменной все-таки удобнее. Сравните
+        два
+        примера - сейчас я ввел переменную elem и могу записывать любое количество атрибутов, при этом querySelector
+        вызывается
+        только один раз:
+
+        let elem = document.querySelector('#elem');
+        elem.value = 'www';
+        elem.type = 'submit';
+        А сейчас я не ввожу новую переменную и поэтому мне приходится вызывать querySelector два раза:
+
+        document.querySelector('#elem').value = 'www';
+        document.querySelector('#elem').type = 'submit';
+        На мой взгляд, этот код стал сложнее, хотя и занимает на одну строчку меньше. Кроме того, если я захочу сменить
+        значение
+        id с 'elem' на какое-то другое, мне придется делать это во многих местах, что не очень удобно.
+
+        Есть и еще проблема - нагрузка на браузер. Поиск элементов по странице, который делает метод querySelector,
+        является
+        довольно медленной операцией (и вообще любая работа с элементами страницы - это медленная операция - запомните
+        это).
+
+        В нашем случае, если мы каждый раз используем querySelector, то браузер каждый раз будет обрабатывать HTML
+        страницу и
+        искать элемент с заданным id несколько раз (не важно, что id одинаковые - браузер проделает все действия
+        несколько раз),
+        совершая бесполезные операции, которые могут замедлить работу браузера.
+
+        Если же мы используем переменную elem - никакого поиска по странице не происходит (элемент уже найден и ссылка
+        на него
+        лежит в переменной).
+
+        Задача 2⋕js.Pm.Dm.Chn.2
+
+        Дан следующий код:
+
+        <img id="image" src="avatar.png" width="300" height="500">
+        console.log(document.querySelector('#image').src);
+        console.log(document.querySelector('#image').width);
+        console.log(document.querySelector('#image').height);
+        Укажите на недостатки данного кода. Исправьте их.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

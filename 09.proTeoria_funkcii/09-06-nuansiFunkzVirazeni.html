@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-09-proTeoria_funkcii.html">Продвинутая теория на функции</a>
+            <a href="09-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Нюансы функциональных выражений в JavaScript</h2>
+
+        Название Function Expression (функциональное выражение) дано не просто так. Оно действительно означает это - то,
+        что
+        такие функции являются частью какого-либо выражения.
+
+        Например, мы можем сложить какую-нибудь строку и безымянную функцию:
+
+        let str = 'str' + function() {return 2;};
+        alert(str); // выведет 'strfunction() {return 2;}'
+        Почему мы видим такой странный результат, а не число 3? Потому что второе слагаемое - это не результат работы
+        функции, а
+        ее исходный код (ведь мы эту функцию не вызвали, а просто написали).
+
+        То есть название функциональное выражение обозначает то, что такая функция принимает участие в каком-нибудь
+        выражении.
+
+        Присваивание к переменной тоже выражение:
+
+        let func = function() {
+        alert('!');
+        };
+        Можно также, к примеру, передать функцию в качестве параметра алерта и он выведет ее исходный код на экран - это
+        тоже
+        будет считаться выражением:
+
+        alert(function() {return 2;});
+        Почему это важно: потому что отличие Function Declaration и Function Expression совсем не в том, что первая
+        функция
+        создается с именем, а вторая изначально имени не имеет. Это не так.
+
+        Пример. Вот у нас функция без имени, но при этом не участвует ни в каком выражении (то есть с ней не совершается
+        никаких
+        действий, говоря по-простому):
+
+        /*
+        Данная функция будет Function Declaration,
+        но с синтаксической ошибкой:
+        */
+        function() {
+        alert('!');
+        }
+        Такой код вообще выдаст ошибку! Почему: так как функция не участвует ни в каком выражении, то браузер считает ее
+        Function Declaration, но не находит ее имени и выдает ошибку.
+
+        Чтобы ошибка исчезла, нужно заставить функцию стать частью какого-либо выражения. Например, напишем перед ней
+        операцию
+        +:
+
+        +function() { // такой код корректен
+        alert('!');
+        };
+        Как это работает: сама по себе операция + ничего не делает, это все равно как написать вместо числа 3 число +3 -
+        допустимо, но ничего не меняет.
+
+        Но в случае с функцией - меняет. Теперь наша функция уже не просто написана, а участвует в выражении. Поэтому
+        ошибки
+        теперь не будет. Результата выполнения функции тоже не будет, ведь мы ее просто написали, но не вызвали.
+
+        Вместо + можно написать все, что угодно. Например:
+
+        -function() { // такой код корректен
+        alert('!');
+        };
+
+        !function() { // такой код корректен
+        alert('!');
+        };
+        Можно также взять нашу функцию в круглые скобки, в этом случае она также станет функциональным выражением:
+
+        (function() { // такой код корректен
+        alert('!');
+        });
+        Задача 1⋕js.Pm.FA.FEN.1
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        function func() {
+        alert('!');
+        }
+        Задача 2⋕js.Pm.FA.FEN.2
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        let func = function() {
+        alert('!');
+        }
+        Задача 3⋕js.Pm.FA.FEN.3
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        +function() {
+        alert('!');
+        }
+        Задача 4⋕js.Pm.FA.FEN.4
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        !function func() {
+        alert('!');
+        }
+        Задача 5⋕js.Pm.FA.FEN.5
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        -function func() {
+        alert('!');
+        }
+        Задача 6⋕js.Pm.FA.FEN.6
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        1 + function func() {
+        alert('!');
+        }
+        Задача 7⋕js.Pm.FA.FEN.7
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        (function func() {
+        alert('!');
+        })
+        Задача 8⋕js.Pm.FA.FEN.8
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        alert(
+        function() {
+        alert('!');
+        }
+        );
+        Функция с именем, но Function Expression
+        Давайте теперь сделаем функцию, которая будет иметь имя, но при этом будет Function Expression, потому что
+        участвует в
+        выражении:
+
+        +function func() {
+        alert('!');
+        }
+        Интересно, что по имени func мы не сможем обратиться к нашей функции, это будет приводить к ошибке:
+
+        +function func() {
+        alert('!');
+        }
+
+        func(); // выдаст ошибку
+        Чтобы иметь возможность вызвать нашу функцию, ее нужно присвоить какой-нибудь переменной:
+
+        let test = function func() {
+        alert('!');
+        };
+
+        test(); // выведет '!'
+        Еще раз: функция, являющаяся функциональным выражением не может быть вызвана по ее имени. Такая функция может
+        быть
+        вызвана только с использованием переменной, в которую была записана эта функция.
+
+        Но тем не менее, функциональное выражение может иметь имя функции, это будет синтаксически корректно. Зачем
+        такое нужно,
+        мы будем разбираться в следующих уроках.
+
+        Выводы
+        Подведем итог: функции являются Function Declaration или Function Expression не потому, что имеют имя или не
+        имеют, а
+        потому, что являются участниками выражений или не являются.
+
+        Как вы видели выше, функция без имени может быть воспринята как Function Declaration, а функции с именем может
+        быть
+        Function Expression.
+
+        Как проверить тип функции
+        В задачах ниже вам нужно будет определить функция определена как Function Declaration или Function Expression.
+
+        В простых случаях это не составляет труда сделать визуально. Но как проверить, что вы сделали это правильно?
+        Используйте
+        разницу между Function Declaration или Function Expression: первые могут быть вызваны выше своего определения, а
+        вторые
+        - нет.
+
+        Пусть у нас есть вот такая функция:
+
+        let test = function() {
+        alert('!');
+        }
+        Обратимся к этой функции до ее определения:
+
+        test(); // выведет ошибку в консоль, значит Function Expression
+
+        let test = function() {
+        alert('!');
+        }
+        Вот еще пример:
+
+        func(); // выведет '!', значит Function Declaration
+
+        function func() {
+        alert('!');
+        }
+        Поставим перед нашей функцией плюсик:
+
+        func(); // выведет ошибку в консоль, значит Function Expression
+
+        +function func() {
+        alert('!');
+        }
+        Так как функция выше - это Function Expression и она не присвоена никакой переменной, то ее никак не вызвать,
+        ведь по
+        имени func она будет недоступна.
+
+        Задача 9⋕js.Pm.FA.FEN.9
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        let test = function func() {
+        alert('!');
+        }
+        Задача 10⋕js.Pm.FA.FEN.10
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        alert(
+        function func() {
+        alert('!');
+        }
+        );
+        Задача 11⋕js.Pm.FA.FEN.11
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        +function func() {
+        alert('!');
+        }
+        Задача 12⋕js.Pm.FA.FEN.12
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        function func() {
+        alert('!');
+        }
+        Более сложные нюансы
+        Давайте рассмотрим следующий код:
+
+        +function func() {
+        alert('!');
+        }
+        Как вы уже знаете, эта функция является функциональным выражением, ни смотря на то, что у нее задано имя (мы уже
+        выяснили, что наличие имени вообще не критерий). Уберем этот плюс - и получим Function Declaration:
+
+        function func() {
+        alert('!');
+        }
+        Давайте поставим + на строчке перед функцией - она опять станет Function Expression:
+
+        +
+        function func() {
+        alert('!');
+        }
+        А теперь после плюса поставим число 1 и точку с запятой - наша функция станет Function Declaration:
+
+        +1;
+        function func() {
+        alert('!');
+        }
+        Почему так: потому что на первой строке написана одна законченная команда, закрытая точкой с запятой. Поэтому
+        эта
+        команда никак не влияет на нашу функцию.
+
+        На самом деле точку с запятой можно убрать, ведь в JavaScript она не обязательна - функция все равно останется
+        Function
+        Declaration:
+
+        +1
+        function func() {
+        alert('!');
+        }
+        А вот если после 1 влепить еще один плюс, то функция станет Function Expression:
+
+        +1+
+        function func() {
+        alert('!');
+        }
+        Почему так: потому что на первой строчке незавершенное выражение - стоит плюс и после него ничего. Поэтому
+        интерпретатор
+        JavaScript считает, что этот плюс относится к строке ниже, то есть к нашей функции.
+
+        Если же на первой строке стоит завершенное выражение, то JavaScript автоматически ставит ему точку с запятой и
+        это
+        выражение никак не влияет на нашу функцию.
+
+        Задача 13⋕js.Pm.FA.FEN.13
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        -
+        function func() {
+        alert('!');
+        }
+        Задача 14⋕js.Pm.FA.FEN.14
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        -1;
+        function func() {
+        alert('!');
+        }
+        Задача 15⋕js.Pm.FA.FEN.15
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        -1
+        function func() {
+        alert('!');
+        }
+        Задача 16⋕js.Pm.FA.FEN.16
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        1
+        function func() {
+        alert('!');
+        }
+        Задача 17⋕js.Pm.FA.FEN.17
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        -1-
+        function func() {
+        alert('!');
+        }
+        Выражение справа
+        Учтите, что выражение, в котором участвует функция, должно быть слева от нее. Если мы что-то пытаемся сделать
+        справа от
+        функции, это не сделает ее функциональным выражением. Пример:
+
+        function func() { // это Function Declaration
+        alert('!');
+        } + 1;
+        Почему так: потому что в данном случае этот +1 является просто новой командой, написанной после функции. Если
+        написать
+        эту команду с новой строки, все становится очевиднее:
+
+        function func() {
+        alert('!');
+        }
+        +1; // просто команда
+        Сделаем из нашей функции Function Expression. Например, поставим перед функцией +:
+
+        +function func() { // это Function Expression
+        alert('!');
+        } + 1;
+        Или выполним присваивание:
+
+        let test = function func() { // это Function Expression
+        alert('!');
+        } + 1;
+        Или передадим параметром в алерт:
+
+        alert(function func() { // это Function Expression
+        alert('!');
+        } + 1);
+        Задача 18⋕js.Pm.FA.FEN.18
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        function func() {
+        alert('!');
+        }
+        +1;
+        Задача 19⋕js.Pm.FA.FEN.19
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        function func() {
+        alert('!');
+        } + 1;
+        Задача 20⋕js.Pm.FA.FEN.20
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        +function func() {
+        alert('!');
+        } + 1;
+        Задача 21⋕js.Pm.FA.FEN.21
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        +
+        function func() {
+        alert('!');
+        } + 1;
+        Задача 22⋕js.Pm.FA.FEN.22
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        + 1
+        function func() {
+        alert('!');
+        } + 1;
+        Задача 23⋕js.Pm.FA.FEN.23
+
+        Определите, является ли представленная функция Function Declaration или Function Expression:
+
+        function func() {
+        alert('!');
+        } + alert('!');
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

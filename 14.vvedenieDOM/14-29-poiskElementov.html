@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Поиск элементов внутри другого элемента</h2>
+
+        Пусть у нас есть некоторый элемент родитель, а внутри него другие элементы:
+
+        <div id="parent">
+            <div class="child">text</p>
+                <div class="child">text</p>
+                    <div class="child">text</p>
+                    </div>
+                    Пусть ссылка на родитель уже получена в переменную:
+
+                    let parent = document.querySelector('#parent');
+                    В таком случае, при необходимости мы можем выполнить поиск по селектору внутри этого родителя, а не
+                    по всему
+                    документу. Для этого метод для поиска нужно применить не к document, а к переменной, содержащей
+                    нашего
+                    родителя.
+
+                    Давайте для примера найдем внутри нашего родителя элементы с классом child:
+
+                    let elems = parent.querySelectorAll('.child');
+                    Конечно же, эти элементы можно найти, выполнив поиск по всему документу с более точным селектором:
+
+                    let elems = document.querySelectorAll('#parent .child');
+                    Иногда, однако, поиск по конкретному элементу все-таки удобнее. Мы это еще будем использовать в
+                    дальнейшем в
+                    практических задачах.
+
+                    Задача 1⋕js.Pm.Dm.IES.1
+
+                    Дан элемент #parent:
+
+                    <div id="parent">
+                        <p class="www">text</p>
+                        <p class="www">text</p>
+                        <p class="www">text</p>
+                        <p class="ggg">text</p>
+                        <p class="ggg">text</p>
+                        <p class="ggg">text</p>
+                    </div>
+                    let parent = document.querySelector('#parent');
+                    Найдите внутри родителя элементы с классом www и запишите их в переменную elems1. Затем найдите
+                    внутри
+                    родителя элементы с классом ggg и запишите их в переменную elems2.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск JavaScript — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-14-vvedenieDOM.html">Введение в DOM</a>
+            <a href="14-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Поиск ошибок в коде с DOM в JavaScript</h2>
+
+        В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны проверить,
+        делает ли
+        код то, что описано. Если код работает некорректно, вы должны исправить ошибки.
+
+        Задача 1⋕js.Pm.Dm.Mst.1
+
+        Код должен добавить текст в конец каждого абзаца:
+
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        let elems = document.querySelector('p');
+        elems.textContent += '!';
+        Задача 2⋕js.Pm.Dm.Mst.2
+
+        По клику на абзац его значение должно увеличиться на единицу:
+
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        let elems = document.querySelectorAll('p');
+
+        for (let elem of elems) {
+        elem.addEventListener('click', function() {
+        this.textContent += Number(1);
+        });
+        }
+        Задача 3⋕js.Pm.Dm.Mst.3
+
+        По клику на кнопку текст абзаца должен стать жирным:
+
+        <p>text</p>
+        <button>click</button>
+        let button = document.querySelector('button');
+        let elem = document.querySelector('p');
+
+        button.addEventListener('click', function() {
+        elem.innerHTML = '<b>elem.innerHTML</b>';
+        });
+        Задача 4⋕js.Pm.Dm.Mst.4
+
+        По клику на кнопку должна вывестись сумма чисел из абзацев:
+
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+
+        <button>click</button>
+        let button = document.querySelector('button');
+        let elems = document.querySelector('p');
+
+        button.addEventListener('click', function() {
+        let sum = 0;
+
+        for (let elem of elems) {
+        sum += Number(elems.textContent);
+        }
+
+        console.log(sum);
+        });
+        Задача 5⋕js.Pm.Dm.Mst.5
+
+        По клику на абзац ему в конец должен добавиться заданный текст:
+
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        let elems = document.querySelectorAll('p');
+
+        for (let elem of elems) {
+        elem.addEventListener('click', () => {
+        this.textContent += '!';
+        });
+        }
+        Задача 6⋕js.Pm.Dm.Mst.6
+
+        По клику на кнопку текст каждого абзаца должен стать жирным:
+
+        <p>text1</p>
+        <p>text2</p>
+        <p>text3</p>
+        <button>click</button>
+        let button = document.querySelector('button');
+        let elems = document.querySelectorAll('p');
+
+        button.addEventListener('click', function() {
+        for (let elem of elems) {
+        elem.innerHTML = '<b>+elem.innerHTML+</b>';
+        }
+        });
+        Задача 7⋕js.Pm.Dm.Mst.7
+
+        По клику на кнопку в консоль должна вывестись сумма чисел из абзацев:
+
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+
+        <button>click</button>
+        let button = document.querySelector('button');
+        let elems = document.querySelectorAll('p');
+        let sum = 0;
+
+        for (let elem of elems) {
+        sum = elem.textContent + 1;
+
+        button.addEventListener('click', function() {
+        console.log(sum);
+        });
+        }
+        Задача 8⋕js.Pm.Dm.Mst.8
+
+        В инпуты вводятся числа. По клику на кнопку в консоль должна вывестись сумма чисел из инпутов:
+
+        <input>
+        <input>
+        <input>
+
+        <button>click</button>
+        let button = document.querySelector('button');
+        let elems = document.querySelectorAll('input');
+        let sum = 0;
+
+        for (let elem of elems) {
+        sum += elem.value;
+        }
+
+        button.addEventListener('click', function() {
+        console.log(sum);
+        });
+        Задача 9⋕js.Pm.Dm.Mst.9
+
+        В первые два инпута вводятся числа. По клику на кнопку в третий инпут должна вывестись сумма этих чисел:
+
+        <input id="inp1">
+        <input id="inp2">
+        <input id="inp3">
+
+        <button id="btn">click</button>
+        let btn = document.querySelector('#btn');
+        let inp1 = document.querySelector('#inp1');
+        let inp2 = document.querySelector('#inp2');
+        let inp3 = document.querySelector('#inp3');
+
+        btn.addEventListener('click', function() {
+        inp3.textContent = inp1.textContent + inp2.textContent;
+        });
+        Задача 10⋕js.Pm.Dm.Mst.10
+
+        В первые два инпута вводятся числа. По клику на кнопку в абзац должна вывестись сумма этих чисел:
+
+        <input id="inp1">
+        <input id="inp2">
+        <p id="res"></p>
+
+        <button id="btn">click</button>
+        let btn = document.querySelector('btn');
+        let res = document.querySelector('res');
+        let inp1 = document.querySelector('inp1');
+        let inp2 = document.querySelector('inp2');
+
+        button.addEventListener('click', function() {
+        res.value = inp1.value + inp2.value;
+        });
+        Задача 11⋕js.Pm.Dm.Mst.11
+
+        По клику на кнопку нужно проверить, что текст в каждом инпуте совпадает с текстом его data атрибута:
+
+        <input data-text="text1">
+        <input data-text="text2">
+        <input data-text="text3">
+
+        <button id="btn">click</button>
+        let inputs = document.querySelectorAll('input')
+        let button = document.querySelector('#button')
+
+        button.addEventListener('click',function() {
+        for (let input of inputs) {
+        if (input.value === input.dataset) {
+        input.classList.add('right')
+        } else {
+        input.classList.add('wrong')
+        }
+        }
+        });
+        Задача 12⋕js.Pm.Dm.Mst.12
+
+        По клику на кнопку нужно проверить, что текст в каждом инпуте совпадает с текстом соответствующего элемента
+        массива:
+
+        <input>
+        <input>
+        <input>
+
+        <button id="btn">click</button>
+        let inputs = document.querySelectorAll('input')
+        let button = document.querySelector('#button')
+
+        let texts = [
+        'text1',
+        'text2',
+        'text3',
+        ];
+
+        button.addEventListener('click',function() {
+        for (let input of inputs) {
+        for (let text of texts) {
+        if (input.value === text) {
+        input.classList.add('right')
+        } else {
+        input.classList.add('wrong')
+        }
+        }
+        }
+        });
+        Задача 13⋕js.Pm.Dm.Mst.13
+
+        В инпуты вводятся числа. По клику на кнопку в консоль должна вывестись сумма введенных чисел:
+
+        <input>
+        <input>
+        <input>
+
+        <button id="btn">click</button>
+        let inputs = document.querySelectorAll('inputs');
+        let btn = document.querySelector('#btm');
+        let sum = 0;
+
+        btn.addEventListener('click', function() {
+        for (let input of inputs) {
+        sum += Number(input);
+        }
+
+        console.log(sum);
+        });
+        Задача 14⋕js.Pm.Dm.Mst.14
+
+        В первые два инпута вводятся числа. По клику на кнопку в третий инпут должна вывестись сумма этих чисел:
+
+        <input id="inp1">
+        <input id="inp2">
+        <input id="inp3">
+
+        <button id="btn">click</button>
+        let btn = document.querySelector('#btn');
+        let inp1 = document.querySelector('#inp1');
+        let inp2 = document.querySelector('#inp2');
+        let inp3 = document.querySelector('#inp3');
+
+        let sum = inp1.value + inp2.value;
+
+        btn.addEventListener('click', function() {
+        inp3.value = sum;
+        });
+        Задача 15⋕js.Pm.Dm.Mst.15
+
+        В инпут вводится число. По потери фокуса в консоль должна вывестись сумма цифр этого числа:
+
+        <input id="inp">
+        let inp = document.querySelector('#inp').value;
+
+        inp.addEventListener('blur', function() {
+        let digits = +inp.split('');
+        let sum = 0;
+
+        for (let digit of digits) {
+        sum += digit;
+        }
+
+        console.log(sum);
+        });
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

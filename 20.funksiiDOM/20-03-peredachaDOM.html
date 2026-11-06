@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Раздел 20. Функции и DOM — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-20-funksiiDOM.html"> Функции и DOM</a>
+            <a href="20-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2></h2>
+        Передача коллбэка для работы с DOM на JavaScript
+        Пусть у нас есть некоторая группа DOM элементов:
+
+        <p class="elem">1</p>
+        <p class="elem">2</p>
+        <p class="elem">3</p>
+        <p class="elem">4</p>
+        <p class="elem">5</p>
+        Давайте сделаем функцию forEach, которая первым параметром будет принимать селектор группы элементов, а вторым
+        параметром - функцию-коллбэк, которая применится по очереди к каждому из найденных элементов:
+
+        forEach('.elem', function() {
+        // функция применится к каждому элементу
+        });
+        Пусть элементы, попавшие под селектор, по очереди попадают в первый параметр коллбэка:
+
+        forEach('.elem', function(elem) {
+        console.log(elem); // выведет по очереди найденные элементы
+        });
+        Давайте с помощью нашей функции найдем все элементы с классом elem и для каждого найденного элемента применим
+        коллбэк,
+        который возведет в квадрат текст каждого элемента:
+
+        forEach('.elem', function(elem) {
+        elem.innerHTML = elem.innerHTML ** 2;
+        });
+        Давайте теперь напишем реализацию задуманной нами функции forEach:
+
+        function forEach(selector, func) {
+        let elems = document.querySelectorAll(selector);
+
+        for (let elem of elems) {
+        func(elem);
+        }
+        }
+        Задача 1⋕js.Pm.FD.CP.1
+
+        Даны абзацы. С помощью созданной нами функции forEach для каждого абзаца добавьте в конец его текста
+        восклицательный
+        знак.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

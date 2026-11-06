@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Ссылка на удаление элемента на JavaScript</h2>
+
+        Пусть у нас абзац. Давайте рядом с ним сделаем ссылку, с помощью которой этот абзац можно будет удалить.
+
+        Реализуем:
+
+        <div id="parent">
+            <p id="elem">text</p>
+            <a href="#" id="remove">remove</a>
+        </div>
+        let elem = document.querySelector('#elem');
+        let remove = document.querySelector('#remove');
+
+        remove.addEventListener('click', function() {
+        elem.parentElement.removeChild(elem);
+        });
+        Обратите внимание на то, что в атрибуте href ссылки стоит #. Если эту решетку убрать - мы получим переход по
+        ссылке и,
+        как следствие, обновление страницы.
+
+        На самом деле удаление абзаца тоже будет происходить, но мы это не заметим, так как страница обновится и все
+        вернется в
+        изначальное положение.
+
+        Для решения проблемы нужно предотвратить переход по ссылке с помощью preventDefault:
+
+        <div id="parent">
+            <p id="elem">text</p>
+            <a href="" id="remove">remove</a>
+        </div>
+        let elem = document.querySelector('#elem');
+        let remove = document.querySelector('#remove');
+
+        remove.addEventListener('click', function(event) {
+        elem.parentElement.removeChild(elem);
+        event.preventDefault(); // отменяем переход по ссылке
+        });
+        Задача 1⋕js.Pm.Mn.RL.1
+
+        Самостоятельно, не подсматривая в мой код, решите описанную задачу.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

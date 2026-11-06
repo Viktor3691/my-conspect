@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Создание HTML таблицы из массива на JavaScript</h2>
+
+        Пусть у нас есть некоторая пустая таблица:
+
+        <table id="table"></table>
+        Пусть у нас также дан некоторый двухмерный массив, например, такой:
+
+        let arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]];
+        Давайте на основе этого массива сделаем HTML таблицу, заполненную элементами данного массива. То есть у нас
+        получится
+        таблица с тремя рядами, в каждом из которых будет по 4 ячейки.
+
+        Решим задачу с помощью двух вложенных циклов for-of:
+
+        let arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]];
+        let table = document.querySelector('#table');
+
+        for (let subArr of arr) {
+        let tr = document.createElement('tr');
+
+        for (let elem of subArr) {
+        let td = document.createElement('td');
+        td.innerHTML = elem;
+        tr.appendChild(td);
+        }
+
+        table.appendChild(tr);
+        }
+        Как вы видите, наше решение получилось универсальным и не зависит от количества подмассивов и количества
+        элементов в
+        каждом подмассиве. Единственное условие - чтобы в подмассивах было одинаковое количество элементов.
+
+        Задача 1⋕js.Pm.Mn.TCVA.1
+
+        Дан массив:
+
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
+        Не подсматривая в теоретическую часть урока, выведите элементы приведенного массива в виде HTML таблицы table.
+
+        Задача 2⋕js.Pm.Mn.TCVA.2
+
+        Модифицируйте предыдущую задачу так, чтобы в таблицу записывались не элементы, а квадраты этих элементов.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

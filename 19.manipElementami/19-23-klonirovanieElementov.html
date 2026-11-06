@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Клонирование элементов на JavaScript</h2>
+
+        В данном уроке мы научимся получать копии элементов. С этими копиями можно будет работать, как с обычными
+        элементами -
+        изменять их и вставлять в нужное место страницы. Процесс получения копий элементов называется клонирование.
+
+        Клонировать элемент можно с помощью метода cloneNode. В этот метод нужно передавать параметром true либо false.
+        Если
+        передан true, то элемент клонируется полностью, вместе со всем атрибутами и дочерними элементами, а если false -
+        только
+        сам элемент.
+
+        Давайте посмотрим на примере. Пусть у нас есть вот такой код:
+
+        <div id="parent">
+            <div class="elem">
+                <p>первый абзац</p>
+                <p>второй абзац</p>
+            </div>
+        </div>
+        Сделаем копию блока с классом elem и вставим его в конец блока #parent:
+
+        let parent = document.querySelector('#parent');
+        let elem = parent.querySelector('.elem');
+
+        let clone = elem.cloneNode(true);
+        parent.appendChild(clone);
+        В результате получится следующее:
+
+        <div id="parent">
+            <div class="elem">
+                <p>первый абзац</p>
+                <p>второй абзац</p>
+            </div>
+            <div class="elem">
+                <p>первый абзац</p>
+                <p>второй абзац</p>
+            </div>
+        </div>
+        Задача 1⋕js.Pm.Mn.EC.1
+
+        Дан инпут. Дана кнопка. По нажатию на кнопку клонируйте этот инпут.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

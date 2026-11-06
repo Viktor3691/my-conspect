@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Раздел 20. Функции и DOM — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-20-funksiiDOM.html"> Функции и DOM</a>
+            <a href="20-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Функции для работы с DOM элементом на JavaScript</h2>
+
+        Сейчас мы с вами научимся делать вспомогательные функции, выполняющие какие-либо операции с DOM. Например,
+        давайте
+        сделаем функцию, которая первым параметром будет принимать id элемента, а вторым - текст элемента, и будет
+        устанавливать
+        этому элементу новый текст.
+
+        Вот описанная функция:
+
+        function setText(id, text) {
+        let elem = document.getElementById(id);
+        elem.innerHTML = text;
+        }
+        Давайте опробуем ее работу. Пусть у нас есть два абзаца:
+
+        <p id="elem1"></p>
+        <p id="elem2"></p>
+        Давайте поменяем текст этим абзацам, воспользовавшись созданной нами функцией:
+
+        setText('elem1', 'text1');
+        setText('elem2', 'text2');
+        Задача 1⋕js.Pm.FD.DEF.1
+
+        Модифицируйте созданную мною функцию так, чтобы параметром она принимала не id элемента, а произвольный CSS
+        селектор.
+
+        Задача 2⋕js.Pm.FD.DEF.2
+
+        Сделайте функцию setAttr, которая будет менять атрибут DOM элементу. Пусть первым параметром функция принимает
+        селектор
+        элемента, вторым - имя атрибута, а третьим - его новое значение.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

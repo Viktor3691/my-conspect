@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Поиск ячеек таблицы через селектор CSS на JavaScript</h2>
+
+        В предыдущих уроках для поиска, к примеру, колонок таблицы мы использовали свои атрибуты data-. На самом деле
+        это не
+        является не обязательным и для решения многих задач можно использовать селекторы CSS.
+
+        К примеру, в следующем коде мы найдем вторую ячейку третьего ряда:
+
+        let td = document.querySelector('#table tr:nth-child(3) td:nth-child(2)');
+        А в следующем коде мы находим все ячейки второй колонки таблицы:
+
+        let tds = document.querySelectorAll('#table td:nth-child(2)');
+
+        for (let td of tds) {
+        td.innerHTML = '!';
+        }
+        А теперь найдем вторые ячейки всех нечетных рядов:
+
+        let tds = document.querySelectorAll('#table tr:nth-child(odd) td:nth-child(2)');
+
+        for (let td of tds) {
+        td.innerHTML = '!';
+        }
+        Задача 1⋕js.Pm.Mn.SCS.1
+
+        Найдите все ячейки третьего столбца и покрасьте их в красный фон.
+
+        Задача 2⋕js.Pm.Mn.SCS.2
+
+        Найдите третью ячейку первого ряда и покрасьте ее в красный фон.
+
+        Задача 3⋕js.Pm.Mn.SCS.3
+
+        Найдите все четные ряды и покрасьте в них все нечетные ячейки.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

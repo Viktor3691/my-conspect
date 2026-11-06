@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Раздел 20. Функции и DOM — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-20-funksiiDOM.html"> Функции и DOM</a>
+            <a href="20-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Создание HTML таблицы из одномерного массива на JavaScript</h2>
+
+        Пусть у нас дан вот такой одномерный массив:
+
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        Давайте выведем его элементы в виде HTML таблицы. Очевидно, что размеры таблицы не определены данным массивом:
+        мы можем
+        вывести его в виде таблицы размером 3 ряда на 4 столбца, либо 4 ряда на 3 столбца, либо еще в каком-то виде.
+
+        На самом деле, чтобы задать желаемые размеры таблицы, достаточно знать желаемое количество колонок - а
+        количество рядов
+        получится автоматически из длины массива.
+
+        В нашем случае длина массива равна 12. Получается, что, если мы желаем 3 колонки, тогда количество рядов будет
+        равно 12
+        / 3 = 4. А если желаем 4 колонки, то количество рядов будет 12 / 4 = 3. Ну и так далее.
+
+        Давайте будем хранить желаемое количество колонок в переменной cols:
+
+        let cols = 3;
+        Давайте теперь приступим к решению задачи.
+
+        Можно попытаться решить эту задачу "в лоб": взять наш массив и начать из него каким-то образом строить таблицу.
+        Однако,
+        так сразу даже и непонятно, каким образом из этого массива сделать таблицу.
+
+        Лучше будет поступить по-другому. У вас уже должна быть функция createTableByArr, которая параметром принимает
+        двухмерный массив и создает на его основе таблицу.
+
+        Давайте сделаем еще и функцию convertArr, которая будет брать одномерный массив и преобразовывать его в
+        двухмерный.
+        Пусть первым параметром функция принимает одномерный массив, а вторым - желаемое количество элементов в
+        подмассиве.
+
+        Вот примеры того, как должна работать наша функция:
+
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+        console.log(convertArr(arr, 3));
+        // выведет [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+
+        console.log(convertArr(arr, 4));
+        // выведет [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+        Имея описанные функции, решение задачи не составит труда:
+
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        let cols = 3;
+
+        let table = createTableByArr(convertArr(arr, cols));
+        В приведенном коде в переменную table положится ссылка на DOM элемент с таблицей. Затем этот DOM элемент можно
+        будет
+        добавить на страницу, к примеру, в какой-нибудь див.
+
+        Задача 1⋕js.Pm.FD.TCFODA.1
+
+        Реализуйте описанную функцию convertArr. Потестируйте ее работу.
+
+        Задача 2⋕js.Pm.FD.TCFODA.2
+
+        Дан следующий массив:
+
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        С помощью комбинаций функций createTableByArr и convertArr создайте из приведенного массива таблицу размером 4
+        колонки.
+        Добавьте созданную таблицу в какой-нибудь див.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

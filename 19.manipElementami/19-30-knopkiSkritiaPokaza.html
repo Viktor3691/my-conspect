@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Кнопки для скрытия и показа элемента на JavaScript</h2>
+
+        В данном разделе мы с вами научимся скрывать и показывать элементы страницы. Как обычно, начнем с чего-то
+        простого, и
+        будем постепенно усложнять.
+
+        Пусть для разминки у нас есть абзац и две кнопки:
+
+        <p id="elem">text</p>
+        <input type="submit" id="show" value="show">
+        <input type="submit" id="hide" value="hide">
+        Получим ссылки на наши элементы в переменные:
+
+        let elem = document.querySelector('#elem');
+        let show = document.querySelector('#show');
+        let hide = document.querySelector('#hide');
+        Давайте теперь сделаем так, чтобы по клику на одну кнопку наш абзац скрывался, а на другую - показывался. Будем
+        для
+        этого давать или убирать элементу соответствующий CSS класс:
+
+        .hidden {
+        display: none;
+        }
+        Решим нашу задачу:
+
+        hide.addEventListener('click', function() {
+        elem.classList.add('hidden');
+        });
+
+        show.addEventListener('click', function() {
+        elem.classList.remove('hidden');
+        });
+        Задача 1⋕js.Pm.Mn.HShB.1
+
+        Модифицируйте мой код так, чтобы была только одна кнопка. Пусть по первому клику на эту кнопку элемент
+        показывается, а
+        по второму - скрывается.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Проверка элементов в JavaScript</h2>
+
+        <p>Изучите теорию по следующим ссылкам:</p>
+
+        Метод matches
+        Метод matches позволяет проверить, удовлетворяет ли элемент указанному CSS селектору.
+
+        Синтаксис
+        элемент.matches('селектор');
+        Пример
+        Проверим, является ли наш элемент абзацем с классом www:
+
+        <p id="elem" class="www"></p>
+        let elem = document.querySelector('#elem');
+        console.log(elem.matches('p.www'));
+        Результат выполнения кода:
+
+        true
+
+        Задача 1⋕js.Pm.Mn.ECh.1
+
+        Дан элемент:
+
+        <div id="elem" class="www"></div>
+        Проверьте, является ли этот элемент элементом с классом www.
+
+        Задача 2⋕js.Pm.Mn.ECh.2
+
+        Дан элемент. Проверьте, является ли этот элемент абзацем.
+
+        <p>Изучите теорию по следующим ссылкам:</p>
+
+        <h2>Метод contains</h2>
+
+        Метод contains позволяет проверить, содержит ли один элемент внутри себя другой. Параметром метода передается
+        элемент,
+        который будет проверяться на то, что он находится внутри элемента, к которому применился метод.
+
+        Синтаксис
+        родитель.contains(элемент)
+        Пример
+        Проверим, находится ли абзац #child в блоке #parent:
+
+        <div id="parent">
+            <p id="child"></p>
+        </div>
+        let parent = document.querySelector('#parent');
+        let child = document.querySelector('#child');
+
+        let contains = parent.contains(child);
+        console.log(contains);
+        Результат выполнения кода:
+
+        true
+        Пример
+        А теперь в родителе нет переданного элемента и поэтому метод возвращает false:
+
+        <div id="parent"></div>
+        <p id="child"></p>
+        let parent = document.querySelector('#parent');
+        let child = document.querySelector('#child');
+
+        let contains = parent.contains(child);
+        console.log(contains);
+        Результат выполнения кода:
+
+        false
+        Пример
+        Можно передать тот же элемент, на котором метод был вызван, в этом случае метод также вернет true:
+
+        <div id="parent"></div>
+        let parent = document.querySelector('#parent');
+
+        let contains = parent.contains(parent);
+        console.log(contains);
+        Результат выполнения кода:
+
+        true
+
+        Задача 3⋕js.Pm.Mn.ECh.3
+
+        Даны две переменные elem1 и elem2, содержащие два элемента:
+
+        <div id="elem1">
+            <p id="elem2"></p>
+        </div>
+        let elem1 = document.querySelector('#elem1');
+        let elem2 = document.querySelector('#elem2');
+        Проверьте, является ли элемент из elem2 потомком элемента из elem1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

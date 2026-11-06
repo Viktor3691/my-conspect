@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Изменение ячеек HTML таблицы на JavaScript</h2>
+
+        Пусть дана некоторая HTML таблица #table. Пусть перед нами стоит задача что-то сделать с каждой ячейкой таблицы,
+        например, записать в каждую из них текст '!'.
+
+        Давайте обсудим нюансы решения подобной задачи.
+
+        Как вы знаете, HTML таблица имеет двухмерную структуру: есть ряды, а в них ячейки. Можно решить нашу задачу
+        следующим
+        образом: перебрать циклом ряды и в каждом ряду перебрать циклом ячейки и сделать с ними нужное нам действие. То
+        есть
+        приведенная схема решения подобна тому, как бы мы создавали такую таблицу, заполняя ее рядами и ячейками.
+
+        Однако, в данном случае, два вложенных цикла будут лишними: можно просто получить все td и перебрать их циклом,
+        выполняя
+        нужную операцию. Сделаем это:
+
+        let tds = document.querySelectorAll('#table td');
+
+        for (let td of tds) {
+        td.innerHTML = '!';
+        }
+        Задача 1⋕js.Pm.Mn.TCM.1
+
+        Пусть дана некоторая HTML таблица с числами и кнопка. По нажатию на кнопку увеличьте число в каждой ячейки
+        таблицы в два
+        раза.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

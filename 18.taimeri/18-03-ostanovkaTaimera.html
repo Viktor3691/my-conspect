@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-18-taimeri.html">Таймеры</a>
+            <a href="18-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Остановка таймера JavaScript</h2>
+
+        Вы уже знаете, как запустить таймер, давайте теперь научимся его останавливать. Для этого вам необходимо знать,
+        что
+        каждый таймер, запущенный с помощью функции setInterval, имеет уникальный номер. Этот номер возвращает функция
+        setInterval в момент запуска таймера:
+
+        let timerId = setInterval(function() {
+        console.log('!')
+        }, 1000);
+
+        alert(timerId); // выведет номер таймера
+        Для остановки таймера используется функция clearInterval, которая принимает уникальный номер того таймера,
+        который нужно
+        остановить.
+
+        Для примера давайте запустим таймер, выводящий в консоль числа по возрастанию, начиная с 1. Остановим таймер,
+        как только
+        на экран будет выведено число 10:
+
+        let i = 0;
+
+        let timerId = setInterval(function() {
+        console.log(++i);
+
+        if (i >= 10) {
+        clearInterval(timerId);
+        }
+        }, 1000);
+        Задача 1⋕js.Pm.Tmr.TS.1
+
+        Пусть дана переменная, в которой изначально хранится число 10. Запустите таймер, который каждую секунду будет
+        уменьшать
+        значение этой переменной на 1 и выводить это значение в консоль. Как только значение переменной достигнет нуля -
+        остановите таймер.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

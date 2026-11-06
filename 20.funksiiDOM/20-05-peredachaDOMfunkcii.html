@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Раздел 20. Функции и DOM — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-20-funksiiDOM.html"> Функции и DOM</a>
+            <a href="20-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Передача DOM элемента параметром функции</h2>
+
+        В предыдущих уроках мы передавали в наши функции селекторы элементов, и наши функции сами получали ссылки на эти
+        элементы внутри своего кода. Существует и другой подход: в функции можно передавать уже полученные ранее ссылки
+        на
+        элементы.
+
+        Давайте посмотрим на примере. Пусть у нас есть следующий код:
+
+        <p id="elem1"></p>
+        <p id="elem2"></p>
+        Давайте сделаем функцию setText, которая первым параметром будет принимать ссылку на DOM элемент, а вторым -
+        текст
+        элемента:
+
+        function setText(elem, text){
+        elem.innerHTML = text;
+        }
+        Используем созданную нами функцию для установки текста наших абзацев:
+
+        let elem1 = document.getElementById('elem1');
+        setText(elem1, 'text1');
+
+        let elem2 = document.getElementById('elem2');
+        setText(elem2, 'text2');
+        Задача 1⋕js.Pm.FD.PEAP.1
+
+        Сделайте функцию appendText, которая первым параметром будет принимать DOM элемент, а вторым - текст. Сделайте
+        так,
+        чтобы данная функция добавляла текст в конец этого элемента.
+
+        Задача 2⋕js.Pm.FD.PEAP.2
+
+        Даны абзацы. Получите их, переберите циклом и каждому добавьте в конец '!' с помощью функции appendText,
+        сделанной в
+        предыдущей задаче.
+
+        Задача 3⋕js.Pm.FD.PEAP.3
+
+        Сделайте функцию setValue, которая первым параметром будет принимать ссылку на инпут, а вторым - текст. Сделайте
+        так,
+        чтобы данная функция устанавливала переданный текст в value инпута.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

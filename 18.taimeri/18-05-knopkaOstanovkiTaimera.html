@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-18-taimeri.html">Таймеры</a>
+            <a href="18-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Кнопки для запуска и остановки таймера на JavaScript</h2>
+
+        Давайте теперь сделаем две кнопки: по нажатию на первую пусть таймер запускается, а по нажатию на вторую -
+        останавливается. Здесь уже все будет не так просто и нас ждет подвох. Для того, чтобы понять суть этого подвоха,
+        распишу
+        создание кода по шагам.
+
+        Итак, делаем две кнопочки:
+
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+        Получаем ссылки на эти кнопки в переменные:
+
+        let start = document.querySelector('#start');
+        let stop = document.querySelector('#stop');
+        По нажатию на первую кнопку стартуем таймер, записав его номер в переменную:
+
+        start.addEventListener('click', function() {
+        let i = 0;
+
+        let timerId = setInterval(function() {
+        console.log('!')
+        }, 1000);
+        });
+        А теперь остановим таймер по нажатию на вторую кнопку:
+
+        start.addEventListener('click', function() {
+        let i = 0;
+
+        let timerId = setInterval(function() {
+        console.log('!')
+        }, 1000);
+        });
+
+        // Останавливаем таймер:
+        stop.addEventListener('click', function() {
+        clearInterval(timerId);
+        });
+        Однако, если попытаться запустить приведенный выше код, нас ждет сюрприз: при попытке остановить таймер
+        окажется, что
+        переменная timerId равна undefined! Почему так произошло? Потому при запуске таймера мы сделали нашу переменную
+        timerId
+        локальной внутри функции, привязанной к кнопке start.
+
+        Для решения проблемы сделаем переменную timerId глобальной - в этом случае она будет доступна как в функции
+        запуска
+        таймера, так и в функции остановки:
+
+        let timerId; // сделаем переменную глобальной
+
+        start.addEventListener('click', function() {
+        let i = 0;
+
+        timerId = setInterval(function() {
+        console.log('!')
+        }, 1000);
+        });
+
+        stop.addEventListener('click', function() {
+        clearInterval(timerId);
+        });
+        Задача 1⋕js.Pm.Tmr.SB.1
+
+        Пусть дана переменная, в которой изначально хранится число 100. Даны также две кнопки. По нажатию на первую
+        кнопку
+        запустите таймер, который каждую секунду будет уменьшать значение переменной на 1 и выводить новое значение в
+        консоль.
+        Как только значение переменной достигнет нуля - остановите таймер.
+
+        По нажатию на вторую кнопку остановите таймер. Также остановите таймер, если вторая кнопка не была нажата, но
+        значение
+        переменной достигло нуля.
+
+        Задача 2⋕js.Pm.Tmr.SB.2
+
+        Некоторый программист написал код, который по нажатию на кнопку запускает таймер, выводящий в консоль текущий
+        момент
+        времени:
+
+        <input type="submit" id="start" value="start">
+        <input type="submit" id="stop" value="stop">
+        let start = document.querySelector('#start');
+        let stop = document.querySelector('#stop');
+
+        start.addEventListener('click', function() {
+        let timerId = setInterval(function() {
+        let date = new Date;
+        console.log(date.getMinutes() + ' ' + date.getSeconds());
+        }, 1000);
+        });
+
+        stop.addEventListener('click', function() {
+        clearInterval(timerId);
+        });
+        После запуска кода, однако, оказалось, что кнопка остановки не работает. Исправьте ошибку автора кода.
+
+        Задача 3⋕js.Pm.Tmr.SB.3
+
+        Еще один программист также написал код для решения предыдущей задачи:
+
+        <input type="submit" id="start" value="start">
+        <input type="submit" id="stop" value="stop">
+        let start = document.querySelector('#start');
+        let stop = document.querySelector('#stop');
+
+        let timerId;
+
+        start.addEventListener('click', function() {
+        let timerId = setInterval(function() {
+        let date = new Date;
+        console.log(date.getMinutes() + ' ' + date.getSeconds());
+        }, 1000);
+        });
+
+        stop.addEventListener('click', function() {
+        clearInterval(timerId);
+        });
+        После запуска кода, однако, опять оказалось, что кнопка остановки не работает. Исправьте ошибку автора кода.
+
+        Задача 4⋕js.Pm.Tmr.SB.4
+
+        Еще один программист также написал код для решения предыдущей задачи:
+
+        <input type="submit" id="start" value="start">
+        <input type="submit" id="stop" value="stop">
+        let start = document.querySelector('start');
+        let stop = document.querySelector('stop');
+
+        let timerId;
+
+        start.addEventListener('click', function() {
+        setInterval(function() {
+        let date = new Date;
+        console.log(date.getMinutes() + ' ' + date.getSeconds());
+        }, 1000);
+        });
+
+        stop.addEventListener('click', function() {
+        clearInterval(timerId);
+        });
+        После запуска кода, однако, опять оказалось, что кнопка остановки не работает. Исправьте ошибку автора кода.
+
+        Задача 5⋕js.Pm.Tmr.SB.5
+
+        Еще один программист также написал код для решения предыдущей задачи:
+
+        <input type="submit" id="start" value="start">
+        <input type="submit" id="stop" value="stop">
+        let start = document.querySelector('start');
+        let stop = document.querySelector('stop');
+
+        let timerId;
+
+        start.addEventListener('click', function() {
+        let timerId = setInterval(function() {
+        let date = new Date;
+        console.log(date.getMinutes() + ' ' + date.getSeconds());
+        }, 1000);
+        });
+
+        stop.addEventListener('click', function() {
+        clearInterval();
+        });
+        После запуска кода, однако, опять оказалось, что кнопка остановки не работает. Исправьте ошибку автора кода.
+
+        Задача 6⋕js.Pm.Tmr.SB.6
+
+        Приведенный мною в теоретической части код не учитывает то, что на кнопку старт можно сделать несколько нажатий.
+        Для
+        исправления этой проблемы можно по нажатию на кнопку старт отвязывать событие от этой кнопки, а по нажатию на
+        кнопку
+        стоп - привязывать обратно. Исправьте проблему.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Последовательное заполнение HTML таблиц</h2>
+
+        Пусть у нас есть вот такая пустая HTML таблица:
+
+        <table id="table"></table>
+        Давайте заполним эту таблицу ячейками и сделаем так, чтобы в этих ячейках шли числа от 1 до 9. Вот пример того,
+        что у
+        нас должно получится:
+
+        <table id="table">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </table>
+        Давайте приступим к реализации.
+
+        Для начала давайте просто сделаем таблицу размером 3 на 3, заполненную буквами 'x':
+
+        let table = document.querySelector('#table');
+
+        for (let i = 0; i < 3; i++) { let tr=document.createElement('tr'); for (let i=0; i < 3; i++) { let
+            td=document.createElement('td'); td.innerHTML='x' ; tr.appendChild(td); } table.appendChild(tr); } Давайте
+            теперь сделаем так, чтобы вместо букв 'x' в ячейки записывались числа по возрастанию. Для этого нам
+            необходимо ввести еще один счетчик, который будет последовательно увеличивать свои значения в каждой
+            итерации внутреннего цикла, вот так: let table=document.querySelector('#table'); let k=1; // начальное
+            значение счетчика for (let i=0; i < 3; i++) { let tr=document.createElement('tr'); for (let i=0; i < 3; i++)
+            { let td=document.createElement('td'); td.innerHTML=k; // записываем счетчик в ячейку k++; // увеличиваем
+            счетчик tr.appendChild(td); } table.appendChild(tr); } Задача 1⋕js.Pm.Mn.TCF.1 Выведите на экран таблицу
+            table размером 5 рядов на 5 колонок так, чтобы в ее ячейках последовательно стояли числа от 1 до 25. Задача
+            2⋕js.Pm.Mn.TCF.2 Модифицируйте предыдущую задачу так, чтобы в ячейках таблицы были записаны четные числа в
+            промежутке от 2 до 50. </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

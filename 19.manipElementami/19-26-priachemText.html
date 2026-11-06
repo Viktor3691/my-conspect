@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Прячем текст при редактировании элемента на JavaScript</h2>
+
+        Давайте теперь сделаем так, чтобы при редактировании инпут появлялся в самом абзаце - вместо текста этого
+        абзаца. Пусть
+        затем при окончании редактирования инпут будет убираться, а вместо него опять появляться текст абзаца.
+
+        Приступим к реализации.
+
+        Для начала давайте сделаем так, чтобы по клику на абзац ему в конец добавлялся инпут с текстом этого абзаца:
+
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function() {
+        let input = document.createElement('input');
+        input.value = elem.innerHTML;
+
+        elem.appendChild(input);
+        });
+        Наш код, однако, очень несовершенен - каждый раз по клику на абзац в него будет добавляться новый инпут.
+
+        При этом, если в первом инпуте будет стоять текст абзаца, то во втором инпуте уже будет стоять текст абзаца
+        вместе с
+        первым инпутом, а третьем инпуте уже будет стоять текст абзаца вместе с двумя инпутами и так далее.
+
+        Обратите также внимание на то, что клик по добавленному инпуту будет расцениваться как клик по абзацу: дело в
+        том, что
+        инпут находится в абзаце, и клик по инпуту просто всплывет выше к этому абзацу.
+
+        Это приведет к тому, что после появления первого инпута при попытке нажать на него для того, чтобы начать
+        редактирование, мы автоматически сделаем клик по абзацу со всеми вытекающими последствиями.
+
+        Итак, проблема обрисована. Давайте теперь ее исправим.
+
+        Для этого просто при появлении инпута отвяжем от абзаца обработчик клика. В этом случае только первый клик по
+        абзацу
+        будет приводить к появлению инпута, а остальные клики, сделанные после появления инпута, будут проигнорированы.
+
+        Реализуем:
+
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function func() {
+        let input = document.createElement('input');
+        input.value = elem.innerHTML;
+
+        elem.appendChild(input);
+
+        elem.removeEventListener('click', func); // отвяжем событие
+        });
+        Давайте теперь сделаем так, чтобы при появлении инпута, текст сам абзаца исчезал. Для этого перед вставкой
+        инпута
+        innerHTML абзаца присвоим пустой строке:
+
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function func() {
+        let input = document.createElement('input');
+
+        input.value = elem.innerHTML; // сначала записываем текст абзаца в инпут
+        elem.innerHTML = ''; // затем убираем текст абзаца
+        elem.appendChild(input); // затем вставляем инпут
+
+        elem.removeEventListener('click', func);
+        });
+        Давайте теперь сделаем так, чтобы при потери фокуса в инпуте текст этого инпута записывался в абзац:
+
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function func() {
+        let input = document.createElement('input');
+
+        input.value = elem.innerHTML;
+        elem.innerHTML = '';
+        elem.appendChild(input);
+
+        input.addEventListener('blur', function() {
+        elem.innerHTML = this.value;
+        });
+
+        elem.removeEventListener('click', func);
+        });
+        Обратите внимание на то, что нам не нужно удалять инпут - он удаляет сам себя, когда записывает свой текст в
+        абзац: так
+        как инпут является частью текста абзаца, то запись какого-то текста в этот абзац просто удаляет наш инпут, и
+        все.
+
+        У нас, однако, есть еще одна проблема: текст абзаца будет редактироваться лишь первый раз. После первого
+        редактирования
+        повторное нажатие на текст абзаца ни к чему не приведет.
+
+        Дело в том, что в момент появления инпута мы отвязали событие от абзаца по описанным выше причинам. Теперь нам
+        необходимо в момент окончания редактирования привязать событие обратно.
+
+        Сделаем это:
+
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function func() {
+        let input = document.createElement('input');
+        input.value = elem.innerHTML;
+
+        elem.innerHTML = '';
+        elem.appendChild(input);
+
+        input.addEventListener('blur', function() {
+        elem.innerHTML = this.value;
+        elem.addEventListener('click', func); // повесим событие обратно
+        });
+
+        elem.removeEventListener('click', func);
+        });
+        Задача 1⋕js.Pm.Mn.EHT.1
+
+        Самостоятельно, не подсматривая в мой код, решите описанную задачу.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

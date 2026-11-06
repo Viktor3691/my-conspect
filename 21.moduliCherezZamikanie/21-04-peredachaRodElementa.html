@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Раздел 21. Модули через замыкания — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-21-moduliCherezZamikanie.html">Модули через
+                замыкания</a>
+            <a href="21-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Передача родительского элемента в модуль через замыкания в JavaScript</h2>
+
+        Пусть у нас есть следующие элементы:
+
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+        <div id="res"></div>
+
+        <button id="btn">click me</button>
+        Пусть с этими элементами работает следующий модуль:
+
+        ;(function(selector1, selector2, selector3, selector4, selector5) {
+        let div1 = document.querySelector(selector1);
+        let div2 = document.querySelector(selector2);
+        let div3 = document.querySelector(selector3);
+        let res = document.querySelector(selector4);
+        let btn = document.querySelector(selector5);
+
+        btn.addEventListener('click', function() {
+        let num1 = Number(div1.textContent);
+        let num2 = Number(div2.textContent);
+        let num3 = Number(div3.textContent);
+
+        res.textContent = num1 + num2 + num3;
+        });
+        })('#div1', '#div2', '#div3', '#res', '#btn');
+        Как вы видите, количество передаваемых в модуль параметров несколько великовато и создает неудобства. Обычно в
+        этом
+        случае поступают следующим образом: передают в модуль общего родителя всех элементов, с которыми работает наш
+        модуль, а
+        уже внутри модуля получают из этого родителя различные элементы.
+
+        Давайте сделаем нашим тегам общего родителя:
+
+        <div id="parent">
+            <div id="div1">1</div>
+            <div id="div2">2</div>
+            <div id="div3">3</div>
+            <div id="res"></div>
+
+            <button id="btn">click me</button>
+        </div>
+        Переделаем теперь код модуля:
+
+        ;(function(root) {
+        let parent = document.querySelector(root);
+
+        let div1 = parent.querySelector('#div1');
+        let div2 = parent.querySelector('#div2');
+        let div3 = parent.querySelector('#div3');
+
+        let res = parent.querySelector('#res');
+        let btn = parent.querySelector('#btn');
+
+        btn.addEventListener('click', function() {
+        let num1 = Number(div1.textContent);
+        let num2 = Number(div2.textContent);
+        let num3 = Number(div3.textContent);
+
+        res.textContent = num1 + num2 + num3;
+        });
+        })('#parent');
+        Таким образом получится, что родительский элемент мы передаем в модуль снаружи и легко можем его поменять. А
+        дочерние
+        элементы являются внутренним делом модуля.
+
+
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

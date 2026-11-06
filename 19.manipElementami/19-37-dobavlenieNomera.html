@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Добавление номера колонки и ряда в таблицу</h2>
+
+        В предыдущем уроке вы увидели, как можно делать поиск по таблице, если в ней расставлены data атрибуты. Однако,
+        их
+        ручная расстановка не очень удобная вещь. Гораздо удобнее, если номера ячеек расставит за нас наш скрипт. В этом
+        уроке
+        мы потренируемся писать код для расстановки таких атрибутов.
+
+        Задача 1⋕js.Pm.Mn.DATA.1
+
+        Дана HTML таблица с пустыми ячейками, например, вот такая:
+
+        <table id="table">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        Напишите скрипт, который добавит в каждую ячейку таблицы атрибут data-col с номером колонки таблицы, в которой
+        находится
+        эта ячейка.
+
+        Вот HTML код примера таблицы, которая у вас должна получится:
+
+        <table id="table">
+            <tr>
+                <td data-col="1"></td>
+                <td data-col="2"></td>
+                <td data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-col="1"></td>
+                <td data-col="2"></td>
+                <td data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-col="1"></td>
+                <td data-col="2"></td>
+                <td data-col="3"></td>
+            </tr>
+        </table>
+        Задача 2⋕js.Pm.Mn.DATA.2
+
+        Модифицируйте предыдущую задачу так, чтобы в ячейку добавлялся еще и номер ее ряда, вот так:
+
+        <table id="table">
+            <tr>
+                <td data-row="1" data-col="1"></td>
+                <td data-row="1" data-col="2"></td>
+                <td data-row="1" data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-row="2" data-col="1"></td>
+                <td data-row="2" data-col="2"></td>
+                <td data-row="2" data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-row="3" data-col="1"></td>
+                <td data-row="3" data-col="2"></td>
+                <td data-row="3" data-col="3"></td>
+            </tr>
+        </table>
+        Задача 3⋕js.Pm.Mn.DATA.3
+
+        Дана некоторая таблица. Сделайте так, чтобы по клику на любую ячейку в ее текст выводился номер ряда и номер
+        колонки
+        этой ячейки.
+
+        Задача 4⋕js.Pm.Mn.DATA.4
+
+        Пусть у нас есть некоторая квадратная HTML таблица. В такой таблице есть две диагонали. Назовем главной
+        диагональ,
+        идущую от верхнего левого угла к нижнему правому. Сделайте так, чтобы по клику на любую ячейку главной диагонали
+        эта
+        ячейка красилась в красный цвет фона, а по клику любую другую ячейку - она красилась в зеленый.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

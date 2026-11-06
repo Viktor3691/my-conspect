@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-18-taimeri.html">Таймеры</a>
+            <a href="18-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2></h2>
+        <!DOCTYPE html>
+        <html lang="ru">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Таймеры — конспект</title>
+            <link rel="stylesheet" href="../css/styles.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+                rel="stylesheet">
+        </head>
+
+        <body data-gmT="D" data-mType="L">
+
+            <header data-w="nict/mainmenu">
+                <span data-e="head">Мой конспект по JavaScript</span>
+                <div data-e="subb">
+                    <a href="../index.html">Оглавление</a>
+                    <a href="razdel-18-taimeri.html">Таймеры</a>
+                    <a href="18-.html"># of 312</a>
+                </div>
+                <div data-e="subb">
+                    <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+                    <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+                </div>
+
+            </header>
+
+            <div data-w="nict/them">
+                <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+                    Тёмная</button>
+                <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+                    Светлая</button>
+            </div>
+
+            <main data-w="cont/pane">
+
+                <h2>Таймеры и потеря контекста в JavaScript</h2>
+
+                При использовании таймеров в обработчиках событий нас поджидают проблемы с потерей контекста. Давайте
+                посмотрим на
+                примере.
+
+                Пусть у нас есть инпут:
+
+                <input id="elem" value="text">
+                Пусть по клику на этот инпут сработает анонимная функция и внутри этой функции запустится таймер, каждую
+                секунду
+                выводящий что-нибудь в консоль:
+
+                let elem = document.querySelector('#elem');
+
+                elem.addEventListener('click', function() {
+                setInterval(function() {
+                console.log('!!!'); // что-нибудь выводим в консоль
+                }, 1000);
+                });
+                Пока все работает верно. Но пусть теперь мы хотим выводить в консоль value нашего инпута - нас ждет
+                сюрприз: в консоль
+                будет выводится undefined:
+
+                elem.addEventListener('click', function() {
+                setInterval(function() {
+                console.log(this.value); // будет выводится undefined
+                }, 1000);
+                });
+                Все дело в том, что у нас получается функция в функции: есть внешняя анонимная функция, которая
+                вызывается по клику и
+                внутренняя анонимная функция, которую запускает таймер. Во внешней функции this указывает на инпут, но
+                во внутренней -
+                нет. Имеет место потеря контекста.
+
+                Почему выводится undefined, а не вываливается ошибка в консоль, как это было в предыдущих уроках? Потому
+                что this внутри
+                функции, вызываемой через setInterval, указывает на window.
+
+                Это значит, что мы пытаемся прочитать свойство value у объекта window, вот так: window.value, а такого
+                свойства в нем
+                нет, и мы получаем undefined (не ошибку).
+
+                Поправим проблему введением self:
+
+                elem.addEventListener('click', function() {
+                let self = this;
+
+                setInterval(function() {
+                console.log(self.value);
+                }, 1000);
+                });
+                Задача 1⋕js.Pm.Tmr.TCL.1
+
+                Пусть дан такой код:
+
+                <input type="button" id="elem" value="1">
+                let elem = document.querySelector('#elem');
+
+                elem.addEventListener('click', function() {
+                setInterval(function() {
+                this.value = Number(elem.value) + 1;
+                }, 1000);
+                });
+                Автор кода хотел, чтобы по нажатию на кнопку, значение этой кнопки каждую секунду увеличивалось на 1.
+                Однако, по нажатию
+                на кнопку вообще ничего не происходит. Исправьте ошибку автора кода. Напишите текст, в котором вы дадите
+                объяснение
+                автору кода, почему возникла его ошибка.
+
+                Другие способы решить проблему
+                Конечно же, можно использовать все известные вам способы решения проблем с контекстом. Например, можно
+                использовать
+                стрелочную функцию:
+
+                elem.addEventListener('click', function() {
+                setInterval(() => console.log(this.value), 1000);
+                });
+                Задача 2⋕js.Pm.Tmr.TCL.2
+
+                Исправьте проблему предыдущей задачи через стрелочную функцию.
+
+                Решение проблемы через замыкание
+                Можно также решить проблему с контекстом, используя замыкание:
+
+                let elem = document.querySelector('#elem');
+
+                elem.addEventListener('click', function() {
+                function func(self) {
+                return function() {
+                console.log(self.value);
+                }
+                }
+
+                setInterval(func(this), 1000);
+                });
+                Можно вообще не использовать именованную функцию, а сделать вызов функции на месте. В этом случае мы
+                получим более
+                изящное, но менее понятное решение:
+
+                let elem = document.querySelector('#elem');
+
+                elem.addEventListener('click', function() {
+                setInterval((function(self) {
+                return function() {
+                console.log(self.value);
+                }
+                })(this), 1000);
+                });
+                Задача 3⋕js.Pm.Tmr.TCL.3
+
+                Объясните принцип работы приведенного мною кода.
+
+
+
+
+            </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+        </body>
+
+        </html>
+
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

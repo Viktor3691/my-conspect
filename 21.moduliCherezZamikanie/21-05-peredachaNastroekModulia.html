@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Раздел 21. Модули через замыкания — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-21-moduliCherezZamikanie.html">Модули через
+                замыкания</a>
+            <a href="21-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Передача настроек модуля через замыкания в JavaScript</h2>
+
+        Пусть у нас есть следующий модуль:
+
+        ;(function(root, type, amount) {
+        let parent = document.querySelector(root);
+
+        for (let i = 1; i <= amount; i++) { let elem=document.createElement(type); parent.append(elem); }
+            })('#parent', 'p' , 5); Как вы видите, в этот модуль передаются три настройки: селектор родительского
+            элемента, тип элемента для создания и количество элементов. Как правило такие настройки делают в виде
+            объекта: let config={ root: '#parent' , type: 'p' , amount: 5 } Давайте передадим параметром модуля наш
+            объект: ;(function(config) { let parent=document.querySelector(config.root); for (let i=1; i
+            <=config.amount; i++) { let elem=document.createElement(config.type); parent.append(elem); } })(config);
+            Более принято выполнять деструктуризацию объекта с настройками: ;(function({root, type, amount}) { let
+            parent=document.querySelector(root); for (let i=1; i <=amount; i++) { let elem=document.createElement(type);
+            parent.append(elem); } })(config); Параметры по умолчанию Пусть мы хотим разрешить при использовании модуля
+            не указывать все настройки. Если какая-то из настроек не будет указана, то она примет значение по умолчанию.
+            К примеру, в нашем случае можно сделать так, чтобы тип по умолчанию принимал значение p, а количество -
+            значение 5: ;(function({root, type='p' , amount=5}) { let parent=document.querySelector(root); for (let i=1;
+            i <=amount; i++) { let elem=document.createElement(type); parent.append(elem); } })(config); В этом случае
+            мы легко можем по-разному конфигурировать наш модуль. К примеру, укажем только родительский элемент: let
+            config={ root: '#parent' , } А теперь укажем родительский элемент и количество. При этом нам не нужно будет
+            указывать тип - ведь элементы объекта настроек не имеют порядка, и мы можем опускать их как угодно. Итак,
+            вот наша настройка: let config={ root: '#parent' , amount: 10 } </main>
+
+            <footer data-w="nict/finf">
+                <span data-e="text">Мой личный конспект © 2026</span>
+            </footer>
+
+            <script src="../js/loader.js" defer></script>
+            <script src="../js/app.js" defer></script>
+</body>
+
+</html>

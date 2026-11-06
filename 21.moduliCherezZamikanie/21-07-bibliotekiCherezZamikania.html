@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Раздел 21. Модули через замыкания — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-21-moduliCherezZamikanie.html">Модули через
+                замыкания</a>
+            <a href="21-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2></h2>
+        Библиотеки через замыкания в JavaScript
+        Часто в JavaScript создаются библиотеки, представляющие собой наборы функций для пользования другими
+        программистами.
+
+        Такие библиотеки обычно оборачиваются в модули через замыкания. Это делается для того, чтобы при подключении
+        библиотеки
+        во внешнем мире появлялось как можно меньше функций.
+
+        Как правило каждая библиотека старается создавать во внешнем мире только одну переменную - объект с функциями
+        библиотеки. При этом внутри в коде библиотеки часть функций являются основными, а часть - вспомогательными.
+        Очевидно,
+        что во внешний мир мы хотим экспортировать только нужные функции, не захламляя экпортируемый объект
+        вспомогательными
+        функциями.
+
+        Давайте посмотрим на примере. Пусть у нас есть следующий набор функций, которые мы хотели бы превратить в
+        библиотеку:
+
+        function square(num) {
+        return num ** 2;
+        }
+        function cube(num) {
+        return num ** 3;
+        }
+        function avg(arr) {
+        return sum(arr, 1) / arr.length;
+        }
+        function digitsSum(num) {
+        return sum(String(num).split(''));
+        }
+
+        // вспомогательная функция
+        function sum(arr) {
+        let res = 0;
+
+        for (let elem of arr) {
+        res += +elem;
+        }
+
+        return res;
+        }
+        Давайте оформим наши функции в виде модуля:
+
+        ;(function() {
+        function square(num) {
+        return num ** 2;
+        }
+        function cube(num) {
+        return num ** 3;
+        }
+        function avg(arr) {
+        return sum(arr, 1) / arr.length;
+        }
+        function digitsSum(num) {
+        return sum(String(num).split(''));
+        }
+
+        // вспомогательная функция
+        function sum(arr) {
+        let res = 0;
+
+        for (let elem of arr) {
+        res += +elem;
+        }
+
+        return res;
+        }
+        })();
+        А теперь экспортируем все функции, кроме вспомогательной:
+
+        ;(function() {
+        function square(num) {
+        return num ** 2;
+        }
+        function cube(num) {
+        return num ** 3;
+        }
+        function avg(arr) {
+        return sum(arr, 1) / arr.length;
+        }
+        function digitsSum(num) {
+        return sum(String(num).split(''));
+        }
+
+        // вспомогательная функция
+        function sum(arr) {
+        let res = 0;
+
+        for (let elem of arr) {
+        res += +elem;
+        }
+
+        return res;
+        }
+
+        window.math = {square, cube, avg, digitsSum};
+        })();
+        Пусть у нас есть HTML страница index.html:
+
+        <html>
+
+        <head>
+            <script>
+
+            </script>
+        </head>
+
+        </html>
+        Подключим к ней нашу библиотеку:
+
+        <html>
+
+        <head>
+            <script src="math.js"></script>
+            <script>
+
+            </script>
+        </head>
+
+        </html>
+        Воспользуемся функциями из нашей библиотеки:
+
+        <html>
+
+        <head>
+            <script src="math.js"></script>
+            <script>
+                alert(math.avg([1, 2, 3]) + math.square());
+            </script>
+        </head>
+
+        </html>
+        Задача 1⋕js.Pm.MCl.Lb.1
+
+        Дан следующий код:
+
+        function avg1(arr) {
+        return sum(arr, 1) / arr.length;
+        }
+
+        function avg2(arr) {
+        return sum(arr, 2) / arr.length;
+        }
+
+        function avg3(arr) {
+        return sum(arr, 3) / arr.length;
+        }
+
+        // вспомогательная функция
+        function sum(arr, pow) {
+        let res = 0;
+
+        for (let elem of arr) {
+        res += elem ** pow;
+        }
+
+        return res;
+        }
+        Оформите этот код в виде модуля. Эспортируйте наружу все функции, кроме вспомогательной.
+
+        Задача 2⋕js.Pm.MCl.Lb.2
+
+        Изучите библиотеку underscore. Сделайте свою аналогичную библиотеку, повторив в ней 5-10 функций оригинальной
+        библиотеки.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

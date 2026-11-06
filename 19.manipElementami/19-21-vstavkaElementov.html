@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>
+            <!DOCTYPE html>
+            <html lang="ru">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Таймеры — конспект</title>
+                <link rel="stylesheet" href="../css/styles.css">
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+                    rel="stylesheet">
+            </head>
+
+            <body data-gmT="D" data-mType="L">
+
+                <header data-w="nict/mainmenu">
+                    <span data-e="head">Мой конспект по JavaScript</span>
+                    <div data-e="subb">
+                        <a href="../index.html">Оглавление</a>
+                        <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+                        <a href="19-.html"># of 312</a>
+                    </div>
+                    <div data-e="subb">
+                        <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+                        <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+                    </div>
+
+                </header>
+
+                <div data-w="nict/them">
+                    <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')"
+                        aria-label="Тёмная тема">🌙
+                        Тёмная</button>
+                    <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')"
+                        aria-label="Светлая тема">☀️
+                        Светлая</button>
+                </div>
+
+                <main data-w="cont/pane">
+
+                    <h2>Вставка элементов в начало или в конец на JavaScript</h2>
+
+                    <p>Изучите теорию по следующим ссылкам:</p>
+
+                    <h3>Метод append</h3>
+                    Метод append позволяет вставить в конец какого-либо элемента другой элемент. Параметром метод
+                    принимает элемент, как
+                    правило созданный через createElement, либо строку. Можно добавить сразу несколько элементов или
+                    строк, перечислив их
+                    через запятую.
+
+                    Синтаксис
+                    родитель.append(элемент или строка)
+                    Пример
+                    Давайте создадим абзац, установим ему текст и поместим на страницу в конец блока #parent:
+
+                    <div id="parent">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    let parent = document.querySelector('#parent');
+
+                    let p = document.createElement('p');
+                    p.innerHTML = '!';
+
+                    parent.append(p);
+                    Результат выполнения кода:
+
+                    <div id="parent">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>!</p>
+                    </div>
+                    Пример
+                    Поместим сразу несколько абзацев в конец блока #parent:
+
+                    <div id="parent">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    let parent = document.querySelector('#parent');
+
+                    let p1 = document.createElement('p');
+                    p1.innerHTML = 'a';
+
+                    let p2 = document.createElement('p');
+                    p2.innerHTML = 'b';
+
+                    parent.append(p1, p2);
+                    Результат выполнения кода:
+
+                    <div id="parent">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>a</p>
+                        <p>b</p>
+                    </div>
+                    Пример
+                    Давайте в качестве параметра метода используем строку:
+
+                    <div id="parent">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    let parent = document.querySelector('#parent');
+                    parent.append('!');
+                    Результат выполнения кода:
+
+                    <div id="parent">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        !
+                    </div>
+                    Пример
+                    Дан ul. Давайте разместим в нем 9 тегов li, при этом их текстом сделаем порядковые номера:
+
+                    <ul id="parent"></ul>
+                    let parent = document.querySelector('#parent');
+
+                    for (let i = 1; i <= 9; i++) { let li=document.createElement('li'); li.innerHTML=i;
+                        parent.append(li); } Результат выполнения кода: <ul id="parent">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        </ul>
+                        Пример
+                        Давайте заполним таблицу tr-ками и td-шками:
+
+                        <table id="table"></table>
+                        let parent = document.querySelector('#parent');
+
+                        for (let i = 1; i <= 3; i++) { let tr=document.createElement('tr'); // создаем tr-ку //
+                            Заполняем tr-ку td-шками: for (let j=1; j <=3; j++) { let td=document.createElement('td');
+                            // создаем td-шку td.innerHTML=j; // пишем в нее текст tr.append(td); // добавляем созданную
+                            td-шку в конец tr-ки } table.append(tr); // добавляем созданную tr-ку в конец таблицы }
+                            Результат выполнения кода: <table id="table">
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            </table>
+
+
+                            <h3> Метод prepend</h3>
+
+                            Метод prepend позволяет вставить в начало какого-либо элемента другой элемент. Параметром
+                            метод принимает элемент, как
+                            правило созданный через createElement, либо строку. Можно добавить сразу несколько элементов
+                            или строк, перечислив их
+                            через запятую.
+
+                            Синтаксис
+                            родитель.prepend(элемент или строка)
+                            Пример
+                            Давайте создадим абзац, установим ему текст и поместим на страницу в начало блока #parent:
+
+                            <div id="parent">
+                                <p>1</p>
+                                <p>2</p>
+                                <p>3</p>
+                            </div>
+                            let parent = document.querySelector('#parent');
+
+                            let p = document.createElement('p');
+                            p.innerHTML = '!';
+
+                            parent.prepend(p);
+                            Результат выполнения кода:
+
+                            <div id="parent">
+                                <p>!</p>
+                                <p>1</p>
+                                <p>2</p>
+                                <p>3</p>
+                            </div>
+                            Пример
+                            Поместим сразу несколько абзацев в начало блока #parent:
+
+                            <div id="parent">
+                                <p>1</p>
+                                <p>2</p>
+                                <p>3</p>
+                            </div>
+                            let parent = document.querySelector('#parent');
+
+                            let p1 = document.createElement('p');
+                            p1.innerHTML = 'a';
+
+                            let p2 = document.createElement('p');
+                            p2.innerHTML = 'b';
+
+                            parent.prepend(p1, p2);
+                            Результат выполнения кода:
+
+                            <div id="parent">
+                                <p>b</p>
+                                <p>a</p>
+                                <p>1</p>
+                                <p>2</p>
+                                <p>3</p>
+                            </div>
+                            Пример
+                            Давайте в качестве параметра метода используем строку:
+
+                            <div id="parent">
+                                <p>1</p>
+                                <p>2</p>
+                                <p>3</p>
+                            </div>
+                            let parent = document.querySelector('#parent');
+                            parent.prepend('!');
+                            Результат выполнения кода:
+
+                            <div id="parent">
+                                !
+                                <p>1</p>
+                                <p>2</p>
+                                <p>3</p>
+                            </div>
+
+                            <h3>Задача 1</h3>
+
+                            Дан ul:
+
+                            <ul id="elem">
+                                <li>text</li>
+                                <li>text</li>
+                                <li>text</li>
+                                <li>text</li>
+                                <li>text</li>
+                            </ul>
+                            Вставьте ему в начало элемент с текстом 'start', а в конец - элемент с текстом 'finish'.
+
+                            <p>Изучите теорию по следующим ссылкам:</p>
+
+                            <h2>Метод insertBefore</h2>
+
+                            Метод insertBefore позволяет вставить элемент перед другим элементом. Чаще всего
+                            используется после создания элемента с
+                            помощью createElement. Метод применяется к родителю того элемента, перед которым произойдет
+                            вставка.
+
+                            Синтаксис
+                            родитель.insertBefore(элемент, перед кем вставить)
+                            Пример
+                            Создадим абзац и поместим его перед вторым абзацем:
+
+                            <div id="parent">
+                                <p>elem 1</p>
+                                <p id="before">elem 2</p>
+                                <p>elem 3</p>
+                            </div>
+                            let parent = document.querySelector('#parent');
+                            let before = document.querySelector('#before');
+
+                            let p = document.createElement('p');
+                            p.innerHTML = '!';
+
+                            parent.insertBefore(p, before);
+                            Результат выполнения кода:
+
+                            <div id="parent">
+                                <p>elem 1</p>
+                                <p>!</p>
+                                <p>elem 2</p>
+                                <p>elem 3</p>
+                            </div>
+                            Пример
+                            Добавим абзац в начало элемента #parent. Для этого вставим наш абзац перед первым потомком
+                            #parent. Этого потомка можно
+                            найти с помощью firstElementChild:
+
+                            <div id="parent">
+                                <p>elem 1</p>
+                                <p>elem 2</p>
+                            </div>
+                            let parent = document.querySelector('#parent');
+
+                            let p = document.createElement('p');
+                            p.innerHTML = '!';
+
+                            parent.insertBefore(p, parent.firstElementChild);
+                            Результат выполнения кода:
+
+                            <div id="parent">
+                                <p>!</p>
+                                <p>elem 1</p>
+                                <p>elem 2</p>
+                            </div>
+                            Пример
+                            При передаче вторым параметром null метод insertBefore срабатывает как appendChild. В то же
+                            время, если в элементе нет
+                            дочерних элементов, firstElementChild возвращает null. Следовательно, добавлять в начало
+                            элемента можно даже тогда,
+                            когда в нем нет дочерних элементов:
+
+                            <div id="parent"></div>
+                            let parent = document.querySelector('#parent');
+
+                            let p = document.createElement('p');
+                            p.innerHTML = '!';
+
+                            parent.insertBefore(p, parent.firstChild);
+                            Результат выполнения кода:
+
+                            <div id="parent">
+                                <p>!</p>
+                            </div>
+
+                            <h3>Задача 2 </h3>
+
+                            Дан элемент #elem:
+
+                            <ul id="parent">
+                                <li>text</li>
+                                <li>text</li>
+                                <li id="elem">text</li>
+                                <li>text</li>
+                                <li>text</li>
+                            </ul>
+                            Вставьте перед этим элементом элемент с текстом 'new'.
+
+                            <h3>Задача 3 </h3>
+
+                            Модифицируйте предыдущую задачу так, чтобы клик на вставленный элемент приводил к тому, что
+                            в конец его текста будет
+                            добавляться '!'.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </main>
+
+                <footer data-w="nict/finf">
+                    <span data-e="text">Мой личный конспект © 2026</span>
+                </footer>
+
+                <script src="../js/loader.js" defer></script>
+                <script src="../js/app.js" defer></script>
+            </body>
+
+            </html>
+        </h2>
+
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

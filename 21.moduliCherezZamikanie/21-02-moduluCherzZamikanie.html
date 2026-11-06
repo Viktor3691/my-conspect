@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Раздел 21. Модули через замыкания — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-21-moduliCherezZamikanie.html">Модули через
+                замыкания</a>
+            <a href="21-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Модули через замыкания в JavaScript</h2>
+
+        Описанная выше проблема характерна для любого языка программирования. В качестве решения применяют так
+        называемые
+        модули.
+
+        Модуль представляет собой некую конструкцию, сделанную так, чтобы переменные и функции этой конструкции были
+        видны
+        только внутри нее и не мешали никому снаружи.
+
+        В JavaScript существуют несколько типов модулей. Самые простые модули через замыкания создаются с помощью вызова
+        функции
+        на месте, вот так:
+
+        ;(function() {
+        // тут код модуля
+        })();
+        Переменные и функции, созданные в таком модуле, не будут видны снаружи этого модуля:
+
+        ;(function() {
+        let str = 'переменная модуля';
+
+        function func() {
+        alert('функция модуля');
+        }
+        })();
+
+        // Тут переменные и функции модуля недоступны:
+        alert(str);
+        alert(func);
+        Практическое применение
+        Пусть у нас даны два дива с числами:
+
+        <div id="div1">10</div>
+        <div id="div2">10</div>
+        Давайте сделаем так, чтобы по клику по первому диву его значение возводилось в квадрат, а по клику по второму
+        диву - в
+        куб.
+
+        Организуем наш код в виде двух модулей:
+
+        ;(function() {
+        let elem = document.querySelector('#div1'); // первый див
+
+        function func(num) {
+        return num * num; // возведем в квадрат
+        }
+
+        elem.addEventListener('click', function() {
+        this.textContent = func(elem.textContent);
+        });
+        })();
+
+        ;(function() {
+        let elem = document.querySelector('#div2'); // второй див
+
+        function func(num) {
+        return num * num * num; // возведем в куб
+        }
+
+        elem.addEventListener('click', function() {
+        this.textContent = func(elem.textContent);
+        });
+        })();
+        Теперь в каждом из модулей мы можем использовать любые переменные и функции, не боясь того, что они будут
+        конфликтовать
+        с другими переменными и функциями нашего скрипта.
+
+        Например, оба элемента мы храним в переменной elem - каждый в своей переменной своего модуля.
+
+        Если бы модулей здесь не было, пришлось бы вводить разные переменные для хранения наши элементов.
+
+        А с модулями мы можем спокойно использовать переменную elem, не боясь того, что кто-то захочет также
+        использовать эту
+        переменную.
+
+        То же самое можно сказать и про функцию func - в обоих модулях есть функция с таким именем и, если бы модулей не
+        было,
+        пришлось бы им давать разные имена.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

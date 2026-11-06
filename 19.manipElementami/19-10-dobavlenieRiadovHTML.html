@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Добавление рядов и колонок в HTML таблицу</h2>
+
+        Пусть у нас есть некоторая HTML таблица #table. Давайте научимся добавлять в нее новые ряды и колонки.
+
+        Добавление рядов
+        Добавление рядов не составляет труда: нужно создать tr, а затем запустить цикл, который добавит нужное
+        количество ячеек
+        в этот ряд (пусть 3):
+
+        let table = document.querySelector('#table');
+
+        let tr = document.createElement('tr');
+
+        for (let i = 1; i <= 3; i++) { let td=document.createElement('td'); tr.appendChild(td); } table.appendChild(tr);
+            Задача 1⋕js.Pm.Mn.TRCA.1 Сделайте кнопку, по нажатию на которую в таблицу будет добавляться новый ряд.
+            Добавление колонок А вот с добавлением колонок чуть посложнее: нужно запустить цикл, который переберет все
+            ряды таблицы и в каждый ряд добавит новую ячейку: let trs=document.querySelectorAll('#table tr'); for (let
+            tr of trs) { let td=document.createElement('td'); tr.appendChild(td); } Задача 2⋕js.Pm.Mn.TRCA.2 Дана
+            таблица размером 2 на 2: <table id="table">
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+            td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            }
+            Дана также кнопка. Сделайте так, чтобы по нажатию на кнопку таблица увеличивалась на один ряд и на одну
+            колонку.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Смежная вставка элементов на JavaScript</h2>
+
+        <p>Изучите теорию по следующим ссылкам:</p>
+
+        <h2>Метод insertAdjacentElement</h2>
+
+        Метод insertAdjacentElement позволяет вставить элемент в любое место страницы. Чаще всего используется после
+        создания
+        элемента с помощью createElement.
+
+        Код вставляется относительно опорного элемента. Можно сделать вставку перед опорным элементом (способ вставки
+        beforeBegin), после него (способ вставки afterEnd), а также в начало (способ вставки afterBegin) или в конец
+        (способ
+        вставки beforeEnd) опорного элемента.
+
+        Синтаксис
+        опорный элемент.insertAdjacentElement(способ вставки, код для вставки)
+        Пример . Способ beforeBegin
+        Пусть опорный элемент - это элемент #target. Вставим перед ним новый абзац:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        let p = document.createElement('p');
+        p.innerHTML = '!';
+
+        let target = document.querySelector('#target');
+        target.insertAdjacentElement('beforeBegin', p);
+        Результат выполнения кода:
+
+        <p>!</p>
+        <div id="target">
+            <p>elem</p>
+        </div>
+        Пример . Способ afterEnd
+        А теперь вставим новый абзац после опорного элемента:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        let p = document.createElement('p');
+        p.innerHTML = '!';
+
+        let target = document.querySelector('#target');
+        target.insertAdjacentElement('afterEnd', p);
+        Результат выполнения кода:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        <p>!</p>
+        Пример . Способ afterBegin
+        Вставим новый абзац в начало опорного элемента:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        let p = document.createElement('p');
+        p.innerHTML = '!';
+
+        let target = document.querySelector('#target');
+        target.insertAdjacentElement('afterBegin', p);
+        Результат выполнения кода:
+
+        <div id="target">
+            <p>!</p>
+            <p>elem</p>
+        </div>
+        Пример . Способ beforeEnd
+        Вставим новый абзац в конец опорного элемента:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        let p = document.createElement('p');
+        p.innerHTML = '!';
+
+        let target = document.querySelector('#target');
+        target.insertAdjacentElement('beforeEnd', p);
+        Результат выполнения кода:
+
+        <div id="target">
+            <p>elem</p>
+            <p>!</p>
+        </div>
+
+        адача 1⋕js.Pm.Mn.IA.1
+
+        Дан элемент:
+
+        <div id="elem" style="border: 1px solid red;">
+            <p>text</p>
+            <p>text</p>
+            <p>text</p>
+        </div>
+        Вставьте перед ним абзац с текстом '!!!'.
+
+        Задача 2⋕js.Pm.Mn.IA.2
+
+        Дан элемент:
+
+        <div id="elem" style="border: 1px solid red;">
+            <p>text</p>
+            <p>text</p>
+            <p>text</p>
+        </div>
+        Вставьте после него абзац с текстом '!!!'.
+
+        Задача 3⋕js.Pm.Mn.IA.3
+
+        Дан элемент:
+
+        <div id="elem" style="border: 1px solid red;">
+            <p>text</p>
+            <p>text</p>
+            <p>text</p>
+        </div>
+        Вставьте ему в начало абзац с текстом '!!!'.
+
+        Задача 4⋕js.Pm.Mn.IA.4
+
+        Дан элемент:
+
+        <div id="elem" style="border: 1px solid red;">
+            <p>text</p>
+            <p>text</p>
+            <p>text</p>
+        </div>
+        Вставьте ему в конец абзац с текстом '!!!'.
+
+        <h2>Смежная вставка тегов</h2>
+
+        <p>Изучите теорию по следующим ссылкам:</p>
+
+        <h2> Метод insertAdjacentHTML</h2>
+
+        Метод insertAdjacentHTML позволяет вставить строку HTML кода в любое место страницы. Код вставляется
+        относительно
+        опорного элемента. Можно сделать вставку перед опорным элементом (способ вставки beforeBegin), после него
+        (способ
+        вставки afterEnd), а также в начало (способ вставки afterBegin) или в конец (способ вставки beforeEnd) опорного
+        элемента.
+
+        Синтаксис
+        опорный элемент.insertAdjacentHTML(способ вставки, код для вставки)
+        Пример . Способ beforeBegin
+        Пусть опорный элемент - это элемент #target. Вставим перед ним новый абзац:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        let target = document.querySelector('#target');
+        target.insertAdjacentHTML('beforeBegin', '<p>!</p>');
+        Результат выполнения кода:
+
+        <p>!</p>
+        <div id="target">
+            <p>elem</p>
+        </div>
+        Пример . Способ afterEnd
+        А теперь вставим новый абзац после опорного элемента:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        let target = document.querySelector('#target');
+        target.insertAdjacentHTML('afterEnd', '<p>!</p>');
+        Результат выполнения кода:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        <p>!</p>
+        Пример . Способ afterBegin
+        Вставим новый абзац в начало опорного элемента:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        let target = document.querySelector('#target');
+        target.insertAdjacentHTML('afterBegin', '<p>!</p>');
+        Результат выполнения кода:
+
+        <div id="target">
+            <p>!</p>
+            <p>elem</p>
+        </div>
+        Пример . Способ beforeEnd
+        Вставим новый абзац в конец опорного элемента:
+
+        <div id="target">
+            <p>elem</p>
+        </div>
+        let target = document.querySelector('#target');
+        target.insertAdjacentHTML('beforeEnd', '<p>!</p>');
+        Результат выполнения кода:
+
+        <div id="target">
+            <p>elem</p>
+            <p>!</p>
+        </div>
+
+        Задача 5⋕js.Pm.Mn.IA.5
+
+        Дан элемент:
+
+        <div id="elem" style="border: 1px solid red;">
+            <p>text</p>
+            <p>text</p>
+            <p>text</p>
+        </div>
+        Дан элемент. Вставьте перед ним следующий тег:
+
+        <div class="www">
+            <p>text</p>
+            <p>text</p><input>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

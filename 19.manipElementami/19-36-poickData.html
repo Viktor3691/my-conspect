@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Поиск ячеек таблицы с помощью атрибута data</h2>
+
+        Сейчас мы с вами научимся осуществлять сложный поиск по HTML таблице. Например, мы научимся находить колонки
+        таблицы или
+        ее диагонали.
+
+        Пусть у нас есть некоторая HTML таблица, в которой через атрибут data-col для каждой ячейки проставлен номер
+        колонки,
+        которой принадлежит ячейка:
+
+        <table id="table">
+            <tr>
+                <td data-col="1"></td>
+                <td data-col="2"></td>
+                <td data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-col="1"></td>
+                <td data-col="2"></td>
+                <td data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-col="1"></td>
+                <td data-col="2"></td>
+                <td data-col="3"></td>
+            </tr>
+        </table>
+        Пусть перед нами стоит задача по нахождению ячеек определенной колонки, например, колонки с номером 2. Для
+        решения
+        задачи можно воспользоваться CSS селектором поиска по атрибуту и его значению, вот так:
+
+        let tds = document.querySelectorAll('#table td[data-col="2"]');
+
+        for (let td of tds) {
+        td.innerHTML = '!';
+        }
+        Пусть теперь номер колонки хранится в какой-то переменной. В этом случае нам необходимо будет использовать
+        операцию
+        сложения строк:
+
+        let col = 2;
+        let tds = document.querySelectorAll('#table td[data-col="' + col + '"]');
+
+        for (let td of tds) {
+        td.innerHTML = '!';
+        }
+        Задача 1⋕js.Pm.Mn.CDS.1
+
+        Дана следующая HTML таблица:
+
+        <table id="table">
+            <tr>
+                <td data-col="1"></td>
+                <td data-col="2"></td>
+                <td data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-col="1"></td>
+                <td data-col="2"></td>
+                <td data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-col="1"></td>
+                <td data-col="2"></td>
+                <td data-col="3"></td>
+            </tr>
+        </table>
+        td {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        }
+        Сделайте так, чтобы по клику на любую ячейку в красный фон красились все ячейки этой колонки.
+
+        Задача 2⋕js.Pm.Mn.CDS.2
+
+        Дана следующая HTML таблица:
+
+        <table id="table">
+            <tr>
+                <td data-row="1" data-col="1"></td>
+                <td data-row="1" data-col="2"></td>
+                <td data-row="1" data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-row="2" data-col="1"></td>
+                <td data-row="2" data-col="2"></td>
+                <td data-row="2" data-col="3"></td>
+            </tr>
+            <tr>
+                <td data-row="3" data-col="1"></td>
+                <td data-row="3" data-col="2"></td>
+                <td data-row="3" data-col="3"></td>
+            </tr>
+        </table>
+        Даны также две переменные, в которых хранятся номер колонки и номер ряда:
+
+        let col = 2;
+        let row = 3;
+        Сделайте кнопку, по нажатию на которую в красный фон покрасится та ячейка, номер которой совпадает с номером из
+        переменных.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

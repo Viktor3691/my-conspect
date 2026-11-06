@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Стилизация элементов на JavaScript</h2>
+
+        Пусть у нас есть несколько абзацев:
+
+        <p>text1</p>
+        <p>text2</p>
+        <p>text3</p>
+        Давайте переберем эти абзацы циклом и в конец каждого абзаца добавим ссылку, по нажатию на которую тексту абзаца
+        будет
+        добавляться некоторая стилизация. К примеру, текст абзаца будет становится перечеркнутым (это делает CSS
+        свойство
+        text-decoration).
+
+        Давайте обсудим два нюанса такой задачи.
+
+        Во-первых, как уже обсуждалось в предыдущих уроках, не следует менять стили абзацы напрямую через JavaScript -
+        гораздо
+        удобнее будет навешивать какие-нибудь CSS классы.
+
+        Во-вторых, при реализации такой задачи вас ожидает некоторый сюрприз. Чтобы понять его суть, давайте посмотрим
+        на HTML
+        код абзацев после добавления ссылок:
+
+        <p>text1<a href="">link</a></p>
+        <p>text2<a href="">link</a></p>
+        <p>text3<a href="">link</a></p>
+        Представим теперь, что по нажатию на ссылку текст абзаца перечеркнется. Однако, ссылка в данном случае также
+        является
+        частью абзаца и тоже перечеркнется! Скорее всего такой эффект нам не нужен. Мы хотим, чтобы текст
+        перечеркивался, но
+        ссылка - нет.
+
+        Для решения проблемы нужно просто обернуть текст абзаца в тег span, вот так:
+
+        <p><span>text1</span><a href="">link</a></p>
+        <p><span>text2</span><a href="">link</a></p>
+        <p><span>text3</span><a href="">link</a></p>
+        Задача 1⋕js.Pm.Mn.ES.1
+
+        Дан следующий HTML код:
+
+        <p>text1</p>
+        <p>text2</p>
+        <p>text3</p>
+        Добавьте в конец каждого абзаца ссылку, по клику на которую текст абзаца будет перечеркиваться (а ссылка - нет).
+
+        Задача 2⋕js.Pm.Mn.ES.2
+
+        Модифицируйте предыдущую задачу так, чтобы после нажатия на ссылку эта ссылка удалялась из абзаца (а текст
+        абзаца
+        становился перечеркнутым).
+
+        Задача 3⋕js.Pm.Mn.ES.3
+
+        Дана некоторая HTML таблица. Добавьте в эту таблицу еще одну колонку со ссылкой. По нажатию на эту ссылку ряд с
+        этой
+        ссылкой должен стать зеленого фона.
+
+        Задача 4⋕js.Pm.Mn.ES.4
+
+        Модифицируйте предыдущую задачу так, чтобы первое нажатие по ссылке красило ряд в зеленый фон, а второе нажатие
+        отменяло
+        это действие.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

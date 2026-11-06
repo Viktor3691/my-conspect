@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Порядковый номер клика в ячейке HTML таблицы</h2>
+
+        Давайте теперь по клику на ячейку будем записывать в нее порядковый номер клика.
+
+        Для этого нам необходимо ввести некоторую переменную-счетчик и увеличивать значение этого счетчика внутри
+        функции-обработчика события:
+
+        let tds = document.querySelectorAll('#table td');
+
+        let i = 1;
+        for (let td of tds) {
+        td.addEventListener('click', function() {
+        this.innerHTML = i;
+        i++;
+        });
+        }
+        Задача 1⋕js.Pm.Mn.CON.1
+
+        Модифицируйте код теоретической части урока так, чтобы повторное нажатие по ячейке не приводило к увеличению
+        счетчика.
+
+        Чередование
+        Давайте теперь сделаем так, чтобы при кликах на ячейку попеременно вставлялось то 1, то 2. То есть при первом
+        клике
+        должно вставиться 1, при втором клике - 2, при третьем - опять 1 и так далее.
+
+        Решим поставленную задачу:
+
+        let tds = document.querySelectorAll('#table td');
+
+        let i = 1;
+        for (let td of tds) {
+        td.addEventListener('click', function() {
+        this.innerHTML = i;
+
+        if (i == 1) {
+        i = 2;
+        } else {
+        i = 1;
+        }
+        });
+        }
+        Задача 2⋕js.Pm.Mn.CON.2
+
+        Модифицируйте описанную в теоретической части урока задачу так, чтобы при кликах на ячейки чередовались числа 1,
+        2 и 3.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-19-manipElementami.html">Манипулирование элементами</a>
+            <a href="19-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Создание HTML таблицы из массива объектов</h2>
+
+        Пусть у нас дан некторый массив объектов, например, вот такой массив с юзерами:
+
+        let users = [
+        {
+        name: 'name1',
+        surname: 'surname1',
+        patronymic: 'patronymic1'
+        },
+        {
+        name: 'name2',
+        surname: 'surname2',
+        patronymic: 'patronymic2'
+        },
+        {
+        name: 'name3',
+        surname: 'surname3',
+        patronymic: 'patronymic3'
+        },
+        ];
+        Давайте сделаем из этого массива HTML таблицу, в каждый ряд который запишем данные отдельного юзера.
+
+        При такой структуре хранения данных обычно запускают один цикл по массиву и создают каждую ячейку таблицы в
+        ручную, вот
+        так:
+
+        <table id="table"></table>
+        let table = document.getElementById('table');
+
+        for (let user of users) {
+        let tr = document.createElement('tr');
+
+        let td1 = document.createElement('td');
+        td1.innerHTML = user.name;
+        tr.appendChild(td1);
+
+        let td2 = document.createElement('td');
+        td2.innerHTML = user.surname;
+        tr.appendChild(td2);
+
+        let td3 = document.createElement('td');
+        td3.innerHTML = user.patronymic;
+        tr.appendChild(td3);
+
+        table.appendChild(tr);
+        }
+        Такой подход дает большую гибкость - мы можем сами регулировать порядок расположения данных по ячейкам таблицы
+        (можем, к
+        примеру, поменять местами имя и фамилию).
+
+        Кроме того, при желании мы можем навешивать события на определенные ячейки. К примеру, можно на ячейку с
+        фамилией
+        навесить какое-то действие по клику и так далее.
+
+        Задача 1⋕js.Pm.Mn.TCVOA.1
+
+        Дан следующий массив с работниками:
+
+        let employees = [
+        {name: 'employee1', age: 30, salary: 400},
+        {name: 'employee2', age: 31, salary: 500},
+        {name: 'employee3', age: 32, salary: 600},
+        ];
+        Выведите элементы этого массива в виде HTML таблицы.
+
+        Задача 2⋕js.Pm.Mn.TCVOA.2
+
+        Модифицируйте предыдущую задачу так, чтобы по клику на любую ячейку с возрастом ее содержимое увеличивалось на
+        1.
+
+        Задача 3⋕js.Pm.Mn.TCVOA.3
+
+        Модифицируйте предыдущую задачу так, чтобы по клику на любую ячейку с зарплатой ее содержимое увеличивалось на
+        10%.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

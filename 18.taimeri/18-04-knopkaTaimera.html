@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-18-taimeri.html">Таймеры</a>
+            <a href="18-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Кнопка для запуска таймера на JavaScript</h2>
+
+        В предыдущих уроках наш таймер начинал свою работу сразу по загрузке страницы. Давайте теперь сделаем кнопку, по
+        нажатию
+        на которую будет запускаться наш таймер:
+
+        <button id="start">start</button>
+        Напишем соответствующий JavaScript:
+
+        let start = document.querySelector('#start');
+
+        start.addEventListener('click', function() {
+        let i = 0;
+
+        setInterval(function() {
+        console.log(++i);
+        }, 1000);
+        });
+        Задача 1⋕js.Pm.Tmr.LB.1
+
+        Сделайте кнопку, по нажатию на которую в консоль будет выводится обратный отсчет, начиная с 100.
+
+        Многократное нажатие на кнопку
+        Код, приведенный мною выше, на самом деле имеет некоторую проблему. Эта проблема проявляется в том случае, если
+        на нашу
+        кнопку сделать несколько кликов. В этом случае каждый клик будет приводить к запуску нового таймера.
+
+        То есть, к примеру, три нажатия на кнопку приведут к тому, что будет запущено три таймера, и каждый из этих
+        таймеров
+        будет выводить значение счетчика в консоль. Это значит, что значения будут меняться в три раза быстрее!
+
+        Для решения описанной проблемы нужно просто сделать так, чтобы повторное нажатие на кнопку не приводило к новому
+        запуску
+        таймера. Например, можно после старта таймера отвязывать от кнопки привязанный обработчик клика:
+
+        let start = document.querySelector('#start');
+
+        start.addEventListener('click', function func() {
+        let i = 0;
+
+        setInterval(function() {
+        console.log(++i);
+        }, 1000);
+
+        this.removeEventListener('click', func); // отвязываем обработчик
+        });
+        Задача 2⋕js.Pm.Tmr.LB.2
+
+        Возьмите ваше решение предыдущей задачи. Проверьте, что многократное нажатие на кнопку приводит к ускорению
+        отсчета.
+        Исправьте эту проблему.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

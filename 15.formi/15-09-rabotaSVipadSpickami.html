@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формы — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-15-formi.html">Формы</a>
+            <a href="15-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Работа с выпадающими списками в JavaScript</h2>
+
+        В данном уроке мы с вами изучим работу с тегом select, представляющим собой выпадающий список. Если вы не умете
+        работать
+        с этим тегом на HTML, то для начала изучите его устройство в справочнике по этой ссылке: select.
+
+        Давайте посмотрим, как работать с этим тегом через JavaScript. Пусть у нас дан вот такой выпадающий список:
+
+        <select id="select">
+            <option>one</option>
+            <option selected>two</option>
+            <option>three</option>
+        </select>
+        Получим ссылку на селект в переменную:
+
+        let select = document.querySelector('#select');
+        Давайте теперь при изменении селекта выведем на экран текст выбранного пункта списка. Для этого нужно прочитать
+        свойство
+        value нашего селекта:
+
+        select.addEventListener('change', function(){
+        console.log(this.value);
+        });
+        Задача 1⋕js.Pm.Fm.DL.1
+
+        Дан селект, абзац и кнопка. По клику на кнопку выведите текст выбранного пункта списка в абзац.
+
+        Задача 2⋕js.Pm.Fm.DL.2
+
+        Сделайте выпадающий список годов от 2020 до 2030. При выборе какого-нибудь пункта списка выведите сообщение о
+        том,
+        високосный этот год или нет.
+
+        Атрибут value
+        Как правило, пунктам списка добавляют атрибут value. В этом случае свойство value селекта будет содержать не
+        текст
+        option, а значение его атрибута value.
+
+        Давайте переделаем наш селект:
+
+        <select id="select">
+            <option value="1">one</option>
+            <option value="2" selected>two</option>
+            <option value="3">three</option>
+        </select>
+        Проверим, чему теперь равно выбранное значение:
+
+        select.addEventListener('change', function(){
+        console.log(this.value);
+        });
+        Задача 3⋕js.Pm.Fm.DL.3
+
+        Сделайте выпадающий список с названиями дней недели. В качестве атрибутов value пунктов списка добавьте номера
+        дней
+        недели от 1 до 7. По изменению списка выведите на экран сообщение о том, выбран выходной день или рабочий.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

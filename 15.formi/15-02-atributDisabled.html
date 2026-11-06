@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формы — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-15-formi.html">Формы</a>
+            <a href="15-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Атрибут disabled в JavaScript</h2>
+
+        В HTML существуют специальные атрибуты без значений, например, атрибут disabled, используемый для блокировки
+        элементов.
+        Для того, чтобы установить такой атрибут, соответствующему свойству требуется присвоить значение true, а чтобы
+        убрать -
+        значение false.
+
+        Давайте посмотрим на практике. Пусть у нас есть заблокированый инпут:
+
+        <input id="elem" disabled>
+        Давайте выведем значение атрибута disabled этого инпута:
+
+        let elem = document.querySelector('#elem');
+        console.log(elem.disabled); // выведет true
+        А теперь давайте отблокируем его:
+
+        let elem = document.querySelector('#elem');
+        elem.disabled = false;
+        Задача 1⋕js.Pm.Fm.Dsb.1
+
+        Дан инпут и кнопка. По нажатию на кнопку заблокируйте инпут.
+
+        Задача 2⋕js.Pm.Fm.Dsb.2
+
+        Дан инпут и две кнопки. Пусть нажатие на первую кнопку блокирует инпут, а нажатие на вторую - отблокирует.
+
+        Задача 3⋕js.Pm.Fm.Dsb.3
+
+        Дан инпут и кнопка. По нажатию на кнопку узнайте, заблокирован инпут или нет.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

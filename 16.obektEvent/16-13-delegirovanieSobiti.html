@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объект Event — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-16-obektEventi.html">Объект Event</a>
+            <a href="16-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Делегирование событий в JavaScript</h2>
+
+        В предыдущем уроке была описана проблема, возникающая при добавлении новых элементов, и приведено ее решение. В
+        данном
+        уроке мы рассмотрим более удачный способ обойти проблему - делегирование событий. Давайте его разберем.
+
+        Как вы уже знаете, кликая на li, мы одновременно кликаем и на ul. Это возможно благодаря всплытию событий. Мы
+        можем
+        использовать это для решения нашей задачи: навесим событие не на каждую li, а на их родителя ul:
+
+        list.addEventListener('click', function() {
+
+        });
+        Теперь в обработчике события this будет указывать на элемент, к которому привязан обработчик, а event.target -
+        на
+        элемент, в котором случилось событие:
+
+        list.addEventListener('click', function(event) {
+        console.log(this); // наш список
+        console.log(event.target); // пункт списка
+        });
+        Сделаем так, чтобы li, на которой случился клик, в конец добавлялся восклицательный знак:
+
+        list.addEventListener('click', function(event) {
+        event.target.innerHTML = event.target.innerHTML + '!';
+        });
+        Задача 1⋕js.Pm.OE.ED.1
+
+        Повторите приведенное решение. Убедитесь, что новые li также будут реагировать на клик.
+
+        Универсальное делегирование событий
+        Приведенный код рабочий, однако, не без недостатков. Давайте разберем эти недостатки и напишем более
+        универсальное
+        решение.
+
+        Недостаток нашего кода проявится в том случае, когда внутри li будут какие-то вложенные теги. В нашем случае
+        пусть это
+        будут теги i:
+
+        <ul>
+            <li>item <i>italic</i> item</li>
+            <li>item <i>italic</i> item</li>
+            <li>item <i>italic</i> item</li>
+            <li>item <i>italic</i> item</li>
+            <li>item <i>italic</i> item</li>
+        </ul>
+        В этом случае нажатие на тег i приведет к добавлению восклицательного знака в конец тега i, а не тега li, как мы
+        хотели
+        бы - ведь в event.target попадает именно тот тег, в котором случилось событие.
+
+        Решить проблему можно с помощью метода closest:
+
+        list.addEventListener('click', function(event) {
+        let li = event.target.closest('li');
+
+        if (li) {
+        li.innerHTML = li.innerHTML + '!';
+        }
+        });
+        Задача 2⋕js.Pm.OE.ED.2
+
+        Повторите приведенное решение.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

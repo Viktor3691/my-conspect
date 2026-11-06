@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объект Event — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-16-obektEventi.html">Объект Event</a>
+            <a href="16-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Координаты события в JavaScript</h2>
+
+        Как уже упоминалось ранее, с помощью объекта Event можно получить координаты события, например в момент клика
+        можно
+        найти координаты этого клика. Давайте изучим свойства, содержащие эту информацию:
+        Изучите теорию по следующим ссылкам:
+
+        <h3>Свойство event.clientX </h3>
+
+        Свойство event.clientX содержит в себе координаты курсора мыши по оси X.
+
+        Для определения координат есть также свойства event.clientY, event.pageX, event.pageY.
+
+        Давайте посмотрим разницу между clientX/clientY и pageX/pageY.
+
+        Как работают clientX и clientY: если у вас есть окно 1000 на 1000 пикселей, и мышь находится в центре, то
+        clientX и
+        clientY будут оба равны 500. Если вы затем прокрутите страницу по горизонтали или вертикали, не двигая курсор,
+        то
+        значения clientX и clientY не изменятся, так как отсчитываются относительно окна, а не документа.
+
+        Как работают pageX и pageY: если у вас есть окно 1000 на 1000 пикселей, и курсор находится в центре, то pageX и
+        pageY
+        будут равны 500. Если вы затем прокрутите страницу на 250 пикселей вниз, то pageY станет равным 750.
+
+        Таким образом pageX и pageY содержат координаты события с учетом прокрутки.
+
+        Синтаксис
+        event.clientX
+        Пример
+        При движении мыши по странице будем выводить ее координаты относительно окна браузера (clientX и clientY):
+
+        <div id="elem">0 : 0</div>
+        let elem = document.getElementById('elem');
+
+        document.addEventListener('mousemove', function(event) {
+        elem.innerHTML = event.clientX + ' : ' + event.clientY;
+        });
+        Результат выполнения кода:
+
+        открыть в дочернем окне
+
+        <h3>Свойство event.clientY</h3>
+
+        Свойство event.clientY содержит в себе координаты курсора мыши по оси Y.
+
+        Для определения координат есть также свойства event.clientX, event.pageX, event.pageY.
+
+        Давайте посмотрим разницу между clientX/clientY и pageX/pageY.
+
+        Как работают clientX и clientY: если у вас есть окно 1000 на 1000 пикселей, и мышь находится в центре, то
+        clientX и
+        clientY будут оба равны 500. Если вы затем прокрутите страницу по горизонтали или вертикали, не двигая курсор,
+        то
+        значения clientX и clientY не изменятся, так как отсчитываются относительно окна, а не документа.
+
+        Как работают pageX и pageY: если у вас есть окно 1000 на 1000 пикселей, и курсор находится в центре, то pageX и
+        pageY
+        будут равны 500. Если вы затем прокрутите страницу на 250 пикселей вниз, то pageY станет равным 750.
+
+        Таким образом pageX и pageY содержат координаты события с учетом прокрутки.
+
+        Синтаксис
+        event.clientY;
+        Пример
+        При движении мыши по странице будем выводить ее координаты относительно окна браузера (clientX и clientY):
+
+        <div id="elem">0 : 0</div>
+        let elem = document.getElementById('elem');
+
+        document.addEventListener('mousemove', function(event) {
+        elem.innerHTML = event.clientX + ' : ' + event.clientY;
+        });
+        Результат выполнения кода:
+
+        открыть в дочернем окне
+
+        <h3>Свойство event.pageX</h3>
+
+        Свойство event.pageX содержит в себе координаты курсора мыши по оси X.
+
+        Для определения координат есть также свойства event.clientX, event.clientY, event.pageY.
+
+        Давайте посмотрим разницу между clientX/clientY и pageX/pageY.
+
+        Как работают clientX и clientY: если у вас есть окно 1000 на 1000 пикселей, и мышь находится в центре, то
+        clientX и
+        clientY будут оба равны 500. Если вы затем прокрутите страницу по горизонтали или вертикали, не двигая курсор,
+        то
+        значения clientX и clientY не изменятся, так как отсчитываются относительно окна, а не документа.
+
+        Как работают pageX и pageY: если у вас есть окно 1000 на 1000 пикселей, и курсор находится в центре, то pageX и
+        pageY
+        будут равны 500. Если вы затем прокрутите страницу на 250 пикселей вниз, то pageY станет равным 750.
+
+        Таким образом pageX и pageY содержат координаты события с учетом прокрутки.
+
+        Синтаксис
+        event.pageX
+        Пример
+        При движении мыши по странице будем выводить ее координаты относительно окна браузера (pageX и pageY):
+
+        <div id="elem">0 : 0</div>
+        let elem = document.getElementById('elem');
+
+        document.addEventListener('mousemove', function(event) {
+        elem.innerHTML = event.pageX + ' : ' + event.pageY;
+        });
+        Результат выполнения кода:
+
+        открыть в дочернем окне
+
+        <h3>Свойство event.pageY</h3>
+
+        Свойство event.pageY содержит в себе координаты курсора мыши по оси Y.
+
+        Для определения координат есть также свойства event.clientX, event.clientY, event.pageX.
+
+        Давайте посмотрим разницу между clientX/clientY и pageX/pageY.
+
+        Как работают clientX и clientY: если у вас есть окно 1000 на 1000 пикселей, и мышь находится в центре, то
+        clientX и
+        clientY будут оба равны 500. Если вы затем прокрутите страницу по горизонтали или вертикали, не двигая курсор,
+        то
+        значения clientX и clientY не изменятся, так как отсчитываются относительно окна, а не документа.
+
+        Как работают pageX и pageY: если у вас есть окно 1000 на 1000 пикселей, и курсор находится в центре, то pageX и
+        pageY
+        будут равны 500. Если вы затем прокрутите страницу на 250 пикселей вниз, то pageY станет равным 750.
+
+        Таким образом pageX и pageY содержат координаты события с учетом прокрутки.
+
+        Синтаксис
+        event.pageY
+        Пример
+        При движении мыши по странице будем выводить ее координаты относительно окна браузера (pageX и pageY):
+
+        <div id="elem">0 : 0</div>
+        let elem = document.getElementById('elem');
+
+        document.addEventListener('mousemove', function(event) {
+        elem.innerHTML = event.pageX + ' : ' + event.pageY;
+        });
+        Результат выполнения кода:
+
+        открыть в дочернем окне
+
+
+        <h3>Задача 1 </h3>
+
+        Сделайте так, чтобы при движении мышки по странице, отображались координаты курсора, подобно тому, как это
+        сделано в
+        следующем образце:
+
+        открыть в дочернем окне
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

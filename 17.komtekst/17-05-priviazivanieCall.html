@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контекст — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-17-komtekst.html">Контекст</a>
+            <a href="17-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Привязывание контекста через метод call в JavaScript</h2>
+
+        Итак, мы разобрали, как на самом деле работает this. Давайте теперь рассмотрим методы, которые позволяют
+        принудительно
+        указать, в каком контексте вызывается функция (то есть принудительно сказать, чему равен this).
+
+        Первый метод, который мы с вами разберем, называется call. Давайте посмотрим на его работу на примере. Пусть у
+        нас есть
+        инпут:
+
+        <input id="elem" value="text">
+        Давайте получим ссылку на этот инпут и запишем ее в переменную elem:
+
+        let elem = document.querySelector('#elem');
+        Давайте теперь сделаем функцию func, внутри которой алертом выведем this.value:
+
+        function func() {
+        console.log(this.value);
+        }
+        Пока наша функция не знает, на что ссылается this. Вот, если бы мы ее привязали через addEventListener, тогда
+        да. Но мы
+        не будем этого делать. В замен мы просто вызовем нашу функцию, сказав ей, что this должен быть равен elem.
+
+        Это делается вот так: func.call(elem). Этот код эквивалентен простому вызову функции func вот так: func(),
+        только с
+        условием, что this равен elem.
+
+        Итак, синтаксис метода call такой: функция.call(объект, который записать в this). Давайте соберем все вместе:
+
+        let elem = document.querySelector('#elem');
+
+        function func() {
+        console.log(this.value); // выведет value инпута
+        }
+        func.call(elem);
+        Задача 1⋕js.Pm.Ctx.CM.1
+
+        Дана функция:
+
+        function func() {
+        console.log(this.value);
+        }
+        Даны три инпута:
+
+        <input id="elem1" value="text1">
+        <input id="elem2" value="text2">
+        <input id="elem3" value="text3">
+        С помощью метода call и функции func выведите на экран value каждого из инпутов.
+
+        Метод call с параметрами
+        Пусть теперь функция func принимает некоторые параметры, назовем их param1 и param2:
+
+        function func(param1, param2) {
+        console.log(this.value + param1 + param2);
+        }
+        При вызове функции через call можно передать эти параметры вот так:
+
+        func.call(elem, param1, param2);
+        Задача 2⋕js.Pm.Ctx.CM.2
+
+        Пусть дан следующий код:
+
+        <input id="elem" value="привет">
+        let elem = document.querySelector('#elem');
+
+        function func(surname, name) {
+        console.log(this.value + ', ' + surname + ' ' + name);
+        }
+
+        func(); // тут должно вывести 'привет, Иванов Иван'
+        Добавьте в последнюю строчку метод call так, чтобы на экран вывелось 'привет, Иванов Иван'. Слово 'привет'
+        должно
+        взяться из value инпута, а 'Иванов' и 'Иван' должны быть параметрами функциями.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

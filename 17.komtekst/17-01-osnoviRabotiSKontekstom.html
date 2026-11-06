@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контекст — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-17-komtekst.html">Контекст</a>
+            <a href="17-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Основы работы с контекстом в JavaScript</h2>
+
+        Пусть у нас есть какая-то функция func, внутри которой используется this:
+
+        function func() {
+        console.log(this.value);
+        }
+        На что указывает this в этой функции? А мы не знаем. И JavaScript не знает. И сама функция не знает. То есть в
+        момент
+        создания функции то, на что именно указывает this, не определено. И определится это только тогда, когда эта
+        функция
+        будет вызвана.
+
+        Пусть у нас есть какой-то инпут:
+
+        <input id="elem" value="text">
+        Привяжем к этому инпуту нашу функцию func так, чтобы она выполнилась по потери фокуса инпутом. Теперь в момент
+        выполнения функции this будет указывать на наш инпут:
+
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('blur', func);
+        function func() {
+        console.log(this.value); // по потери фокуса выведет 'text'
+        }
+        Но ведь у нас может быть не один инпут, а несколько:
+
+        <input id="elem1" value="text1">
+        <input id="elem2" value="text2">
+        И к каждому из этих инпутов мы можем привязать нашу функцию func. В этом случае для первого элемента this в
+        момент
+        вызова функции будет указывать на него, а для второго - на него.
+
+        На практике это значит, что this внутри функции зависит от того, на каком из инпутов мы потеряли фокус:
+
+        let elem1 = document.querySelector('#elem1');
+        elem1.addEventListener('blur', func);
+
+        let elem2 = document.querySelector('#elem2');
+        elem2.addEventListener('blur', func);
+
+        function func() {
+        console.log(this.value); // выведет или 'text1', или 'text2'
+        }
+        В общем-то, такая особенность this очень удобна - мы создаем всего одну функцию и привязываем ее к любому
+        количеству
+        инпутов. Если бы this не указывал на тот элемент, в котором произошло событие, то у нас бы такое не получилось -
+        пришлось бы для каждого инпута создавать свою функцию с тем же кодом!
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

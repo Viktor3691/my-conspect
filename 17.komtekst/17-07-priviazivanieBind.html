@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контекст — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-17-komtekst.html">Контекст</a>
+            <a href="17-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Привязывание контекста через метод bind в JavaScript</h2>
+
+        Следующий метод bind позволяет навсегда привязать контекст к функции. Своим результатом этот метод возвращает
+        новую
+        функцию, внутри которой this будет иметь жестко заданное значение.
+
+        Давайте посмотрим на примере.
+
+        Пусть у нас есть инпут:
+
+        <input id="elem" value="text">
+        Пусть ссылка на этот инпут записана в переменную elem:
+
+        let elem = document.querySelector('#elem');
+        Пусть у нас также есть следующая функция func:
+
+        function func(param1, param2) {
+        console.log(this.value + param1 + param2);
+        }
+        Давайте с помощью bind сделаем новую функцию, которая будет копией функции func, но this в ней всегда будет
+        равен elem:
+
+        let newFunc = func.bind(elem);
+        Теперь в переменной newFunc лежит функция. Давайте вызовем ее, передав в первый параметр '1', а во второй '2'
+        (напоминаю, что в elem лежит инпут с value, равным 'text'):
+
+        newFunc('1', '2');
+        Давайте соберем все вместе:
+
+        let elem = document.getElementById('elem');
+
+        function func(param1, param2) {
+        console.log(this.value + param1 + param2);
+        }
+
+        let newFunc = func.bind(elem);
+        newFunc('1', '2'); // выведет 'text12'
+        Не обязательно записывать результат работы bind в новую функцию newFunc, можно просто перезаписать func. После
+        этого
+        func будет такой же функцией, как и была, но с жестко связанным this:
+
+        func = func.bind(elem);
+        Задача 1⋕js.Pm.Ctx.BM.1
+
+        Пусть дан следующий код:
+
+        <input id="elem" value="привет">
+        let elem = document.getElementById('elem');
+
+        function func(surname, name) {
+        console.log(this.value + ', ' + surname + ' ' + name);
+        }
+
+        // Тут напишите конструкцию с bind()
+
+        func('Иванов', 'Иван'); // тут должно вывести 'привет, Иванов Иван'
+        func('Петров', 'Петр'); // тут должно вывести 'привет, Петров Петр'
+        Напишите в указанном месте конструкцию с методом bind так, чтобы this внутри функции func всегда указывал на
+        инпут из
+        переменной elem.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

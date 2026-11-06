@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формы — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-15-formi.html">Формы</a>
+            <a href="15-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Поиск ошибок в коде с формами в JavaScript</h2>
+
+        В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны проверить,
+        делает ли
+        код то, что описано. Если код работает некорректно, вы должны исправить ошибки.
+
+        Задача 1⋕js.Pm.Fm.Mst.1
+
+        По потери фокуса текст из textarea должен записаться в див:
+
+        <textarea></textarea>
+        <div></div>
+        let textarea = document.querySelector('textarea');
+        let div = document.querySelector('div');
+
+        textarea.addEventListener('blur', function() {
+        div.textContent = textarea.textContent;
+        });
+        Задача 2⋕js.Pm.Fm.Mst.2
+
+        По клику на кнопку в див должно записаться или одно, или другое значение:
+
+        <input type="checkbox">
+        <div></div>
+        <button>button</button>
+        let checkbox = document.querySelectorAll('#checkbox');
+        let button = document.querySelectorAll('#button');
+        let div = document.querySelectorAll('#div');
+
+        btn.addEventListener('click', function() {
+        if (checkbox.checked) {
+        div.value = '111';
+        } else {
+        div.value = '222';
+        }
+        });
+        Задача 3⋕js.Pm.Fm.Mst.3
+
+        По клику на кнопку, если чекбокс отмечен, то должно вывестись одно значение, а если не отмечен - другое:
+
+        <input type="checkbox">
+        <button>button</button>
+        let checkbox = document.querySelector('[type="checkbox"]');
+        let button = document.querySelector('button');
+
+        button.addEventListener('click', function() {
+        if (checkbox.checked = true) {
+        console.log('+++');
+        } else {
+        console.log('---');
+        }
+        });
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

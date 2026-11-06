@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контекст — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-17-komtekst.html">Контекст</a>
+            <a href="17-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Контекст непривязанной функции в JavaScript</h2>
+
+        Давайте посмотрим, что будет, если в функции указать this, но не привязать ее ни к какому элементу, вот так:
+
+        function func() {
+        console.log(this);
+        }
+
+        func();
+        В этом случае результат зависит от того, строгий у нас режим или нет. Если режим нестрогий, то в this будет
+        хранится
+        ссылка на window:
+
+        function func() {
+        console.log(this); // ссылка на окно window
+        }
+
+        func();
+        А если режим строгий, то в this будет хранится undefined:
+
+        "use strict";
+
+        function func() {
+        console.log(this); // undefined
+        }
+
+        func();
+        Подводные камни
+        Из сказанного выше может показаться, что в строгом режиме this всегда будет undefined. Как бы не так! Если
+        просто
+        вывести this вне функции, то в нем будет ссылка на window независимо от режима:
+
+        "use strict";
+        console.log(this); // в this ссылка на window
+        Давайте подведем итог
+        В любой функции можно написать this, это не приведет к каким-либо ошибкам JavaScript. Но вот что именно будет
+        лежать в
+        этом this не определено до момента вызова функции. Причем при разных вызовах функции this может принимать разное
+        значение. Все зависит от контекста, в котором была вызвана функция.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

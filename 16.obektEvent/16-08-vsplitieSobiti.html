@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объект Event — конспект</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Zilla+Slab&family=Lora&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-gmT="D" data-mType="L">
+
+    <header data-w="nict/mainmenu">
+        <span data-e="head">Мой конспект по JavaScript</span>
+        <div data-e="subb">
+            <a href="../index.html">Оглавление</a>
+            <a href="razdel-16-obektEventi.html">Объект Event</a>
+            <a href="16-.html"># of 312</a>
+        </div>
+        <div data-e="subb">
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+
+            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+        </div>
+
+    </header>
+
+    <div data-w="nict/them">
+        <button type="button" data-e="sich" data-mType="N" onclick="setTheme('N')" aria-label="Тёмная тема">🌙
+            Тёмная</button>
+        <button type="button" data-e="sich" data-mType="D" onclick="setTheme('D')" aria-label="Светлая тема">☀️
+            Светлая</button>
+    </div>
+
+    <main data-w="cont/pane">
+
+        <h2>Всплытие событий в JavaScript</h2>
+
+        Представьте себе, что у вас есть несколько вложенных друг в друга блоков:
+
+        <div id="elem1">
+            <div id="elem2">
+                <div id="elem3"></div>
+            </div>
+        </div>
+        Получим ссылки на наши дивы в переменные:
+
+        let elem1 = document.querySelector('#elem1');
+        let elem2 = document.querySelector('#elem2');
+        let elem3 = document.querySelector('#elem3');
+        А теперь навесим на них обработчики кликов:
+
+        elem1.addEventListener('click', function() {
+        alert('зеленый');
+        });
+        elem2.addEventListener('click', function() {
+        alert('голубой');
+        });
+        elem3.addEventListener('click', function() {
+        alert('красный');
+        });
+        Выведем наши блоки на экран, добавив им некоторый CSS:
+
+
+        Нажмите теперь на самый внутренний красный блок - и вы увидите, как событие сначала сработает в красном блоке,
+        потом в
+        голубом, потом в зеленом. И это логично, ведь кликая на внутренний блок, вы одновременно кликаете на все
+        внешние.
+
+        То есть получается, что когда вы кликаете на самый внутренний блок, событие клика возникает сначала в нем, затем
+        срабатывает в его родителе, в родителе его родителя и так далее, пока не дойдет до самого верха.
+
+        Такое поведение называется всплытием (англ. bubbling) событий - по аналогии со всплытием пузырька воздуха со
+        дна. Так
+        же, как и пузырек, наше событие как будто выплывает наверх, каждый раз срабатывая на более высоких блоках.
+
+        Задача 1⋕js.Pm.OE.EB.1
+
+        Самостоятельно напишите код, который будет демонстрировать всплытие событий. Проверьте на нем всплытие различных
+        типов
+        событий.
+
+        Задача 2⋕js.Pm.OE.EB.2
+
+        Всплывать могут не все события. Экспериментально найдите хотя бы одно событие, которое не будет всплывать.
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

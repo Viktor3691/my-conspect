@@ -19,12 +19,13 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-02-oshibliNachinaushixWhile.html">64 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-01-ziklWhile.html">Цикл while в
+                JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-03-ciklFor.html">Цикл for в JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,107 +41,317 @@
 
         <h2>Ошибки начинающих при работе с циклом while в JavaScript</h2>
 
-        Цикл while может выполняться бесконечно (это приведет к зависанию скрипта и страницы браузера), достаточно
-        передать ему
-        выражение, которое никогда не станет ложным. Например, так:
+        <p>Цикл <strong>while</strong> может выполняться бесконечно (это приведет к зависанию скрипта и страницы
+            браузера), достаточно
+            передать ему
+            выражение, которое никогда не станет ложным. Например, так:</p>
 
-        let test = true;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = true;
+<span class="-n"></span>
+<span class="-n"></span>while (test === true) {
+<span class="-n"></span>/*
+<span class="-n"></span>Написанный здесь код будет выполняться "вечно"
+<span class="-n"></span>(пока скрипт не будет остановлен принудительно).
+<span class="-n"></span>Не стоит это повторять - это приведет к зависанию
+<span class="-n"></span>страницы браузера!
+<span class="-n"></span>*/
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        while (test === true) {
-        /*
-        Написанный здесь код будет выполняться "вечно"
-        (пока скрипт не будет остановлен принудительно).
-        Не стоит это повторять - это приведет к зависанию
-        страницы браузера!
-        */
-        }
-        Начинающие программисты время от времени загоняют свою программу в бесконечный цикл (с вами это тоже обязательно
-        случится пару раз). Давайте рассмотрим распространенные ошибки начинающих.
+        <p> Начинающие программисты время от времени загоняют свою программу в бесконечный цикл (с вами это тоже
+            обязательно
+            случится пару раз). Давайте рассмотрим распространенные ошибки начинающих.</p>
 
-        Ошибка 1
-        Пусть есть вот такой цикл, выводящий числа от 1 до 10:
+        <h3> Ошибка 1 </h3>
 
-        let i = 1;
+        <p>Пусть есть вот такой цикл, выводящий числа от 1 до 10:</p>
 
-        while (i <= 10) { console.log(i); i++; } Представим теперь, что программист забыл сделать увеличение счетчика в
-            цикле: let i=1; while (i <=10) { console.log(i); } В этом случае цикл будет выполнятся бесконечно, так как
-            условие, при котором цикл закончится, никогда не будет достигнуто. Ошибка 2 Пусть опять наш программист
-            хотел выводить числа от 1 до 10, однако, вместо ++ написал --: let i=1; while (i <=10) { console.log(i);
-            i--; // перепутал ++ и -- } В этом случае, хотя счетчик и изменяется, но он изменяется не в ту сторону - и
-            опять условие никогда не будет достигнуто. Цикл не запускается Бывает и обратная проблема - можно так
-            написать код, что условие цикла уже изначально будет неверно и цикл просто не запустится. Пусть, к примеру,
-            программист хотел вывести столбец чисел от 1 до 10, однако, вместо условия i <=10, написал условие i>=:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i = 1;
+<span class="-n"></span>
+<span class="-n"></span>while (i &lt;= 10) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span> i++;
+<span class="-n"></span> }
+</pre>
+        </div>
+        <p> Представим теперь, что программист забыл сделать увеличение счетчика в цикле:</p>
 
-            let i = 1;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let i=1;
+<span class="-n"></span>
+<span class="-n"></span>while (i &lt;=10) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-            while (i >= 10) {
-            console.log(i);
-            i++;
-            }
-            В таком случае цикл просто не начнется, так как условие изначально неверно.
+        <p>В этом случае цикл будет выполнятся бесконечно, так как
+            условие, при котором цикл закончится, никогда не будет достигнуто.</p>
 
-            Бывает и так, что некоторым начинающим кажется, что цикл крутится не пока условие верно, а наоборот - цикл
+        <h3>Ошибка 2</h3>
+
+        <p> Пусть опять наш программист
+            хотел выводить числа от 1 до 10, однако, вместо ++ написал --:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i=1;
+<span class="-n"></span>
+<span class="-n"></span> while (i &lt;=10) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i--;// перепутал ++ и --
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> В этом случае, хотя счетчик и изменяется, но он изменяется не в ту сторону - и
+            опять условие никогда не будет достигнуто.</p>
+
+        <h2>Цикл не запускается</h2>
+
+        <p>Бывает и обратная проблема - можно так
+            написать код, что условие цикла уже изначально будет неверно и цикл просто не запустится.
+            <br>
+            Пусть, к примеру,
+            программист хотел вывести столбец чисел от 1 до 10, однако, вместо условия i &lt;=10, написал условие i>=:
+        </p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i = 1;
+<span class="-n"></span>
+<span class="-n"></span>while (i >= 10) {
+<span class="-n"></span> console.log(i);
+<span class="-n"></span>i++;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> В таком случае цикл просто не начнется, так как условие изначально неверно.</p>
+
+        <p>Бывает и так, что некоторым начинающим кажется, что цикл крутится не пока условие верно, а наоборот - цикл
             крутится
             пока условие не верно и остановится, когда оно станет верным.
-
+            <br>
             Вот пример такого кода:
+        </p>
 
-            let i = 1;
 
-            while (i == 10) { // зачем-то написано ==
-            console.log(i);
-            i++;
-            }
-            При таком условии цикл вообще не начнется, так как условие просто изначально не верно.
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i = 1;
+<span class="-n"></span>
+<span class="-n"></span>while (i == 10) { // зачем-то написано ==
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i++;
+<span class="-n"></span>}
+</pre>
+        </div>
 
-            Задачи
-            Задача 1⋕js.Pm.Lp.WM.1
+        <p>При таком условии цикл вообще не начнется, так как условие просто изначально не верно.</p>
 
-            В следующем коде программист вывел числа от 10 до 1:
+        <h2>Задачи</h2>
 
+        <h3>Задача 1</h3>
+
+        <p>В следующем коде программист вывел числа от 10 до 1:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i = 10;
+<span class="-n"></span>
+<span class="-n"></span>while (i >= 1) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> В коде, однако, была допущена ошибка, которая привела к тому, что цикл выполняется бесконечно. Исправьте
+            ошибку программиста.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i = 10;
+<span class="-n"></span>
+<span class="-n"></span>while (i >= 1) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i--;
+// программист забыл сделать умешьшение счетчика в цикле
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 2 </h3>
+
+        <p> В следующем коде программист вывел числа от 10 до 1:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i = 10;
+<span class="-n"></span>
+<span class="-n"></span>while (i >= 1) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i++;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>В коде, однако, была допущена ошибка, которая привела к тому, что цикл выполняется бесконечно. Исправьте
+            ошибку программиста.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i = 10;
+<span class="-n"></span>
+<span class="-n"></span>while (i >= 1) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i--;
+// перепутал ++ и --
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 3</h3>
+
+        <p> В следующем коде программист вывел числа от 10 до 1:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let i = 10;
+<span class="-n"></span>
+<span class="-n"></span>while (i &lt;= 0) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span> i--;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> В коде, однако, была допущена ошибка, которая привела к тому, что на
+            экран ничего не вывелось. Исправьте ошибку программиста.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let i = 10;
+<span class="-n"></span>
+<span class="-n"></span>while (i &lt;= 0) {
+вместо условия i >= 0, написал условие i &lt;= 0:
+<span class="-n"></span>console.log(i);
+<span class="-n"></span> i--;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 4</h3>
+
+        <p> В следующем коде программист вывел числа от 10 до 1:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i=10;
+<span class="-n"></span>
+<span class="-n"></span>while (i==0) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i--;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>В коде, однако, была допущена ошибка, которая привела к тому, что на экран ничего не вывелось. Исправьте
+            ошибку программиста.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i=10;
+<span class="-n"></span>
+<span class="-n"></span>while (i>=0) {
+// было написано ==
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i--;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 5</h3>
+
+        <p> В следующем коде программист вывел числа от 10 до 1:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i=10;
+<span class="-n"></span>
+<span class="-n"></span>while (i==10) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i--;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> В коде, однако, была допущена ошибка, которая привела к тому, что цикл вывел только
+            число 10 и закончил свою работу. Исправьте ошибку программиста.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i=10;
+<span class="-n"></span>
+<span class="-n"></span>while (i>=0) {
+// было написано == 10
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i--;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+
+        <script>
             let i = 10;
 
-            while (i >= 1) {
-            console.log(i);
+            while (i >= 0) {
+                console.log(i);
+                i--;
             }
-            В коде, однако, была допущена ошибка, которая привела к тому, что цикл выполняется бесконечно. Исправьте
-            ошибку
-            программиста.
+        </script>
 
-            Задача 2⋕js.Pm.Lp.WM.2
+    </main>
 
-            В следующем коде программист вывел числа от 10 до 1:
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
 
-            let i = 10;
-
-            while (i >= 1) {
-            console.log(i);
-            i++;
-            }
-            В коде, однако, была допущена ошибка, которая привела к тому, что цикл выполняется бесконечно. Исправьте
-            ошибку
-            программиста.
-
-            Задача 3⋕js.Pm.Lp.WM.3
-
-            В следующем коде программист вывел числа от 10 до 1:
-
-            let i = 10;
-
-            while (i <= 0) { console.log(i); i--; } В коде, однако, была допущена ошибка, которая привела к тому, что на
-                экран ничего не вывелось. Исправьте ошибку программиста. Задача 4⋕js.Pm.Lp.WM.4 В следующем коде
-                программист вывел числа от 10 до 1: let i=10; while (i==0) { console.log(i); i--; } В коде, однако, была
-                допущена ошибка, которая привела к тому, что на экран ничего не вывелось. Исправьте ошибку программиста.
-                Задача 5⋕js.Pm.Lp.WM.5 В следующем коде программист вывел числа от 10 до 1: let i=10; while (i==10) {
-                console.log(i); i--; } В коде, однако, была допущена ошибка, которая привела к тому, что цикл вывел
-                только число 10 и закончил свою работу. Исправьте ошибку программиста. </main>
-
-                <footer data-w="nict/finf">
-                    <span data-e="text">Мой личный конспект © 2026</span>
-                </footer>
-
-                <script src="../js/loader.js" defer></script>
-                <script src="../js/app.js" defer></script>
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

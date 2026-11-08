@@ -41,6 +41,87 @@
 
     <main data-w="cont/pane">
 
+        <h2>Конструкция if</h2>
+
+        <p>Конструкция if задает условие. С помощью этой конструкции мы можем задать программе, к примеру, вопрос
+            "больше ли
+            переменная a, чем переменная b", и в зависимости от ответа выполнить или один код, или другой.
+
+            Как правило данная конструкция используется в комбинации с конструкцией <strong>else.</strong></p>
+
+        <h3> Синтаксис</h3>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>if (логическое выражение) {
+<span class="-n"></span>/*
+<span class="-n"></span>расположенный здесь код выполниться,
+<span class="-n"></span>если логическое выражение верное
+<span class="-n"></span>*/
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <i> В случае, если в фигурный скобках только одно выражение, можно эти фигурные скобки не писать.</i>
+
+        <h3>Пример</h3>
+
+        <p>Если значение переменной равно единице, выведем на экран какое-нибудь сообщение:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (test == 1) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>}
+
+</pre>
+        </div>
+
+        <h3> Пример</h3>
+
+        <p> Проверим, значение переменной больше нуля или нет:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let test = 1;
+<span class="-n"></span>
+<span class="-n"></span>if (test > 0) {
+<span class="-n"></span>alert('верно');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span> alert('неверно');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Пример</h3>
+
+        Конструкции if-else можно вкладывать друг в друга произвольным образом:
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 3;
+<span class="-n"></span>
+<span class="-n"></span>if (num >= 0) {
+<span class="-n"></span>     if (num &lt;= 5) {
+<span class="-n"></span>        alert('меньше или равно 5');
+<span class="-n"></span>
+<span class="-n"></span>    } else {
+<span class="-n"></span>        alert('больше 5');
+<span class="-n"></span>    }
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>    alert('меньше нуля');
+<span class="-n"></span>}
+</pre>
+        </div>
+
         <h2>Конструкция if-else в JavaScript</h2>
 
         <p>Сейчас мы с вами изучим специальную конструкцию if-else, которая позволяет выполнять некоторый код в

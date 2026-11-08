@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-03-ciklFor.html">65 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-02-oshibliNachinaushixWhile.html">Ошибки
+                начинающих при работе с циклом while в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-04-nakoplenRecultataVCikle.html">Накопление результата в цикле
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,36 +42,166 @@
 
         <h2>Цикл for в JavaScript</h2>
 
-        Цикл for является альтернативой while. Он более сложен для понимания, но чаще всего его любят больше, чем while
-        за то,
-        что он занимает меньше строчек.
+        <p> Цикл for является альтернативой while. Он более сложен для понимания, но чаще всего его любят больше, чем
+            while
+            за то,
+            что он занимает меньше строчек.
+            <br>
+            Вот синтаксис цикла for:
+        </p>
 
-        Вот синтаксис цикла for:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for ( начальные команды; условие окончания; команды после прохода ) {
+<span class="-n"></span>тело цикла
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for ( начальные команды; условие окончания; команды после прохода ) {
-        тело цикла
-        }
-        Начальные команды - это то, что выполнится перед стартом цикла. Они выполнятся только один раз. Обычно там
-        размещают
-        начальные значения счетчиков, например: i = 0.
+        <p>Начальные команды - это то, что выполнится перед стартом цикла. Они выполнятся только один раз. Обычно там
+            размещают
+            начальные значения счетчиков, например:</p>
 
-        Условие окончания цикла - это условие, при котором цикл будет крутится, пока оно истинное, например: i <= 10.
-            Команды после прохода цикла - это команды, которые будут выполнятся каждый раз при окончании прохода цикла.
-            Обычно там увеличивают счетчики, например: i++. Давайте с помощью цикла for выведем последовательно числа от
-            1 до 9: /* В начале цикла i будет равно единице, цикл будет выполнятся пока i <=9, после каждого прохода к i
-            прибавляется единица: */ for (let i=1; i <=9; i++) { console.log(i); // выведет 1, 2... 9 } Задача
-            1⋕js.Pm.Lp.Fr.1 С помощью цикла for выведите в консоль числа от 1 до 100. Задача 2⋕js.Pm.Lp.Fr.2 С помощью
-            цикла for выведите в консоль числа от 11 до 33. Задача 3⋕js.Pm.Lp.Fr.3 С помощью цикла for выведите в
-            консоль четные числа в промежутке от 0 до 100. Задача 4⋕js.Pm.Lp.Fr.4 С помощью цикла for выведите в консоль
-            нечетные числа в промежутке от 1 до 99. Задача 5⋕js.Pm.Lp.Fr.5 С помощью цикла for выведите в консоль числа
-            от 100 до 0. </main>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>i = 0.
+</pre>
+        </div>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <p>Условие окончания цикла - это условие, при котором цикл будет крутится, пока оно истинное, например:</p>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>i &lt;= 10.
+</pre>
+        </div>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+
+
+        <p> Команды после прохода цикла - это команды, которые будут выполнятся каждый раз при окончании прохода цикла.
+            Обычно там увеличивают счетчики, например:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>i++.
+
+</pre>
+        </div>
+
+
+        <p>Давайте с помощью цикла for выведем последовательно числа от
+            1 до 9:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> /*
+<span class="-n"></span>В начале цикла i будет равно единице,
+<span class="-n"></span>цикл будет выполнятся пока i &lt;=9,
+<span class="-n"></span>после каждого прохода к i прибавляется единица:
+<span class="-n"></span>*/
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span> console.log(i);
+<span class="-n"></span>// выведет 1, 2... 9 }
+</pre>
+        </div>
+
+        <h3>Задача 1 </h3>
+
+        <p> С помощью цикла for выведите в консоль числа от 1 до 100.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 100; i++) {
+<span class="-n"></span>    console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3> Задача 2</h3>
+        <p>С помощью
+            цикла for выведите в консоль числа от 11 до 33.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 13; i &lt;= 33; i++) {
+<span class="-n"></span>    console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 3</h3>
+
+        <p> С помощью цикла for выведите в
+            консоль четные числа в промежутке от 0 до 100.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 0; i &lt;= 100; i++) {
+<span class="-n"></span>    console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 4</h3>
+
+        <p> С помощью цикла for выведите в консоль
+            нечетные числа в промежутке от 1 до 99.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 99; i+=2) {
+<span class="-n"></span>    console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 5</h3>
+
+        <p>С помощью цикла for выведите в консоль числа
+            от 100 до 0.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 100; i >= 0; i--) {
+<span class="-n"></span>    console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            for (let i = 100; i >= 0; i--) {
+                console.log(i);
+            }
+        </script>
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

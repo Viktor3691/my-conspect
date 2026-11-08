@@ -19,12 +19,13 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-04-nakoplenRecultataVCikle.html">66 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-03-ciklFor.html">Цикл for в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-05-ciklForDlaMassivov.html">Цикл for для массивов в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -47,25 +48,109 @@
         Это решение заключается в том, что циклом перебираются числа и их сумма последовательно записывается в какую-то
         переменную:
 
-        let result = 0;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let result = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 100; i++) {
+<span class="-n"></span>result=result + i;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result); // искомая сумма
+</pre>
+        </div>
 
-        for (let i = 1; i <= 100; i++) { result=result + i; } console.log(result); // искомая сумма Как это работает:
+        <p> Как это работает: <br>
             изначально переменная result имеет значение 0, затем при первом проходе цикла в нее записывается ее текущее
-            содержимое (это 0) плюс значение счетчика (это 1). Получится, что в result запишется 0 + 1 и теперь там
-            будет лежать число 1. При следующем проходе цикла в result запишется текущее значение result (это 1) плюс
-            текущее значение счетчика (это 2), то есть 1 + 2=3. При следующем проходе цикла в result запишется его
-            текущее значение (это 3) плюс текущее значение счетчика (это 3), то есть 3 + 3=6. При следующем проходе
-            цикла в result запишется его текущее значение (это 6) плюс текущее значение счетчика (это 4), то есть 6 +
-            4=10. И так далее пока цикл не закончится. Задача 1⋕js.Pm.Lp.RLA.1 Найдите произведение целых чисел от 1 до
-            20. Задача 2⋕js.Pm.Lp.RLA.2 Найдите сумму четных чисел от 2 до 100. Задача 3⋕js.Pm.Lp.RLA.3 Найдите сумму
-            нечетных чисел от 1 до 99. </main>
+            содержимое (это 0) плюс значение счетчика (это 1). <br>
+            Получится, что в result запишется 0 + 1 и теперь там будет лежать число 1. <br>
+            При следующем проходе цикла в result запишется текущее значение result (это 1) плюс текущее значение
+            счетчика (это 2), то есть 1 + 2 = 3. <br>
+            <br>
+            При следующем проходе цикла в result запишется его текущее значение (это 3) плюс текущее значение счетчика
+            (это 3), то есть 3 + 3 = 6. <br>
+            <br>
+            При следующем проходе цикла в result запишется его текущее значение (это 6) плюс
+            текущее значение счетчика (это 4), то есть 6 + 4=10. И так далее пока цикл не закончится.
+        </p>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <h3>Задача 1 </h3>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <p> Найдите произведение целых чисел от 1 до 20.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result = 1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 20; i++) {
+<span class="-n"></span>result = result * i;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result);
+// 2432902008176640000 искомое произведение
+</pre>
+        </div>
+
+        <h3>Задача 2</h3>
+
+        <p>Найдите сумму четных чисел от 2 до 100.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 2; i &lt;= 100; i+=2) {
+<span class="-n"></span>result = result + i;
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result);
+// 2550
+</pre>
+        </div>
+
+        <h3>Задача 3</h3>
+
+        <p>Найдите сумму нечетных чисел от 1 до 99.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 2; i &lt;= 100; i+=2) {
+<span class="-n"></span>result = result + i;
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result);
+// 2500
+</pre>
+
+            <script>
+                let result = 0;
+
+                for (let i = 1; i <= 99; i += 2) {
+                    result = result + i;
+                    console.log(i);
+                }
+                console.log(result);
+            </script>
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

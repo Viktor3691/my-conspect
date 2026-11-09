@@ -106,11 +106,6 @@
 </pre>
         </div>
 
-
-
-
-
-
         <p>Теперь наш цикл получился универсальным и автоматически
             может перебирать массивы любой длины. Можно не отнимать единицу, а вместо &lt;=сделать &lt;:</p>
 
@@ -130,6 +125,19 @@
         <p>Дан массив с элементами 'a' , 'b' , 'c' , 'd' , 'e' . С помощью цикла for выведите все эти
             элементы на экран.</p>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=['a' , 'b' , 'c' , 'd' , 'e'];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr.length; i++) {
+<span class="-n"></span>console.log(arr1[i]);
+<span class="-n"></span>}
+</pre>
+        </div>
+
         <h3>Задача 2</h3>
 
         <p>В следующем коде программист вывел в консоль все элементы массива:</p>
@@ -137,9 +145,9 @@
         <div data-w="bock/code">
             script.js
             <pre>
-<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>let arr2 = [1, 2, 3, 4, 5];
 <span class="-n"></span>
-<span class="-n"></span>for (let i=0; i &lt;=arr.length; i++) {
+<span class="-n"></span>for (let i=0; i &lt;=arr2.length; i++) {
 <span class="-n"></span>    console.log(arr[i]);
 <span class="-n"></span>}
 </pre>
@@ -147,6 +155,20 @@
 
         В коде, однако, была допущена ошибка, которая привела к тому, что в последней итерации цикла почему-то выводится
         undefined, а не элемент массива. Исправьте ошибку программиста. Объясните, в чем он был не прав.
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; arr2.length; i++) {
+    // i &lt; arr2.length;
+<span class="-n"></span>    console.log(arr[i]);
+<span class="-n"></span>}
+</pre>
+        </div>
 
         <h2>Перебор массива и if</h2>
 
@@ -161,10 +183,10 @@
 <span class="-n"></span>let arr=[1, 2, 3, 4, 5];
 <span class="-n"></span>
 <span class="-n"></span>for (let i=0; i &lt; arr.length; i++) {
-<span class="-n"></span>if (arr[i] % 2==0) {
-<span class="-n"></span>     console.log(arr[i]);
+<span class="-n"></span>    if (arr[i] % 2==0) {
+<span class="-n"></span>        console.log(arr[i]);
 <span class="-n"></span>    }
-<span class="-n"></span>   }
+<span class="-n"></span>}
 
 </pre>
         </div>
@@ -174,6 +196,21 @@
         <p> Дан массив с элементами 1, 2, 3, 4, 5. С помощью цикла for и оператора if выведите в консоль нечетные
             элементы массива.</p>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; arr.length; i++) {
+<span class="-n"></span>    if (arr[i] % 2!==0) {
+<span class="-n"></span>        console.log(arr[i]);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+
+</pre>
+        </div>
 
         <h2> Нахождение суммы элементов</h2>
 
@@ -198,27 +235,113 @@
         <p>Дан массив с элементами 1, 2, 3, 4, 5. С помощью цикла for
             найдите произведение элементов этого массива.</p>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result4 = 1;
+<span class="-n"></span>let arr4 = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; arr4.length; i++) {
+<span class="-n"></span>result4 = result4 * arr4[i];
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result4); // 120
+</pre>
+        </div>
+
         <h3>Задача 5 </h3>
 
         <p>Дан массив с элементами 1, 2, 3, 4, 5.
             С помощью цикла for найдите сумму квадратов элементов этого массива.</p>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result5 = 0;
+<span class="-n"></span>let arr5 = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr5.length; i++) {
+<span class="-n"></span>    if (arr5[i] = arr5[i] ** 2) {
+<span class="-n"></span>        console.log(arr5[i]);
+<span class="-n"></span>        result5 = result5 + arr5[i];
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result5);
+</pre>
+        </div>
+
+
         <h3>Задача 6</h3>
 
         <p>Дан массив с элементами 2, 5, 9, 15, 1, 4.
             С помощью цикла for и оператора if выведите в консоль те элементы
-            массива, которые больше 3-х, но меньше 10.</p>
+            массива, которые больше 3-х, но меньше 10.
+        </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr6 = [2, 5, 9, 15, 1, 4];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr6.length; i++) {
+<span class="-n"></span>    if (arr6[i] > 3 && arr6[i] &lt; 10) {
+<span class="-n"></span>        console.log(arr6[i]);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
 
         <h3>Задача 7</h3>
 
         <p>Дан массив с числами. Числа могут быть
             положительными и отрицательными. Найдите сумму положительных элементов массива.</p>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr7 = [1, 6, -4, 7, -9, 7];
+<span class="-n"></span>let res7 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr7.length; i++) {
+<span class="-n"></span>    if (arr7[i] > 0) {
+<span class="-n"></span>        res7 += arr7[i]
+<span class="-n"></span>        console.log(arr7[i]);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
         <h3> Задача 8</h3>
 
         <p>Дан массив arr. Найдите среднее арифметическое его элементов (сумма делить на количество). Проверьте задачу
-            на
-            массиве с элементами 1, 2, 3, 4, 5.</p>
+            на массиве с элементами 1, 2, 3, 4, 5.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr8 = [1, 2, 3, 4, 5];
+<span class="-n"></span>let sum8 = 0;
+<span class="-n"></span>let kol8 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr8.length; i++) {
+<span class="-n"></span>    sum8 += arr8[i];
+<span class="-n"></span>    kol8 = arr8.length
+<span class="-n"></span>}
+<span class="-n"></span>console.log('sum8', sum8);
+<span class="-n"></span>console.log('kol8', kol8);
+<span class="-n"></span>console.log(`среднее арифметическое его элементов 'sum8/kol8 = `, sum8 / kol8);
+<span class="-n"></span>// 3
+</pre>
+        </div>
 
         <h3>Задача 9</h3>
 
@@ -235,35 +358,240 @@
 
         <p>Выведите на экран только те числа из массива, которые начинаются на цифру 1, 2 или 5.</p>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr9 = [10, 20, 30, 50, 235, 3000];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr9.length; i++) {
+<span class="-n"></span>    let oneNum = String(arr9[i])[0];
+<span class="-n"></span>    if (oneNum === '1' || oneNum === '2' || oneNum === '5') {
+<span class="-n"></span>        console.log(arr9[i]);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
         <h3>Задача 10</h3>
 
         <p> Дан массив с числами. Выведите элементы этого массива в обратном порядке.</p>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr10 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = arr10.length - 1; i >= 0; i--) {
+<span class="-n"></span>    console.log(arr10[i]);
+<span class="-n"></span>}
+</pre>
+        </div>
+
         <h3>Задача 11</h3>
 
         <p>Дан массив с числами. С помощью цикла выведите на экран все элементы, значение которых
-            совпадает с их порядковым номером в массиве.</p>
+            совпадает с их порядковым номером в массиве.
+        </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr11 = [0, 20, 2, 40, 50, 5, 720, 80, 920, 9];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr11.length; i++) {
+<span class="-n"></span>    if (arr11[i] === i) {
+<span class="-n"></span>        console.log(arr11[i]);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
 
         <h3>Задача 12</h3>
 
         Дан массив с числами. С помощью цикла for и функции document.write выведите каждый элемент массива с
         новой строки. Используйте для этого тег br.
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr12 = [10, 20, 30, 40,];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr12.length; i++) {
+<span class="-n"></span>document.write(arr12[i] + '&lt;br>');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let arr12 = [10, 20, 30, 40,];
+
+            for (let i = 0; i < arr12.length; i++) {
+                document.write(arr12[i] + '<br>');
+            }
+        </script>
+
         <h3>Задача 13</h3>
 
         <p>Дан массив с числами. С помощью цикла for и функции document.write выведите каждый
             элемент массива в отдельном абзаце.</p>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr13 = [5, 720, 80, 920];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr13.length; i++) {
+<span class="-n"></span>document.write(arr13[i] + '&lt;br>' + '&lt;br>');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let arr13 = [5, 720, 80, 920];
+
+            for (let i = 0; i < arr13.length; i++) {
+                document.write(arr13[i] + '<br>' + '<br>');
+            }
+        </script>
+
+
+
         <h3>Задача 14 </h3>
 
-        Составьте массив дней недели. С помощью цикла for выведите все дни недели, а выходные дни выведите
-        жирным.
+        <p>Составьте массив дней недели. С помощью цикла for выведите все дни недели, а выходные дни выведите
+            жирным.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr14 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr14.length; i++) {
+<span class="-n"></span>    if (i === 5 || i === 6) {
+<span class="-n"></span>        document.write('&lt;strong>' + arr14[i] + '&lt;/strong>' + ', ');
+<span class="-n"></span>
+<span class="-n"></span>    } else {
+<span class="-n"></span>        document.write(arr14[i] + ', ');
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let arr14 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+            for (let i = 0; i < arr14.length; i++) {
+                if (i === 5 || i === 6) {
+                    document.write('<strong>' + arr14[i] + '</strong>' + ', ');
+                } else {
+                    document.write(arr14[i] + ', ');
+                }
+            }
+
+        </script>
+
+        <strong></strong>
 
         <h3> Задача 15</h3>
 
         <p>Составьте массив дней недели. С помощью цикла for выведите все дни недели, а текущий день выведите
             курсивом. Номер текущего дня
             должен храниться в переменной day.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let weekDays = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+<span class="-n"></span>
+<span class="-n"></span>let jsDay = new Date().getDay();
+// getDay() возвращает: 0 = воскресенье, 1 = понедельник, ..., 6 = суббота
+
+<span class="-n"></span>let day = jsDay === 0 ? 6 : jsDay - 1;
+// Приводим к нашей нумерации: понедельник = 0, воскресенье = 6
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; weekDays.length; i++) {
+<span class="-n"></span>    if (i === day) {
+<span class="-n"></span>        document.write('<i>' + weekDays[i] + '</i>');
+
+<span class="-n"></span>    } else {
+<span class="-n"></span>        document.write(weekDays[i]);
+<span class="-n"></span>    }
+<span class="-n"></span>
+<span class="-n"></span>if (i &lt; weekDays.length - 1) {
+<span class="-n"></span>        document.write(', ');
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let weekDays = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+
+            // getDay() возвращает: 0 = воскресенье, 1 = понедельник, ..., 6 = суббота
+            let jsDay = new Date().getDay();
+
+            // Приводим к нашей нумерации: понедельник = 0, воскресенье = 6
+            let day = jsDay === 0 ? 6 : jsDay - 1;
+
+            for (let i = 0; i < weekDays.length; i++) {
+                if (i === day) {
+                    document.write('<i>' + weekDays[i] + '</i>');
+                } else {
+                    document.write(weekDays[i]);
+                }
+
+                if (i < weekDays.length - 1) {
+                    document.write(', ');
+                }
+            }
+
+        </script>
+
+        <ul>
+            <li>new Date().getDay() — это встроенный способ получить день недели из системных часов браузера.</li>
+            <li>Проблема: в JS воскресенье — это 0, а у нас в массиве мы хотим, чтобы понедельник был 0. Отсюда и нужна
+                строчка jsDay
+                === 0 ? 6 : jsDay - 1.</li>
+            <li>Цикл for просто перебирает все дни и проверяет: если индекс совпадает с текущим днём — ставим
+                <i>...</i>.
+            </li>
+
+        </ul>
+
+        <p>
+
+            <strong>if (i &lt; weekDays.length - 1) { document.write(', ');}</strong> - Эта строчка как раз нужна, чтобы
+            запятая не
+            появлялась после последнего дня — иначе получилось бы, например:
+            «Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье,» (лишняя запятая в конце).
+
+        </p>
+
+        <p><strong>Как это работает</strong></p>
+
+        <ul>
+            <li>weekDays.length — это общее количество дней, то есть 7.</li>
+            <li>weekDays.length - 1 — это индекс последнего элемента, то есть 6.</li>
+            <li>Условие i &lt; weekDays.length - 1 означает: «ставь запятую, только если мы ещё не на последнем
+                элементе».</li>
+        </ul>
+
+
+
 
     </main>
 

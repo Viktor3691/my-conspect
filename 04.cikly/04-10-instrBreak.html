@@ -193,8 +193,9 @@
 <span class="-n"></span>let arr3 = [1, 2, 0, -2, 4, 4, 3, 4, 3, 3, 4, 4, 3, 4,];
 <span class="-n"></span>
 <span class="-n"></span>for (let i = 0; i &lt; arr3.length; i++) {
-<span class="-n"></span>    document.write(i);
+<span class="-n"></span>
 <span class="-n"></span>    if (arr3[i] === 3) {
+<span class="-n"></span>    document.write(i);
 <span class="-n"></span>        break;
 <span class="-n"></span>    }
 <span class="-n"></span>}
@@ -206,8 +207,9 @@
             let arr3 = [1, 2, 0, -2, 4, 4, 3, 4, 3, 3, 4, 4, 3, 4,];
 
             for (let i = 0; i < arr3.length; i++) {
-                document.write(i);
+
                 if (arr3[i] === 3) {
+                    document.write(i);
                     break;
                 }
             }
@@ -225,7 +227,7 @@
 <span class="-n"></span>let sum4 = 0;
 <span class="-n"></span>let count4 = 0;
 <span class="-n"></span>
-<span class="-n"></span>for (let i = 1; ; i++) {
+<span class="-n"></span>for (let i = 1; sum4 &lt;= 100; i++) {
 <span class="-n"></span>    sum4 += i;
 <span class="-n"></span>    count4++;
 <span class="-n"></span>    if (sum4 > 100) {
@@ -240,7 +242,7 @@
             let sum4 = 0;
             let count4 = 0;
 
-            for (let i = 1; ; i++) {
+            for (let i = 1; sum4 <= 100; i++) {
                 sum4 += i;
                 count4++;
                 if (sum4 > 100) {

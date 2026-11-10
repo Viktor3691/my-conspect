@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-09-polnSinteksFor.html">70 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-08-sokrSinteksCiklov.html">Сокращенный
+                синтаксис циклов в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-10-instrBreak.html">Инструкция break в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,27 +42,52 @@
 
         <h2>Общий синтаксис цикла for в JavaScript</h2>
 
-        Вы уже знаете синтаксис цикла for:
+        <p>Вы уже знаете синтаксис цикла for: </p>
 
-        for ( начальные команды; условие окончания; команды после прохода ) {
-        тело цикла
-        }
-        На самом деле начальные команды и команды после прохода цикла могут состоять не из одной, а из нескольких,
-        разделяемых
-        запятыми.
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for ( начальные команды; условие окончания; команды после прохода ) {
+<span class="-n"></span>тело цикла
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        Для примера давайте сделаем два счетчика: первый пусть каждую итерацию цикла увеличивается на единицу, а второй
-        - на
-        двойку:
 
-        for (let i = 0, j = 0; i <= 9; i++, j +=2) { console.log(i, j); } </main>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <p>На самом деле начальные команды и команды после прохода цикла могут состоять не из одной, а из нескольких,
+            разделяемых
+            запятыми.</p>
+
+        <p> Для примера давайте сделаем два счетчика: первый пусть каждую итерацию цикла увеличивается на единицу, а
+            второй
+            - на
+            двойку:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 0, j = 0; i &lt;= 9; i++, j +=2) {
+<span class="-n"></span>    document.write(`i-${i}  j-${j} ,`);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            for (let i = 0, j = 0; i <= 9; i++, j += 2) {
+                document.write(`i-${i}  j-${j},  `);
+            }
+        </script>
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

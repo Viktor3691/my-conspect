@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-10-instrBreak.html">71 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-09-polnSinteksFor.html">Общий синтаксис
+                цикла for в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-11-instrContinue.html">Инструкция continue в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,65 +42,213 @@
 
         <h2>Инструкция break в JavaScript</h2>
 
-        Пусть у нас есть вот такой цикл, выводящий в консоль элементы массива:
+        <p>Пусть у нас есть вот такой цикл, выводящий в консоль элементы массива: </p>
 
-        let arr = [1, 2, 3, 4, 5];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>console.log(elem);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let elem of arr) {
-        console.log(elem);
-        }
-        Пусть перед нами стоит задача определить, есть ли в массиве число 3. Если есть - выведем в консоль слово 'есть'
-        (а если
-        нет - ничего не будем делать).
+        <p> Пусть перед нами стоит задача определить, есть ли в массиве число 3. Если есть - выведем в консоль слово
+            'есть' (а если нет - ничего не будем делать). </p>
 
-        Решим нашу задачу:
+        <p> Решим нашу задачу:</p>
 
-        let arr = [1, 2, 3, 4, 5];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem == 3) {
+<span class="-n"></span>console.log('есть');
+<span class="-n"></span>}
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let elem of arr) {
-        if (elem == 3) {
-        console.log('есть');
-        }
-        }
-        Задача решена, однако, есть проблема: после того, как число 3 уже найдено, массив все равно продолжает
-        бессмысленно
-        перебираться дальше, тратя ценные ресурсы процессора и замедляя работу нашего скрипта.
+        <p>Задача решена, однако, есть проблема: после того, как число 3 уже найдено, массив все равно продолжает
+            бессмысленно
+            перебираться дальше, тратя ценные ресурсы процессора и замедляя работу нашего скрипта. </p>
 
-        Оптимальнее было бы сразу после нахождения числа завершить работу нашего цикла. Это можно сделать с помощью
-        специально
-        инструкции break, позволяющей досрочно завершить работу цикла.
+        <p> Оптимальнее было бы сразу после нахождения числа завершить работу нашего цикла. Это можно сделать с помощью
+            специально
+            инструкции break, позволяющей досрочно завершить работу цикла.</p>
 
-        Итак, давай завершим цикл, как только нам встретится число 3:
+        <p>Итак, давай завершим цикл, как только нам встретится число 3: </p>
 
-        let arr = [1, 2, 3, 4, 5];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>    if (elem == 3) {
+<span class="-n"></span>        document.write(`&lt;b> есть &lt;/b> &lt;br>`);
+<span class="-n"></span>        break; // выйдем из цикла
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let elem of arr) {
-        if (elem == 3) {
-        console.log('есть');
-        break; // выйдем из цикла
-        }
-        }
-        Инструкция break может завершать любые циклы: обычный for, while и так далее.
+        <script>
+            let arr = [1, 2, 3, 4, 5];
 
-        Задача 1⋕js.Pm.Lp.Br.1
+            for (let elem of arr) {
+                if (elem == 3) {
+                    document.write(`<b> есть </b> <br>`);
+                    break; // выйдем из цикла
+                }
+            }
+        </script>
 
-        Дан массив с числами. Запустите цикл, который будет по очереди выводить элементы этого массива в консоль до тех
-        пор,
-        пока не встретится элемент со значением 0. После этого цикл должен завершить свою работу.
+        <p> <i> Инструкция <b>break</b> может завершать любые циклы: обычный for, while и так далее</i>.</p>
 
-        Задача 2⋕js.Pm.Lp.Br.2
+        <h3>Задача 1 </h3>
 
-        Дан массив с числами. Найдите сумму элементов, расположенных от начала массива до первого отрицательного числа.
+        <p>Дан массив с числами. Запустите цикл, который будет по очереди выводить элементы этого массива в консоль до
+            тех пор, пока не встретится элемент со значением 0. После этого цикл должен завершить свою работу.
+        </p>
 
-        Задача 3⋕js.Pm.Lp.Br.3
+        <p>Решение</p>
 
-        Дан массив с числами. Найдите позицию первого числа 3 в этом массиве (считаем, что это число обязательно есть в
-        массиве).
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [1, 2, 3, 4, 0, 2, 3, 4,];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr1.length; i++) {
+<span class="-n"></span>    if (arr1[i] === 0) {
+<span class="-n"></span>        break;
+<span class="-n"></span>    }
+<span class="-n"></span>    document.write(arr1[i], ', ');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        Задача 4⋕js.Pm.Lp.Br.4
 
-        Определите, сколько целых чисел, начиная с числа 1, нужно сложить, чтобы сумма получилась больше 100.
+        <script>
+            let arr1 = [1, 2, 3, 4, 0, 2, 3, 4,];
 
+            for (let i = 0; i < arr1.length; i++) {
+                if (arr1[i] === 0) {
+                    break;
+                }
+                document.write(arr1[i], ', ');
+            }
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p> Дан массив с числами. Найдите сумму элементов, расположенных от начала массива до первого отрицательного
+            числа.
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [1, 2, 3, 3, 4, 4, 0, -2, 3, 4, 3, 4,];
+<span class="-n"></span>let sum2 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr2.length; i++) {
+<span class="-n"></span>    if (arr2[i] &lt; 0) {
+<span class="-n"></span>        break;
+<span class="-n"></span>    }
+<span class="-n"></span>    sum2 += arr2[i]
+<span class="-n"></span>}
+<span class="-n"></span>document.write('sum2 = ', sum2);
+</pre>
+        </div>
+
+        <script>
+            let arr2 = [1, 2, 3, 3, 4, 4, 0, -2, 3, 4, 3, 4,];
+            let sum2 = 0;
+
+            for (let i = 0; i < arr2.length; i++) {
+                if (arr2[i] < 0) {
+                    break;
+                }
+                sum2 += arr2[i]
+            }
+            document.write('sum2 = ', sum2);
+
+        </script>
+
+
+        <h3>Задача 3</h3>
+
+        <p> Дан массив с числами. Найдите позицию первого числа 3 в этом массиве (считаем, что это число обязательно
+            есть в массиве).
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr3 = [1, 2, 0, -2, 4, 4, 3, 4, 3, 3, 4, 4, 3, 4,];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr3.length; i++) {
+<span class="-n"></span>    document.write(i);
+<span class="-n"></span>    if (arr3[i] === 3) {
+<span class="-n"></span>        break;
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+
+        <script>
+            let arr3 = [1, 2, 0, -2, 4, 4, 3, 4, 3, 3, 4, 4, 3, 4,];
+
+            for (let i = 0; i < arr3.length; i++) {
+                document.write(i);
+                if (arr3[i] === 3) {
+                    break;
+                }
+            }
+
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p>Определите, сколько целых чисел, начиная с числа 1, нужно сложить, чтобы сумма получилась больше 100.
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let sum4 = 0;
+<span class="-n"></span>let count4 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; ; i++) {
+<span class="-n"></span>    sum4 += i;
+<span class="-n"></span>    count4++;
+<span class="-n"></span>    if (sum4 > 100) {
+<span class="-n"></span>        break;
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>document.write('нужно сложить -', count4);
+</pre>
+        </div>
+
+        <script>
+            let sum4 = 0;
+            let count4 = 0;
+
+            for (let i = 1; ; i++) {
+                sum4 += i;
+                count4++;
+                if (sum4 > 100) {
+                    break;
+                }
+            }
+            document.write('нужно сложить -', count4);
+        </script>
 
 
 

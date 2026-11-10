@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-07-ciklForIn.html">68 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-06-ciklForOf.html">Перебор массива циклом
+                for-of в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-08-sokrSinteksCiklov.html">Сокращенный синтаксис циклов в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,42 +42,95 @@
 
         <h2>Перебор объекта циклом for-in в JavaScript</h2>
 
-        В предыдущем уроке мы с вами изучали цикл for-of для перебора массива. Существует похожий цикл for-in,
-        предназначенный
-        для перебора объектов.
+        <p> В предыдущем уроке мы с вами изучали цикл for-of для перебора массива. Существует похожий цикл for-in,
+            предназначенный
+            <strong>для перебора объектов.</strong>
+        </p>
 
-        Он имеет следующий синтаксис:
+        <p>Он имеет следующий синтаксис:</p>
 
-        for (let переменнаяДляКлюча in объект) {
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let переменнаяДляКлюча in объект) {
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        }
-        В переменнуюДляКлюча по очереди будут попадать ключи перебираемого объекта (не элементы, как в for-of).
+        <p> В <strong><i>переменнуюДляКлюча</i></strong> по очереди будут попадать ключи перебираемого объекта (не
+            элементы, как в
+            for-of).</p>
 
-        Давайте попробуем на каком-нибудь примере. Пусть у нас есть вот такой объект:
+        <p> Давайте попробуем на каком-нибудь примере. Пусть у нас есть вот такой объект:</p>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+</pre>
+        </div>
 
-        let obj = {a: 1, b: 2, c: 3};
-        Давайте с помощью цикла for-in выведем ключи этого объекта:
+        <p>Давайте с помощью цикла for-in выведем ключи этого объекта:</p>
 
-        let obj = {a: 1, b: 2, c: 3};
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj) {
+<span class="-n"></span>console.log(key); // выведет 'a', 'b', 'c'
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let key in obj) {
-        console.log(key); // выведет 'a', 'b', 'c'
-        }
-        А теперь выведем элементы:
+        <p> А теперь выведем элементы:</p>
 
-        let obj = {a: 1, b: 2, c: 3};
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3};
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj) {
+<span class="-n"></span>console.log(obj[key]); // выведет 1, 2, 3
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let key in obj) {
-        console.log(obj[key]); // выведет 1, 2, 3
-        }
-        Задача 1⋕js.Pm.Lp.FI.1
+        <h3> Задача 1 </h3>
 
-        Дан объект следующий объект:
+        <p> Дан объект следующий объект:</p>
 
-        let obj = {a: 1, b: 2, c: 3, d: 4, e: 5};
-        С помощью цикла for-in найдите сумму элементов этого объекта.
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 1, b: 2, c: 3, d: 4, e: 5};
+</pre>
+        </div>
+        <p> С помощью цикла for-in найдите сумму элементов этого объекта.</p>
 
+        <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+<span class="-n"></span>let sum = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj) {
+<span class="-n"></span>    sum += obj[key];
+<span class="-n"></span>}
+<span class="-n"></span>document.write(sum);
+</pre>
+        </div>
+
+        <script>
+            let obj = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+            let sum = 0;
+
+            for (let key in obj) {
+                sum += obj[key];
+            }
+            document.write('sum = ', sum);
+        </script>
 
 
     </main>

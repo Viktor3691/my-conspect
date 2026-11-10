@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-06-ciklForOf.html">67 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-05-ciklForDlaMassivov.html">Цикл for для
+                массивов в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-07-ciklForIn.html">Перебор объекта циклом for-in в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,49 +42,170 @@
 
         <h2>Перебор массива циклом for-of в JavaScript</h2>
 
-        В ES6 появился новый цикл for-of, предназначенный конкретно для перебора массивов. Он имеет следующий синтаксис:
+        <p> В ES6 появился новый цикл for-of, предназначенный конкретно для перебора массивов. Он имеет следующий
+            синтаксис:</p>
 
-        for (let переменнаяДляЭлемента of массив) {
-        /*
-        В переменнуюДляЭлемента по очереди
-        будут попадать элементы перебираемого массива.
-        */
-        }
-        Давайте с помощью этого цикла переберем элементы какого-нибудь массива и выведем их на экран:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let переменнаяДляЭлемента of массив) {
+<span class="-n"></span> /*
+<span class="-n"></span>В переменнуюДляЭлемента по очереди
+<span class="-n"></span> будут попадать элементы перебираемого массива.
+<span class="-n"></span>
+*/
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        let arr = [1, 2, 3, 4, 5];
+        <p>Давайте с помощью этого цикла переберем элементы какого-нибудь массива и выведем их на экран: </p>
 
-        for (let elem of arr) {
-        console.log(elem);
-        }
-        Задача 1⋕js.Pm.Lp.FO.1
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>console.log(elem);
+<span class="-n"></span> }
+</pre>
+        </div>
 
-        Дан массив с элементами 'a', 'b', 'c', 'd', 'e'. С помощью цикла for-of выведите все эти элементы на экран.
+        <h3>Задача 1 </h3>
 
-        Задача 2⋕js.Pm.Lp.FO.2
+        Дан массив с элементами 'a', 'b', 'c', 'd', 'e'. С помощью цикла for-of выведите все эти элементы на экран. <p>
+        </p>
 
-        Дан массив с элементами 1, 2, 3, 4, 5. С помощью цикла for-of найдите сумму элементов этого массива.
+        <p>Решение</p>
 
-        Цикл for vs for-of
-        Возникает вопрос, когда же для перебора массива применять цикл for-of, а когда обычный for? Правило тут такое:
-        если вам
-        не нужны номера элементов массива - используйте for-of, а если нужны - используйте обычный for.
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = ['a', 'b', 'c', 'd', 'e'];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem1 of arr1) {
+<span class="-n"></span>document.write(elem1);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        Задача 3⋕js.Pm.Lp.FO.3
+        <script>
+            let arr1 = ['a', 'b', 'c', 'd', 'e'];
 
-        Пусть у вас есть массив с названиями месяцев. С помощью цикла выведите на экран все месяцы из массива.
-        Определите, каким
-        циклом удобнее будет решить эту задачу: циклом for-of или обычным for со счетчиком.
+            for (let elem1 of arr1) {
+                document.write(elem1, ', ');
+            }
 
-        Задача 4⋕js.Pm.Lp.FO.4
+        </script>
 
-        Пусть у вас есть массив с названиями месяцев. Пусть в переменной month хранится номер текущего месяца, например,
-        10. С
-        помощью цикла выведите все месяцы, а текущий месяц выведите курсивом. Определите, каким циклом удобнее будет
-        решить эту
-        задачу: циклом for-of или обычным for со счетчиком.
+        <h3>Задача 2 </h3>
 
+        <p> Дан массив с элементами 1, 2, 3, 4, 5. С помощью цикла for-of найдите сумму элементов этого массива.</p>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [1, 2, 3, 4, 5];
+<span class="-n"></span>let sum2 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem2 of arr2) {
+<span class="-n"></span>sum2 = sum2 + elem2;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(sum2);
+</pre>
+        </div>
+
+        <script>
+            let arr2 = [1, 2, 3, 4, 5];
+            let sum2 = 0;
+
+            for (let elem2 of arr2) {
+                sum2 = sum2 + elem2;
+            }
+            document.write(sum2);
+        </script>
+
+        <h2>Цикл for vs for-of</h2>
+
+        <p>Возникает вопрос, когда же для перебора массива применять цикл for-of, а когда обычный for?</p>
+
+        <p>Правило тут такое: если вам не нужны номера элементов массива - используйте for-of, а если нужны -
+            используйте обычный for. </p>
+
+        <h3>Задача 3</h3>
+
+        <p>Пусть у вас есть массив с названиями месяцев. С помощью цикла выведите на экран все месяцы из массива.
+            Определите, каким
+            циклом удобнее будет решить эту задачу: циклом for-of или обычным for со счетчиком.</p>
+
+        <p>Решение</p>
+
+        <p>здесь удобнее for...of <br>
+            В задаче просят просто вывести все месяцы. Индекс не используется ни для условий, ни для форматирования, ни
+            для
+            сравнения с чем‑то (вроде «вывести только чётные позиции»). Поэтому for...of делает код чище и понятнее.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let months3 = ['January ', 'February', 'March', 'April ', 'May ', 'June', 'July ', 'August ', 'September ', 'October ',
+'November ', 'December '];
+<span class="-n"></span>
+<span class="-n"></span>for (let month3 of months3) {
+<span class="-n"></span>document.write(month3,' ,');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let months3 = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December '];
+
+            for (let month3 of months3) {
+                document.write(month3, ', ');
+            }
+        </script>
+
+        <h3> Задача 4</h3>
+
+        <p> Пусть у вас есть массив с названиями месяцев. Пусть в переменной month хранится номер текущего месяца,
+            например, 10. С помощью цикла выведите все месяцы, а текущий месяц выведите курсивом. Определите, каким
+            циклом удобнее
+            будет решить эту задачу: циклом for-of или обычным for со счетчиком.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let months4 = ['January', 'February', 'March', 'April', 'May ', 'June', 'July ', 'August ', 'September ', 'October ',
+'November ', 'December '];
+<span class="-n"></span>let month4 = 10; // November
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; months4.length; i++) {
+<span class="-n"></span>    if (i !== 10) {
+<span class="-n"></span>        document.write(' ', months4[i]);
+<span class="-n"></span>
+<span class="-n"></span>    } else if (i === 10) {
+<span class="-n"></span>        document.write('&lt;b>' + months4[i] + '&lt;/b>');
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let months4 = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            let month4 = 10; // November
+
+            for (let i = 0; i < months4.length; i++) {
+                if (i !== 10) {
+                    document.write(months4[i], ', ');
+                } else if (i === 10) {
+                    document.write('<b>' + months4[i] + ', ' + '</b>');
+                }
+            }
+        </script>
 
 
     </main>

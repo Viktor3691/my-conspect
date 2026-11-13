@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-20-zapolnenieMassivCikle.html">81 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-19-vloZikliOblastVidimosti.html">Вложенные
+                циклы и область видимости в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-21-izmenMassivCikle.html">Изменение массива в цикле JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,72 +42,324 @@
 
         <h2>Заполнение массивов через цикл в JavaScript</h2>
 
-        Пусть у нас есть какой-то массив:
+        <p>Пусть у нас есть какой-то массив:</p>
 
-        let arr = [];
-        Давайте заполним этот массив какими-нибудь элементами. Можно сделать это вот так:
+        <p>let arr = [];</p>
 
-        let arr = [1, 2, 3, 4, 5];
-        А можно изначально создать массив пустым, а затем добавить в него данные вот так:
+        <p> Давайте заполним этот массив какими-нибудь элементами. Можно сделать это вот так:</p>
 
-        let arr = [];
+        <p> let arr = [1, 2, 3, 4, 5]; </p>
 
-        arr[0] = 1;
-        arr[1] = 2;
-        arr[2] = 3;
-        arr[3] = 4;
-        arr[4] = 5;
-        Задача 1⋕js.Pm.Lp.ALF.1
+        <p> А можно изначально создать массив пустым, а затем добавить в него данные вот так: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [];
+<span class="-n"></span>
+<span class="-n"></span>arr[0] = 1;
+<span class="-n"></span>arr[1] = 2;
+<span class="-n"></span>arr[2] = 3;
+<span class="-n"></span>arr[3] = 4;
+<span class="-n"></span>arr[4] = 5;
+</pre>
+        </div>
+
+        <h3>Задача 1 </h3>
 
         Объявите пустой массив, а затем заполните его числами от 1 до 10.
 
-        Задача 2⋕js.Pm.Lp.ALF.2
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [];
+<span class="-n"></span>
+<span class="-n"></span>arr1[0] = 1;
+<span class="-n"></span>arr1[1] = 2;
+<span class="-n"></span>arr1[2] = 3;
+<span class="-n"></span>arr1[3] = 4;
+<span class="-n"></span>arr1[4] = 5;
+<span class="-n"></span>arr1[5] = 6;
+<span class="-n"></span>arr1[6] = 7;
+<span class="-n"></span>arr1[7] = 8;
+<span class="-n"></span>arr1[8] = 9;
+<span class="-n"></span>arr1[9] = 10;
+<span class="-n"></span>
+<span class="-n"></span>document.write('arr1 = [', arr1, ']');
+</pre>
+        </div>
 
-        Объявите пустой массив, а затем заполните его 5-ю буквами x.
+        <script>
+            let arr1 = [];
 
-        Заполнение массива в цикле
-        Пусть мы заполняем массив вот таким образом:
+            arr1[0] = 1;
+            arr1[1] = 2;
+            arr1[2] = 3;
+            arr1[3] = 4;
+            arr1[4] = 5;
+            arr1[5] = 6;
+            arr1[6] = 7;
+            arr1[7] = 8;
+            arr1[8] = 9;
+            arr1[9] = 10;
 
-        let arr = [];
+            document.write('arr1 = [', arr1, ']');
+        </script>
 
-        arr[0] = 1;
-        arr[1] = 2;
-        arr[2] = 3;
-        arr[3] = 4;
-        arr[4] = 5;
-        Очевидно, что данный способ не очень удобен, особенно если элементов в массиве очень много.
+        <h3> Задача 2</h3>
 
-        Давайте перепишем наш код так, чтобы заполнением массива занимался цикл for:
+        <p>Объявите пустой массив, а затем заполните его 5-ю буквами x. </p>
 
-        let arr = [];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [];
+<span class="-n"></span>
+<span class="-n"></span>arr2[0] = 'x';
+<span class="-n"></span>arr2[1] = 'x';
+<span class="-n"></span>arr2[2] = 'x';
+<span class="-n"></span>arr2[3] = 'x';
+<span class="-n"></span>arr2[4] = 'x';
 
-        for (let i = 0; i <= 4; i++) { arr[i]=i + 1; } console.log(arr); Задача 3⋕js.Pm.Lp.ALF.3 С помощью цикла
-            заполните массив числами от 1 до 100. Проблема пропусков Пусть мы вот так заполняем наш массив: let arr=[];
-            arr[0]=1; arr[1]=2; arr[2]=3; arr[3]=4; arr[4]=5; Пусть теперь мы ключи массива будем указывать не по
-            порядку, а с пропусками: let arr=[]; arr[0]=1; arr[4]=5; В этом случае нас ждет проблема: пропущенные
-            элементы все равно будут присутствовать в массиве, просто их значение будет undefined: [1, undefined,
-            undefined, undefined, 5] Это станет проблемой, к примеру, при переборе массива циклом for-of: for (let elem
-            of arr) { console.log(elem); // выведет 1, undefined, undefined, undefined, 5 } Также свойство length будет
-            показывать некорректное значение: console.log(arr.length); // выведет 5, хотя мы вроде как добавили лишь 2
-            элемента Как вы уже должны знать, такие массивы с пропусками называются разреженными. Учтите, что
-            console.log и alert не показывают в явном виде то, что пропущенные элементы равны undefined: let arr=[];
-            arr[0]=1; arr[4]=5; console.log(arr); // выведет структуру массива в виде [1, undefined × 3, 5] alert(arr);
-            // выведет структуру массива в виде 1,'','','',5 Заполнение значениями не по порядку Пусть мы хотим в цикле
-            заполнить массив значениями не по порядку. К примеру, мы хотим записать в массив все четные числа в
-            промежутке от 2 до 100. Для того, чтобы цикл перебирал четные числа, нам придется в каждой итерации
-            увеличивать счетчик цикла на 2. Из-за этого массив получится с пропусками: let arr=[]; for (let i=2; i
-            <=100; i +=2) { arr[i]=i; } console.log(arr); // массив получится с пропусками Для решения проблемы можно
-            просто ввести два счетчика: счетчик i пусть отсчитывает четные числа, а счетчик j - итерации цикла для
-            использования в ключах массива: let arr=[]; for (let i=2, j=0; i <=100; i +=2, j++) { arr[j]=i; }
-            console.log(arr); Задача 4⋕js.Pm.Lp.ALF.4 С помощью цикла заполните массив нечетными числами в промежутке от
-            1 до 99. </main>
+<span class="-n"></span>
+<span class="-n"></span>document.write('arr2 = [', arr2, ']');
+</pre>
+        </div>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <script>
+            let arr2 = [];
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+            arr2[0] = 'x';
+            arr2[1] = 'x';
+            arr2[2] = 'x';
+            arr2[3] = 'x';
+            arr2[4] = 'x';
+
+
+            document.write('arr2 = [', arr2, ']');
+        </script>
+
+        <h2>Заполнение массива в цикле </h2>
+
+        <p>Пусть мы заполняем массив вот таким образом:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [];
+<span class="-n"></span>
+<span class="-n"></span>arr[0] = 1;
+<span class="-n"></span>arr[1] = 2;
+<span class="-n"></span>arr[2] = 3;
+<span class="-n"></span>arr[3] = 4;
+<span class="-n"></span>arr[4] = 5;
+</pre>
+        </div>
+
+        <p> Очевидно, что данный способ не очень удобен, особенно если элементов в массиве очень много. </p>
+
+        <p>Давайте перепишем наш код так, чтобы заполнением массива занимался цикл for:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [];
+<span class="-n"></span>for (let i = 0; i &lt;= 4; i++) {
+<span class="-n"></span>arr[i]=i + 1;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
+
+
+        <h3>Задача 3 </h3>
+
+        <p> С помощью цикла заполните массив числами от 1 до 100. </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr3 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt;= 99; i++) {
+<span class="-n"></span>arr3[i] = i + 1;
+<span class="-n"></span>}
+<span class="-n"></span>document.write('arr3 = [', arr3, ']');
+</pre>
+        </div>
+
+        <script>
+            let arr3 = [];
+            for (let i = 0; i <= 99; i++) {
+                arr3[i] = i + 1;
+            }
+            document.write('arr3 = [', arr3, ']');
+        </script>
+
+        <h2>Проблема пропусков </h2>
+
+        <p>Пусть мы вот так заполняем наш массив:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>arr[0]=1;
+<span class="-n"></span>arr[1]=2;
+<span class="-n"></span>arr[2]=3;
+<span class="-n"></span>arr[3]=4;
+<span class="-n"></span>arr[4]=5;
+</pre>
+        </div>
+
+        <p>Пусть теперь мы ключи массива будем указывать не по порядку, а с пропусками:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span> arr[0]=1;
+<span class="-n"></span>arr[4]=5;
+</pre>
+        </div>
+
+        <p> В этом случае нас ждет проблема: пропущенные элементы все равно будут присутствовать в массиве, просто их
+            значение будет <b> undefined:</b> </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>[1, undefined, undefined, undefined, 5]
+</pre>
+        </div>
+        <p>Это станет проблемой, к примеру, при переборе массива циклом for-of: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>
+<span class="-n"></span>console.log(elem); // выведет 1, undefined, undefined, undefined, 5
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> Также свойство length будет показывать некорректное значение:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>console.log(arr.length); // выведет 5, хотя мы вроде как добавили лишь 2 элемента
+</pre>
+        </div>
+
+        <p> Как вы уже должны знать, такие массивы с пропусками называются разреженными. Учтите, что
+            console.log и alert не показывают в явном виде то, что пропущенные элементы равны <b>undefined:</b></p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>arr[0]=1;
+<span class="-n"></span>arr[4]=5;
+<span class="-n"></span>console.log(arr); // выведет структуру массива в виде [1, undefined × 3, 5]
+<span class="-n"></span>
+<span class="-n"></span> alert(arr);// выведет структуру массива в виде 1,'','','',5
+</pre>
+        </div>
+
+
+        <h2>Заполнение значениями не по порядку</h2>
+
+        <p> Пусть мы хотим в цикле заполнить массив значениями не по порядку. К примеру, мы хотим записать в массив все
+            четные числа в промежутке от 2 до 100.</p>
+
+        <p>Для того, чтобы цикл перебирал четные числа, нам придется в каждой итерации
+            увеличивать счетчик цикла на 2.</p>
+        <p>Из-за этого массив получится с пропусками:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=2; i &lt;=100; i +=2) {
+<span class="-n"></span>arr[i]=i;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(arr); // массив получится с пропусками
+</pre>
+        </div>
+
+        <script>
+            let arr = [];
+
+            for (let i = 2; i <= 100; i += 2) {
+                arr[i] = i;
+            }
+            document.write(arr);
+        </script>
+
+        <p>Для решения проблемы можно просто ввести два счетчика: счетчик i пусть отсчитывает четные числа, а счетчик j
+            - итерации цикла для использования в ключах массива: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=2, j=0; i &lt;=100; i +=2, j++) {
+<span class="-n"></span>arr[j]=i;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(arr);
+</pre>
+        </div>
+
+        <script>
+            let arr11 = [];
+
+            for (let i = 2, j = 0; i <= 100; i += 2, j++) {
+                arr11[j] = i;
+            }
+            document.write(arr11);
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p> С помощью цикла заполните массив нечетными числами в промежутке от
+            1 до 99.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr4 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1, j = 0; i &lt;= 99; i +=2, j++) {
+<span class="-n"></span>    arr4[j] = i;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(arr4);
+</pre>
+        </div>
+
+        <script>
+            let arr4 = [];
+
+            for (let i = 1, j = 0; i <= 99; i += 2, j++) {
+                arr4[j] = i;
+            }
+            document.write(arr4);
+        </script>
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

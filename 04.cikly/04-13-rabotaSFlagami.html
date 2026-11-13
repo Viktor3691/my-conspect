@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-13-rabotaSFlagami.html">74 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-12-oblastVidimosti.html">Область видимости
+                let и var в циклах JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-14-prostcislacherecFlag.html">Нахождение простых чисел на JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,127 +42,231 @@
 
         <h2>Работа с флагами в JavaScript</h2>
 
-        Сейчас мы с вами научимся работать с флагами. Флаг - это специальная переменная, которое может принимать только
-        два
-        значения: true и false. С помощью флагов можно решать задачи, проверяющие отсутствие чего-либо: к примеру, можно
-        проверить, что в массиве нет элемента с определенным значением. Давайте приступим.
+        <p> Сейчас мы с вами научимся работать с флагами. Флаг - это специальная переменная, которое может принимать
+            только
+            два
+            значения: true и false. С помощью флагов можно решать задачи, проверяющие отсутствие чего-либо: к примеру,
+            можно
+            проверить, что в массиве нет элемента с определенным значением.</p>
 
-        Давайте решим следующую задачу: дан массив с числами, нужно проверить, есть ли в нем элемент со значением 3 или
-        нет.
-        Если есть - выведем 'есть', если нет - выведем 'нет'.
+        <p>Давайте приступим.</p>
 
-        Для начала давайте попробуем вывести 'есть'. Для этого переберем все элементы нашего массива и ифом будем
-        спрашивать -
-        равен ли текущий элемент значению 3. Если равен - выведем 'есть':
+        <p> Давайте решим следующую задачу: дан массив с числами, нужно проверить, есть ли в нем элемент со значением 3
+            или
+            нет.
+            Если есть - выведем 'есть', если нет - выведем 'нет'.</p>
 
-        let arr = [1, 2, 3, 4, 5];
+        <p> Для начала давайте попробуем вывести 'есть'. Для этого переберем все элементы нашего массива и ифом будем
+            спрашивать -
+            равен ли текущий элемент значению 3. Если равен - выведем 'есть':</p>
 
-        for (let elem of arr) {
-        if (elem == 3) {
-        console.log('есть');
-        }
-        }
-        Но наше решение не очень хорошо: ведь если в массиве будет не одно значение 3, а несколько, то 'есть' выведется
-        несколько раз. Давайте исправим наш массив (сделаем два элемента со значением 3) и убедимся в этом:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem == 3) {
+<span class="-n"></span>console.log('есть');
+<span class="-n"></span>}
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        let arr = [1, 2, 3, 4, 3, 5];
 
-        for (let elem of arr) {
-        if (elem == 3) {
-        console.log('есть'); // выведет несколько раз
-        }
-        }
-        Поправим проблему: завершим цикл с помощью break, если элемент уже найден:
+        <p> Но наше решение не очень хорошо: ведь если в массиве будет не одно значение 3, а несколько, то 'есть'
+            выведется
+            несколько раз. Давайте исправим наш массив (сделаем два элемента со значением 3) и убедимся в этом:</p>
 
-        let arr = [1, 2, 3, 4, 3, 5];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 3, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem == 3) {
+<span class="-n"></span>console.log('есть'); // выведет несколько раз
+<span class="-n"></span>}
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let elem of arr) {
-        if (elem == 3) {
-        console.log('есть');
-        break; // завершим цикл
-        }
-        }
-        Давайте теперь попробуем сделать так, чтобы, если в массиве вообще нет элементов со значением 3, выводилось
-        'нет'.
-        Распространенным заблуждением будет добавить else к нашему ифу - в этом случае 'нет' будет выводиться на все
-        элементы,
-        не являющиеся 3:
+        <p> Поправим проблему: завершим цикл с помощью break, если элемент уже найден:</p>
 
-        let arr = [1, 2, 3, 4, 5];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 3, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem == 3) {
+<span class="-n"></span>console.log('есть');
+<span class="-n"></span>break; // завершим цикл
+<span class="-n"></span>}
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let elem of arr) {
-        if (elem == 3) {
-        console.log('есть'); // выведет на элементе 3
-        } else {
-        console.log('нет'); // выведет на элементах 1, 2, 4, 5
-        }
-        }
-        Итак, идея добавить else - плохая идея, не рабочая. Для решения задач подобного типа (такие задачи встречаются
-        достаточно часто) и используют так называемые флаги.
+        <p> Давайте теперь попробуем сделать так, чтобы, если в массиве вообще нет элементов со значением 3, выводилось
+            'нет'.
+            Распространенным заблуждением будет добавить else к нашему ифу - в этом случае 'нет' будет выводиться на все
+            элементы, не являющиеся 3:</p>
 
-        Как уже упоминалось выше, флаг - это такая переменная, которая может принимать два значения: true или false.
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span> if (elem == 3) {
+<span class="-n"></span> console.log('есть'); // выведет на элементе 3
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('нет'); // выведет на элементах 1, 2, 4, 5
+<span class="-n"></span>}
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        Итак, давайте сделаем переменную flag с таким значением: если она равна true, то в массиве есть элемент 3, а
-        если false,
-        то такого элемента нет.
+        <p> Итак, идея добавить else - плохая идея, не рабочая. Для решения задач подобного типа (такие задачи
+            встречаются
+            достаточно часто) и используют так называемые флаги.</p>
 
-        Изначально поставим переменную flag в значение false - то есть будем считать, что элемента 3 в массиве нет:
 
-        let arr = [1, 2, 3, 4, 5];
-        let flag = false; // считаем, что элемента 3 нету в массиве
-        Затем запустим цикл с ифом так, как мы делали это раньше. Если цикл обнаружит, что в массиве есть элемент 3 - то
-        поставим переменную flag в значение true и выйдем из цикла с помощью break:
+        <p>Как уже упоминалось выше, флаг - это такая переменная, которая может принимать два значения: true или false.
+        </p>
 
-        let arr = [1, 2, 3, 4, 5];
-        let flag = false; // считаем, что элемента 3 нет в массиве
+        <p> Итак, давайте сделаем переменную flag с таким значением: если она равна true, то в массиве есть элемент 3, а
+            если false, то такого элемента нет.</p>
 
-        for (let elem of arr) {
-        if (elem == 3) {
-        flag = true; // элемент есть - переопределим переменную flag
-        break; // выйдем из цикла
-        }
-        }
-        Ответ на вопрос, если в массиве 3 или нет, мы можем дать только после цикла. И этот ответ у нас уже есть: после
-        цикла
-        переменная flag могла остаться false или могла сменить свое значение на true, если цикл обнаружил в массиве 3:
+        <p>Изначально поставим переменную flag в значение false - то есть будем считать, что элемента 3 в массиве нет:
+        </p>
 
-        let arr = [1, 2, 3, 4, 5];
-        let flag = false;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>let flag = false; // считаем, что элемента 3 нету в массиве
+</pre>
+        </div>
 
-        for (let elem of arr) {
-        if (elem == 3) {
-        flag = true;
-        break;
-        }
-        }
+        <p>Затем запустим цикл с ифом так, как мы делали это раньше. Если цикл обнаружит, что в массиве есть элемент 3 -
+            то
+            поставим переменную flag в значение true и выйдем из цикла с помощью break:</p>
 
-        // тут переменная flag равна или true, или false
-        Теперь после цикла мы можем сделать иф, который посмотрит на переменную flag и выведет на экран 'есть' или
-        'нет':
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>let flag = false; // считаем, что элемента 3 нет в массиве
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem == 3) {
+<span class="-n"></span>flag = true; // элемент есть - переопределим переменную flag
+<span class="-n"></span>break; // выйдем из цикла
+<span class="-n"></span>}
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        let arr = [1, 2, 3, 4, 5];
-        let flag = false;
+        <p>Ответ на вопрос, если в массиве 3 или нет, мы можем дать только после цикла. И этот ответ у нас уже есть:
+            после цикла переменная flag могла остаться false или могла сменить свое значение на true, если цикл
+            обнаружил в массиве
+            3:</p>
 
-        for (let elem of arr) {
-        if (elem == 3) {
-        flag = true;
-        break;
-        }
-        }
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>let flag = false;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem == 3) {
+<span class="-n"></span>flag = true;
+<span class="-n"></span>break;
+<span class="-n"></span>}
+<span class="-n"></span>}
+// тут переменная flag равна или true, или false
+</pre>
+        </div>
 
-        if (flag === true) {
-        console.log('есть');
-        } else {
-        console.log('нет');
-        }
-        Задача 1⋕js.Pm.Lp.Fl.1
+        <p>Теперь после цикла мы можем сделать иф, который посмотрит на переменную flag и выведет на экран 'есть' или
+            'нет':</p>
 
-        Дан массив:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>let flag = false;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem == 3) {
+<span class="-n"></span>flag = true;
+<span class="-n"></span>break;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>if (flag === true) {
+<span class="-n"></span>console.log('есть');
+<span class="-n"></span>
+<span class="-n"></span> } else {
+<span class="-n"></span>console.log('нет');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+
+        <h3>Задача 1 </h3>
+
+        <p>Дан массив:</p>
 
         let arr = ['a', 'b', 'c', 'd', 'e'];
-        Проверьте, что в этом массиве есть элемент 'c'. Если есть - выведите 'да', а если нет - выведите 'нет'.
+
+        <p>Проверьте, что в этом массиве есть элемент 'c'. Если есть - выведите 'да', а если нет - выведите 'нет'.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c', 'd', 'e'];
+<span class="-n"></span>let flag = false;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>    if (elem == 'c') {
+<span class="-n"></span>        flag = true;
+<span class="-n"></span>        break;
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>if (flag === true) {
+<span class="-n"></span>document.write('есть');
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>document.write('нет');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let arr = ['a', 'b', 'c', 'd', 'e'];
+            let flag = false;
+
+            for (let elem of arr) {
+                if (elem == 'c') {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (flag === true) {
+                document.write('есть');
+
+            } else {
+                document.write('нет');
+            }
 
 
+
+        </script>
 
 
 

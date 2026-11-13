@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-17-ciklForITipiDannich.html">78 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-16-formStrokVCikle.html">Формирование строк
+                через циклы в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-18-vloZikli.html">Вложенные циклы в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,35 +42,171 @@
 
         <h2>Цикл for и типы данных JavaScript</h2>
 
-        Пусть при переборе чисел мы хотим получать от этих чисел какую-нибудь цифру. К примеру, мы хотим сделать так,
-        чтобы
-        число выводилось в консоль, если его первая цифра равна 1 или 2.
+        <p> Пусть при переборе чисел мы хотим получать от этих чисел какую-нибудь цифру. К примеру, мы хотим сделать
+            так,
+            чтобы
+            число выводилось в консоль, если его первая цифра равна 1 или 2.
 
-        Напоминаю, что нельзя просто так обращаться к символам числа, то есть вот так не будет работать:
+            Напоминаю, что нельзя просто так обращаться к символам числа, то есть вот так не будет работать:</p>
 
-        for (let i = 1; i <= 100; i++) { if (i[0]==1 || i[0]==2) { // так не будет работать console.log(i); } } Сначала
-            необходимо преобразовать число в строку с помощью функции String, и уже тогда получать определенный символ
-            полученной строки, вот так: for (let i=1; i <=100; i++) { let str=String(i); // преобразуем число в строку
-            if (str[0]==1 || str[0]==2) { console.log(i); } } Задача 1⋕js.Pm.Lp.FrDT.1 Переберите циклом числа от 10 до
-            1000 и выведите на экран те числа, сумма двух первых цифр которых равна 5. Типизация и сумма Пусть у нас
-            есть код, который находит сумму чисел от 1 до 9: let result=0; for (let i=1; i <=9; i++) { result=result +
-            i; } console.log(result); Давайте переделаем этот код так, чтобы наши числа складывались как строки, а не
-            как числа. Для этого при сложении будем преобразовывать переменную i к строке с помощью функции String, и
-            начальное значение переменной result зададим как пустую строку (аналог нуля для строк): let result='' ; //
-            начальное значение - пустая строка for (let i=1; i <=9; i++) { result=result + String(i); // преобразуем i к
-            строке с помощью String() } console.log(result); На самом деле, так как переменная result - строка, то
-            преобразовывать и переменную i к строке не обязательно - строка result и число i все равно будут
-            складываться как строки. Исправим: let result='' ; for (let i=1; i <=9; i++) { result=result + i; }
-            console.log(result); Перепишем теперь наш код с использованием команды +=, вот так: let result='' ; for (let
-            i=1; i <=9; i++) { result +=i; } console.log(result); Задача 2⋕js.Pm.Lp.FrDT.2 Переберите циклом числа от 1
-            до 30 и сложите их как строки. </main>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 100; i++) {
+<span class="-n"></span>
+<span class="-n"></span>    if (i[0]==1 || i[0]==2) { // так не будет работать
+<span class="-n"></span>       console.log(i);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <p> Сначала необходимо преобразовать число в строку с помощью функции String, и уже тогда получать определенный
+            символ
+            полученной строки, вот так:</p>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=1; i &lt;=100; i++) {
+<span class="-n"></span>    let str=String(i); // преобразуем число в строку
+<span class="-n"></span>if (str[0]==1 || str[0]==2) {
+<span class="-n"></span>    console.log(i);
+<span class="-n"></span> }
+<span class="-n"></span>}
+
+</pre>
+        </div>
+
+        <h3>Задача 1 </h3>
+
+        <p>Переберите циклом числа от 10 до 1000 и выведите на экран те числа, сумма двух первых цифр которых равна 5.
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 1000; i++) {
+<span class="-n"></span>
+<span class="-n"></span>    let str1 = String(i);
+<span class="-n"></span>    let num1 = Number(str1[0]);
+<span class="-n"></span>    let num2 = Number(str1[1]);
+<span class="-n"></span>
+<span class="-n"></span>    if (num1 + num2 === 5) {
+<span class="-n"></span>        document.write(i, ', ')
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            for (let i = 1; i <= 1000; i++) {
+                let str1 = String(i);
+                let num1 = Number(str1[0]);
+                let num2 = Number(str1[1]);
+
+                if (num1 + num2 === 5) {
+                    document.write(i, ', ')
+                }
+            }
+        </script>
+
+        <h2> Типизация и сумма</h2>
+
+        <p>Пусть у нас
+            есть код, который находит сумму чисел от 1 до 9: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result=0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>    result=result + i;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result);
+</pre>
+        </div>
+
+        <p> Давайте переделаем этот код так, чтобы наши числа складывались как строки, а не как числа. Для этого при
+            сложении будем преобразовывать переменную i к строке с помощью функции String, и
+            начальное значение переменной result зададим как пустую строку (аналог нуля для строк):</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result='' ; //  начальное значение - пустая строка
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>    result=result + String(i); // преобразуем i к     строке с помощью String()
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result);
+</pre>
+        </div>
+
+        <p> На самом деле, так как переменная result - строка, то преобразовывать и переменную i к строке не обязательно
+            - строка result и число i все равно будут
+            складываться как строки. Исправим:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result='' ;
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>    result=result + i;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result);
+</pre>
+        </div>
+
+        <p>Перепишем теперь наш код с использованием команды +=, вот так:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result='' ;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>    result +=i;
+<span class="-n"></span>}
+<span class="-n"></span> console.log(result);
+</pre>
+        </div>
+
+        <h3>Задача 2</h3>
+
+        <p>Переберите циклом числа от 1 до 30 и сложите их как строки.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let result3 = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 30; i++) {
+<span class="-n"></span>    result3 += i;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(result3);
+</pre>
+        </div>
+
+        <script>
+            let result3 = '';
+
+            for (let i = 1; i <= 30; i++) {
+                result3 += i;
+            }
+            document.write(result3);
+
+        </script>
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

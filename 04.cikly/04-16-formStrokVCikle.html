@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-16-formStrokVCikle.html">77 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-15-proizvKolIteraci.html">Циклы без
+                заданного количества итераций в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-17-ciklForITipiDannich.html">Цикл for и типы данных JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,37 +42,186 @@
 
         <h2>Формирование строк через циклы в JavaScript</h2>
 
-        Сейчас мы с вами научимся с помощью цикла формировать строки.
+        <p>Сейчас мы с вами научимся с помощью цикла формировать строки. </p>
 
-        Давайте для примера сделаем строку, заполненную десятью буквами 'x'.
+        <p> Давайте для примера сделаем строку, заполненную десятью буквами 'x'.</p>
 
-        Для этого сделаем переменную str и при каждом проходе цикла будем добавлять в нее одну букву 'x'. Сначала в str
-        будет
-        '', потом 'x', потом 'xx' и так далее пока цикл не закончится.
+        <p> Для этого сделаем переменную str и при каждом проходе цикла будем добавлять в нее одну букву 'x'. Сначала в
+            str
+            будет
+            '', потом 'x', потом 'xx' и так далее пока цикл не закончится.</p>
 
-        После цикла мы получим нужную нам строку:
+        <p> После цикла мы получим нужную нам строку:</p>
 
-        let str = ''; // начальное значение - пустые кавычки
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = ''; // начальное значение - пустые кавычки
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 10; i++) {
+<span class="-n"></span>str=str + 'x' ;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(str); // выведет 'xxxxxxxxxx'
+</pre>
+        </div>
 
-        for (let i = 0; i < 10; i++) { str=str + 'x' ; } console.log(str); // выведет 'xxxxxxxxxx' По сути эта задача
-            напоминает суммирование элементов массива, только вместо чисел мы суммируем строки, постепенно накапливая
-            результат в переменной str. Давайте упростим код, используя сокращенную операцию +=: let str='' ; for (let
-            i=0; i < 10; i++) { str +='x' ; } console.log(str); Задача 1⋕js.Pm.Lp.SFm.1 С помощью цикла сформируйте
-            строку, заполненную 5-тью нулями. Строка с цифрами Давайте теперь сделаем строку '12345' . Задача аналогична
-            задаче с десятью иксами - только прибавлять будем не иксы, а счетчик цикла: let str='' ; for (let i=1; i
-            <=5; i++) { str=str + i; } console.log(str); // выведет '12345' Задача 2⋕js.Pm.Lp.SFm.2 С помощью цикла
-            сформируйте строку '123456789' и запишите ее в переменную str. Выведите значение этой переменной на экран.
-            Задача 3⋕js.Pm.Lp.SFm.3 С помощью цикла сформируйте строку '987654321' и запишите ее в переменную str.
-            Выведите значение этой переменной на экран. Задача 4⋕js.Pm.Lp.SFm.4 С помощью цикла сформируйте
-            строку '-1-2-3-4-5-6-7-8-9-' и запишите ее в переменную str. Выведите значение этой переменной на экран.
-            </main>
+        <p> По сути эта задача напоминает суммирование элементов массива, только вместо чисел мы суммируем строки,
+            постепенно накапливая результат в переменной str. </p>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <p> Давайте упростим код, используя сокращенную операцию +=: </p>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str='' ;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 10; i++) {
+<span class="-n"></span>str +='x' ;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(str);
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p> С помощью цикла сформируйте строку, заполненную 5-тью нулями.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str1 = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 5; i++) {
+<span class="-n"></span>str1 += '0 '
+<span class="-n"></span>}
+<span class="-n"></span>document.write(str1);
+</pre>
+        </div>
+
+        <script>
+            let str1 = '';
+
+            for (let i = 0; i < 5; i++) {
+                str1 += '0 '
+            }
+            document.write(str1);
+
+        </script>
+
+        <h2>Строка с цифрами</h2>
+
+        <p> Давайте теперь сделаем строку '12345' .</p>
+
+        <p>Задача аналогична
+            задаче с десятью иксами - только прибавлять будем не иксы, а счетчик цикла:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str='' ;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i  &lt;=5; i++) {
+<span class="-n"></span>    str=str + i;
+<span class="-n"></span>}
+<span class="-n"></span> console.log(str); // выведет '12345'
+</pre>
+        </div>
+        <h3>Задача 2</h3>
+
+        <p> С помощью цикла сформируйте строку '123456789' и запишите ее в переменную str. Выведите значение этой
+            переменной на экран.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str2 = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt; 10; i++) {
+<span class="-n"></span>    str2 = str2 + i;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(str2);
+</pre>
+        </div>
+
+        <script>
+            let str2 = '';
+
+            for (let i = 1; i < 10; i++) {
+                str2 = str2 + i;
+            }
+            document.write(str2,);
+        </script>
+
+        <h3>Задача 3</h3>
+
+        <p>С помощью цикла сформируйте строку '987654321' и запишите ее в переменную str.
+            Выведите значение этой переменной на экран.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str3 = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 9; i >= 1; i--) {
+<span class="-n"></span>    str3 = str3 + i;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(str3);
+</pre>
+        </div>
+
+        <script>
+            let str3 = '';
+
+            for (let i = 9; i >= 1; i--) {
+                str3 = str3 + i;
+            }
+            document.write(str3);
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p>С помощью цикла сформируйте
+            строку '-1-2-3-4-5-6-7-8-9-' и запишите ее в переменную str. Выведите значение этой переменной на экран.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str4 = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt; 10; i++) {
+<span class="-n"></span>str4 = str4 + i + '-';
+<span class="-n"></span>}
+<span class="-n"></span>document.write('-', str4);
+</pre>
+        </div>
+
+        <script>
+            let str4 = '';
+
+            for (let i = 1; i < 10; i++) {
+                str4 = str4 + i + '-';
+            }
+            document.write('-', str4);
+
+        </script>
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

@@ -42,71 +42,145 @@
 
         <h2>Инструкция continue в JavaScript</h2>
 
-        Существует также инструкция continue, запускающая новую итерацию цикла. Данная инструкция иногда может быть
-        полезна для
-        упрощения кода, хотя практически всегда задачу можно решить и без нее. Давайте посмотрим на практическом
-        примере.
+        <p> Существует также инструкция continue, запускающая новую итерацию цикла. Данная инструкция иногда может быть
+            полезна для
+            упрощения кода, хотя практически всегда задачу можно решить и без нее. Давайте посмотрим на практическом
+            примере.</p>
 
-        Пусть у нас дан массив с числами. Давайте переберем его циклом и числа, которые делятся на 2, возведем в квадрат
-        и
-        выведем в консоль, а числа, которые делятся на 3, возведем в куб и выведем в консоль. Вот решение описанной
-        задачи:
+        <p>Пусть у нас дан массив с числами.</p>
 
-        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        <p> Давайте переберем его циклом и числа, которые делятся на 2, возведем в квадрат и выведем в консоль, а числа,
+            которые делятся на 3, возведем в куб и выведем в консоль.</p>
 
-        for (let elem of arr) {
-        let result;
+        <p> Вот решение описанной задачи: </p>
 
-        if (elem % 2 === 0) {
-        result = elem * elem;
-        console.log(result);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>    let result;
+<span class="-n"></span>
+<span class="-n"></span>    if (elem % 2 === 0) {
+<span class="-n"></span>        result = elem * elem;
+<span class="-n"></span>        document.write(result, ', ');
+<span class="-n"></span>
+<span class="-n"></span>    } else if (elem % 3 === 0) {
+<span class="-n"></span>        result = elem * elem * elem;
+<span class="-n"></span>        document.write(result, ', ');
+<span class="-n"></span>
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        } else if (elem % 3 === 0) {
-        result = elem * elem * elem;
-        console.log(result);
+        <script>
+            let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-        }
-        }
-        Как вы видите, строчка console.log(result) повторяется два раза. Давайте вынесем ее за if, вот так:
+            for (let elem of arr) {
+                let result;
 
-        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+                if (elem % 2 === 0) {
+                    result = elem * elem;
+                    document.write(result, ', ');
 
-        for (let elem of arr) {
-        let result;
+                } else if (elem % 3 === 0) {
+                    result = elem * elem * elem;
+                    document.write(result, ', ');
 
-        if (elem % 2 === 0) {
-        result = elem * elem;
-        } else if (elem % 3 === 0) {
-        result = elem * elem * elem;
-        }
+                }
+            }
+        </script>
 
-        console.log(result); // вынесли вывод за условие
-        }
-        Теперь наш скрипт, однако, работает немного не так: получится, что и для обычных элементов, не обработанных
-        через наш if
-        будет выполнятся вывод переменной result в консоль, что по условию нашей задачи нам не нужно.
+        <p> Как вы видите, строчка console.log(result) повторяется два раза. Давайте вынесем ее за if, вот так:</p>
 
-        Поправим проблему, добавив к нашему if еще условие else, которое будет срабатывать для элементов, не делящихся
-        на 2 и 3,
-        и вызовем там инструкцию continue, которая сразу же будет перебрасывать нас на новую итерацию цикла:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>    let result;
+<span class="-n"></span>
+<span class="-n"></span>    if (elem % 2 === 0) {
+<span class="-n"></span>        result = elem * elem;
+<span class="-n"></span>
+<span class="-n"></span>    } else if (elem % 3 === 0) {
+<span class="-n"></span>        result = elem * elem * elem;
+<span class="-n"></span>    }
+<span class="-n"></span>
+<span class="-n"></span>    document.write(result); // вынесли вывод за условие
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        <script>
+            let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-        for (let elem of arr) {
-        let result;
+            for (let elem of arr1) {
+                let result;
 
-        if (elem % 2 == 0) {
-        result = elem * elem;
-        } else if (elem % 3 == 0) {
-        result = elem * elem * elem;
-        } else {
-        continue; // перейдем на новую итерацию цикла
-        }
+                if (elem % 2 === 0) {
+                    result = elem * elem;
 
-        console.log(result); // выполнится, если делится на 2 или 3
+                } else if (elem % 3 === 0) {
+                    result = elem * elem * elem;
+                }
 
+                document.write(result, ', '); // вынесли вывод за условие
+            }
+        </script>
 
+        <p>Теперь наш скрипт, однако, работает немного не так: получится, что и для обычных элементов, не обработанных
+            через наш if
+            будет выполнятся вывод переменной result в консоль, что по условию нашей задачи нам не нужно. </p>
 
+        <p>Поправим проблему, добавив к нашему if еще условие else, которое будет срабатывать для элементов, не
+            делящихся
+            на 2 и 3,
+            и вызовем там инструкцию continue, которая сразу же будет перебрасывать нас на новую итерацию цикла:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>    let result;
+<span class="-n"></span>
+<span class="-n"></span>    if (elem % 2 == 0) {
+<span class="-n"></span>        result = elem * elem;
+<span class="-n"></span>
+<span class="-n"></span>    } else if (elem % 3 == 0) {
+<span class="-n"></span>        result = elem * elem * elem;
+<span class="-n"></span>
+<span class="-n"></span>    } else {
+<span class="-n"></span>        continue; // перейдем на новую итерацию цикла
+<span class="-n"></span>    }
+<span class="-n"></span>
+<span class="-n"></span>    document.write(result, ', '); // выполнится, если делится на 2 или 3
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            for (let elem of arr2) {
+                let result;
+
+                if (elem % 2 == 0) {
+                    result = elem * elem;
+
+                } else if (elem % 3 == 0) {
+                    result = elem * elem * elem;
+
+                } else {
+                    continue; // перейдем на новую итерацию цикла
+                }
+
+                document.write(result, ', '); // выполнится, если делится на 2 или 3
+            }
+        </script>
 
     </main>
 

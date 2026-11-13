@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-15-proizvKolIteraci.html">76 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-14-prostcislacherecFlag.html">Нахождение
+                простых чисел на JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-16-formStrokVCikle.html">Формирование строк через циклы в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,43 +42,101 @@
 
         <h2>Циклы без заданного количества итераций в JavaScript</h2>
 
-        Бывают задачи, в которых количество итераций цикла не известно заранее. К примеру: дано число, нужно делить его
-        на 2
-        столько раз, пока результат не станет меньше 10. Нужно вывести число, которое при этом получится.
+        <p>Бывают задачи, в которых количество итераций цикла не известно заранее. К примеру: дано число, нужно делить
+            его
+            на 2
+            столько раз, пока результат не станет меньше 10. Нужно вывести число, которое при этом получится.</p>
 
-        В этом случае мы не знаем количество итераций. Не беда - сделаем условием цикла условие пока число больше 10:
+        <p>В этом случае мы не знаем количество итераций. Не беда - сделаем условием цикла условие пока число больше 10:
+        </p>
 
-        let num = 500;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let num = 500;
+<span class="-n"></span>
+<span class="-n"></span>while (num > 10) {
+<span class="-n"></span>num = num / 2;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(num); // после цикла получим результат
+</pre>
+        </div>
 
-        while (num > 10) {
-        num = num / 2;
-        }
+        <h3>Задача 1 </h3>
 
-        console.log(num); // после цикла получим результат
-        Задача 1⋕js.Pm.Lp.AIN.1
+        <p>Дано число num с неким начальным значением. Умножайте его на 3 столько раз, пока результат умножения не
+            станет больше
+            1000. Какое число получится? Посчитайте количество итераций, необходимых для этого.</p>
 
-        Дано число num с неким начальным значением. Умножайте его на 3 столько раз, пока результат умножения не станет
-        больше
-        1000. Какое число получится? Посчитайте количество итераций, необходимых для этого.
+        <p>Решение</p>
 
-        Использования цикла for
-        Для решения задачи из начала урока можно использовать и цикл for, но особым образом - без тела:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 3;
+<span class="-n"></span>
+<span class="-n"></span>while (num1 &lt; 1000) {
+<span class="-n"></span>num1 = num1 * 3;
+<span class="-n"></span>document.write(num1, ', ');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (var num = 500; num > 10; num = num / 2);
-        console.log(num); // после цикла получим результат
-        Обратите внимание на то, что переменная num объявлена через var - это нужно для того, чтобы переменная была
-        доступна
-        после цикла.
+        <script>
+            let num1 = 3;
 
-        Кстати, при желании легко можно подсчитать количество совершенных циклом операций:
+            while (num1 < 1000) {
+                num1 = num1 * 3;
+                document.write(num1, ', ');
+            }
 
-        for (var num = 500, i = 0; num > 10; num = num / 2, i++);
-        console.log(num, i);
-        Задача 2⋕js.Pm.Lp.AIN.2
-
-        Решите предыдущую задачу через цикл for.
+        </script>
 
 
+        <h2> Использования цикла for </h2>
+
+        <p> Для решения задачи из начала урока можно использовать и цикл for, но особым образом - без тела: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> for (var num = 500; num > 10; num = num / 2);
+<span class="-n"></span>console.log(num); // после цикла получим результат
+</pre>
+        </div>
+
+
+        <p> Обратите внимание на то, что переменная num объявлена через var - это нужно для того, чтобы переменная была
+            доступна после цикла.</p>
+
+        <p>Кстати, при желании легко можно подсчитать количество совершенных циклом операций:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (var num = 500, i = 0; num > 10; num = num / 2, i++);
+<span class="-n"></span> console.log(num, i);
+</pre>
+        </div>
+
+        <h3>Задача 2 </h3>
+
+        <p> Решите предыдущую задачу через цикл for.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (var num2 = 5, i = 0; num2 < 1000; num2=num2 * 3, i++);
+<span class="-n"></span>document.write(num2, ' ', i);
+</pre>
+        </div>
+
+        <script>
+            for (var num2 = 5, i = 0; num2 < 1000; num2 = num2 * 3, i++);
+            document.write(num2, ' ', i);
+        </script>
 
 
     </main>

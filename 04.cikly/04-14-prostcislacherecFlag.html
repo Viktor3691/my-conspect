@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-14-prostcislacherecFlag.html">75 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-13-rabotaSFlagami.html">Работа с флагами в
+                JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-15-proizvKolIteraci.html">Циклы без заданного количества итераций в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,43 +42,127 @@
 
         <h2>Нахождение простых чисел на JavaScript</h2>
 
-        Давайте напишем код, который будет проверять число на то, простое оно или нет. Простое число - это число,
-        которое не
-        делится ни на одно другое число (кроме как на 1 и на само себя - на это делятся все числа).
+        <p> Давайте напишем код, который будет проверять число на то, простое оно или нет. Простое число - это число,
+            которое не
+            делится ни на одно другое число (кроме как на 1 и на само себя - на это делятся все числа).</p>
 
-        Самый простой способ проверить число на простоту - перебрать в цикле все числа от 2 до самого числа и в процессе
-        перебора проверять, делится ли наше число хотя бы на одно из перебираемых чисел.
+        <p>Самый простой способ проверить число на простоту - перебрать в цикле все числа от 2 до самого числа и в
+            процессе
+            перебора проверять, делится ли наше число хотя бы на одно из перебираемых чисел.</p>
 
-        Если ни на одно из этих чисел наше число не поделится - оно простое, а если хотя бы на одно поделится - оно
-        составное.
+        <p> Если ни на одно из этих чисел наше число не поделится - оно простое, а если хотя бы на одно поделится - оно
+            составное.</p>
 
-        Решим задачу через флаг. Давайте установим начальное значение флага в true, считая число по умолчанию простым:
+        <p>Решим задачу через флаг. Давайте установим начальное значение флага в true, считая число по умолчанию
+            простым:</p>
 
-        let num = 31; // некоторое число
-        let flag = true; // начальное значение флага
-        Затем запустим цикл от 2 до нашего числа (не включая его), и в цикле будем проверять, делится ли наше число на
-        счетчик
-        цикла:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 31; // некоторое число
+<span class="-n"></span>let flag = true; // начальное значение флага
+</pre>
+        </div>
 
-        let num = 31;
+        <p>Затем запустим цикл от 2 до нашего числа (не включая его), и в цикле будем
+            проверять, делится ли наше число на счетчик цикла:</p>
 
-        let flag = true;
-        for (let i = 2; i < num; i++) { if (num % i==0) { } } Очевидно, что если num хотя бы один раз поделится на i -
-            то число не простое. В таком случае мы должны установить значение флага в false: let num=31; let flag=true;
-            for (let i=2; i < num; i++) { if (num % i==0) { flag=false; // если хотя бы один раз поделилось } }
-            console.log(flag); // выведем значение счетчика В общем-то задача решена. Есть, однако, один нюанс: даже
-            если в какой-то итерации цикла мы определим, что число не простое, цикл все равно будет крутится до самого
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 31;
+<span class="-n"></span>let flag = true;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 2; i &lt; num; i++) {
+<span class="-n"></span>if (num % i==0) {
+<span class="-n"></span>}
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Очевидно, что если num хотя бы один раз поделится на i
+            - то число не простое. В таком случае мы должны установить значение флага в false:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num=31;
+<span class="-n"></span>let flag=true;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=2; i &lt; num; i++) {
+<span class="-n"></span>if (num % i==0) {
+<span class="-n"></span>flag=false; // если хотя бы один раз поделилось
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(flag); // выведем значение счетчика В общем-то задача решена.
+</pre>
+        </div>
+
+        <p> Есть, однако, один нюанс: даже если в какой-то итерации цикла мы определим, что число не простое, цикл все
+            равно будет крутится до самого
             конца. Это не оптимально. Для решения проблемы добавим инструкцию break, осуществляющую выход из цикла, если
-            число не простое: let num=31; let flag=true; for (let i=2; i < num; i++) { if (num % i==0) { flag=false;
-            break; // выйдем из цикла } } console.log(flag); Задача 1⋕js.Pm.Lp.PrNm.1 Самостоятельно, не подсматривая в
-            мой код, повторите решение описанной задачи. </main>
+            число не простое:</p>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num=31;
+<span class="-n"></span>let flag=true;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=2; i &lt; num; i++) {
+<span class="-n"></span>    if (num % i==0) {
+<span class="-n"></span>        flag=false;
+<span class="-n"></span>        break; // выйдем из цикла
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>console.log(flag);
+</pre>
+        </div>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <h3>Задача 1</h3>
+
+        <p>Самостоятельно, не подсматривая в мой код, повторите решение описанной задачи.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num = 78;
+<span class="-n"></span>let flag = true;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 2; i &lt; num; i++) {
+<span class="-n"></span>    if (num % i == 0) {
+<span class="-n"></span>        flag = false;
+<span class="-n"></span>        break;
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>document.write(flag);
+</pre>
+        </div>
+
+
+        <script>
+            let num = 78;
+            let flag = true;
+
+            for (let i = 2; i < num; i++) {
+                if (num % i == 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            document.write(flag);
+
+        </script>
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

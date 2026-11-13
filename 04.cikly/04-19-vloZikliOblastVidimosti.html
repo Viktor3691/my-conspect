@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-19-vloZikliOblastVidimosti.html">80 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-18-vloZikli.html">Вложенные циклы в
+                JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-20-zapolnenieMassivCikle.html">Заполнение массивов через цикл в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,22 +42,62 @@
 
         <h2>Вложенные циклы и область видимости в JavaScript</h2>
 
-        Если у нас есть цикл в цикле, то переменные, объявленные во внешнем цикле, будут доступны во внутреннем. В
-        следующем
-        примере переменная num доступна во внутреннем цикле:
+        <p> Если у нас есть цикл в цикле, то переменные, объявленные во внешнем цикле, будут доступны во внутреннем. В
+            следующем
+            примере переменная num доступна во внутреннем цикле:</p>
 
-        for (let i = 0; i <= 9; i++) { let num=3; for (let j=0; j <=9; j++) { console.log(num); // выведет 3 } } А вот
-            снаружи внешнего цикла переменная num недоступна: for (let i=0; i <=9; i++) { let num=3; for (let j=0; j
-            <=9; j++) { } } console.log(num); // выдаст ошибку Переменные, объявленные во внутреннем цикле, недоступны
-            снаружи: for (let i=0; i <=9; i++) { for (let j=0; j <=9; j++) { let num=3; } console.log(num); // выдаст
-            ошибку } console.log(num); // выдаст ошибку </main>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 0; i &lt;= 9; i++) {
+<span class="-n"></span>
+<span class="-n"></span>let num=3; for (let j=0; j &lt;=9; j++) {
+<span class="-n"></span>    console.log(num); // выведет 3
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <p>А вот снаружи внешнего цикла переменная num недоступна: </p>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=0; i &lt;=9; i++) {
+<span class="-n"></span>    let num=3; for (let j=0; j &lt;=9; j++) {
+<span class="-n"></span> }
+<span class="-n"></span> }
+<span class="-n"></span> console.log(num); // выдаст ошибку
+</pre>
+        </div>
+
+        <p>Переменные, объявленные во внутреннем цикле, недоступны
+            снаружи:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=0; i &lt;=9; i++) {
+<span class="-n"></span>
+<span class="-n"></span>   for (let j=0; j &lt;=9; j++) {
+<span class="-n"></span>       let num=3;
+<span class="-n"></span>   }
+<span class="-n"></span>   console.log(num); // выдаст   ошибку
+<span class="-n"></span>}
+<span class="-n"></span>console.log(num); // выдаст ошибку
+</pre>
+        </div>
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-12-oblastVidimosti.html">73 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-11-instrContinue.html">Инструкция continue
+                в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-13-rabotaSFlagami.html">Работа с флагами в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,28 +42,115 @@
 
         <h2>Область видимости let и var в циклах JavaScript</h2>
 
-        Мы уже обсуждали с вами область видимости переменных, объявленных внутри фигурных скобок условий. Аналогичной
-        областью
-        видимости обладают и циклы. Давайте посмотрим на примерах.
+        <p> Мы уже обсуждали с вами область видимости переменных, объявленных внутри фигурных скобок условий.
+            Аналогичной
+            областью
+            видимости обладают и циклы. Давайте посмотрим на примерах.</p>
 
-        Объявим какую-нибудь переменную внутри цикла:
+        <p>Объявим какую-нибудь переменную внутри цикла:</p>
 
-        for (let i = 1; i <= 9; i++) { let num=3; console.log(num); // выведет 3 } Если же попытаться вывести эту
-            переменную снаружи цикла, то мы получим ошибку: for (let i=1; i <=9; i++) { let num=3; } console.log(num);
-            // выдаст ошибку При необходимости можно объявить переменную снаружи цикла - тогда она будет доступна как
-            внутри цикла, так и снаружи: let num; // объявим переменную снаружи цикла for (let i=1; i <=9; i++) { num=3;
-            // установим ей значение } console.log(num); // выведет 3 Область видимости счетчиков Давайте теперь
-            посмотрим область видимости счетчика цикла. Пусть, для примера, у нас есть вот такой цикл: for (let i=1; i
-            <=9; i++) { } Очевидно, что переменная-счетчик i доступна внутри цикла: for (let i=1; i <=9; i++) {
-            console.log(i); // последовательно выведет числа от 1 до 9 } А вот снаружи цикла переменная будет i
-            недоступна: for (let i=1; i <=9; i++) { } console.log(i); // выдаст ошибку </main>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 9; i++) {
+<span class="-n"></span>    let num=3;
+<span class="-n"></span>
+<span class="-n"></span>    document.write('num = ', num, ', ');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <script>
+            for (let i = 1; i <= 9; i++) {
+                let num = 3;
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+                document.write('num = ', num, ', '); // выведет 3
+            }
+        </script>
+
+        <p>Если же попытаться вывести эту переменную снаружи цикла, то мы получим ошибку:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>let num=3;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('num = ', num, ', '); // выдаст ошибку
+</pre>
+        </div>
+
+        <script>
+            for (let i = 1; i <= 9; i++) {
+                let num = 3;
+            }
+            console.log(num);
+            document.write('num = ', num, ', ');
+
+        </script>
+
+        <p>При необходимости можно объявить переменную снаружи цикла - тогда она будет доступна как внутри цикла, так и
+            снаружи:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num; // объявим переменную снаружи цикла
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>num=3; // установим ей значение
+<span class="-n"></span> }
+<span class="-n"></span>console.log(num); // выведет 3
+<span class="-n"></span>
+</pre>
+        </div>
+
+        <p>Область видимости счетчиков Давайте теперь
+            посмотрим область видимости счетчика цикла. Пусть, для примера, у нас есть вот такой цикл:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Очевидно, что переменная-счетчик i доступна внутри цикла:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>console.log(i); // последовательно выведет числа от 1 до 9
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> А вот снаружи цикла переменная будет i недоступна:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>
+<span class="-n"></span>}
+<span class="-n"></span>console.log(i); // выдаст ошибку
+</pre>
+        </div>
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

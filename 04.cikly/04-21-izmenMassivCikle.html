@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-20-zapolnenieMassivCikle.html">Заполнение
                 массивов через цикл в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-22-zapolnenieMassivPush.html">Заполнение массива методом push в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -41,41 +42,163 @@
 
         <h2>Изменение массива в цикле JavaScript</h2>
 
-        Пусть у нас дан вот такой массив с числами:
+        <p>Пусть у нас дан вот такой массив с числами:</p>
 
-        let arr = [1, 2, 3, 4, 5];
-        Давайте увеличим каждый элемент этого массива в два раза:
+        <p> let arr = [1, 2, 3, 4, 5];</p>
 
-        let arr = [1, 2, 3, 4, 5];
+        <p> Давайте увеличим каждый элемент этого массива в два раза:</p>
 
-        arr[0] = arr[0] * 2;
-        arr[1] = arr[1] * 2;
-        arr[2] = arr[2] * 2;
-        arr[3] = arr[3] * 2;
-        arr[4] = arr[4] * 2;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>arr[0] = arr[0] * 2;
+<span class="-n"></span>arr[1] = arr[1] * 2;
+<span class="-n"></span>arr[2] = arr[2] * 2;
+<span class="-n"></span>arr[3] = arr[3] * 2;
+<span class="-n"></span>arr[4] = arr[4] * 2;
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr); // выведет [2, 4, 6, 8, 10]
+</pre>
+        </div>
 
-        console.log(arr); // выведет [2, 4, 6, 8, 10]
-        Давайте теперь то же самое выполним в цикле:
 
-        let arr = [1, 2, 3, 4, 5];
+        <p>Давайте теперь то же самое выполним в цикле:</p>
 
-        for (let i = 0; i < arr.length; i++) { arr[i]=arr[i] * 2; } console.log(arr); // выведет [2, 4, 6, 8, 10] Задача
-            1⋕js.Pm.Lp.ALCh.1 Дан массив с числами. Переберите этот массив циклом и возведите каждый элемент этого
-            массива в квадрат. Сокращенные операции При изменениях массивов можно использовать сокращенные операции,
-            применяя их прямо к элементу массива (то есть arr[i]). Давайте для примера увеличим каждый элемент массива
-            на единицу, используя операцию ++: let arr=[1, 2, 3, 4, 5]; for (let i=0; i < arr.length; i++) { arr[i]++; }
-            console.log(arr); // выведет [2, 3, 4, 5, 6] А теперь увеличим каждый элемент массива на 5, используя
-            операцию +=: let arr=[1, 2, 3, 4, 5]; for (let i=0; i < arr.length; i++) { arr[i] +=5; } console.log(arr);
-            // выведет [6, 7, 8, 9, 10] Задача 2⋕js.Pm.Lp.ALCh.2 Дан массив с числами. Переберите этот массив циклом и
-            отнимите от каждого элемента единицу. Задача 3⋕js.Pm.Lp.ALCh.3 Дан массив с числами. Переберите этот массив
-            циклом и прибавьте к каждому элементу 10. </main>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr.length; i++) {
+<span class="-n"></span>    arr[i]=arr[i] * 2;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(arr); // выведет [2, 4, 6, 8, 10]
+</pre>
+        </div>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <h3>Задача 1</h3>
+
+        <p>Дан массив с числами. Переберите этот массив циклом и возведите каждый элемент этого
+            массива в квадрат.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [1, 2, 3, 4, 5, 6, 7, 8];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr1.length; i++) {
+<span class="-n"></span>    arr1[i]=arr1[i] ** 2;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(arr1);
+</pre>
+        </div>
+
+        <script>
+            let arr1 = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            for (let i = 0; i < arr1.length; i++) {
+                arr1[i] = arr1[i] ** 2;
+            }
+            document.write(arr1);
+        </script>
+
+        <h2>Сокращенные операции</h2>
+
+        <p>При изменениях массивов можно использовать сокращенные операции, применяя их прямо к элементу массива (то
+            есть arr[i]).</p>
+
+        <p> Давайте для примера увеличим каждый элемент массива на единицу, используя операцию ++:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; arr.length; i++) {
+<span class="-n"></span>    arr[i]++;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(arr); // выведет [2, 3, 4, 5, 6]
+</pre>
+        </div>
+
+        <p>А теперь увеличим каждый элемент массива на 5, используя операцию +=:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; arr.length; i++) {
+<span class="-n"></span>    arr[i] +=5;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(arr); // выведет [6, 7, 8, 9, 10]
+</pre>
+        </div>
+        <h3>Задача 2</h3>
+
+        <p>Дан массив с числами. Переберите этот массив циклом и отнимите от каждого элемента единицу.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [1, 2, 3, 4, 5, 6, 7, 8];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr2.length; i++) {
+<span class="-n"></span>    arr2[i] -= 1;
+<span class="-n"></span>}
+<span class="-n"></span>document.write('arr2 = [', arr2, ']');
+</pre>
+        </div>
+
+
+        <script>
+            let arr2 = [1, 2, 3, 4, 5, 6, 7, 8];
+            for (let i = 0; i < arr2.length; i++) {
+                arr2[i] -= 1;
+            }
+            document.write('arr2 = [', arr2, ']');
+        </script>
+
+        <h3>Задача 3</h3>
+
+
+        <p>Дан массив с числами. Переберите этот массив циклом и прибавьте к каждому элементу 10.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr3 = [1, 2, 3, 4, 5, 6, 7, 8];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr3.length; i++) {
+<span class="-n"></span>    arr3[i] += 10;
+<span class="-n"></span>}
+<span class="-n"></span>document.write('arr3 = [', arr3, ']');
+</pre>
+        </div>
+
+        <script>
+            let arr3 = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            for (let i = 0; i < arr3.length; i++) {
+                arr3[i] += 10;
+            }
+            document.write('arr3 = [', arr3, ']');
+
+        </script>
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

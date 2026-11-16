@@ -19,10 +19,11 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-23-zapolnenieObektovCikle.html">84 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-22-zapolnenieMassivPush.html">Заполнение
+                массива методом push в JavaScript</a>
 
             <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
         </div>
@@ -40,78 +41,327 @@
 
         <h2>Заполнение объектов через цикл в JavaScript</h2>
 
-        В предыдущих уроках мы с вами работали с массивами. Давайте теперь аналогичные действия проделаем с объектами.
+        <p> В предыдущих уроках мы с вами работали с массивами. Давайте теперь аналогичные действия проделаем с
+            объектами.</p>
 
-        Пусть у нас есть какой-то объект:
+        <p>Пусть у нас есть какой-то объект:</p>
 
-        let obj = {};
-        Давайте заполним этот объект какими-нибудь элементами. Можно сделать это вот так:
+        <p>let obj = {};</p>
+        <p> Давайте заполним этот объект какими-нибудь элементами. Можно сделать это вот так:</p>
 
-        let obj = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5};
-        А можно изначально создать объект пустым, а затем добавить в него данные вот так:
+        <p> let obj = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5};</p>
+        <p> А можно изначально создать объект пустым, а затем добавить в него данные вот так:</p>
 
-        let obj = {};
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {};
+<span class="-n"></span>
+<span class="-n"></span>obj['a'] = 1;
+<span class="-n"></span>obj['b'] = 2;
+<span class="-n"></span>obj['c'] = 3;
+<span class="-n"></span>obj['d'] = 4;
+<span class="-n"></span>obj['e'] = 5;
+</pre>
+        </div>
 
-        obj['a'] = 1;
-        obj['b'] = 2;
-        obj['c'] = 3;
-        obj['d'] = 4;
-        obj['e'] = 5;
-        Задача 1⋕js.Pm.Lp.OLF.1
+        <h3>Задача 1</h3>
 
-        Объявите пустой объект, а затем заполните его названиями дней недели в качестве ключей, и порядковыми номерами
-        дней
-        недели в качестве значений.
+        <p>Объявите пустой объект, а затем заполните его названиями дней недели в качестве ключей, и порядковыми
+            номерами
+            дней
+            недели в качестве значений.</p>
 
-        Заполнение объекта в цикле
-        Пусть у нас есть два массива:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let objDay1 = {};
+<span class="-n"></span>
+<span class="-n"></span>objDay1['Понедельник'] = 1;
+<span class="-n"></span>objDay1['Вторник'] = 2;
+<span class="-n"></span>objDay1['Среда'] = 3;
+<span class="-n"></span>objDay1['Четверг'] = 4;
+<span class="-n"></span>objDay1['Пятница'] = 5;
+<span class="-n"></span>objDay1['Суббота'] = 6;
+<span class="-n"></span>objDay1['Воскресенье'] = 7;
+<span class="-n"></span>
+<span class="-n"></span>console.log(objDay1);
+</pre>
+        </div>
 
-        let keys = ['a', 'b', 'c', 'd', 'e'];
-        let values = [1, 2, 3, 4, 5];
-        Давайте с их помощью сделаем объект, взяв ключи для этого объекта из первого массива, а значения - из второго.
-        Для этого
-        запустим цикл и в цикле будем формировать наш объект:
+        <script>
+            let objDay1 = {};
 
-        let keys = ['a', 'b', 'c', 'd', 'e'];
-        let values = [1, 2, 3, 4, 5];
-        let obj = {};
+            objDay1['Понедельник'] = 1;
+            objDay1['Вторник'] = 2;
+            objDay1['Среда'] = 3;
+            objDay1['Четверг'] = 4;
+            objDay1['Пятница'] = 5;
+            objDay1['Суббота'] = 6;
+            objDay1['Воскресенье'] = 7;
 
-        for (let i = 0; i <= 4; i++) { let key=keys[i]; let value=values[i]; obj[key]=value; } console.log(obj); Не
-            обязательно вводить переменные для ключа и значения, можно просто поступить вот так: let keys=['a', 'b'
-            , 'c' , 'd' , 'e' ]; let values=[1, 2, 3, 4, 5]; let obj={}; for (let i=0; i <=4; i++) {
-            obj[keys[i]]=values[i]; } console.log(obj); Задача 2⋕js.Pm.Lp.OLF.2 Даны два массива: первый с названиями
-            дней недели, а второй - с их порядковыми номерами: let arr1=['пн', 'вт' , 'ср' , 'чт' , 'пт' , 'сб' , 'вс'
-            ]; let arr2=[1, 2, 3, 4, 5, 6, 7]; С помощью цикла создайте объект, ключами которого будут названия дней, а
-            значениями - их номера. Задача 3⋕js.Pm.Lp.OLF.3 Модифицируйте предыдущую задачу так, чтобы ключами стали
-            номера дней, а значениями - их названия. Заполнение объекта из другого объекта Для создания объекта можно
-            также использовать данные другого объекта. Пусть, к примеру, у нас есть вот такой объект: let obj={'a':
-            1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5}; Давайте переберем данный объект циклом for-in и запишем в новый
-            объект элементы, значения которых являются четными числами: let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e'
-            : 5}; let result={}; for (let key in obj) { if (obj[key] % 2==0) { result[key]=obj[key]; } }
-            console.log(result); // выведет {'b': 2, 'd' : 4}; Задача 4⋕js.Pm.Lp.OLF.4 Дан объект: let obj={'a': 12, 'b'
-            : 21, 'c' : 13, 'd' : 23, 'e' : 17}; Запишите в новый объект те элементы, значения которых расположены в
-            промежутке от 10 до 20. Задача 5⋕js.Pm.Lp.OLF.5 Дан объект: let obj={1: 'пн' , 2: 'вт' , 3: 'ср' , 4: 'чт' ,
-            5: 'пт' , 6: 'сб' , 7: 'вс' }; Запишите в новый объект дни недели, номера которых являются нечетными
-            числами. Изменение объекта в цикле Объекты также можно менять в цикле. Пусть, к примеру, у нас есть вот
-            такой объект: let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5}; Давайте переберем его циклом for-in и
-            увеличим каждый из его элементов в 2 раза: let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5}; for (let
-            key in obj) { obj[key]=obj[key] * 2; } console.log(obj); // выведет {'a': 2, 'b' : 4, 'c' : 6, 'd' : 8, 'e'
-            : 10} Задача 6⋕js.Pm.Lp.OLF.6 Дан объект: let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5}; Переберите
-            этот объект циклом и возведите каждый элемент этого объекта в квадрат. Обмен ключей и значений объекта Пусть
-            у нас дан следующий объект: let obj={a: 1, b: 2, c: 3, d: 4, e: 5}; Давайте поменяем местами ключи и
-            значения в объекте, то сделаем из нашего объекта следующий: {1: 'a' , 2: 'b' , 3: 'c' , 4: 'd' , 5: 'e' }
-            Для этого переберем циклом for-in исходный объект и создадим при этом новый объект result. Ключами нового
-            объекта сделаем элементы старого (это obj[key]), а значениями нового объекта - ключи старого (это key): let
-            obj={a: 1, b: 2, c: 3, d: 4, e: 5}; let result={}; for (let key in obj) { result[obj[key]]=key; }
-            console.log(result); // выведет {1: 'a' , 2: 'b' , 3: 'c' , 4: 'd' , 5: 'e' } Задача 7⋕js.Pm.Lp.OLF.7
-            Самостоятельно, не подсматривая в мой код, выполните переворот какого-нибудь объекта. </main>
+            console.log(objDay1);
+        </script>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <h2> Заполнение объекта в цикле</h2>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <p>Пусть у нас есть два массива:</p>
+
+        <p> let keys = ['a', 'b', 'c', 'd', 'e']; <br>
+            let values = [1, 2, 3, 4, 5]; <br>
+            <br>
+            Давайте с их помощью сделаем объект, взяв ключи для этого объекта из первого массива, а значения - из
+            второго.
+            Для этого
+            запустим цикл и в цикле будем формировать наш объект:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let keys = ['a', 'b', 'c', 'd', 'e'];
+<span class="-n"></span>let values = [1, 2, 3, 4, 5];
+<span class="-n"></span>let obj = {};
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt;= 4; i++) {
+<span class="-n"></span>let key=keys[i];
+<span class="-n"></span>let value=values[i];
+<span class="-n"></span>obj[key]=value;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(obj);
+</pre>
+        </div>
+
+
+        <p> Не обязательно вводить переменные для ключа и значения, можно просто поступить вот так:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let keys=['a', 'b', 'c' , 'd' , 'e' ];
+<span class="-n"></span>let values=[1, 2, 3, 4, 5];
+<span class="-n"></span>let obj={};
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt;=4; i++) {
+<span class="-n"></span>obj[keys[i]]=values[i];
+<span class="-n"></span>}
+<span class="-n"></span>console.log(obj);
+</pre>
+        </div>
+
+
+        <h3>Задача 2</h3>
+
+        <p>Даны два массива: первый с названиями дней недели, а второй - с их порядковыми номерами:</p>
+
+        <p>let arr1=['пн', 'вт' , 'ср' , 'чт' , 'пт' , 'сб' , 'вс'];</p>
+        <p>let arr2=[1, 2, 3, 4, 5, 6, 7];</p>
+
+        <p>С помощью цикла создайте объект, ключами которого будут названия дней, а
+            значениями - их номера.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr21 = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+<span class="-n"></span>let arr22 = [1, 2, 3, 4, 5, 6, 7];
+<span class="-n"></span>let obj2 = {};
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt;= 6; i++) {
+<span class="-n"></span>    obj2[arr21[i]] = arr22[i];
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(obj2);
+{пн: 1, вт: 2, ср: 3, чт: 4, пт: 5, …}
+</pre>
+        </div>
+
+        <script>
+            let arr21 = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+            let arr22 = [1, 2, 3, 4, 5, 6, 7];
+            let obj2 = {};
+
+            for (let i = 0; i <= 6; i++) {
+                obj2[arr21[i]] = arr22[i];
+            }
+            console.log(obj2);
+        </script>
+
+        <h3>Задача 3</h3>
+
+        <p>Модифицируйте предыдущую задачу так, чтобы ключами стали
+            номера дней, а значениями - их названия.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr31 = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+<span class="-n"></span>let arr32 = [1, 2, 3, 4, 5, 6, 7];
+<span class="-n"></span>let obj3 = {};
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt;= 6; i++) {
+<span class="-n"></span>    obj3[arr32[i]] = arr31[i];
+<span class="-n"></span>}
+<span class="-n"></span>console.log(obj3);
+{1: 'пн', 2: 'вт', 3: 'ср', 4: 'чт', 5: 'пт', 6: 'сб', 7: 'вс'}
+</pre>
+        </div>
+
+        <script>
+            let arr31 = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+            let arr32 = [1, 2, 3, 4, 5, 6, 7];
+            let obj3 = {};
+
+            for (let i = 0; i <= 6; i++) {
+                obj3[arr32[i]] = arr31[i];
+            }
+            console.log(obj3);
+        </script>
+
+        <h2>Заполнение объекта из другого объекта </h2>
+
+        <p>Для создания объекта можно также использовать данные другого объекта. Пусть, к примеру, у нас есть вот такой
+            объект:</p>
+
+        <p> let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5}; <br>
+            <br>
+            Давайте переберем данный объект циклом for-in и запишем в новый
+            объект элементы, значения которых являются четными числами:
+        </p>
+
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e': 5};
+<span class="-n"></span>let result={};
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj) {
+<span class="-n"></span>if (obj[key] % 2==0) {
+<span class="-n"></span>result[key]=obj[key];
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result);
+// выведет {'b': 2, 'd' : 4};
+</pre>
+        </div>
+
+        <h3>Задача 4</h3>
+
+        <p>Дан объект:
+            <br>
+            let obj={'a': 12, 'b': 21, 'c' : 13, 'd' : 23, 'e' : 17};
+        </p>
+
+        <p> Запишите в новый объект те элементы, значения которых расположены в
+            промежутке от 10 до 20.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj4 = { 'a': 12, 'b': 21, 'c': 13, 'd': 23, 'e': 17 };
+<span class="-n"></span>let res4 = {};
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj4) {
+<span class="-n"></span>if (obj4[key] > 10 && obj4[key] &lt; 20) {
+<span class="-n"></span>res4[key] = obj4[key];
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(res4);
+{a: 12, c: 13, e: 17}
+</pre>
+        </div>
+
+        <script>
+            let obj4 = { 'a': 12, 'b': 21, 'c': 13, 'd': 23, 'e': 17 };
+            let res4 = {};
+
+            for (let key in obj4) {
+                if (obj4[key] > 10 && obj4[key] < 20) {
+                    res4[key] = obj4[key];
+                }
+            }
+
+            console.log(res4);
+
+        </script>
+
+        <h3>Задача 5</h3>
+
+        <p>Дан объект: let obj={1: 'пн' , 2: 'вт' , 3: 'ср' , 4: 'чт' , 5: 'пт' , 6: 'сб' , 7: 'вс' }; <br>
+            <br>
+            Запишите в новый объект дни недели, номера которых являются нечетными
+            числами.
+        </p>
+
+        <h2>Изменение объекта в цикле </h2>
+
+        <p>Объекты также можно менять в цикле. Пусть, к примеру, у нас есть вот
+            такой объект: let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5}; <br>
+            <br>
+            Давайте переберем его циклом for-in и увеличим каждый из его элементов в 2 раза:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5};
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj) {
+<span class="-n"></span>obj[key]=obj[key] * 2;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(obj);
+ // выведет {'a': 2, 'b' : 4, 'c' : 6, 'd' : 8, 'e' : 10}
+</pre>
+        </div>
+
+        <h3>Задача 6</h3>
+
+        <p>Дан объект:</p>
+        <p> let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5};</p>
+        <p> Переберите этот объект циклом и возведите каждый элемент этого объекта в квадрат.</p>
+
+        <h2>Обмен ключей и значений объекта</h2>
+
+        <p> Пусть у нас дан следующий объект:</p>
+
+        <p> let obj={a: 1, b: 2, c: 3, d: 4, e: 5}; <br>
+            <br>
+            Давайте поменяем местами ключи и значения в объекте, то сделаем из нашего объекта следующий:
+        </p>
+
+        <p>{1: 'a' , 2: 'b' , 3: 'c' , 4: 'd' , 5: 'e' }</p>
+        <p>Для этого переберем циклом for-in исходный объект и создадим при этом новый объект result.</p>
+
+        <p>Ключами нового объекта сделаем элементы старого (это obj[key]), а значениями нового объекта - ключи старого
+            (это key):</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj={a: 1, b: 2, c: 3, d: 4, e: 5};
+<span class="-n"></span>let result={};
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj) {
+<span class="-n"></span>result[obj[key]]=key;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result);
+// выведет {1: 'a' , 2: 'b' , 3: 'c' , 4: 'd' , 5: 'e' }
+</pre>
+        </div>
+
+        <h3>Задача 7</h3>
+
+        <p> Самостоятельно, не подсматривая в мой код, выполните переворот какого-нибудь объекта.</p>
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

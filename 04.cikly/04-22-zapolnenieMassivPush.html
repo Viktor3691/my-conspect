@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-21-izmenMassivCikle.html">Изменение массива
                 в цикле JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-23-zapolnenieObektovCikle.html">Заполнение объектов через цикл в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -41,103 +42,442 @@
 
         <h2>Заполнение массива методом push в JavaScript</h2>
 
-        Пусть у нас есть массив, который мы заполняем вот таким образом:
+        <p> Пусть у нас есть массив, который мы заполняем вот таким образом:</p>
 
-        let arr = [];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [];
+<span class="-n"></span>
+<span class="-n"></span>arr[0] = 1;
+<span class="-n"></span>arr[1] = 2;
+<span class="-n"></span>arr[2] = 3;
+<span class="-n"></span>arr[3] = 4;
+<span class="-n"></span>arr[4] = 5;
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr); // выведет [1, 2, 3, 4, 5]
+</pre>
+        </div>
 
-        arr[0] = 1;
-        arr[1] = 2;
-        arr[2] = 3;
-        arr[3] = 4;
-        arr[4] = 5;
+        <p> В JavaScript существует специальный метод push, который позволяет заполнять массивы попроще - не указывая
+            ключей:</p>
 
-        console.log(arr); // выведет [1, 2, 3, 4, 5]
-        В JavaScript существует специальный метод push, который позволяет заполнять массивы попроще - не указывая
-        ключей:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+ <span class="-n"></span>let arr = [];
+ <span class="-n"></span>
+ <span class="-n"></span>arr.push(1);
+ <span class="-n"></span>arr.push(2);
+ <span class="-n"></span>arr.push(3);
+ <span class="-n"></span>arr.push(4);
+ <span class="-n"></span>arr.push(5);
+ <span class="-n"></span>
+ <span class="-n"></span>console.log(arr); // выведет [1, 2, 3, 4, 5]
 
-        let arr = [];
+ </pre>
+        </div>
 
-        arr.push(1);
-        arr.push(2);
-        arr.push(3);
-        arr.push(4);
-        arr.push(5);
+        <h3>Задача 1</h3>
 
-        console.log(arr); // выведет [1, 2, 3, 4, 5]
-        Задача 1⋕js.Pm.Lp.APF.1
+        <p>Объявите пустой массив, а затем заполните его числами от 1 до 10. Используйте для этого метод push.</p>
 
-        Объявите пустой массив, а затем заполните его числами от 1 до 10. Используйте для этого метод push.
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [];
+<span class="-n"></span>
+<span class="-n"></span>arr1.push(1);
+<span class="-n"></span>arr1.push(2);
+<span class="-n"></span>arr1.push(3);
+<span class="-n"></span>arr1.push(4);
+<span class="-n"></span>arr1.push(5);
+<span class="-n"></span>arr1.push(6);
+<span class="-n"></span>arr1.push(7);
+<span class="-n"></span>arr1.push(8);
+<span class="-n"></span>arr1.push(9);
+<span class="-n"></span>arr1.push(10);
+<span class="-n"></span>
+<span class="-n"></span>document.write('arr1 = [', arr1, ']');
+</pre>
+        </div>
 
-        Заполнение массива в цикле
-        Давайте теперь используем цикл для заполнения массива методом push:
+        <script>
+            let arr1 = [];
 
-        let arr = [];
+            arr1.push(1);
+            arr1.push(2);
+            arr1.push(3);
+            arr1.push(4);
+            arr1.push(5);
+            arr1.push(6);
+            arr1.push(7);
+            arr1.push(8);
+            arr1.push(9);
+            arr1.push(10);
 
-        for (let i = 1; i <= 5; i++) { arr.push(i); } console.log(arr); // выведет [1, 2, 3, 4, 5] Задача
-            2⋕js.Pm.Lp.APF.2 Используя цикл и метод push заполните массив числами от 1 до 10. Задача 3⋕js.Pm.Lp.APF.3
-            Используя цикл и метод push заполните массив 10-ю буквами 'x' . Заполнение массива из другого массива Пусть
-            у нас дан вот такой массив: let arr=[1, 2, 3, 4, 5]; Давайте переберем элементы этого массива циклом и
-            запишем в новый массив только элементы с четными числами: let arr=[1, 2, 3, 4, 5]; let result=[]; for (let
-            elem of arr) { if (elem % 2==0) { result.push(elem); } } console.log(result); // выведет [2, 4] Задача
-            4⋕js.Pm.Lp.APF.4 Дан массив с числами. Переберите его циклом и запишите в новый массив только положительные
-            из чисел. Переворот массива Давайте выполним переворот массива, расставив его элементы в обратном порядке.
-            Понятно, что проще всего здесь будет воспользоваться методом reverse, но давайте в учебных целях
-            предположим, что данный метод мы использовать не будем, а выполним переворот массива с помощью своего кода.
-            Для решения задачи переберем исходный массив с конца и запишем его элементы в новый массив - они будут идти
-            в обратном порядке: let arr=[1, 2, 3, 4, 5]; let result=[]; for (let i=arr.length - 1; i>= 0; i--) {
-            result.push(arr[i]);
+            document.write('arr1 = [', arr1, ']');
+        </script>
+
+        <h2> Заполнение массива в цикле</h2>
+
+        <p>Давайте теперь используем цикл для заполнения массива методом push: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 5; i++) {
+<span class="-n"></span>arr.push(i);
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr); // выведет [1, 2, 3, 4, 5]
+</pre>
+        </div>
+
+        <h3>Задача 2</h3>
+
+        <p> Используя цикл и метод push заполните массив числами от 1 до 10.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i <= 10; i++) {
+<span class="-n"></span>    arr2.push(i);
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('arr2 = [', arr2, ']');
+</pre>
+        </div>
+
+        <script>
+            let arr2 = [];
+
+            for (let i = 1; i <= 10; i++) {
+                arr2.push(i);
             }
 
-            console.log(result); // выведет [5, 4, 3, 2, 1]
-            Задача 5⋕js.Pm.Lp.APF.5
+            document.write('arr2 = [', arr2, ']');
+        </script>
 
-            Дан следующий массив:
+        <h3>Задача 3 </h3>
 
-            let arr = ['a', 'b', 'c', 'd', 'e'];
-            Описанным способом сделайте из него массив:
+        <p>Используя цикл и метод push заполните массив 10-ю буквами 'x' .</p>
 
-            let arr = ['e', 'd', 'c', 'b', 'a'];
-            Необъявленный массив
-            Пусть мы заполняем массив какими-то элементами:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr3 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>arr3.push('x')
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('arr3 = [', arr3, ']');
+</pre>
+        </div>
 
-            let arr = [];
+        <script>
+            let arr3 = [];
 
-            arr.push(1);
-            arr.push(2);
-            arr.push(3);
-            Пусть теперь мы забыли объявить массив. В этом случае попытка применить метод push будет приводить к ошибке
+            for (let i = 1; i <= 10; i++) {
+                arr3.push('x')
+            }
+            document.write('arr3 = [', arr3, ']');
+
+        </script>
+
+        <h2>Заполнение массива из другого массива </h2>
+
+        <p> Пусть у нас дан вот такой массив:</p>
+
+        <p> let arr=[1, 2, 3, 4, 5];</p>
+
+        <p> Давайте переберем элементы этого массива циклом и запишем в новый массив только элементы с четными числами:
+        </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>let result=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem % 2==0) {
+<span class="-n"></span>result.push(elem);
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result); // выведет [2, 4]
+</pre>
+        </div>
+
+        <h3>Задача 4</h3>
+
+        <p>Дан массив с числами. Переберите его циклом и запишите в новый массив только положительные из чисел.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr4 = [1, -1, 2, -2, 3, -3, 4, 5];
+<span class="-n"></span>let res4 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr4) {
+<span class="-n"></span>    if (elem > 0) {
+<span class="-n"></span>        res4.push(elem)
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(`res4 = [${res4.join(', ')}]`);
+</pre>
+        </div>
+
+        <script>
+            let arr4 = [1, -1, 2, -2, 3, -3, 4, 5];
+            let res4 = [];
+
+            for (let elem of arr4) {
+                if (elem > 0) {
+                    res4.push(elem)
+                }
+            }
+            document.write(`res4 = [${res4.join(', ')}]`);
+        </script>
+
+        <h2> Переворот массива </h2>
+
+        <p>Давайте выполним переворот массива, расставив его элементы в обратном порядке.</p>
+
+        <p>Понятно, что проще всего здесь будет воспользоваться методом reverse, но давайте в учебных целях предположим,
+            что данный метод мы использовать не будем, а выполним переворот массива с помощью своего кода.</p>
+
+        <p> Для решения задачи переберем исходный массив с конца и запишем его элементы в новый массив - они будут идти
+            в обратном порядке:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>let result=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=arr.length - 1; i>= 0; i--) {
+<span class="-n"></span>result.push(arr[i]);
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(result); // выведет [5, 4, 3, 2, 1]
+</pre>
+        </div>
+
+        <h3>Задача 5 </h3>
+
+        <p>Дан следующий массив:</p>
+
+        <p> let arr = ['a', 'b', 'c', 'd', 'e'];</p>
+
+        <p>Описанным способом сделайте из него массив:</p>
+
+        <p>let arr = ['e', 'd', 'c', 'b', 'a'];</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr5 = ['a', 'b', 'c', 'd', 'e'];
+<span class="-n"></span>let res5 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = arr5.length - 1; i >= 0; i--) {
+<span class="-n"></span>    res5.push(arr5[i]);
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(`res5 = [${res5.join(', ')}]`);
+</pre>
+        </div>
+
+        <script>
+            let arr5 = ['a', 'b', 'c', 'd', 'e'];
+            let res5 = [];
+
+            for (let i = arr5.length - 1; i >= 0; i--) {
+                res5.push(arr5[i]);
+            }
+            document.write(`res5 = [${res5.join(', ')}]`);
+
+
+        </script>
+
+        <h2>Необъявленный массив</h2>
+
+        <p>Пусть мы заполняем массив какими-то элементами:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [];
+<span class="-n"></span>
+<span class="-n"></span>arr.push(1);
+<span class="-n"></span>arr.push(2);
+<span class="-n"></span>arr.push(3);
+</pre>
+        </div>
+
+        <p>Пусть теперь мы забыли объявить массив. В этом случае попытка применить метод push будет приводить к ошибке
             (выведется в консоль):
+        </p>
 
-            //let arr = []; - забыли объявить массив
+        <p> </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>//let arr = []; - забыли объявить массив
+<span class="-n"></span>
+<span class="-n"></span>arr.push(1);
+<span class="-n"></span>arr.push(2);
+<span class="-n"></span>arr.push(3);
+</pre>
+        </div>
+
+        <script>
 
             arr.push(1);
             arr.push(2);
             arr.push(3);
-            Задача 6⋕js.Pm.Lp.APF.6
 
-            Автор следующего кода хотел создать массив вида ['a', 'b', 'c']:
+            document.write(arr);
+        </script>
+        <p>Uncaught ReferenceError: arr is not defined
+            at</p>
 
-            arr.push('a');
-            arr.push('b');
-            arr.push('c');
-            Написанный код, однако, выдает ошибку в консоль. Исправьте ошибку автора.
 
-            Задача 7⋕js.Pm.Lp.APF.7
+        <h3>Задача 6 </h3>
 
-            Автор следующего кода хотел создать заполнить массив числами от 1 до 5:
+        <p>Автор следующего кода хотел создать массив вида ['a', 'b', 'c']:</p>
 
-            for (let i = 1; i <= 5; i++) { arr.push(i); } console.log(arr); Написанный код, однако, выдает ошибку в
-                консоль. Исправьте ошибку автора. Задача 8⋕js.Pm.Lp.APF.8 Автор следующего кода хотел записать в новый
-                массив только нечетные элементы старого массива: let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9]; for (let elem of
-                arr) { if (elem % 2 !=0) { result.push(elem); } } console.log(result); Написанный код, однако, выдает
-                ошибку в консоль. Исправьте ошибку автора. </main>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>//let arr = []; - забыли объявить массив
+<span class="-n"></span>
+<span class="-n"></span>arr.push('a');
+<span class="-n"></span>arr.push('b');
+<span class="-n"></span>arr.push('c');
+</pre>
+        </div>
 
-                <footer data-w="nict/finf">
-                    <span data-e="text">Мой личный конспект © 2026</span>
-                </footer>
+        <p> Написанный код, однако, выдает ошибку в консоль. Исправьте ошибку автора.</p>
 
-                <script src="../js/loader.js" defer></script>
-                <script src="../js/app.js" defer></script>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr6 = [];
+<span class="-n"></span>
+<span class="-n"></span>arr6.push('a');
+<span class="-n"></span>arr6.push('b');
+<span class="-n"></span>arr6.push('c');
+</pre>
+        </div>
+
+        <h3>Задача 7 </h3>
+
+        <p>Автор следующего кода хотел создать заполнить массив числами от 1 до 5:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 5; i++) {
+<span class="-n"></span>arr.push(i);
+<span class="-n"></span>}
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
+
+        <p>Написанный код, однако, выдает ошибку в консоль. Исправьте ошибку автора.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr7 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i <= 5; i++) {
+<span class="-n"></span>    arr7.push(i);
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(`arr7 = [${arr7.join(', ')}]`);
+</pre>
+        </div>
+
+        <script>
+            let arr7 = [];
+            for (let i = 1; i <= 5; i++) {
+                arr7.push(i);
+            }
+            document.write(`arr7 = [${arr7.join(', ')}]`);
+        </script>
+
+
+        <h3>Задача 8 </h3>
+
+        <p> Автор следующего кода хотел записать в новый массив только
+            нечетные элементы старого массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>    if (elem % 2 !=0) {
+<span class="-n"></span>        result.push(elem);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result);
+
+</pre>
+        </div>
+
+        <p> Написанный код, однако, выдает ошибку в консоль. Исправьте ошибку автора.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr8 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+<span class="-n"></span>let result8 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr8) {
+<span class="-n"></span>    if (elem % 2 != 0) {
+<span class="-n"></span>        result8.push(elem);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(`result8 = [${result8.join(', ')}]`);
+</pre>
+        </div>
+
+        <script>
+            let arr8 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            let result8 = [];
+
+            for (let elem of arr8) {
+                if (elem % 2 != 0) {
+                    result8.push(elem);
+                }
+            }
+            document.write(`result8 = [${result8.join(', ')}]`);
+        </script>
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

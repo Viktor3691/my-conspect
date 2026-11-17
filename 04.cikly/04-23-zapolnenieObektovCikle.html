@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-22-zapolnenieMassivPush.html">Заполнение
                 массива методом push в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-24-praktikaIzmenZapoln.html">Практика на циклы с массивами и объектами
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -294,6 +295,34 @@
             числами.
         </p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj5 = { 1: 'пн', 2: 'вт', 3: 'ср', 4: 'чт', 5: 'пт', 6: 'сб', 7: 'вс' };
+<span class="-n"></span>let res5 = {};
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj5) {
+<span class="-n"></span>    if (Number(key) % 2 !== 0) {
+<span class="-n"></span>        res5[key] = obj5[key];
+<span class="-n"></span>    }
+<span class="-n"></span>}
+{1: 'пн', 3: 'ср', 5: 'пт', 7: 'вс'}
+</pre>
+        </div>
+
+        <script>
+            let obj5 = { 1: 'пн', 2: 'вт', 3: 'ср', 4: 'чт', 5: 'пт', 6: 'сб', 7: 'вс' };
+            let res5 = {};
+
+            for (let key in obj5) {
+                if (Number(key) % 2 !== 0) {
+                    res5[key] = obj5[key];
+                }
+            }
+            console.log(res5);
+
+        </script>
+
         <h2>Изменение объекта в цикле </h2>
 
         <p>Объекты также можно менять в цикле. Пусть, к примеру, у нас есть вот
@@ -320,6 +349,29 @@
         <p>Дан объект:</p>
         <p> let obj={'a': 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5};</p>
         <p> Переберите этот объект циклом и возведите каждый элемент этого объекта в квадрат.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj6 = { 'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5 };
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj6) {
+<span class="-n"></span>obj6[key] = obj6[key] ** 2;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(obj6);
+{a: 1, b: 4, c: 9, d: 16, e: 25}
+</pre>
+        </div>
+
+        <script>
+            let obj6 = { 'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5 };
+
+            for (let key in obj6) {
+                obj6[key] = obj6[key] ** 2;
+            }
+            console.log(obj6);
+        </script>
+
 
         <h2>Обмен ключей и значений объекта</h2>
 
@@ -353,6 +405,31 @@
         <h3>Задача 7</h3>
 
         <p> Самостоятельно, не подсматривая в мой код, выполните переворот какого-нибудь объекта.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj7 = { 1: 'пн', 2: 'вт', 3: 'ср', 4: 'чт', 5: 'пт', 6: 'сб', 7: 'вс' };
+<span class="-n"></span>let result7 = {};
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj7) {
+<span class="-n"></span>result7[obj7[key]] = key;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(result7);
+{пн: '1', вт: '2', ср: '3', чт: '4', пт: '5', сб: '6', вс: '7'}
+</pre>
+        </div>
+
+        <script>
+            let obj7 = { 1: 'пн', 2: 'вт', 3: 'ср', 4: 'чт', 5: 'пт', 6: 'сб', 7: 'вс' };
+            let result7 = {};
+
+
+            for (let key in obj7) {
+                result7[obj7[key]] = key;
+            }
+            console.log(result7);
+        </script>
 
     </main>
 

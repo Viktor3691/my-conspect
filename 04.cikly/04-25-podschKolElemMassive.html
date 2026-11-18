@@ -19,10 +19,11 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-25-podschKolElemMassive.html">86 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-24-praktikaIzmenZapoln.html">Практика на
+                циклы с массивами и объектами JavaScript</a>
 
             <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
         </div>
@@ -40,82 +41,191 @@
 
         <h2>Подсчет количества элементов в массиве JavaScript</h2>
 
-        Пусть дан следующий массив:
+        <p>Пусть дан следующий массив:</p>
 
         let arr = ['a', 'b', 'c', 'a', 'a', 'b'];
-        Давайте подсчитаем количество элементов 'a' в этом массиве. Для этого будем перебирать массив циклом и каждый
-        раз, когда
-        нам будет встречаться элемент с нужным значением, будем увеличивать какой-нибудь счетчик на единицу:
 
-        let arr = ['a', 'b', 'c', 'a', 'a', 'b'];
-        let counter = 0;
+        <p>Давайте подсчитаем количество элементов 'a' в этом массиве. Для этого будем перебирать массив циклом и каждый
+            раз, когда
+            нам будет встречаться элемент с нужным значением, будем увеличивать какой-нибудь счетчик на единицу: </p>
 
-        for (let elem of arr) {
-        if (elem == 'a') {
-        counter++;
-        }
-        }
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c', 'a', 'a', 'b'];
+<span class="-n"></span>let counter = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem == 'a') {
+<span class="-n"></span>counter++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(counter);
+</pre>
+        </div>
 
-        console.log(counter);
-        Задача 1⋕js.Pm.Lp.AEC.1
+        <h3>Задача 1 </h3>
 
-        Дан следующий массив:
+        <p>Дан следующий массив:</p>
 
         let arr = [1, 2, 3, 2, 4, 3, 5, 6, 3, 2, 3];
-        Подсчитайте количество цифр 3 в этом массиве.
 
-        Задача 2⋕js.Pm.Lp.AEC.2
+        <p>Подсчитайте количество цифр 3 в этом массиве.</p>
 
-        Модифицируйте предыдущую задачу так, чтобы в одном цикле одновременно подсчитывалось и количество троек, и
-        количество
-        двоек.
+        <p>Решение</p>
 
-        Результат в виде объекта
-        Пусть у нас опять дан наш массив:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [1, 2, 3, 2, 4, 3, 5, 6, 3, 2, 3];
+<span class="-n"></span>let res1 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr1) {
+<span class="-n"></span>    if (elem == 3) {
+<span class="-n"></span>        res1++;
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>console.log(res1);
+// 4
+</pre>
+        </div>
 
-        let arr = ['a', 'b', 'c', 'a', 'a', 'b'];
-        Давайте подсчитаем сколько каких элементов есть в этом массиве и представим результат в виде объекта вот такого
-        объекта:
+        <script>
+            let arr1 = [1, 2, 3, 2, 4, 3, 5, 6, 3, 2, 3];
+            let res1 = 0;
 
-        {a: 3, b: 2, c: 1}
-        Для решения сделаем объект count со следующим начальным значением:
+            for (let elem of arr1) {
+                if (elem == 3) {
+                    res1++;
+                }
+            }
+            console.log(`
+let arr1 = [1, 2, 3, 2, 4, 3, 5, 6, 3, 2, 3];
+let res1 = 0;
 
-        {a: 0, b: 0, c: 0}
-        Будем перебирать массив циклом и увеличивать соответствующее значение в объекте count:
+for (let elem of arr1) {
+if (elem == 3) {
+res1++
+}
+}
+console.log(res1);
+`, res1);
+        </script>
 
-        let arr = ['a', 'b', 'c', 'a', 'a', 'b'];
-        let count = {a: 0, b: 0, c: 0};
+        <h3>Задача 2</h3>
 
-        for (let elem of arr) {
-        count[elem]++;
-        }
+        <p>Модифицируйте предыдущую задачу так, чтобы в одном цикле одновременно подсчитывалось и количество троек, и
+            количество двоек.</p>
 
-        console.log(count); // выведет {a: 3, b: 2, c: 1}
-        Пойдем дальше: то, что у объекта count в начальном значении перечислены символы, ведь мы обычно не знаем, какие
-        элементы
-        есть в массиве.
+        <p>Решение</p>
 
-        Пусть объект count формируется автоматически таким образом: если такого элемента в count нет, то ему следует
-        присвоить
-        значение 1, а если есть - просто увеличить значение на единицу:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [1, 2, 3, 2, 4, 3, 5, 6, 3, 2, 3];
+<span class="-n"></span>let res22 = 0;
+<span class="-n"></span>let res23 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr2) {
+<span class="-n"></span>    if (elem == 3) {
+<span class="-n"></span>        res22++;
+<span class="-n"></span>    }
+<span class="-n"></span>
+<span class="-n"></span>    if (elem == 2) {
+<span class="-n"></span>        res23++;
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>console.log(res22);
+<span class="-n"></span>console.log(res23);
+</pre>
+        </div>
 
-        let arr = ['a', 'b', 'c', 'a', 'a', 'b'];
-        let count = {};
+        <script>
+            let arr2 = [1, 2, 3, 2, 4, 3, 5, 6, 3, 2, 3];
+            let res22 = 0;
+            let res23 = 0;
 
-        for (let elem of arr) {
-        if (count[elem] === undefined) {
-        count[elem] = 1;
-        } else {
-        count[elem]++;
-        }
-        }
+            for (let elem of arr2) {
+                if (elem == 3) {
+                    res22++;
+                }
+                if (elem == 2) {
+                    res23++;
+                }
+            }
+            console.log(`
+let arr2 = [1, 2, 3, 2, 4, 3, 5, 6, 3, 2, 3];
+let res22 = 0;
+let res23 = 0;
 
-        console.log(count); // выведет {a: 3, b: 2, c: 1}
-        Задача 3⋕js.Pm.Lp.AEC.3
+for (let elem of arr2) {
+if (elem == 3) {
+res22++;
+}
+if (elem == 2) {
+res23++;
+}
+}
+console.log(res22);
+`, res22);
+            console.log('console.log(res23);', res23);
+        </script>
 
-        Дана строка. Подсчитайте сколько раз в ней встречается каждый из ее символов.
+        <h2>Результат в виде объекта</h2>
+        <p>Пусть у нас опять дан наш массив:</p>
 
+        <p>let arr = ['a', 'b', 'c', 'a', 'a', 'b'];</p>
 
+        <p>Давайте подсчитаем сколько каких элементов есть в этом массиве и представим результат в виде объекта вот
+            такого объекта:</p>
+
+        <p>{a: 3, b: 2, c: 1}</p>
+
+        <p>Для решения сделаем объект count со следующим начальным значением:</p>
+
+        <p>{a: 0, b: 0, c: 0}</p>
+        <p>Будем перебирать массив циклом и увеличивать соответствующее значение в объекте count:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c', 'a', 'a', 'b'];
+<span class="-n"></span>let count = {a: 0, b: 0, c: 0};
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>count[elem]++;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(count); // выведет {a: 3, b: 2, c: 1}
+</pre>
+        </div>
+
+        <p>Пойдем дальше: то, что у объекта count в начальном значении перечислены символы, ведь мы обычно не знаем,
+            какие элементы есть в массиве.</p>
+
+        <p>Пусть объект count формируется автоматически таким образом: если такого элемента в count нет, то ему следует
+            присвоить значение 1, а если есть - просто увеличить значение на единицу:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['a', 'b', 'c', 'a', 'a', 'b'];
+<span class="-n"></span>let count = {};
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (count[elem] === undefined) {
+<span class="-n"></span>count[elem] = 1;
+<span class="-n"></span>} else {
+<span class="-n"></span>count[elem]++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(count); // выведет {a: 3, b: 2, c: 1}
+</pre>
+        </div>
+
+        <h3> Задача 3</h3>
+
+        <p>Дана строка. Подсчитайте сколько раз в ней встречается каждый из ее символов.</p>
 
 
     </main>

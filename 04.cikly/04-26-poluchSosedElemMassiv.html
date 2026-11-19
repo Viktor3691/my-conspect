@@ -19,10 +19,11 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-26-poluchSosedElemMassiv.html">88 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-25-podschKolElemMassive.html">Подсчет
+                количества элементов в массиве JavaScript</a>
 
             <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
         </div>
@@ -40,41 +41,233 @@
 
         <h2>Получение соседей элементов в массиве JavaScript</h2>
 
-        Пусть дан некоторый массив, например, такой:
+        <p> Пусть дан некоторый массив, например, такой:</p>
 
-        let arr = [1, 2, 3, 4, 5];
-        Давайте выведем элементы этого массива на экран, используя обычный цикл for:
+        <p>let arr = [1, 2, 3, 4, 5];</p>
 
-        let arr = [1, 2, 3, 4, 5];
+        <p>Давайте выведем элементы этого массива на экран, используя обычный цикл for:</p>
 
-        for (let i = 0; i < arr.length; i++) { console.log(arr[i]); } А теперь давайте переделаем наш код так, чтобы
-            выводились не текущие элементы, а предыдущие: let arr=[1, 2, 3, 4, 5]; for (let i=0; i < arr.length; i++) {
-            console.log(arr[i - 1]); } Как вы видите, для решения задачи мы просто отнимаем от счетчика число 1, тем
-            самым получая ключ предыдущего элемента. Здесь, однако, кроется проблема: в самом начале цикла значение
-            счетчика будет равно нулю и мы попытаемся получить элемент массива с ключом -1. Такого элемента, конечно же,
-            нет, и в результате мы получим значение undefined. В общем-то, это логично просто геометрически: самый
-            первый элемент массива не имеет предыдущего. Говоря другими словами, в нашем массиве 5 элементов, но только
-            4 из них имеют предыдущий элемент. То есть предыдущих элементов всегда на 1 меньше, чем элементов в массиве.
-            Логично в таком случае, что и цикл должен сделать на одну итерацию меньше. Поэтому просто начнем цикл с 1, а
-            не с 0, и проблема будет решена: let arr=[1, 2, 3, 4, 5]; for (let i=1; i < arr.length; i++) {
-            console.log(arr[i - 1]); } Понятно, что просто тупо выводить предыдущие элементы - бестолковая операция.
-            Давайте сделаем что-нибудь более осмысленное. К примеру, найдем сумму предыдущего и текущего элементов
-            массива и выведем их на экран: let arr=[1, 2, 3, 4, 5]; for (let i=1; i < arr.length; i++) {
-            console.log(arr[i - 1] + arr[i]); } Задача 1⋕js.Pm.Lp.AEN.1 Дан массив с числами. Переберите его циклом и в
-            каждой итерации цикла выведите следующий элемент массива. Задача 2⋕js.Pm.Lp.AEN.2 Модифицируйте предыдущую
-            задачу так, чтобы в каждой итерации цикла выводилась сумма текущего и следующего элемента массива. Задача
-            3⋕js.Pm.Lp.AEN.3 Дан массив с числами. Переберите его циклом и в каждой итерации цикла выведите два
-            предыдущих элемента массива. Задача 4⋕js.Pm.Lp.AEN.4 Модифицируйте предыдущую задачу так, чтобы в каждой
-            итерации цикла выводилась сумма двух предыдущих элементов и текущего элемента массива. Задача
-            5⋕js.Pm.Lp.AEN.5 Дан массив с числами. Переберите его циклом и в каждой итерации цикла выведите сумму
-            предыдущего, текущего и следующего элементов массива. </main>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr.length; i++) {
+<span class="-n"></span>console.log(arr[i]);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <p>А теперь давайте переделаем наш код так, чтобы выводились не текущие элементы, а предыдущие:</p>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; arr.length; i++) {
+<span class="-n"></span>console.log(arr[i - 1]);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Как вы видите, для решения задачи мы просто отнимаем от счетчика число 1, тем самым получая ключ предыдущего
+            элемента.</p>
+
+        <p>Здесь, однако, кроется проблема: в самом начале цикла значение счетчика будет равно нулю и мы попытаемся
+            получить элемент массива с ключом -1.</p>
+
+        <p>Такого элемента, конечно же, нет, и в результате мы получим значение undefined. В общем-то, это логично
+            просто геометрически: самый первый элемент массива не имеет предыдущего.</p>
+
+        <p> Говоря другими словами, в нашем массиве 5 элементов, но только 4 из них имеют предыдущий элемент. То есть
+            предыдущих элементов всегда на 1 меньше, чем элементов в массиве.</p>
+
+        <p>Логично в таком случае, что и цикл должен сделать на одну итерацию меньше. Поэтому просто начнем цикл с 1, а
+            не с 0, и проблема будет решена: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i &lt; arr.length; i++) {
+<span class="-n"></span>console.log(arr[i - 1]);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> Понятно, что просто тупо выводить предыдущие элементы - бестолковая операция. Давайте сделаем
+            что-нибудь более осмысленное. К примеру, найдем сумму предыдущего и текущего элементов массива и выведем их
+            на экран: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i &lt; arr.length; i++) {
+<span class="-n"></span>console.log(arr[i - 1] + arr[i]);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 1</h3>
+
+        <p>Дан массив с числами. Переберите его циклом и в каждой итерации цикла выведите
+            следующий элемент массива.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const arr1 = [10, 20, 30, 40, 50];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i < arr1.length; i++) {
+<span class="-n"></span>     // Проверяем, есть ли следующий элемент
+<span class="-n"></span>     if (i + 1 < arr1.length) {
+<span class="-n"></span>         document.write(arr1[i + 1], ', ');
+<span class="-n"></span>
+<span class="-n"></span>     } else {
+    // Для последнего элемента «следующего» нет — можно вывести сообщение или ничего не делать
+<span class="-n"></span>         document.write('Следующего элемента нет');
+<span class="-n"></span>     }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            const arr1 = [10, 20, 30, 40, 50];
+
+            for (let i = 0; i < arr1.length; i++) {
+                // Проверяем, есть ли следующий элемент
+                if (i + 1 < arr1.length) {
+                    document.write(arr1[i + 1], ', ');
+                } else {
+                    // Для последнего элемента «следующего» нет — можно вывести сообщение или ничего не делать
+                    document.write('Следующего элемента нет');
+                }
+            }
+
+        </script>
+
+        <h3>Задача 2</h3>
+
+        <p>Модифицируйте предыдущую задачу так, чтобы в каждой итерации цикла выводилась сумма текущего и следующего
+            элемента массива.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const arr2 = [10, 20, 30, 40, 50];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt; arr2.length; i++) {
+<span class="-n"></span>     document.write(arr2[i - 1] + arr2[i]);
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            const arr2 = [10, 20, 30, 40, 50];
+
+            for (let i = 1; i < arr2.length; i++) {
+                document.write(arr2[i - 1] + arr2[i], ', ');
+            }
+        </script>
+
+        <h3>Задача 3</h3>
+
+        <p>Дан массив с числами. Переберите его циклом и в каждой итерации цикла выведите два предыдущих элемента
+            массива.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const arr3 = [10, 20, 30, 40, 50];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt; arr3.length; i++) {
+<span class="-n"></span>    document.write(arr3[i - 1], ' ', arr3[i], ', ')
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            const arr3 = [10, 20, 30, 40, 50];
+
+            for (let i = 1; i < arr3.length; i++) {
+                document.write(arr3[i - 1], ' ', arr3[i], ', ')
+            }
+
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p> Модифицируйте предыдущую задачу так, чтобы в каждой итерации цикла выводилась сумма двух
+            предыдущих элементов и текущего элемента массива.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const arr4 = [10, 20, 30, 40, 50];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 2; i &lt; arr4.length; i++) {
+<span class="-n"></span>const sum = arr4[i - 2] + arr4[i - 1] + arr4[i];
+<span class="-n"></span>document.write(`Индекс ${i}: сумма двух предыдущих и текущего ${arr4[i - 2]} + ${arr4[i - 1]} + ${arr4[i]} = ${sum}`,
+'<br> ');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            const arr4 = [10, 20, 30, 40, 50];
+
+            for (let i = 2; i < arr4.length; i++) {
+                const sum = arr4[i - 2] + arr4[i - 1] + arr4[i];
+                document.write(`Индекс ${i}: сумма двух предыдущих и текущего  ${arr4[i - 2]} + ${arr4[i - 1]} + ${arr4[i]} = ${sum}`, '<br> ');
+            }
+
+        </script>
+
+        <p>Почему начинаем с i = 2: <br>
+            Чтобы существовали arr[i-2] и arr[i-1]. Это защищает от undefined и появления NaN в сумме.</p>
+
+        <h3>Задача 5</h3>
+
+        <p>Дан массив с числами. Переберите его циклом и в каждой итерации цикла выведите сумму предыдущего, текущего и
+            следующего элементов массива.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>const arr5 = [10, 20, 30, 40, 50, 60, 70];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 2; i &lt; arr5.length - 1; i++) {
+<span class="-n"></span>const sum = arr5[i - 1] + arr5[i] + arr5[i + 1];
+<span class="-n"></span>
+<span class="-n"></span>document.write(`Индекс ${i}: предыдущего, текущего и
+следующего ${arr5[i - 1]} + ${arr5[i]} + ${arr5[i + 1]} = ${sum}`, '<br> ');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            const arr5 = [10, 20, 30, 40, 50, 60, 70];
+
+            for (let i = 2; i < arr5.length - 1; i++) {
+                const sum = arr5[i - 1] + arr5[i] + arr5[i + 1];
+                document.write(`Индекс ${i}: предыдущего, текущего и
+            следующего   ${arr5[i - 1]} + ${arr5[i]} + ${arr5[i + 1]} = ${sum}`, '<br> ');
+            }
+
+        </script>
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

@@ -19,13 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04-25-podschKolElemMassive.html">86 of 312</a>
+            <a href="04-25-podschKolElemMassive.html">87 of 312</a>
         </div>
         <div data-e="subb">
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-24-praktikaIzmenZapoln.html">Практика на
                 циклы с массивами и объектами JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-26-poluchSosedElemMassiv.html">Получение соседей элементов в массиве
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -227,6 +228,45 @@ console.log(res22);
 
         <p>Дана строка. Подсчитайте сколько раз в ней встречается каждый из ее символов.</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str3 = 'Дана строка. Подсчитайте сколько раз в ней встречается каждый из ее символов.'
+<span class="-n"></span>let count3 = {};
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; str3.length; i++) {
+<span class="-n"></span>let numStr3 = str3[i];
+<span class="-n"></span>
+<span class="-n"></span>if (count3[numStr3] === undefined) {
+<span class="-n"></span>count3[numStr3] = 1;
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>count3[numStr3]++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(count3);
+" ":11, .:2, Д:1, П:1, а:7, в:4, д:2, е:6, ж:1, з:2, и:3, й:3, к:4, л:2, м:1, н:2, о:6, р:3, с:6, т:5, ч:2, ы:1, ь:1, я:1
+</pre>
+        </div>
+
+
+
+        <script>
+            let str3 = 'Дана строка. Подсчитайте сколько раз в ней встречается каждый из ее символов.'
+            let count3 = {};
+
+            for (let i = 0; i < str3.length; i++) {
+                let numStr3 = str3[i];
+                if (count3[numStr3] === undefined) {
+                    count3[numStr3] = 1;
+                } else {
+                    count3[numStr3]++;
+                }
+            }
+            console.log(count3);
+
+
+        </script>
 
     </main>
 

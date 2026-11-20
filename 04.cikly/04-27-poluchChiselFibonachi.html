@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-27-poluchChiselFibonachi.html">89 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-26-poluchSosedElemMassiv.html">Получение
+                соседей элементов в массиве JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-28-sozdPiramCiklov.html">Вывод пирамидок на JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,25 +42,120 @@
 
         <h2>Получение чисел Фибоначчи в JavaScript</h2>
 
-        Сейчас мы с вами научимся получать числа Фибоначчи. Данные числа представляют собой последовательность, в
-        которой первые
-        два числа равны 0 и 1, а каждое последующее число равно сумме двух предыдущих чисел. Вот решение описанной
-        задачи:
+        <p>Сейчас мы с вами научимся получать числа Фибоначчи.</p>
 
-        let one = 0;
-        let two = 1;
+        <p>Данные числа представляют собой последовательность, в
+            которой первые
+            два числа равны 0 и 1, а каждое последующее число равно сумме двух предыдущих чисел. Вот решение описанной
+            задачи:</p>
 
-        for (let i = 1; i <= 10; i++) { let current=one + two; one=two; two=current; console.log(current); } Задача
-            1⋕js.Pm.Lp.FiNb.1 Разберите мое решение описанной задачи, а затем самостоятельно, не подсматривая в мой код,
-            решите эту задачу. Задача 2⋕js.Pm.Lp.FiNb.2 Решите задачу на нахождение ряда чисел, каждое из которых равно
-            сумме трех предыдущих, а первые три числа равны 0, 1 и 2. </main>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span> let one = 0;
+<span class="-n"></span> let two = 1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>let current=one + two;
+<span class="-n"></span>one=two;
+<span class="-n"></span>two=current;
+<span class="-n"></span>
+<span class="-n"></span>console.log(current);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <h3>Задача 1 </h3>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <p> Разберите мое решение описанной задачи, а затем самостоятельно, не подсматривая в мой код, решите эту
+            задачу.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let one1 = 0;
+<span class="-n"></span>let two1 = 1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>let current = one1 + two1;
+<span class="-n"></span>one1 = two1;
+<span class="-n"></span>two1 = current;
+<span class="-n"></span>
+<span class="-n"></span>document.write(current, ' ');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+
+        <script>
+            let one1 = 0;
+            let two1 = 1;
+
+            for (let i = 1; i <= 10; i++) {
+                let current = one1 + two1;
+                one1 = two1;
+                two1 = current;
+
+                document.write(current, ' ');
+            }
+        </script>
+
+        <h3> Задача 2 </h3>
+
+        <p>Решите задачу на нахождение ряда чисел, каждое из которых равно
+            сумме трех предыдущих, а первые три числа равны 0, 1 и 2.</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let num1 = 0;
+<span class="-n"></span>let num2 = 1;
+<span class="-n"></span>let num3 = 2;
+<span class="-n"></span>
+<span class="-n"></span>document.write(`num1 = ${num1} , num2 = ${num2}, num3 = ${num3}`, '<br>');
+// Выводим первые три числа (если в задаче нужно и их показать)
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>let current = num1 + num2 + num3;
+// сумма трёх предыдущих
+<span class="-n"></span>document.write(current, ' ');
+// сразу печатаем результат
+<span class="-n"></span>
+// сдвигаем «окно» вперёд: num1←num2, num2←num3, num3←current
+num1 = num2;
+num2 = num3;
+num3 = current;
+</pre>
+        </div>
+
+        <script>
+            let num1 = 0;
+            let num2 = 1;
+            let num3 = 2;
+
+            // Выводим первые три числа (если в задаче нужно и их показать)
+            document.write(`num1 = ${num1} , num2 = ${num2}, num3 = ${num3}`, '<br>');
+
+            for (let i = 1; i <= 10; i++) {
+                let current = num1 + num2 + num3;   // сумма трёх предыдущих
+                document.write(current, ' ');       // сразу печатаем результат
+
+                // сдвигаем «окно» вперёд: num1←num2, num2←num3, num3←current
+                num1 = num2;
+                num2 = num3;
+                num3 = current;
+            }
+        </script>
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

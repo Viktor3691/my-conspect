@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-28-sozdPiramCiklov.html">90 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-27-poluchChiselFibonachi.html">Получение
+                чисел Фибоначчи в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-29-zapolMassivNakoplStroki.html">Заполнение массивов с накоплением строки в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,104 +42,379 @@
 
         <h2>Вывод пирамидок на JavaScript</h2>
 
-        Давайте теперь выведем на экран следующую пирамидку:
+        <p>Давайте теперь выведем на экран следующую пирамидку:</p>
 
-        x
-        xx
-        xxx
-        xxxx
-        xxxxx
+        <div data-w="bock/code">
+            <pre>
+<span class="-n"></span>x
+<span class="-n"></span>xx
+<span class="-n"></span>xxx
+<span class="-n"></span>xxxx
+<span class="-n"></span>xxxxx
+</pre>
+        </div>
+
         Приступим к решению задачи.
 
-        Для начала давайте вспомним код из предыдущих уроков, выводящий строку 'xxxxxxxxxx':
+        <p>Для начала давайте вспомним код из предыдущих уроков, выводящий строку 'xxxxxxxxxx':</p>
 
-        let str = '';
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 10; i++) {
+<span class="-n"></span>str +='x' ;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(str);
+// выведет 'xxxxxxxxxx'
+</pre>
+        </div>
 
-        for (let i = 0; i < 10; i++) { str +='x' ; } document.write(str); // выведет 'xxxxxxxxxx' Для решения
-            поставленной задачи на пирамидку просто модифицируем приведенный код: при каждом проходе цикла будем
-            выводить на экран содержимое переменной str и тег <br>:
+        <p>Для решения поставленной задачи на пирамидку просто модифицируем приведенный код: при каждом проходе цикла
+            будем выводить на экран содержимое переменной str и тег &lt;br>:</p>
 
-            let str = '';
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 5; i++) {
+<span class="-n"></span>str +='x' ;
+<span class="-n"></span>document.write(str + '&lt;br>' );
+<span class="-n"></span>}
+</pre>
+        </div>
 
-            for (let i = 0; i < 5; i++) { str +='x' ; document.write(str + '<br>' ); } Так как в цикле str постепенно
-                растет, то сначала выведется x и <br>, потом xx и <br> и так далее.
 
-                Задача 1⋕js.Pm.Lp.PLC.1
+        <p>Так как в цикле str постепенно растет, то сначала выведется x и &lt;br>, потом xx и &lt;br> и так далее. </p>
 
-                Выведите на экран следующую пирамидку:
+        <h3>Задача 1 </h3>
 
-                xx
-                xxxx
-                xxxxxx
-                xxxxxxxx
-                xxxxxxxxxx
-                Пирамидка с цифрами
-                Давайте теперь выведем на экран следующую пирамидку:
+        <p>Выведите на экран следующую пирамидку:</p>
 
-                111
-                222
-                333
-                444
-                555
-                666
-                777
-                888
-                999
-                Похожую задачу мы уже решали, когда выводили строку '111222333444555666777888999'. Напомню этот код:
+        <div data-w="bock/code">
+            <pre>
+<span class="-n"></span>xx
+<span class="-n"></span>xxxx
+<span class="-n"></span>xxxxxx
+<span class="-n"></span>xxxxxxxx
+<span class="-n"></span>xxxxxxxxxx
+</pre>
+        </div>
 
-                for (let i = 1; i <= 9; i++) { for (let j=1; j <=3; j++) { document.write(i); // выводит '111' ,
-                    потом '222' , потом '333' и так далее } } По сути нам нужна такая же строка, но с <br> в нужных
-                    местах. Добавим их:
+        <p>Решение</p>
 
-                    for (let i = 1; i <= 9; i++) { for (let j=1; j <=3; j++) { document.write(i); } document.write('<br>
-                        '); //
-                        выводим <br>, чтобы было в столбик
-                        }
-                        Пирамидка с цифрами
-                        Выведем теперь следующую пирамидку:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let str1 = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 5; i++) {
+<span class="-n"></span>    str1 = str1 + 'x' + 'x';
+<span class="-n"></span>
+<span class="-n"></span>    document.write(str1,'&lt;br>');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-                        1
-                        22
-                        333
-                        4444
-                        55555
-                        666666
-                        7777777
-                        88888888
-                        999999999
-                        Задача аналогична предыдущей, только внутренний цикл должен крутиться не 3 раза, а в
-                        соответствии с
-                        числом: если у нас единица - то повторяем цикл 1 раз, если двойка - два раза, если тройка - три
-                        раза.
+        <script>
+            let str1 = '';
 
-                        Как этого достичь: нужно в условии внутреннего цикла написать следующее: j <= i. В этом случае
-                            если i равен 1, то это все равно, что в условии написать j <=1, а если i равен 2 - то j <=2
-                            и так далее: for (let i=1; i <=9; i++) { for (let j=1; j <=i; j++) { document.write(i); }
-                            document.write('<br>');
-                            }
-                            Я думаю, вы уже обратили внимание, что в этой пирамидке мы не используем накопление в
-                            строку,
-                            которое мы разбирали ранее. Можно и с накоплением, но это получится чуть сложнее:
+            for (let i = 0; i < 5; i++) {
+                str1 = str1 + 'x' + 'x';
 
-                            for (let i = 1; i <= 9; i++) { let str='' ; // каждый раз зачищаем строку for (let j=1; j
-                                <=i; j++) { str +=i; } document.write(str + '<br>' ); } Задача 2⋕js.Pm.Lp.PLC.2 Выведите
-                                на экран следующую пирамидку: 1 333 55555 7777777 999999999 Перевернутые пирамидки
-                                Научимся теперь делать перевернутые пирамидки. Сделаем, к примеру, вот такую: xxxxx xxxx
-                                xxx xx x Для решения задачи необходимо запустить два вложенных цикла, вот так: for (let
-                                i=5; i>= 1; i--) {
-                                let str = '';
+                document.write(str1, '<br>');
+            }
+        </script>
 
-                                for (let j = 0; j < i; j++) { str +='x' ; } document.write(str + '<br>' ); } Задача
-                                    3⋕js.Pm.Lp.PLC.3 Выведите на экран следующую пирамидку: xxxxxxxxxx xxxxxxxx xxxxxx
-                                    xxxx xx Задача 4⋕js.Pm.Lp.PLC.4 Выведите на экран следующую пирамидку: 999999999
-                                    88888888 7777777 666666 55555 4444 333 22 1 </main>
+        <h2>Пирамидка с цифрами</h2>
 
-                                    <footer data-w="nict/finf">
-                                        <span data-e="text">Мой личный конспект © 2026</span>
-                                    </footer>
+        <p>Давайте теперь выведем на экран следующую пирамидку:</p>
 
-                                    <script src="../js/loader.js" defer></script>
-                                    <script src="../js/app.js" defer></script>
+        <div data-w="bock/code">
+            <pre>
+<span class="-n"></span>111
+<span class="-n"></span>222
+<span class="-n"></span>333
+<span class="-n"></span>444
+<span class="-n"></span>555
+<span class="-n"></span>666
+<span class="-n"></span>777
+<span class="-n"></span>888
+<span class="-n"></span>999
+</pre>
+        </div>
+
+        <p>Похожую задачу мы уже решали, когда выводили строку '111222333444555666777888999'. Напомню этот код: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 9; i++) {
+<span class="-n"></span>for (let j=1; j &lt;=3; j++) {
+<span class="-n"></span>document.write(i);
+// выводит '111' , потом '222', потом '333' и так далее
+<span class="-n"></span>}
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>По сути нам нужна такая же строка, но с &lt;br> в нужных
+            местах. Добавим их: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 9; i++) {
+<span class="-n"></span>for (let j=1; j &lt;=3; j++) {
+<span class="-n"></span>document.write(i);
+<span class="-n"></span>}
+<span class="-n"></span>document.write('&lt;br>');
+// выводим &lt;br>, чтобы было в столбик
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p>Выведем теперь следующую пирамидку:</p>
+
+        <div data-w="bock/code">
+            <pre>
+<span class="-n"></span>1
+<span class="-n"></span>22
+<span class="-n"></span>333
+<span class="-n"></span>4444
+<span class="-n"></span>55555
+<span class="-n"></span>666666
+<span class="-n"></span>7777777
+<span class="-n"></span>88888888
+<span class="-n"></span>999999999
+</pre>
+        </div>
+
+        <p> Задача аналогична предыдущей, только внутренний цикл должен крутиться не 3 раза, а в
+            соответствии с
+            числом: если у нас единица - то повторяем цикл 1 раз, если двойка - два раза, если тройка - три
+            раза.</p>
+
+        <p> Как этого достичь: нужно в условии внутреннего цикла написать следующее:
+            j &lt;= i. <br>
+            В этом случае если i равен 1, то это все равно, что в условии написать j &lt;=1, а если i равен 2 - то j
+            &lt;=2 и так далее: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=1; i &lt;=9; i++) {
+<span class="-n"></span>for (let j=1;j &lt;=i; j++) {
+<span class="-n"></span>    document.write(i);
+<span class="-n"></span>    }
+<span class="-n"></span>document.write('&lt;br>');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <p> Я думаю, вы уже обратили внимание, что в этой пирамидке мы не используем накопление в
+            строку, которое мы разбирали ранее. Можно и с накоплением, но это получится чуть сложнее:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 9; i++) {
+<span class="-n"></span>let str='' ;
+// каждый раз зачищаем строку
+<span class="-n"></span>
+<span class="-n"></span>for (let j=1; j &lt;=i; j++) {
+<span class="-n"></span>    str +=i;
+<span class="-n"></span>}
+<span class="-n"></span>document.write(str + '&lt;br>' );
+<span class="-n"></span>}
+</pre>
+        </div>
+
+
+        <h3> Задача 2 </h3>
+
+        Выведите на экран следующую пирамидку:
+
+        <div data-w="bock/code">
+            <pre>
+<span class="-n"></span>1
+<span class="-n"></span>333
+<span class="-n"></span>55555
+<span class="-n"></span>7777777
+<span class="-n"></span>999999999
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 9; i++) {
+<span class="-n"></span>    let str = '';
+<span class="-n"></span>
+<span class="-n"></span>    if (i % 2 !== 0) {
+<span class="-n"></span>        for (let j = 1; j &lt;= i; j++) {
+<span class="-n"></span>            str = str + i;
+<span class="-n"></span>        }
+<span class="-n"></span>        document.write(str, '&lt;br>');
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            for (let i = 1; i <= 9; i++) {
+                let str = '';
+                if (i % 2 !== 0) {
+                    for (let j = 1; j <= i; j++) {
+                        str = str + i;
+                    }
+                    document.write(str, '<br>');
+                }
+            }
+        </script>
+
+        <h2> Перевернутые пирамидки</h2>
+
+        <p>Научимся теперь делать перевернутые пирамидки. Сделаем, к примеру, вот такую:
+
+        <div data-w="bock/code">
+            <pre>
+<span class="-n"></span>xxxxx
+<span class="-n"></span>xxxx
+<span class="-n"></span>xxx
+<span class="-n"></span>xx
+<span class="-n"></span>x
+</pre>
+        </div>
+
+        Для решения задачи необходимо запустить два вложенных цикла, вот так:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=5; i>= 1; i--) {
+<span class="-n"></span>    let str = '';
+<span class="-n"></span>    for (let j = 0; j &lt; i; j++) {
+<span class="-n"></span>        str +='x' ;
+<span class="-n"></span>    }
+<span class="-n"></span>    document.write(str + '&lt;br>' );
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            for (let i = 5; i >= 1; i--) {
+                let str = '';
+                for (let j = 0; j < i; j++) {
+                    str += 'x';
+                }
+                document.write(str + '<br>');
+            }
+        </script>
+
+        <h3> Задача 3</h3>
+
+        <p> Выведите на экран следующую пирамидку:
+
+        <div data-w="bock/code">
+            <pre>
+<span class="-n"></span>xxxxxxxxxx
+<span class="-n"></span>xxxxxxxx
+<span class="-n"></span>xxxxxx
+<span class="-n"></span>xxxx
+<span class="-n"></span>xx
+</pre>
+        </div>
+        </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 10; i >= 2; i--) {
+<span class="-n"></span>    let str3 = '';
+<span class="-n"></span>
+<span class="-n"></span>    if (i % 2 === 0) {
+<span class="-n"></span>        for (let j = 0; j &lt; i; j++) {
+<span class="-n"></span>             str3 += 'x';
+<span class="-n"></span>        }
+<span class="-n"></span>        document.write(str3,'&lt;br>');
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            for (let i = 10; i >= 2; i--) {
+                let str3 = '';
+                if (i % 2 === 0) {
+                    for (let j = 0; j < i; j++) {
+                        str3 += 'x';
+                    }
+                    document.write(str3, '<br>');
+                }
+            }
+        </script>
+
+        <h3>Задача 4</h3>
+
+        <p> Выведите на экран следующую пирамидку:
+
+        <div data-w="bock/code">
+            <pre>
+<span class="-n"></span>999999999
+<span class="-n"></span>88888888
+<span class="-n"></span>7777777
+<span class="-n"></span>666666
+<span class="-n"></span>55555
+<span class="-n"></span>4444
+<span class="-n"></span>333
+<span class="-n"></span>22
+<span class="-n"></span>1
+</pre>
+        </div>
+        </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 9; i >= 1; i--) {
+<span class="-n"></span>    let str = '';
+<span class="-n"></span>
+<span class="-n"></span>    for (let j = 1; j <= i; j++) {
+<span class="-n"></span>        str += i
+<span class="-n"></span>    }
+<span class="-n"></span>
+<span class="-n"></span>    document.write(str, '&lt;br>');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            for (let i = 9; i >= 1; i--) {
+                let str = '';
+                for (let j = 1; j <= i; j++) {
+                    str += i
+                }
+                document.write(str, '<br>');
+            }
+        </script>
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

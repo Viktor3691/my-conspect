@@ -19,10 +19,11 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-31-sovetOtladCoda.html">93 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-30-sovetNapisCoda.html">Советы по написанию
+                кода циклов в JavaScript</a>
 
             <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
         </div>
@@ -40,111 +41,193 @@
 
         <h2>Советы по отладке кода на примере циклов в JavaScript</h2>
 
-        Сейчас я научу вас методике поиска ошибок в коде. Представим себе, что вы по какому-то недоразумению не
-        следовали
-        советам из предыдущего урока и получили не работающий код. Давайте посмотрим, как найти ошибки и заставить его
-        работать.
+        <p>Сейчас я научу вас методике поиска ошибок в коде. Представим себе, что вы по какому-то недоразумению не
+            следовали советам из предыдущего урока и получили не работающий код. Давайте посмотрим, как найти ошибки и
+            заставить его
+            работать.</p>
 
-        Многие начинающие пользуются неправильной методикой поиска. Они берут и смотрят на код, в надежде, что заметят
-        ошибку. И
-        так пару часов. Это так не работает.
+        <p>Многие начинающие пользуются неправильной методикой поиска. Они берут и смотрят на код, в надежде, что
+            заметят ошибку. И так пару часов. Это так не работает.</p>
 
-        Правильной методикой является вывод переменных в консоль и определения, то ли там лежит, что нужно, или нет. При
-        этом
-        начинать нужно от предполагаемого места проблемы и двигаться вверх по коду. Давайте посмотрим на практике.
+        <p>Правильной методикой является вывод переменных в консоль и определения, то ли там лежит, что нужно, или нет.
+            При этом начинать нужно от предполагаемого места проблемы и двигаться вверх по коду. Давайте посмотрим на
+            практике.</p>
 
-        Пусть для примера перед вами стояла задача перебрать массив с двухзначными числами и найти числа, у которых
-        первая цифра
-        на один больше второй. Пусть для простоты в массиве хранятся числа в виде строк.
+        <p> Пусть для примера перед вами стояла задача перебрать массив с двухзначными числами и найти числа, у которых
+            первая цифра на один больше второй. Пусть для простоты в массиве хранятся числа в виде строк.</p>
 
-        Пусть вы решили задачу и получили следующий код:
+        <p>Пусть вы решили задачу и получили следующий код:</p>
 
-        let arr = ['21', '32', '34', '43', '45', '54', '55'];
-        let sum = 0;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['21', '32', '34', '43', '45', '54', '55'];
+<span class="-n"></span>let sum = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem[0] === elem[1] + 1) {
+<span class="-n"></span>sum += elem;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum); // выдает 0
+</pre>
+        </div>
 
-        for (let elem of arr) {
-        if (elem[0] === elem[1] + 1) {
-        sum += elem;
-        }
-        }
+        <p> Код, однако, выдает 0. В этом случае первым делом нужно проверить,смотрим что в переменной попадает ли
+            выполнения кода в иф. Выведим в нем что-нибудь в консоль: </p>
 
-        console.log(sum); // выдает 0
-        Код, однако, выдает 0. В этом случае первым делом нужно проверить,смотрим что в переменной попадает ли
-        выполнения кода в
-        иф. Выведим в нем что-нибудь в консоль:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['21', '32', '34', '43', '45', '54', '55'];
+<span class="-n"></span>let sum = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem[0] === elem[1] + 1) {
+<span class="-n"></span>console.log('!'); // ничего не выводит
+<span class="-n"></span>sum += elem;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(sum);
+</pre>
+        </div>
 
-        let arr = ['21', '32', '34', '43', '45', '54', '55'];
-        let sum = 0;
+        <p>Так как в консоли ничего не появилось, это значит, что выполнения кода просто не заходит в условие. Посмотрим
+            своими
+            глазами, что же мы сравниваем:</p>
 
-        for (let elem of arr) {
-        if (elem[0] === elem[1] + 1) {
-        console.log('!'); // ничего не выводит
-        sum += elem;
-        }
-        }
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['21', '32', '34', '43', '45', '54', '55'];
+<span class="-n"></span>let sum = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>console.log(elem[0], elem[1] + 1);
+// '2' и '11', '3' и '21' ...
+<span class="-n"></span>if (elem[0] === elem[1] + 1) {
+<span class="-n"></span>sum += elem;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(sum);
+</pre>
+        </div>
 
-        console.log(sum);
-        Так как в консоли ничего не появилось, это значит, что выполнения кода просто не заходит в условие. Посмотрим
-        своими
-        глазами, что же мы сравниваем:
+        <p>В результате сразу становится видным, что второе слагаемое двухзначное. Легко понять, что это из-за того, что
+            единица прибавляется как строка. Исправим проблему:</p>
 
-        let arr = ['21', '32', '34', '43', '45', '54', '55'];
-        let sum = 0;
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['21', '32', '34', '43', '45', '54', '55'];
+<span class="-n"></span>let sum = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (+elem[0] === +elem[1] + 1) { // исправляем
+<span class="-n"></span>sum += elem;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum);
+// '021324354'
+</pre>
+        </div>
 
-        for (let elem of arr) {
-        console.log(elem[0], elem[1] + 1); // '2' и '11', '3' и '21' ...
+        <p>После исправления мы уже видим, что в переменной sum что-то появилось, хотя и некорректное. Видно, однако,
+            что там лежит то, что нам нужно, но оно сложилось в виде строк, а не чисел. Исправим проблему:</p>
 
-        if (elem[0] === elem[1] + 1) {
-        sum += elem;
-        }
-        }
-
-        console.log(sum);
-        В результате сразу становится видным, что второе слагаемое двухзначное. Легко понять, что это из-за того, что
-        единица
-        прибавляется как строка. Исправим проблему:
-
-        let arr = ['21', '32', '34', '43', '45', '54', '55'];
-        let sum = 0;
-
-        for (let elem of arr) {
-        if (+elem[0] === +elem[1] + 1) { // исправляем
-        sum += elem;
-        }
-        }
-
-        console.log(sum); // '021324354'
-        После исправления мы уже видим, что в переменной sum что-то появилось, хотя и некорректное. Видно, однако, что
-        там лежит
-        то, что нам нужно, но оно сложилось в виде строк, а не чисел. Исправим проблему:
-
-        let arr = ['21', '32', '34', '43', '45', '54', '55'];
-        let sum = 0;
-
-        for (let elem of arr) {
-        if (+elem[0] === +elem[1] + 1) {
-        sum += +elem; // исправляем
-        }
-        }
-
-        console.log(sum); // все работает
-        Задача 1⋕js.Pm.Lp.Dbg.1
-
-        Исправьте ошибки, допущенные в следующем коде:
-
-        let obj = {a: 10, b: 20, c: 30, d: 40, e: 50};
-        let sum = 0;
-
-        for (let elem in obj) {
-        if (elem[0] === '1' && elem[0] === '2') {
-        sum += +elem;
-        }
-        }
-
-        console.log(sum);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['21', '32', '34', '43', '45', '54', '55'];
+<span class="-n"></span>let sum = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (+elem[0] === +elem[1] + 1) {
+<span class="-n"></span>sum += +elem; // исправляем
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum); // все работает
+</pre>
+        </div>
 
 
+        <h3>Задача 1</h3>
 
+        <p> Исправьте ошибки, допущенные в следующем коде: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = {a: 10, b: 20, c: 30, d: 40, e: 50};
+<span class="-n"></span>let sum = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem in obj) {
+<span class="-n"></span>if (elem[0] === '1' && elem[0] === '2') {
+<span class="-n"></span>sum += +elem;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum);
+</pre>
+        </div>
+
+        <p>Решение</p>
+
+        <p> В коде есть три основные ошибки:</p>
+
+        <ol>
+            <li>for...in перебирает ключи объекта, а не значения. В данном случае elem — это 'a', 'b' и т. д., а не
+                числа 10, 20 и т. д.</li>
+            <li>Условие elem[0] === '1' && elem[0] === '2' всегда ложно: один и тот же символ не может одновременно
+                равняться и '1', и
+                '2'. Нужно использовать || («или»).</li>
+            <li>Мы пытаемся проверить первую цифру у ключа (который — буква), а нужно проверять первую цифру у значения
+                числа.</li>
+        </ol>
+
+
+        <p><b>Исправленный вариант (через for...in)</b></p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj = { a: 10, b: 20, c: 30, d: 40, e: 50 };
+<span class="-n"></span>let sum = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj) {
+<span class="-n"></span>    const value = obj[key];
+// берём значение по ключу
+<span class="-n"></span>    const firstDigit = String(value)[0];
+// превращаем в строку и берём первый символ
+<span class="-n"></span>    if (firstDigit === '1' || firstDigit === '2') {
+<span class="-n"></span>        sum += value;
+// прибавляем само число, а не ключ
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(sum); // 30 (10 + 20)
+</pre>
+        </div>
+
+        <script>
+            let obj = { a: 10, b: 20, c: 30, d: 40, e: 50 };
+            let sum = 0;
+
+            for (let key in obj) {
+                const value = obj[key];
+                const firstDigit = String(value)[0];
+
+                if (firstDigit === '1' || firstDigit === '2') {
+                    sum += value;
+                }
+            }
+
+            document.write(sum); // 30 (10 + 20)
+
+        </script>
 
     </main>
 

@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-28-sozdPiramCiklov.html">Вывод пирамидок на
                 JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-30-sovetNapisCoda.html">Советы по написанию кода циклов в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -41,30 +42,136 @@
 
         <h2>Заполнение массивов с накоплением строки в JavaScript</h2>
 
-        Давайте заполним массив следующим образом: в первый элемент запишем 'x', во второй 'xx', в третий 'xxx' и так
-        далее.
+        <p>Давайте заполним массив следующим образом: в первый элемент запишем 'x', во второй 'xx', в третий 'xxx' и так
+            далее.</p>
 
-        Задача аналогична пирамидке, разница в том, что мы не будем выводить формируемую строку на экран, а будем
-        записывать ее
-        в массив, вот так:
+        <p>Задача аналогична пирамидке, разница в том, что мы не будем выводить формируемую строку на экран, а будем
+            записывать ее в массив, вот так:</p>
 
-        let arr = [];
-        let str = '';
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [];
+<span class="-n"></span>let str = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 5; i++) {
+<span class="-n"></span>str +='x' ;
+<span class="-n"></span>arr.push(str);
+<span class="-n"></span>}
+<span class="-n"></span> console.log(arr);
+// выведет ['x', 'xx' , 'xxx', 'xxxx' , 'xxxxx' ]
+</pre>
+        </div>
 
-        for (let i = 0; i < 5; i++) { str +='x' ; arr.push(str); } console.log(arr); // выведет ['x', 'xx' , 'xxx'
-            , 'xxxx' , 'xxxxx' ] Задача 1⋕js.Pm.Lp.SAAF.1 С помощью цикла сформируйте следующий массив: ['xx', 'xxxx'
-            , 'xxxxxx' , 'xxxxxxxx' , 'xxxxxxxxxx' ] Заполнение массива числами Давайте теперь заполним массив следующим
-            образом: в первый элемент запишем '1' , во второй '22' , в третий '333' и так далее. Данная задача также
-            аналогична пирамидке. Реализуем: let arr=[]; for (let i=1; i < 10; i++) { let str='' ; for (let j=0; j < i;
-            j++) { str +=i; } arr.push(str); } console.log(arr); Задача 2⋕js.Pm.Lp.SAAF.2 С помощью цикла сформируйте
-            следующий массив: ['11111', '22222' , '33333' , '44444' , '55555' ] </main>
+        <h3>Задача 1</h3>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <p>С помощью цикла сформируйте следующий массив:</p>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <p> ['xx', 'xxxx', 'xxxxxx' , 'xxxxxxxx' , 'xxxxxxxxxx' ]</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [];
+<span class="-n"></span>let str1 = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 5; i++) {
+<span class="-n"></span>str1 += 'x' + 'x';
+<span class="-n"></span>arr1.push(str1);
+<span class="-n"></span>}
+<span class="-n"></span>document.write('arr1 = [', arr1, '];');
+</pre>
+        </div>
+
+        <script>
+            let arr1 = [];
+            let str1 = '';
+
+            for (let i = 0; i < 5; i++) {
+                str1 += 'x' + 'x';
+                arr1.push(str1);
+            }
+            document.write('arr1 = [', arr1, '];');
+        </script>
+
+
+        <h3> Заполнение массива числами</h3>
+
+        <p> Давайте теперь заполним массив следующим образом: в первый элемент запишем '1' , во второй '22' , в третий
+            '333' и так далее.</p>
+
+        <p> Данная задача также аналогична пирамидке. Реализуем:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i &lt; 10; i++) {
+<span class="-n"></span>let str='' ;
+<span class="-n"></span>
+<span class="-n"></span>for (let j=0; j &lt; i; j++) {
+<span class="-n"></span>str +=i;
+<span class="-n"></span>}
+<span class="-n"></span>arr.push(str);
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
+
+
+        <h3> Задача 2</h3>
+
+        <p>С помощью цикла сформируйте следующий массив: ['11111', '22222' , '33333' , '44444' , '55555' ] </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 5; i++) {
+<span class="-n"></span>    let str2 = '';
+<span class="-n"></span>
+<span class="-n"></span>    for (let j = 0; j &lt; i; j++) {
+<span class="-n"></span>        str2 += i;
+<span class="-n"></span>    }
+<span class="-n"></span>    arr2.push(str2);
+<span class="-n"></span>}
+<span class="-n"></span>document.write('arr2 = ', JSON.stringify(arr2), ';');
+</pre>
+        </div>
+
+        <script>
+            let arr2 = [];
+
+            for (let i = 1; i <= 5; i++) {
+                let str2 = '';
+                for (let j = 0; j < 5; j++) {      // всегда 5 повторений
+                    str2 += i;
+                }
+                arr2.push(str2);
+            }
+
+            document.write('arr2 = ', JSON.stringify(arr2), ';');
+
+        </script>
+
+        <p> JSON.stringify(arr2) — это метод, который превращает JavaScript‑массив (или объект) в строку в формате JSON.
+        </p>
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

@@ -19,10 +19,11 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-32-praktikaPoiskOshibok.html">94 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-31-sovetOtladCoda.html">Советы по отладке
+                кода на примере циклов в JavaScript</a>
 
             <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
         </div>
@@ -40,80 +41,380 @@
 
         <h2>Поиск ошибок в коде с циклами JavaScript</h2>
 
-        В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны проверить,
-        делает ли
-        код то, что описано. Если код работает некорректно, вы должны исправить ошибки.
+        <p>В следующих задачах некоторый программист написал код и, возможно, допустил в нем ошибки. Вы должны
+            проверить, делает ли
+            код то, что описано. Если код работает некорректно, вы должны исправить ошибки. </p>
 
-        Задача 1⋕js.Pm.Lp.Mst.1
+        <h3>Задача 1</h3>
 
-        Код должен вывести числа от 0 до 10:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 0; i > 10; i++) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let i = 0; i > 10; i++) {
-        console.log(i);
-        }
-        Задача 2⋕js.Pm.Lp.Mst.2
+        <p>Решение</p>
 
-        Код должен вывести числа от 10 до 0:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 0; i &lt; 10; i++) {
+// i > 10;
+<span class="-n"></span>document.write(i, ', ');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let i = 10; i > 0; i++) {
-        console.log(i);
-        }
-        Задача 3⋕js.Pm.Lp.Mst.3
+        <script>
+            for (let i = 0; i < 10; i++) {
+                document.write(i, ', ');
+            }
+        </script>
 
-        Код должен вывести числа от 10 до 0:
+        <h3>Задача 2</h3>
 
-        for (let i = 10; i == 0; i--) {
-        console.log(i);
-        }
-        Задача 4⋕js.Pm.Lp.Mst.4
+        <p>Код должен вывести числа от 10 до 0:</p>
 
-        Код должен вывести числа от 0 до 10:
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 10; i > 0; i++) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        let i = 0;
+        <p>Решение</p>
 
-        while (i >= 10) {
-        console.log(i);
-        i++;
-        }
-        Задача 5⋕js.Pm.Lp.Mst.5
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 10; i >= 0; i--) {
+//i++
+<span class="-n"></span>    document.write(i, ', ');
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        Код должен найти сумму целых чисел от 1 до 10:
+        <script>
+            for (let i = 10; i >= 0; i--) {
+                document.write(i, ', ');
+            }
+        </script>
 
-        let res;
+        <h3>Задача 3</h3>
 
-        for (let i = 1; i <= 10; i++) { res +=i; } console.log(res); Задача 6⋕js.Pm.Lp.Mst.6 Код должен найти
-            произведение целых чисел от 1 до 10: let res=0; for (let i=1; i <=10; i++) { res *=i; } console.log(res);
-            Задача 7⋕js.Pm.Lp.Mst.7 Код должен найти сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5' ]; let
-            sum=0; for (let elem of arr) { sum +=elem; } console.log(sum); // должно вывести 15 Задача 8⋕js.Pm.Lp.Mst.8
-            Код должен найти сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5' ]; let sum='' ; for (let elem
-            of arr) { sum +=+elem; } console.log(sum); // должно вывести 15 Задача 9⋕js.Pm.Lp.Mst.9 Код должен найти
-            сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5' ]; let sum=0; for (let elem of arr) {
-            sum=+elem; } console.log(sum); // должно вывести 15 Задача 10⋕js.Pm.Lp.Mst.10 Код должен найти сумму
-            элементов массива, однако, всегда выводит NaN: let arr=['1', '2' , '3' , '4' , '5' ]; let sum=0; for (let
-            i=0; i <=arr.length; i++) { sum +=+arr[i]; } console.log(sum); // почему-то выводит NaN Задача
-            11⋕js.Pm.Lp.Mst.11 Код должен найти сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5' ]; let
-            sum=0; for (let i=0; i < arr.length - 1; i++) { sum +=+arr[i]; } console.log(sum); // почему-то выводит не
-            15 Задача 12⋕js.Pm.Lp.Mst.12 Код должен найти сумму элементов массива: let arr=['1', '2' , '3' , '4' , '5'
-            ]; let sum=0; for (let i=0; i < arr.length; i++) { sum +=+i; } console.log(sum); // почему-то выводит не 15
-            Задача 13⋕js.Pm.Lp.Mst.13 Код должен возвести в квадрат каждый элемент массива: let arr=[1, 2, 3, 4, 5]; for
-            (let elem of arr) { elem=elem ** 2; } console.log(arr); Задача 14⋕js.Pm.Lp.Mst.14 Код должен заполнить
-            массив числами от 1 до 5: let arr; for (let i=1; i <=5; i++) { arr.push(i); } console.log(arr); Задача
-            15⋕js.Pm.Lp.Mst.15 Код должен найти сумму элементов объекта: let obj={a: 1, b: 2, c: 3}; let sum=0; for (let
-            elem in obj) { sum +=elem; } console.log(sum); Задача 16⋕js.Pm.Lp.Mst.16 Код должен найти сумму элементов
-            объекта: let obj={a: 1, b: 2, c: 3}; let sum=0; for (let key in obj) { sum=+obj.key; } console.log(sum);
-            Задача 17⋕js.Pm.Lp.Mst.17 Код должен проверить, есть ли в массиве число 3 или нет: let arr=[1, 2, 3, 4, 5];
-            let res='' ; for (let elem of arr) { if (elem===3) { res='+++' ; } else { res='---' ; } } console.log(res);
-            Задача 18⋕js.Pm.Lp.Mst.18 Код должен проверить, есть ли в массиве число 3 или нет: let arr=[1, 2, 3, 4, 5];
-            let res=false; for (let elem of arr) { if (elem===3) { let res=true; break; } } console.log(res); Задача
-            19⋕js.Pm.Lp.Mst.19 Код должен вывести только четные элементы из массива: let arr=[1, 2, 3, 4, 5]; for (let
-            elem of arr) { if (elem % 2=0) { console.log(elem); } } </main>
+        <p> Код должен вывести числа от 10 до 0:</p>
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 10; i == 0; i--) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <h3>Задача 4</h3>
+
+        <p>Код должен вывести числа от 0 до 10:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i = 0;
+<span class="-n"></span>
+<span class="-n"></span>while (i >= 10) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>i++;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3>Задача 5</h3>
+
+        <p>Код должен найти сумму целых чисел от 1 до 10:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let res;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>res +=i;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(res);
+</pre>
+        </div>
+
+        <h3>Задача 6</h3>
+
+        <p>Код должен найти произведение целых чисел от 1 до 10:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let res=0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i &lt;=10; i++) {
+<span class="-n"></span>res *=i;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(res);
+</pre>
+        </div>
+
+        <h3>Задача 7</h3>
+
+        <p>Код должен найти сумму элементов массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=['1', '2' , '3' , '4' , '5' ];
+<span class="-n"></span>let sum=0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>sum +=elem;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum); // должно вывести 15
+</pre>
+        </div>
+
+        <h3>Задача 8</h3>
+
+        <p>Код должен найти сумму элементов массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=['1', '2' , '3' , '4' , '5' ];
+<span class="-n"></span>let sum='' ;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>sum +=+elem;
+<span class="-n"></span>}
+<span class="-n"></span>console.log(sum); // должно вывести 15
+</pre>
+        </div>
+
+        <h3>Задача 9</h3>
+
+        <p>Код должен найти сумму элементов массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=['1', '2' , '3' , '4' , '5' ];
+<span class="-n"></span>let sum=0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>sum=+elem;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum); // должно вывести 15
+</pre>
+        </div>
+
+        <h3>Задача 10</h3>
+
+        <p>Код должен найти сумму элементов массива, однако, всегда выводит NaN:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=['1', '2' , '3' , '4' , '5' ];
+<span class="-n"></span>let sum=0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt;=arr.length; i++) {
+<span class="-n"></span>sum +=+arr[i];
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum); // почему-то выводит NaN
+</pre>
+        </div>
+
+        <h3>Задача 11</h3>
+
+        <p>Код должен найти сумму элементов массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=['1', '2' , '3' , '4' , '5' ];
+<span class="-n"></span>let sum=0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; arr.length - 1; i++) {
+<span class="-n"></span>sum +=+arr[i];
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum); // почему-то выводит не 15
+</pre>
+        </div>
+
+        <h3>Задача 12</h3>
+
+        <p>Код должен найти сумму элементов массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=['1', '2' , '3' , '4' , '5'];
+<span class="-n"></span>let sum=0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; arr.length; i++) {
+<span class="-n"></span>sum +=+i;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum); // почему-то выводит не 15
+</pre>
+        </div>
+
+        <h3>Задача 13</h3>
+
+        <p>Код должен возвести в квадрат каждый элемент массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>elem=elem ** 2;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
+
+        <h3>Задача 14</h3>
+
+        <p> Код должен заполнить массив числами от 1 до 5:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=1; i &lt;=5; i++) {
+<span class="-n"></span>arr.push(i);
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
+
+        <h3>Задача 15</h3>
+
+        <p>Код должен найти сумму элементов объекта:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj={a: 1, b: 2, c: 3};
+<span class="-n"></span>let sum=0;
+<span class="-n"></span>
+<span class="-n"></span> for (let elem in obj) {
+<span class="-n"></span>sum +=elem;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum);
+</pre>
+        </div>
+
+        <h3> Задача 16</h3>
+
+        <p>Код должен найти сумму элементов объекта:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj={a: 1, b: 2, c: 3};
+<span class="-n"></span>let sum=0;
+<span class="-n"></span>
+<span class="-n"></span>for (let key in obj) {
+<span class="-n"></span>sum=+obj.key;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(sum);
+</pre>
+        </div>
+
+        <h3>Задача 17</h3>
+
+        <p>Код должен проверить, есть ли в массиве число 3 или нет:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>let res='';
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem===3) {
+<span class="-n"></span>res='+++' ;
+<span class="-n"></span>
+<span class="-n"></span>} else {
+<span class="-n"></span>res='---' ;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>console.log(res);
+</pre>
+        </div>
+
+        <h3>Задача 18</h3>
+
+        <p>Код должен проверить, есть ли в массиве число 3 или нет:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>let res=false;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem===3) {
+<span class="-n"></span>let res=true;
+<span class="-n"></span>break;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(res);
+</pre>
+        </div>
+
+        <h3>Задача 19</h3>
+
+        <p>Код должен вывести только четные элементы из массива:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr) {
+<span class="-n"></span>if (elem % 2=0) {
+<span class="-n"></span>console.log(elem);
+<span class="-n"></span>}
+<span class="-n"></span>}
+
+</pre>
+        </div>
+
+
+
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

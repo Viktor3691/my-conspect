@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-31-sovetOtladCoda.html">Советы по отладке
                 кода на примере циклов в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="04-33-praktikaCikli.html">Отработка циклов JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -118,6 +119,24 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 10; i >= 0; i--) {
+//i == 0;
+<span class="-n"></span>     document.write(i, ', ');
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            for (let i = 10; i >= 0; i--) {
+                document.write(i, ', ');
+            }
+        </script>
+
         <h3>Задача 4</h3>
 
         <p>Код должен вывести числа от 0 до 10:</p>
@@ -133,6 +152,30 @@
 <span class="-n"></span>}
 </pre>
         </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let i = 0;
+<span class="-n"></span>
+<span class="-n"></span>while (i &lt;= 10) {
+//(i >= 10)
+<span class="-n"></span>    document.write(i, ', ');
+<span class="-n"></span>    i++;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let i = 0;
+
+            while (i <= 10) {
+                document.write(i, ', ');
+                i++;
+            }
+        </script>
 
         <h3>Задача 5</h3>
 
@@ -150,6 +193,31 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let res = 0;
+//let res;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>    res += i;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('res = ', res);
+</pre>
+        </div>
+
+        <script>
+            let res = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                res += i;
+            }
+            document.write('res = ', res);
+        </script>
+
         <h3>Задача 6</h3>
 
         <p>Код должен найти произведение целых чисел от 1 до 10:</p>
@@ -165,6 +233,31 @@
 <span class="-n"></span>console.log(res);
 </pre>
         </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let res6 = 1;
+// let res6 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>    res6 *= i;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('res6 = ', res6);
+</pre>
+        </div>
+
+        <script>
+            let res6 = 1;
+
+            for (let i = 1; i <= 10; i++) {
+                res6 *= i;
+            }
+            document.write('res6 = ', res6);
+        </script>
 
         <h3>Задача 7</h3>
 
@@ -184,6 +277,34 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr7 = ['1', '2', '3', '4', '5'];
+<span class="-n"></span>let sum7 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr7) {
+<span class="-n"></span>     sum7 += Number(elem);
+// sum7 +=elem;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(sum7);
+</pre>
+        </div>
+
+        <script>
+            let arr7 = ['1', '2', '3', '4', '5'];
+            let sum7 = 0;
+
+            for (let elem of arr7) {
+                sum7 += Number(elem);
+            }
+
+            document.write('sum7 = ', sum7);
+        </script>
+
         <h3>Задача 8</h3>
 
         <p>Код должен найти сумму элементов массива:</p>
@@ -200,6 +321,33 @@
 <span class="-n"></span>console.log(sum); // должно вывести 15
 </pre>
         </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = ['1', '2', '3', '4', '5'];
+<span class="-n"></span>let sum = 0;
+// let sum='' ;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr8) {
+<span class="-n"></span>    sum8 += +elem;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(sum8);
+</pre>
+        </div>
+
+        <script>
+            let arr8 = ['1', '2', '3', '4', '5'];
+            let sum8 = 0;
+
+            for (let elem of arr8) {
+                sum8 += +elem;
+            }
+            document.write('sum8 = ', sum8);
+        </script>
 
         <h3>Задача 9</h3>
 
@@ -219,6 +367,34 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr9 = ['1', '2', '3', '4', '5'];
+<span class="-n"></span>let sum9 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem of arr9) {
+<span class="-n"></span>     sum9 += +elem;
+// sum=+elem;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(sum9);
+</pre>
+        </div>
+
+        <script>
+            let arr9 = ['1', '2', '3', '4', '5'];
+            let sum9 = 0;
+
+            for (let elem of arr9) {
+                sum9 += +elem;
+            }
+
+            document.write('sum9 = ', sum9);
+        </script>
+
         <h3>Задача 10</h3>
 
         <p>Код должен найти сумму элементов массива, однако, всегда выводит NaN:</p>
@@ -236,6 +412,33 @@
 <span class="-n"></span>console.log(sum); // почему-то выводит NaN
 </pre>
         </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr10 = ['1', '2', '3', '4', '5'];
+<span class="-n"></span>let sum10 = 0;
+<span class="-n"></span>for (let i = 0; i &lt;= arr10.length - 1; i++) {
+// i &lt;=arr10.length;
+<span class="-n"></span>    sum10 += +arr[i];
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(sum10);
+</pre>
+        </div>
+
+        <script>
+            let arr10 = ['1', '2', '3', '4', '5'];
+            let sum10 = 0;
+
+            for (let i = 0; i <= arr10.length - 1; i++) {
+                sum10 += +arr10[i];
+            }
+
+            document.write('sum10 = ', sum10);
+        </script>
 
         <h3>Задача 11</h3>
 
@@ -255,6 +458,34 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr11 = ['1', '2', '3', '4', '5'];
+<span class="-n"></span>let sum11 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr11.length; i++) {
+    // i &lt; arr11.length-1;
+<span class="-n"></span>sum11 += +arr11[i];
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(sum11);
+</pre>
+        </div>
+
+        <script>
+            let arr11 = ['1', '2', '3', '4', '5'];
+            let sum11 = 0;
+
+            for (let i = 0; i < arr11.length; i++) {
+                sum11 += +arr11[i];
+            }
+            document.write('sum11 = ', sum11);
+
+        </script>
+
         <h3>Задача 12</h3>
 
         <p>Код должен найти сумму элементов массива:</p>
@@ -273,6 +504,34 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr12 = ['1', '2', '3', '4', '5'];
+<span class="-n"></span>let sum12 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt;= arr12.length; i++) {
+    // i &lt; arr.length;
+<span class="-n"></span>    sum12 += +i;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('sum12 = ', sum12);
+</pre>
+        </div>
+
+        <script>
+            let arr12 = ['1', '2', '3', '4', '5'];
+            let sum12 = 0;
+
+            for (let i = 0; i <= arr12.length; i++) {
+                sum12 += +i;
+            }
+            document.write('sum12 = ', sum12);
+        </script>
+
+
         <h3>Задача 13</h3>
 
         <p>Код должен возвести в квадрат каждый элемент массива:</p>
@@ -290,6 +549,40 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <p>В коде массив не меняется, потому что в цикле for...of переменная elem — это просто копия значения элемента,
+            а не
+            ссылка на ячейку массива. Когда elem = elem ** 2, меняешь только эту локальную переменную, а сам массив
+            остаётся прежним.</p>
+
+        <p><b>Как исправить через цикл с индексом (чтобы менять исходный массив)</b></p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr13 = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr13.length; i++) {
+<span class="-n"></span>    arr13[i] = arr13[i] ** 2;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('arr13 = [', arr13, '];');
+</pre>
+        </div>
+
+
+        <script>
+            let arr13 = [1, 2, 3, 4, 5];
+
+            for (let i = 0; i < arr13.length; i++) {
+                arr13[i] = arr13[i] ** 2;
+            }
+
+            document.write('arr13 = [', arr13, '];'); // [1, 4, 9, 16, 25]
+
+        </script>
+
         <h3>Задача 14</h3>
 
         <p> Код должен заполнить массив числами от 1 до 5:</p>
@@ -306,6 +599,32 @@
 <span class="-n"></span>console.log(arr);
 </pre>
         </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr14 = [];
+// let arr14 ;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 5; i++) {
+<span class="-n"></span>    arr14.push(i);
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(arr14);
+</pre>
+        </div>
+
+        <script>
+            let arr14 = [];
+
+            for (let i = 1; i <= 5; i++) {
+                arr14.push(i);
+            }
+
+            document.write(arr14);
+        </script>
 
         <h3>Задача 15</h3>
 
@@ -325,6 +644,34 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj15 = { a: 1, b: 2, c: 3 };
+<span class="-n"></span>let sum15 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem15 in obj15) {
+<span class="-n"></span>sum15 += obj15[elem15];
+// sum +=elem;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('sum15 = ', sum15);
+</pre>
+        </div>
+
+        <script>
+            let obj15 = { a: 1, b: 2, c: 3 };
+            let sum15 = 0;
+
+            for (let elem15 in obj15) {
+                sum15 += obj15[elem15];
+            }
+
+            document.write('sum15 = ', sum15);
+        </script>
+
         <h3> Задача 16</h3>
 
         <p>Код должен найти сумму элементов объекта:</p>
@@ -342,6 +689,35 @@
 <span class="-n"></span>console.log(sum);
 </pre>
         </div>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let obj16 = { a: 1, b: 2, c: 3 };
+<span class="-n"></span>let sum16 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let key16 in obj16) {
+<span class="-n"></span>    sum16 += +obj16[key16];
+// sum=+obj.key;
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write(sum16);
+
+</pre>
+        </div>
+
+        <script>
+            let obj16 = { a: 1, b: 2, c: 3 };
+            let sum16 = 0;
+
+            for (let key16 in obj16) {
+                sum16 += +obj16[key16];
+            }
+
+            document.write('sum16 = ', sum16);
+        </script>
 
         <h3>Задача 17</h3>
 
@@ -365,6 +741,55 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <p><b>Почему код не работает</b></p>
+
+        <ul>
+            <li>elem = 1 → res = '---'</li>
+            <li>elem = 2 → res = '---'</li>
+            <li>elem = 3 → res = '+++'</li>
+            <li>elem = 4 → res = '---' ← тут значение снова меняется</li>
+            <li>elem = 5 → res = '---' ← финальное значение</li>
+        </ul>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr17 = [1, 2, 3, 4, 5];
+<span class="-n"></span>let res17 = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let elem17 of arr17) {
+<span class="-n"></span>    if (elem17 === 3) {
+<span class="-n"></span>         res17 = '+++';
+<span class="-n"></span>         break; // как только нашли 3, выходим из цикла
+<span class="-n"></span>    } else {
+<span class="-n"></span>         res17 = '---';
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>document.write(res17);
+</pre>
+        </div>
+
+
+        <script>
+            let arr17 = [1, 2, 3, 4, 5];
+            let res17 = '';
+
+            for (let elem17 of arr17) {
+                if (elem17 === 3) {
+                    res17 = '+++';
+                    break; // как только нашли 3, выходим из цикла
+                } else {
+                    res17 = '---';
+                }
+            }
+
+            document.write('res17 = ', res17);
+        </script>
+
+
+
         <h3>Задача 18</h3>
 
         <p>Код должен проверить, есть ли в массиве число 3 или нет:</p>
@@ -386,6 +811,38 @@
 </pre>
         </div>
 
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr18 = [1, 2, 3, 4, 5];
+<span class="-n"></span>let res18 = false;
+<span class="-n"></span>
+<span class="-n"></span>for (let elem18 of arr18) {
+<span class="-n"></span>    if (elem18 === 3) {
+<span class="-n"></span>        res18 = true;
+// let18 res
+<span class="-n"></span>        break;
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let arr18 = [1, 2, 3, 4, 5];
+            let res18 = false;
+
+            for (let elem18 of arr18) {
+                if (elem18 === 3) {
+                    res18 = true;
+                    break;
+                }
+            }
+
+            document.write('res18 = ', res18);
+        </script>
+
         <h3>Задача 19</h3>
 
         <p>Код должен вывести только четные элементы из массива:</p>
@@ -404,7 +861,31 @@
 </pre>
         </div>
 
+        <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr19 = [1, 2, 3, 4, 5];
+<span class="-n"></span>
+<span class="-n"></span>for (let elem19 of arr19) {
+<span class="-n"></span>    if (elem19 % 2 == 0) {
+// (elem19 % 2 = 0)
+<span class="-n"></span>        document.write(elem19, ', ');
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let arr19 = [1, 2, 3, 4, 5];
+
+            for (let elem19 of arr19) {
+                if (elem19 % 2 == 0) {
+                    document.write(elem19, ', ');
+                }
+            }
+        </script>
 
 
     </main>

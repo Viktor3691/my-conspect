@@ -19,12 +19,14 @@
         <div data-e="subb">
             <a href="../index.html">Оглавление</a>
             <a href="razdel-04-cikly.html">Циклы</a>
-            <a href="04.html">63 of 312</a>
+            <a href="04-33-praktikaCikli.html">95 of 312</a>
         </div>
         <div data-e="subb">
-            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="#">#</a>
+            <span class="arrow-left">&larr;</span><a data-mCurr="T" href="04-32-praktikaPoiskOshibok.html">Поиск ошибок
+                в коде с циклами JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="../05.mnogomernost/05-01-mnogomernieMassivi.html">Многомерные массивы в
+                JavaScript</a><span class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -40,53 +42,362 @@
 
         <h2>Отработка циклов JavaScript</h2>
 
-        Задача 1⋕js.Pm.Lp.Prm.1
+        <h3>Задача 1</h3>
 
-        Выведите с помощью цикла столбец чисел от 1 до 100.
+        <p>Выведите с помощью цикла столбец чисел от 1 до 10. </p>
 
-        Задача 2⋕js.Pm.Lp.Prm.2
+        <p>Решение</p>
 
-        Выведите с помощью цикла столбец чисел от 100 до 1.
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        Задача 3⋕js.Pm.Lp.Prm.3
+        <script>
+            for (let i = 1; i <= 10; i++) {
+                console.log(i);
+            }
+        </script>
 
-        Выведите с помощью цикла столбец четных чисел от 1 до 100.
+        <h3>Задача 2</h3>
 
-        Задача 4⋕js.Pm.Lp.Prm.4
+        <p>Выведите с помощью цикла столбец чисел от 10 до 1.</p>
 
-        Заполните массив 10-ю иксами с помощью цикла.
+        <p>Решение</p>
 
-        Задача 5⋕js.Pm.Lp.Prm.5
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 10; i >= 0; i--) {
+<span class="-n"></span>     console.log(i);
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        Заполните массив числами от 1 до 10 с помощью цикла.
+        <script>
+            for (let i = 10; i >= 0; i--) {
+                console.log(i);
+            }
+        </script>
 
-        Задача 6⋕js.Pm.Lp.Prm.6
+        <h3>Задача 3</h3>
 
-        Дан массив с числами. С помощью цикла выведите только те элементы массива, которые больше нуля и меньше 10-ти.
+        <p>Выведите с помощью цикла столбец четных чисел от 1 до 10.</p>
 
-        Задача 7⋕js.Pm.Lp.Prm.7
+        <p>Решение</p>
 
-        Дан массив с числами. С помощью цикла проверьте, что в нем есть элемент со значением 5.
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>    if (i % 2 == 0) {
+<span class="-n"></span>        console.log(i);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        Задача 8⋕js.Pm.Lp.Prm.8
+        <script>
+            for (let i = 1; i <= 10; i++) {
+                if (i % 2 == 0) {
+                    console.log(i);
+                }
+            }
+        </script>
 
-        Дан массив с числами. С помощью цикла найдите сумму элементов этого массива.
+        <h3>Задача 4</h3>
 
-        Задача 9⋕js.Pm.Lp.Prm.9
+        <p>Заполните массив 10-ю иксами с помощью цикла.</p>
 
-        Дан массив с числами. С помощью цикла найдите сумму квадратов элементов этого массива.
+        <p>Решение</p>
 
-        Задача 10⋕js.Pm.Lp.Prm.10
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let res4 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt;= 10; i++) {
+<span class="-n"></span>    res4 += 'x'
+<span class="-n"></span>}
+<span class="-n"></span>document.write(res4);
+</pre>
+        </div>
 
-        Дан массив с числами. Найдите среднее арифметическое его элементов (сумма элементов, делить на количество).
+        <script>
+            let res4 = [];
 
-        Задача 11⋕js.Pm.Lp.Prm.11
+            for (let i = 1; i <= 10; i++) {
+                res4 += 'x'
+            }
+            document.write(res4);
 
-        Напишите скрипт, который будет находить факториал числа. Факториал (обозначается !) - это произведение
-        (умножение) всех
-        целых чисел, меньше данного, и его самого. Например, 4! = 1*2*3*4.
+        </script>
+
+        <h3>Задача 5</h3>
+
+        <p>Заполните массив числами от 1 до 10 с помощью цикла.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr5 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 10; i++) {
+<span class="-n"></span>    arr5[i] = i + 1;
+<span class="-n"></span>}
+<span class="-n"></span>document.write('arr5 = [', arr5, '];');
+</pre>
+        </div>
+
+        <script>
+            let arr5 = [];
+
+            for (let i = 0; i < 10; i++) {
+                arr5[i] = i + 1;
+            }
+            document.write('arr5 = [', arr5, '];');
+        </script>
+
+        <h3>Задача 6</h3>
+
+        <p>Дан массив с числами. С помощью цикла выведите только те элементы массива, которые больше нуля и меньше
+            10-ти.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr6 = [-1, -3, 0, 1, 3, 5, -10, 15, 7];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr6.length; i++) {
+<span class="-n"></span>    if (arr6[i] > 0 && arr6[i] &lt; 10) {
+<span class="-n"></span>        document.write(arr6[i], ', ');
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            let arr6 = [-1, -3, 0, 1, 3, 5, -10, 15, 7];
+
+            for (let i = 0; i < arr6.length; i++) {
+                if (arr6[i] > 0 && arr6[i] < 10) {
+                    document.write(arr6[i], ', ');
+                }
+            }
+        </script>
+
+        <h3>Задача 7</h3>
+
+        <p>Дан массив с числами. С помощью цикла проверьте, что в нем есть элемент со значением 5.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr7 = [-1, -3, 0, 1, 3, 5, -10, 15, 7];
+<span class="-n"></span>let res7 = '';
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr7.length; i++) {
+<span class="-n"></span>    if (arr7[i] === 5) {
+<span class="-n"></span>        res7 = 'есть элемент со значением 5';
+<span class="-n"></span>        break;
+<span class="-n"></span>    } else {
+<span class="-n"></span>        res7 = 'НЕТ 5'
+<span class="-n"></span>}
+<span class="-n"></span>    }
+<span class="-n"></span>document.write(res7);
+</pre>
+        </div>
+
+        <script>
+            let arr7 = [-1, -3, 0, 1, 3, 5, -10, 15, 7];
+            let res7 = '';
+
+            for (let i = 0; i < arr7.length; i++) {
+                if (arr7[i] === 5) {
+                    res7 = 'есть элемент со значением 5';
+                    break;
+                } else {
+                    res7 = 'НЕТ 5'
+                }
+            }
+            document.write(res7);
+
+        </script>
 
 
+        <h3>Задача 8</h3>
+
+        <p>Дан массив с числами. С помощью цикла найдите сумму элементов этого массива.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr8 = [1, 3, 0, 1, 3, 5, 10, 15, 7];
+<span class="-n"></span>let sum8 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr8.length; i++) {
+<span class="-n"></span>sum8 += arr8[i]
+<span class="-n"></span>}
+<span class="-n"></span>document.write('sum8 = ', sum8);
+</pre>
+        </div>
+
+        <script>
+            let arr8 = [1, 3, 0, 1, 3, 5, 10, 15, 7];
+            let sum8 = 0;
+
+            for (let i = 0; i < arr8.length; i++) {
+                sum8 += arr8[i]
+            }
+            document.write('sum8 = ', sum8);
+        </script>
+
+
+
+        <h3>Задача 9</h3>
+
+        <p>Дан массив с числами. С помощью цикла найдите сумму квадратов элементов этого массива.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr9 = [1, 3, 0, 1, 3, 5, 10, 15, 7];
+<span class="-n"></span>let sum9 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr9.length; i++) {
+<span class="-n"></span>    let kv = arr9[i] ** 2
+<span class="-n"></span>    document.write(kv, ', ');
+<span class="-n"></span>    sum9 += kv;
+<span class="-n"></span>}
+<span class="-n"></span>document.write('sum9 = ', sum9);
+</pre>
+        </div>
+
+        <script>
+            let arr9 = [1, 3, 0, 1, 3, 5, 10, 15, 7];
+            let sum9 = 0;
+
+            for (let i = 0; i < arr9.length; i++) {
+                let kv = arr9[i] ** 2
+                document.write(kv, ', ');
+                sum9 += kv;
+            }
+            document.write('sum9 = ', sum9);
+        </script>
+
+        <h3> Задача 10</h3>
+
+        <p>Дан массив с числами. Найдите среднее арифметическое его элементов (сумма элементов, делить на количество).
+        </p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr10 = [1, 3, 0, 1, 3, 5, 10, 15, 7];
+<span class="-n"></span>let sum10 = 0;
+<span class="-n"></span>let kol10 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 1; i &lt; arr10.length; i++) {
+<span class="-n"></span>sum10 += arr10[i];
+<span class="-n"></span>kol10++;
+<span class="-n"></span>}
+<span class="-n"></span>document.write('kol = ', kol10, ' ');
+<span class="-n"></span>document.write('sum10 = ', sum10);
+<span class="-n"></span>document.write(' среднее арифметическое = ', sum10 / kol10);
+</pre>
+        </div>
+
+        <script>
+            let arr10 = [1, 3, 0, 1, 3, 5, 10, 15, 7];
+            let sum10 = 0;
+            let kol10 = 0;
+
+            for (let i = 1; i < arr10.length; i++) {
+                sum10 += arr10[i];
+                kol10++;
+            }
+            document.write('kol = ', kol10, ' ');
+            document.write('sum10 = ', sum10);
+            document.write(' среднее арифметическое = ', sum10 / kol10);
+        </script>
+
+        <h3>Задача 11 </h3>
+
+        <p> Напишите скрипт, который будет находить факториал числа. Факториал (обозначается !) - это произведение
+            (умножение) всех
+            целых чисел, меньше данного, и его самого. Например, 4! = 1*2*3*4.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>function factorial(n) {
+// Проверка на корректность ввода
+<span class="-n"></span>    if (n &lt; 0 || !Number.isInteger(n)) {
+<span class="-n"></span>        return 'Ошибка: введите целое неотрицательное число';
+<span class="-n"></span>    }
+<span class="-n"></span>
+<span class="-n"></span>    let result = 1;
+<span class="-n"></span>    for (let i = 2; i &lt;= n; i++) {
+<span class="-n"></span>        result *= i; // то же самое, что result = result * i
+<span class="-n"></span>    }
+<span class="-n"></span>    return result;
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <script>
+            function factorial(n) {
+                // Проверка на корректность ввода
+                if (n < 0 || !Number.isInteger(n)) {
+                    return 'Ошибка: введите целое неотрицательное число';
+                }
+
+                let result = 1;
+                for (let i = 2; i <= n; i++) {
+                    result *= i; // то же самое, что result = result * i
+                }
+                return result;
+            }
+
+            // Пример использования:
+            document.write('factorial(5) = ', factorial(5)); // 24
+            document.write(' factorial(0) = ', factorial(0)); // 1 (по определению 0! = 1)
+
+        </script>
+
+        <p>if (n &lt; 0 || !Number.isInteger(n))</p>
+
+        <ul>
+            <li>n < 0 — проверяет, что число не отрицательное. Факториал определён только для неотрицательных целых
+                    чисел: 0 ! , 1 ! , 2 ! , … 0!,1!,2!,…</li>
+            <li>|| — логическое «ИЛИ». Условие сработает, если верно хотя бы одно из двух: либо число отрицательное,
+                либо не целое.</li>
+            <li>!Number.isInteger(n) — это «не целое число».
+                <ul>
+                    <li>Number.isInteger(n) возвращает true, если n — целое (например, 5, 0, -3).</li>
+                    <li>Восклицательный знак ! инвертирует результат: !true → false, !false → true.
+                        То есть !Number.isInteger(n) будет true, когда n дробное (например, 3.5, 2.1).</li>
+                </ul>
+            </li>
+        </ul>
 
 
     </main>

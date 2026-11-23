@@ -41,46 +41,223 @@
 
         <h2>Перебор многомерных массивов в JavaScript</h2>
 
-        Пусть дан следующий двухмерный массив:
+        <p>Пусть дан следующий двухмерный массив:</p>
 
-        let arr = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];
-        Давайте выведем все его элементы на экран. Для этого нам необходимо запустить два вложенных друг в друга цикла:
+        <p>let arr = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];</p>
+        <p> Давайте выведем все его элементы на экран. Для этого нам необходимо запустить два вложенных друг в друга
+            цикла:</p>
 
-        let arr = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];
+<span class="-n"></span>
+<span class="-n"></span>
+<span class="-n"></span>for (let subArr of arr) {
+<span class="-n"></span>     for (let elem of subArr) {
+<span class="-n"></span>        console.log(elem);
+<span class="-n"></span>     }
+<span class="-n"></span>}
+</pre>
+        </div>
 
-        for (let subArr of arr) {
-        for (let elem of subArr) {
-        console.log(elem);
-        }
-        }
-        Задача 1⋕js.Pm.Md.MAI.1
+        <script>
+            let arr01 = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];
 
-        Дан двухмерный массив с числами:
 
-        let arr = [[1, 2, 3], [4, 5], [6]];
-        С помощью вложенных циклов найдите сумму элементов этого массива.
+            for (let subArr of arr01) {
+                for (let elem of subArr) {
+                    document.write(elem, ', ');
+                }
+            }
+        </script>
 
-        Задача 2⋕js.Pm.Md.MAI.2
+        <h3>Задача 1 </h3>
 
-        Дан трехмерный массив с числами:
+        <p>Дан двухмерный массив с числами:</p>
 
-        let arr = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
-        С помощью вложенных циклов найдите сумму элементов этого массива.
+        <p>let arr = [[1, 2, 3], [4, 5], [6]];</p>
+        <p> С помощью вложенных циклов найдите сумму элементов этого массива.</p>
 
-        Перебор через обычный for
-        Массивы также можно перебирать не через цикл for-of, а через обычный for:
+        <p>Решение</p>
 
-        let arr = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr1 = [[1, 2, 3], [4, 5], [6]];
+<span class="-n"></span>let sum1 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let subArr of arr1) {
+<span class="-n"></span>    for (let elem of subArr) {
+<span class="-n"></span>        sum1 += +elem
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>document.write('sum1 = ', sum1);
+</pre>
+        </div>
 
-        for (let i = 0; i < arr.length; i++) { for (let j=0; j < arr[i].length; j++) { console.log(arr[i][j]); } }
-            Задача 3⋕js.Pm.Md.MAI.3 Решите предыдущие две задачи через цикл for. </main>
+        <script>
+            let arr1 = [[1, 2, 3], [4, 5], [6]];
+            let sum1 = 0;
 
-            <footer data-w="nict/finf">
-                <span data-e="text">Мой личный конспект © 2026</span>
-            </footer>
+            for (let subArr of arr1) {
+                for (let elem of subArr) {
+                    sum1 += +elem
+                }
+            }
+            document.write('sum1 = ', sum1);
+        </script>
 
-            <script src="../js/loader.js" defer></script>
-            <script src="../js/app.js" defer></script>
+        <h3> Задача 2</h3>
+
+        <p>Дан трехмерный массив с числами:</p>
+
+        <p>let arr = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];</p>
+
+        <p>С помощью вложенных циклов найдите сумму элементов этого массива.</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr2 = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+<span class="-n"></span>let sum2 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let subArr of arr2) {
+<span class="-n"></span>    for (let subSubArr of subArr) {
+<span class="-n"></span>        for (let elem of subSubArr) {
+<span class="-n"></span>            sum2 += elem;
+<span class="-n"></span>        }
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('sum2 = ' + sum2);
+</pre>
+        </div>
+
+        <script>
+            let arr2 = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+            let sum2 = 0;
+
+            for (let subArr of arr2) {
+                for (let subSubArr of subArr) {
+                    for (let elem of subSubArr) {
+                        sum2 += elem;
+                    }
+                }
+            }
+            document.write('sum2 = ' + sum2);  // если нужно именно в страницу
+        </script>
+
+
+        <h2>Перебор через обычный for</h2>
+
+        <p> Массивы также можно перебирать не через цикл for-of, а через обычный for:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [[1, 2, 3, 4, 5], [6, 7, 8], [9, 10]];
+<span class="-n"></span>for (let i = 0; i &lt; arr.length; i++) {
+<span class="-n"></span>    for (let j=0; j &lt; arr[i].length; j++) {
+<span class="-n"></span>        console.log(arr[i][j]);
+<span class="-n"></span>    }
+<span class="-n"></span>}
+</pre>
+        </div>
+
+        <h3> Задача 3</h3>
+
+        <p>Решите предыдущие две задачи через цикл for. </p>
+
+        <p>Дан двухмерный массив с числами:</p>
+
+        <p>let arr = [[1, 2, 3], [4, 5], [6]];</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr31 = [[1, 2, 3], [4, 5], [6]];
+<span class="-n"></span>let sum31 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr31.length; i++) {
+<span class="-n"></span>    for (let j = 0; j &lt; arr31[i].length; j++) {
+<span class="-n"></span>        sum31 += arr31[i][j];
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>document.write('sum31 = ', sum31);
+</pre>
+        </div>
+
+        <script>
+            let arr31 = [[1, 2, 3], [4, 5], [6]];
+            let sum31 = 0;
+
+            for (let i = 0; i < arr31.length; i++) {
+                for (let j = 0; j < arr31[i].length; j++) {
+                    sum31 += arr31[i][j];
+                }
+            }
+            document.write('sum31 = ', sum31);
+        </script>
+
+
+
+
+        <p>Дан трехмерный массив с числами:</p>
+
+        <p>let arr32 = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];</p>
+
+        <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr32 = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+<span class="-n"></span>let sum32 = 0;
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; arr32.length; i++) {
+<span class="-n"></span>    for (let j = 0; j &lt; arr32[i].length; j++) {
+<span class="-n"></span>        for (let k = 0; k &lt; arr32[i][j].length; k++) {
+<span class="-n"></span>            sum32 += arr32[i][j][k];
+<span class="-n"></span>        }
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>document.write('sum32 = ', sum32);
+</pre>
+        </div>
+
+        <script>
+            let arr32 = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+            let sum32 = 0;
+
+            for (let i = 0; i < arr32.length; i++) {
+                // i — индекс внешнего массива
+                for (let j = 0; j < arr32[i].length; j++) {
+                    // j — индекс среднего уровня
+                    for (let k = 0; k < arr32[i][j].length; k++) {
+                        // k — индекс самого внутреннего массива
+                        sum32 += arr32[i][j][k];
+                        // берём элемент по трём индексам и прибавляем
+                    }
+                }
+            }
+            document.write('sum32 = ', sum32);
+
+        </script>
+
+    </main>
+
+    <footer data-w="nict/finf">
+        <span data-e="text">Мой личный конспект © 2026</span>
+    </footer>
+
+    <script src="../js/loader.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

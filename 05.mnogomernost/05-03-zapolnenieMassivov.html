@@ -25,7 +25,8 @@
             <span class="arrow-left">&larr;</span><a data-mCurr="T" href="05-02-pereborMassivov.html">Перебор
                 многомерных массивов в JavaScript</a>
 
-            <a data-mCurr="T" href="#">#</a><span class="arrow-right">&rarr;</span>
+            <a data-mCurr="T" href="05-04-mnogomernieObekti.html">Многомерные объекты в JavaScript</a><span
+                class="arrow-right">&rarr;</span>
         </div>
 
     </header>
@@ -51,40 +52,53 @@
             внутренний -
             заполнять эти подмассивы числами:</p>
 
-        let arr = [];
-
-        for (let i = 0; i &lt; 3; i++) {
-        arr[i]=[]; // создаем подмассив
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=j + 1;// заполняем подмассив числами
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[]; // создаем подмассив
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=j + 1;// заполняем подмассив числами
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Вместо обращения arr[i][j] можно использовать метод push:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++) {
-        arr[i].push(j + 1);
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i].push(j + 1);
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
-        Задача 1⋕js.Pm.Md.MAF.1
+        <h3>Задача 1 </h3>
 
         <p>Сформируйте с помощью двух вложенных циклов следующий массив:</p>
 
         <p>[[1, 2, 3, 4, 5], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]]</p>
 
-        Задача 2⋕js.Pm.Md.MAF.2
+        <h3> Задача 2</h3>
 
         <p>Сформируйте с помощью двух вложенных циклов следующий массив: </p>
 
         <p>[['x', 'x' , 'x' , 'x' ], ['x', 'x' , 'x' , 'x' ], ['x', 'x' , 'x' , 'x' ]]</p>
 
-        Задача 3⋕js.Pm.Md.MAF.3
+        <h3>Задача 3</h3>
 
         <p> Сформируйте с помощью трех вложенных циклов следующий массив:</p>
 
@@ -95,14 +109,21 @@
 
         <p>Давайте рассмотрим код, полученный нами выше:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[]; // обратите внимание на эту строчку
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=j + 1;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[]; // обратите внимание на эту строчку
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=j + 1;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>В этом коде важное место занимает строчка arr[i]=[].</p>
         <p>Эта строчка предназначена для создания подмассива. Мы не можем опустить эту строчку, так как тогда во
@@ -118,161 +139,238 @@
 
         <p>Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        let arr=[]; for (let i=0; i &lt; 3; i++) {
-        for (let j=1; j &lt;=5; j++) {
-        arr[i].push(j);
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[]; for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>
+<span class="-n"></span>for (let j=1; j &lt;=5; j++) {
+<span class="-n"></span>arr[i].push(j);
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p> Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 5⋕js.Pm.Md.MAF.5
+        <h3>Задача 5</h3>
 
         <p> Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3;i++) {
-        arr[i]='' ;
-        for (let j=1; j &lt;=5; j++) {
-        arr[i].push(j);
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3;i++) {
+<span class="-n"></span> arr[i]='' ;
+<span class="-n"></span>for (let j=1; j &lt;=5; j++) {
+<span class="-n"></span>arr[i].push(j);
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 6⋕js.Pm.Md.MAF.6
+        <h3>Задача 6</h3>
 
         <p>Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3; i++) {
-        arr[i];
-        for (let j=1; j &lt;=5; j++) {
-        arr[i].push(j);
-        }
-        }
-        console.log(arr);
-
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i];
+<span class="-n"></span>for (let j=1; j &lt;=5; j++) {
+<span class="-n"></span>arr[i].push(j);
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 7⋕js.Pm.Md.MAF.7
+        <h3>Задача 7</h3>
 
         <p>Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3; i++) {
-        arr[j]=[];
-        for (let j=1; j &lt;=5; j++) {
-        arr[i].push(j);
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span> for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[j]=[];
+<span class="-n"></span>for (let j=1; j &lt;=5; j++) {
+<span class="-n"></span>arr[i].push(j);
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 8⋕js.Pm.Md.MAF.8
+        <h3>Задача 8</h3>
 
         <p> Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        let arr; for (let i=0; i &lt; 3; i++) {
-        arr[i]=[]; for (let j=0; j &lt;=5; j++) {
-        arr[i][j]=j + 1;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr; for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt;=5; j++) {
+<span class="-n"></span>arr[i][j]=j + 1;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 9⋕js.Pm.Md.MAF.9
+        <h3>Задача 9</h3>
 
         <p>Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]==[];
-        for (let j=1; j &lt;=5; j++) {
-        arr[i].push(j);
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]==[];
+<span class="-n"></span>for (let j=1; j &lt;=5; j++) {
+<span class="-n"></span>arr[i].push(j);
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 10⋕js.Pm.Md.MAF.10
+        <h3>Задача 10</h3>
 
         <p>Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3; i++) {
-        arr=[];
-        for (let j=1; j &lt;=5; j++) {
-        arr[i].push(j);
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr=[];
+<span class="-n"></span>for (let j=1; j &lt;=5; j++) {
+<span class="-n"></span>arr[i].push(j);
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 11⋕js.Pm.Md.MAF.11
-
-        Автор следующего кода хотел сделать двухмерный массив:
-        let arr='' ;
-        for (let i=0; i &lt;3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt;=5; j++) {
-        arr[i][j]=j;
-        }
-        }
-        console.log(arr);
-
-        <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
-
-        Задача 12⋕js.Pm.Md.MAF.12
+        <h3> Задача 11</h3>
 
         <p>Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=1; j &lt;=5; j++) {
-        arr.push(j);
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr='' ;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt;3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt;=5; j++) {
+<span class="-n"></span>arr[i][j]=j;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
+        <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
+
+        <h3>Задача 12</h3>
+
+        <p>Автор следующего кода хотел сделать двухмерный массив:</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=1; j &lt;=5; j++) {
+<span class="-n"></span>arr.push(j);
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
         .<p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора</p>
 
-        Задача 13⋕js.Pm.Md.MAF.13
+        <h3>Задача 13</h3>
 
         <p>Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt;=5; j++) {
-        arr[j][i]=j;
-        }
-        }
-        console.log(arr);
-
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt;=5; j++) {
+<span class="-n"></span>arr[j][i]=j;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 14⋕js.Pm.Md.MAF.14
+        <h3>Задача 14</h3>
 
         <p>Автор следующего кода хотел сделать двухмерный массив:</p>
 
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt;=5; j++) {
-        arr[i][j]=j;
-        }
-        } console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt;=5; j++) {
+<span class="-n"></span>arr[i][j]=j;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        <p>Заполнение числами по порядку В предыдущих примерах все числа в подмассивах были одинаковыми.</p>
+        <h2>Заполнение числами по порядку</h2>
+
+        <p>В предыдущих примерах все числа в подмассивах были одинаковыми.</p>
 
         <p>Давайте теперь сделаем так, чтобы числа возрастали, вот так:</p>
 
@@ -282,37 +380,59 @@
             каждой
             итерации внутреннего цикла. Значение этого счетчика мы и будем записывать в массив, вот так:</p>
 
-        let arr=[];
-        let k=1; // счетчик
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=k; // записываем счетчик
-        k++; // увеличиваем счетчик
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>let k=1; // счетчик
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k; // записываем счетчик
+<span class="-n"></span>k++; // увеличиваем счетчик
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p> Можно уменьшить код, занеся определение счетчика в первый цикл, а k++ - во второй:</p>
 
-        let arr=[];
-        for (let i=0, k=1; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++, k++) {
-        arr[i][j]=k;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++, k++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Можно также сделать увеличение счетчика после присваивания:</p>
 
-        let arr=[]; for (let i=0, k=1; i &lt; 3; i++) {
-        [i]=[];
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=k++;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p> Обратите внимание на то, что в данном случае должно быть обязательно k++, а не ++k, так как второй вариант
             сначала выполнит увеличение счетчика, а уже потом запись в массив</p>
@@ -320,25 +440,25 @@
         <p>(то есть в результате массив начнется с двойки, а не с единицы, вот так: <br>
             [[2, 3, 4], [5, 6, 7], [8, 9, 10]])</p>
 
-        Задача 15⋕js.Pm.Md.MAF.15
+        <h3>Задача 15</h3>
 
         :<p>Сформируйте с помощью двух вложенных циклов следующий массив</p>
 
         <p>[[1, 2], [3, 4], [5, 6], [7, 8]]</p>
 
-        Задача 16⋕js.Pm.Md.MAF.16
+        <h3>Задача 16</h3>
 
         <p>Сформируйте с помощью двух вложенных циклов следующий массив:</p>
 
         <p>[[2, 4, 6], [8, 10, 12], [14, 16, 18], [20, 22, 24]]</p>
 
-        Задача 17⋕js.Pm.Md.MAF.17
+        <h3>Задача 17</h3>
 
         <p>Сформируйте с помощью трех вложенных циклов следующий трехмерный массив:</p>
 
         [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
 
-        Задача 18⋕js.Pm.Md.MAF.18
+        <h3>Задача 18</h3>
 
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
@@ -346,18 +466,26 @@
 
         <p>Для этого был написан следующий код:</p>
 
-        let arr=[];
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=k; k++;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>k++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p> Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 19⋕js.Pm.Md.MAF.19
+        <h3>Задача 19</h3>
 
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
@@ -365,17 +493,26 @@
 
         <p> Для этого был написан следующий код:</p>
 
-        let arr=[]; let k=1;
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=k;
-        }
-        } console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>let k=1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 20⋕js.Pm.Md.MAF.20
+        <h3>Задача 20</h3>
 
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
@@ -383,18 +520,27 @@
 
         <p>Для этого был написан следующий код:</p>
 
-        let arr=[];
-        let k=1;
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=k; k--;
-        }
-        } console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span> let k=1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>k--;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 21⋕js.Pm.Md.MAF.21
+        <h3>Задача 21</h3>
 
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
@@ -402,19 +548,27 @@
 
         <p>Для этого был написан следующий код:</p>
 
-        let arr=[];
-        let k;
-        for (let i=0; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=k; k++;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>let k;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>k++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 22⋕js.Pm.Md.MAF.22
+        <h3>Задача 22</h3>
 
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
@@ -422,17 +576,25 @@
 
         <p>Для этого был написан следующий код:</p>
 
-        let arr=[];
-        for (let i=0, k=1; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++) { arr[i][j]=k;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 23⋕js.Pm.Md.MAF.23
+        <h3>Задача 23</h3>
 
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
@@ -440,17 +602,23 @@
 
         <p>Для этого был написан следующий код:</p>
 
-        let arr=[]; for (let i=0, k=1; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0, k++; j &lt; 3; j++) {
-        arr[i][j]=k;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[]; for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0, k++; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 24⋕js.Pm.Md.MAF.24
+        <h3> Задача 24</h3>
 
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
@@ -458,17 +626,25 @@
 
         <p>Для этого был написан следующий код:</p>
 
-        let arr=[]; for (let i=0, k=1; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++; k++) {
-        arr[i][j]=k;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++; k++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 25⋕js.Pm.Md.MAF.25
+        <h3>Задача 25</h3>
 
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
@@ -476,51 +652,74 @@
 
         <p>Для этого был написан следующий код:</p>
 
-        let arr=[];
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=++k;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
-        for (let i=0, k=1; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=++k;
-        }
-        } console.log(arr);
+        <p> Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.
 
-        <p> Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора. Задача 26⋕js.Pm.Md.MAF.26
-            Автор следующего кода хотел
-            сделать вот такой массив:</p>
+        <h3> Задача 26</h3>
+        <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
         <p> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</p>
 
         <p>Для этого был написан следующий код:</p>
 
-        let arr=[];
-        let k=1;
-        for (let i=0; i &lt; 3; i++) {
-        arr[k]=[];
-        for (let j=0; j &lt; 3; j++) {
-        arr[i][j]=k;
-        k++;
-        }
-        }
-        console.log(arr);
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>let k=1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[k]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>k++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
-        Задача 27⋕js.Pm.Md.MAF.27
+        <h3>Задача 27</h3>
 
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
 
         <p>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</p>
 
-        Для этого был написан следующий код:
-        let arr=[];
-        for (let i=0, k=1; i &lt; 3; i++) {
-        arr[i]=[];
-        for (let j=0; j &lt; 3; k++) {
-        arr[i][j]=k;
-        }
-        }
-        console.log(arr);
+        <p>Для этого был написан следующий код: </p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; k++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+</pre>
+        </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 

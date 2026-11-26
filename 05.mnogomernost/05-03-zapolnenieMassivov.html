@@ -115,20 +115,6 @@ length:3
 </pre>
         </div>
 
-        <script>
-            let arr1 = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr1[i] = [];
-                for (let j = 0; j < 5; j++) {
-                    arr1[i].push(j + 1);
-                }
-            }
-
-            document.write('[', arr1, ']');
-            console.log(arr1);
-        </script>
-
 
         <h3> Задача 2</h3>
 
@@ -159,19 +145,6 @@ length:3
 </pre>
         </div>
 
-        <script>
-            let arr2 = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr2[i] = [];
-                for (let j = 0; j < 4; j++) {
-                    arr2[i].push('x');
-                }
-            }
-
-            document.write('[', arr2, ']');
-            console.log(arr2);
-        </script>
 
         <h3>Задача 3</h3>
 
@@ -219,22 +192,6 @@ length:3
 </pre>
         </div>
 
-        <script>
-            let arr3 = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr3[i] = [];
-                for (let j = 0; j < 2; j++) {
-                    arr3[i][j] = [];
-                    for (let k = 0; k < 5; k++) {
-                        arr3[i][j].push(k + 1);
-                    }
-                }
-            }
-
-            document.write('[', arr3, ']');
-            console.log(arr3);
-        </script>
 
         <h2>Потенциальная проблема</h2>
 
@@ -311,17 +268,9 @@ length:3
 </pre>
         </div>
 
-        <script>
-            let arr4 = [];
-            for (let i = 0; i < 3; i++) {
-                arr4[i] = [];
-                for (let j = 1; j <= 5; j++) {
-                    arr4[i].push(j);
-                }
-            }
 
-            document.write('[', arr4, ']');
-            console.log(arr4);
+        document.write('[', arr4, ']');
+        console.log(arr4);
         </script>
 
         <h3>Задача 5</h3>
@@ -370,19 +319,6 @@ length:3
 </pre>
         </div>
 
-        <script>
-            let arr5 = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr5[i] = [];
-                for (let j = 1; j <= 5; j++) {
-                    arr5[i].push(j);
-                }
-            }
-
-            document.write('[', arr5, ']');
-            console.log(arr5);
-        </script>
 
         <h3>Задача 6</h3>
 
@@ -430,21 +366,6 @@ length:3
 
 
 
-        <script>
-            let arr6 = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr6[i] = [];
-                for (let j = 1; j <= 5; j++) {
-                    arr6[i].push(j);
-                }
-            }
-
-            console.log(arr6);
-        </script>
-
-
-
         <h3>Задача 7</h3>
 
         <p>Автор следующего кода хотел сделать двухмерный массив:</p>
@@ -484,19 +405,6 @@ length:3
 <span class="-n"></span>console.log(arr);
 </pre>
         </div>
-
-        <script>
-            let arr = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr[i] = [];
-                for (let j = 1; j <= 5; j++) {
-                    arr[i].push(j);
-                }
-            }
-
-            console.log(arr);
-        </script>
 
 
 
@@ -540,18 +448,6 @@ length:3
 </pre>
         </div>
 
-        <script>
-            let arr8 = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr8[i] = [];
-                for (let j = 0; j <= 5; j++) {
-                    arr8[i][j] = j + 1;
-                }
-            }
-
-            console.log(arr8);
-        </script>
 
         <h3>Задача 9</h3>
 
@@ -593,18 +489,6 @@ length:3
 </pre>
         </div>
 
-        <script>
-            let arr9 = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr9[i] = [];
-                for (let j = 1; j <= 5; j++) {
-                    arr9[i].push(j);
-                }
-            }
-
-            console.log(arr9);
-        </script>
 
         <h3>Задача 10</h3>
 
@@ -645,20 +529,6 @@ length:3
 <span class="-n"></span>console.log(arr);
 </pre>
         </div>
-
-        <script>
-            let arr10 = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr10[i] = [];
-                for (let j = 1; j <= 5; j++) {
-                    arr10[i].push(j);
-                }
-            }
-
-            console.log(arr10);
-        </script>
-
 
 
         <h3> Задача 11</h3>
@@ -701,18 +571,6 @@ length:3
 </pre>
         </div>
 
-        <script>
-            let arr11 = [];
-
-            for (let i = 0; i < 3; i++) {
-                arr11[i] = [];
-                for (let j = 0; j <= 5; j++) {
-                    arr11[i][j] = j;
-                }
-            }
-
-            console.log(arr11);
-        </script>
 
 
 
@@ -739,20 +597,34 @@ length:3
 
         <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr12=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>    arr12[i]=[];
+<span class="-n"></span>    for (let j=1; j &lt;=5; j++) {
+<span class="-n"></span>         arr12[i].push(j); // arr.push(j)
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr12);
+</pre>
+        </div>
+
         <script>
             let arr12 = [];
 
             for (let i = 0; i < 3; i++) {
                 arr12[i] = [];
                 for (let j = 1; j <= 5; j++) {
-                    arr12.push(j);
+                    arr12[i].push(j);
                 }
             }
 
             console.log(arr12);
         </script>
-
-
 
         <h3>Задача 13</h3>
 
@@ -777,6 +649,35 @@ length:3
 
         <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr13=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>    arr13[i]=[];
+<span class="-n"></span>    for (let j=0; j &lt;=5; j++) {
+<span class="-n"></span>        arr13[i][j] = j + 1; // arr[j][i]=j
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr13);
+</pre>
+        </div>
+
+        <script>
+            let arr13 = [];
+
+            for (let i = 0; i < 3; i++) {
+                arr13[i] = [];
+                for (let j = 0; j <= 5; j++) {
+                    arr13[i][j] = j + 1;
+                }
+            }
+
+            console.log(arr13);
+        </script>
+
 
 
         <h3>Задача 14</h3>
@@ -787,10 +688,10 @@ length:3
             script.js
             <pre>
 <span class="-n"></span>for (let i=0; i &lt; 3; i++) {
-<span class="-n"></span>arr[i]=[];
-<span class="-n"></span>for (let j=0; j &lt;=5; j++) {
-<span class="-n"></span>arr[i][j]=j;
-<span class="-n"></span>}
+<span class="-n"></span>    arr[i]=[];
+<span class="-n"></span>    for (let j=0; j &lt;=5; j++) {
+<span class="-n"></span>        arr[i][j]=j;
+<span class="-n"></span>    }
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
@@ -801,7 +702,34 @@ length:3
 
         <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr14 = []; // ->
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>    arr14[i]=[];
+<span class="-n"></span>    for (let j=0; j &lt;=5; j++) {
+<span class="-n"></span>         arr14[i][j]=j;
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr14);
+</pre>
+        </div>
 
+        <script>
+            let arr14 = [];
+
+            for (let i = 0; i < 3; i++) {
+                arr14[i] = [];
+                for (let j = 0; j <= 5; j++) {
+                    arr14[i][j] = j;
+                }
+            }
+
+            console.log(arr14);
+        </script>
 
 
         <h2>Заполнение числами по порядку</h2>
@@ -823,11 +751,11 @@ length:3
 <span class="-n"></span>let k=1; // счетчик
 <span class="-n"></span>
 <span class="-n"></span>for (let i=0; i &lt; 3; i++) {
-<span class="-n"></span>arr[i]=[];
-<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
-<span class="-n"></span>arr[i][j]=k; // записываем счетчик
-<span class="-n"></span>k++; // увеличиваем счетчик
-<span class="-n"></span>}
+<span class="-n"></span>    arr[i]=[];
+<span class="-n"></span>    for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>        arr[i][j]=k; // записываем счетчик
+<span class="-n"></span>        k++; // увеличиваем счетчик
+<span class="-n"></span>    }
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
@@ -842,10 +770,10 @@ length:3
 <span class="-n"></span>let arr=[];
 <span class="-n"></span>
 <span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
-<span class="-n"></span>arr[i]=[];
-<span class="-n"></span>for (let j=0; j &lt; 3; j++, k++) {
-<span class="-n"></span>arr[i][j]=k;
-<span class="-n"></span>}
+<span class="-n"></span>    arr[i]=[];
+<span class="-n"></span>    for (let j=0; j &lt; 3; j++, k++) {
+<span class="-n"></span>        arr[i][j]=k;
+<span class="-n"></span>    }
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
@@ -860,7 +788,7 @@ length:3
 <span class="-n"></span>let arr=[];
 <span class="-n"></span>
 <span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
-<span class="-n"></span>[i]=[];
+<span class="-n"></span>arr[i]=[];
 <span class="-n"></span>for (let j=0; j &lt; 3; j++) {
 <span class="-n"></span>arr[i][j]=k++;
 <span class="-n"></span>}
@@ -884,7 +812,40 @@ length:3
 
         <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr15 = [];
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0, k = 1; i &lt; 4; i++) {
+<span class="-n"></span>arr15[i] = [];
+<span class="-n"></span>for (let j = 0; j &lt; 2; j++) {
+<span class="-n"></span>arr15[i][j] = k++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr15);
+(3) [Array(2), Array(2), Array(2)]
+0:(2) [1, 2]
+1:(2) [3, 4]
+2:(2) [5, 6]
+3:(2) [7, 8]
+length:4
+</pre>
+        </div>
 
+        <script>
+            let arr15 = [];
+
+            for (let i = 0, k = 1; i < 4; i++) {
+                arr15[i] = [];
+                for (let j = 0; j < 2; j++) {
+                    arr15[i][j] = k++;
+                }
+            }
+
+            console.log(arr15);
+        </script>
 
         <h3>Задача 16</h3>
 
@@ -894,7 +855,42 @@ length:3
 
         <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr16 = [];
+<span class="-n"></span>let k = 2; // начинаем с первого чётного числа
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 4; i++) {
+<span class="-n"></span>    arr16[i] = [];
+<span class="-n"></span>
+<span class="-n"></span>    for (let j = 0; j &lt; 3; j++) {
+<span class="-n"></span>        arr16[i][j] = k;
+<span class="-n"></span>        k += 2; // шаг +2 даёт только чётные числа
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>console.log(arr16);
+// [[2, 4, 6], [8, 10, 12], [14, 16, 18], [20, 22, 24]]
+</pre>
+        </div>
 
+        <script>
+            let arr16 = [];
+            let k = 2; // начинаем с первого чётного числа
+
+            for (let i = 0; i < 4; i++) {
+                arr16[i] = [];
+
+                for (let j = 0; j < 3; j++) {
+                    arr16[i][j] = k;
+                    k += 2;      // шаг +2 даёт только чётные числа
+                }
+            }
+
+            console.log(arr16);
+
+
+        </script>
 
         <h3>Задача 17</h3>
 
@@ -903,6 +899,52 @@ length:3
         <p>[[[1, 2], [3, 4]], [[5, 6], [7, 8]]]</p>
 
         <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr17 = [];
+<span class="-n"></span>let k17 = 1; // счетчик
+<span class="-n"></span>
+<span class="-n"></span>for (let i = 0; i &lt; 2; i++) {
+<span class="-n"></span>arr17[i] = []; // слой (средний уровень)
+<span class="-n"></span>
+<span class="-n"></span>for (let j = 0; j &lt; 2; j++) {
+<span class="-n"></span>arr17[i][j] = []; // строка (внутренний уровень)
+<span class="-n"></span>
+<span class="-n"></span>for (let k_ = 0; k_ &lt; 2; k_++) {
+<span class="-n"></span>arr17[i][j][k_] = k17; // записываем счетчик
+<span class="-n"></span>k17++; // увеличиваем счетчик
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr17);
+// [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+</pre>
+        </div>
+
+        <script>
+            let arr17 = [];
+            let k17 = 1; // счетчик
+
+            for (let i = 0; i < 2; i++) {
+                arr17[i] = []; // слой (средний уровень)
+
+                for (let j = 0; j < 2; j++) {
+                    arr17[i][j] = []; // строка (внутренний уровень)
+
+                    for (let k_ = 0; k_ < 2; k_++) {
+                        arr17[i][j][k_] = k17; // записываем счетчик
+                        k17++;               // увеличиваем счетчик
+                    }
+                }
+            }
+
+            console.log(arr17);
+            // [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+
+        </script>
 
 
 
@@ -928,12 +970,53 @@ length:3
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
+0:(3) [26, 27, 28]
+1:(3) [29, 30, 31]
+2:(3) [32, 33, 34]
+length:3
 </pre>
         </div>
 
         <p> Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
         <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>let k18 = 1; // ->
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>k++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+0:(3) [1, 2, 3]
+1:(3) [4, 5, 6]
+2:(3) [7, 8, 9]
+length:3
+</pre>
+        </div>
+
+        <script>
+            let arr18 = [];
+            let k18 = 1; // счетчик
+
+            for (let i = 0; i < 3; i++) {
+                arr18[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    arr18[i][j] = k18;
+                    k18++;
+                }
+            }
+
+            console.log(arr18);
+        </script>
 
 
 
@@ -952,13 +1035,16 @@ length:3
 <span class="-n"></span>let k=1;
 <span class="-n"></span>
 <span class="-n"></span>for (let i=0; i &lt; 3; i++) {
-<span class="-n"></span>arr[i]=[];
-<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
-<span class="-n"></span>arr[i][j]=k;
-<span class="-n"></span>}
-<span class="-n"></span>}
+<span class="-n"></span>    arr[i]=[];
+<span class="-n"></span>    for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>        arr[i][j]=k;
+<span class="-n"></span>        }
+<span class="-n"></span>    }
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
+0:(3) [1, 1, 1]
+1:(3) [1, 1, 1]
+2:(3) [1, 1, 1]
 </pre>
         </div>
 
@@ -966,7 +1052,41 @@ length:3
 
         <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr19 = [];
+<span class="-n"></span>let k19 = 1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>    arr19[i] = [];
+<span class="-n"></span>    for (let j = 0; j &lt; 3; j++) {
+<span class="-n"></span>        arr19[i][j] = k19;
+<span class="-n"></span>        k19++; //&lt;-
+<span class="-n"></span>        }
+<span class="-n"></span>    }
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr19);
+0:(3) [1, 2, 3]
+1:(3) [4, 5, 6]
+2:(3) [7, 8, 9]
+</pre>
+        </div>
 
+        <script>
+            let arr19 = [];
+            let k19 = 1;
+
+            for (let i = 0; i < 3; i++) {
+                arr19[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    arr19[i][j] = k19;
+                    k19++;
+                }
+            }
+
+            console.log(arr19);
+        </script>
 
         <h3>Задача 20</h3>
 
@@ -991,12 +1111,53 @@ length:3
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
+0:(3) [1, 0, -1]
+1:(3) [-2, -3, -4]
+2:(3) [-5, -6, -7]
+length:3
 </pre>
         </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
         <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span> let k=1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>k++; // k--;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+0:(3) [1, 2, 3]
+1:(3) [4, 5, 6]
+2:(3) [7, 8, 9]
+length:3
+</pre>
+        </div>
+
+        <script>
+            let arr20 = [];
+            let k20 = 1;
+
+            for (let i = 0; i < 3; i++) {
+                arr20[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    arr20[i][j] = k20;
+                    k20++;
+                }
+            }
+
+            console.log(arr20);
+        </script>
 
 
 
@@ -1023,6 +1184,7 @@ length:3
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
+// TypeError: Cannot set properties of undefined (setting '0')
 </pre>
         </div>
 
@@ -1030,7 +1192,44 @@ length:3
 
         <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>let k21 = 1; // let k
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>k++;
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+0:(3) [1, 2, 3]
+1:(3) [4, 5, 6]
+2:(3) [7, 8, 9]
+length:3
+</pre>
+        </div>
 
+
+
+        <script>
+            let arr21 = [];
+            let k21 = 1;
+
+            for (let i = 0; i < 3; i++) {
+                arr21[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    arr21[i][j] = k21;
+                    k21++;
+                }
+            }
+
+            console.log(arr21);
+        </script>
 
         <h3>Задача 22</h3>
 
@@ -1053,12 +1252,52 @@ length:3
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
+0:(3) [1, 1, 1]
+1:(3) [1, 1, 1]
+2:(3) [1, 1, 1]
+length:3
 </pre>
         </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
         <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr22=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr22[i][j]=k;
+<span class="-n"></span> k++; // &lt;-
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr22);
+0:(3) [1, 2, 3]
+1:(3) [4, 5, 6]
+2:(3) [7, 8, 9]
+length:3
+</pre>
+        </div>
+
+
+        <script>
+            let arr22 = [];
+
+            for (let i = 0, k = 1; i < 3; i++) {
+                arr22[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    arr22[i][j] = k;
+                    k++;
+                }
+            }
+
+            console.log(arr22);
+        </script>
 
 
 
@@ -1087,6 +1326,38 @@ length:3
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
         <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr23=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i] = [];
+<span class="-n"></span>for (let j = 0; j &lt; 3; j++) {
+    //for (let j=0, k++; j &lt; 3; j++) {
+<span class="-n"></span>arr23[i][j] = k;
+<span class="-n"></span>k++;// &lt;-
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr23);
+</pre>
+        </div>
+
+        <script>
+            let arr23 = [];
+
+            for (let i = 0, k = 1; i < 3; i++) {
+                arr23[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    arr23[i][j] = k;
+                    k++;
+                }
+            }
+
+            console.log(arr23);
+        </script>
 
 
 
@@ -1118,6 +1389,42 @@ length:3
 
         <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let i = 0, k = 1; i &lt; 3; i++) {
+    //for (let j=0; j &lt; 3; j++; k++) {
+<span class="-n"></span>arr[i][j]=k;
+<span class="-n"></span>k++; // &lt;-
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+0:(3) [1, 2, 3]
+1:(3) [4, 5, 6]
+2:(3) [7, 8, 9]
+length:3
+</pre>
+        </div>
+
+
+        <script>
+            let arr24 = [];
+
+            for (let i = 0, k = 1; i < 3; i++) {
+                arr24[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    arr24[i][j] = k;
+                    k++;
+                }
+            }
+
+            console.log(arr24);
+        </script>
 
 
         <h3>Задача 25</h3>
@@ -1141,6 +1448,10 @@ length:3
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
+0:(3) [2, 3, 4]
+1:(3) [5, 6, 7]
+2:(3) [8, 9, 10]
+length:3
 </pre>
         </div>
 
@@ -1148,7 +1459,38 @@ length:3
 
         <p>Решение</p>
 
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr=[];
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0, k=1; i &lt; 3; i++) {
+<span class="-n"></span>arr[i]=[];
+<span class="-n"></span>for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>arr[i][j]=k++; // ++k
+<span class="-n"></span>}
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr);
+0:(3) [1, 2, 3]
+1:(3) [4, 5, 6]
+2:(3) [7, 8, 9]
+length:3
+</pre>
+        </div>
 
+        <script>
+            let arr25 = [];
+
+            for (let i = 0, k = 1; i < 3; i++) {
+                arr25[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    arr25[i][j] = k++;
+                }
+            }
+
+            console.log(arr25);
+        </script>
 
         <h3> Задача 26</h3>
         <p>Автор следующего кода хотел сделать вот такой массив:</p>
@@ -1172,12 +1514,51 @@ length:3
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
+//26:[]
+length:27
 </pre>
         </div>
 
         <p>Написанный код, однако, не делает задуманного. Найдите и исправьте ошибку автора.</p>
 
         <p>Решение</p>
+
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr26 =[];
+<span class="-n"></span>let k26 = 1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>    arr26[i]=[]; //arr26[k]=[];
+<span class="-n"></span>    for (let j=0; j &lt; 3; j++) {
+<span class="-n"></span>        arr26[i][j] = k26;
+<span class="-n"></span>        k26++;
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr26);
+0:(3) [1, 2, 3]
+1:(3) [4, 5, 6]
+2:(3) [7, 8, 9]
+length:3
+</pre>
+        </div>
+
+        <script>
+            let arr26 = [];
+            let k26 = 1;
+
+            for (let i = 0; i < 3; i++) {
+                arr26[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    arr26[i][j] = k26;
+                    k26++;
+                }
+            }
+
+            console.log(arr26);
+        </script>
 
 
 
@@ -1202,6 +1583,7 @@ length:3
 <span class="-n"></span>}
 <span class="-n"></span>
 <span class="-n"></span>console.log(arr);
+
 </pre>
         </div>
 
@@ -1209,7 +1591,28 @@ length:3
 
         <p>Решение</p>
 
-
+        <div data-w="bock/code">
+            script.js
+            <pre>
+<span class="-n"></span>let arr27 =[];
+<span class="-n"></span>let k27 = 1;
+<span class="-n"></span>
+<span class="-n"></span>for (let i=0; i &lt; 3; i++) {
+<span class="-n"></span>    arr27[i]=[];
+<span class="-n"></span>    for (let j=0; j &lt; 3; j++) {
+    // for (let j=0; j &lt; 3; k++) {
+<span class="-n"></span>        arr27[i][j] = k27;
+<span class="-n"></span>        k27++; // &lt;-
+<span class="-n"></span>    }
+<span class="-n"></span>}
+<span class="-n"></span>
+<span class="-n"></span>console.log(arr27);
+0:(3) [1, 2, 3]
+1:(3) [4, 5, 6]
+2:(3) [7, 8, 9]
+length:3
+</pre>
+        </div>
 
     </main>
 
